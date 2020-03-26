@@ -1603,16 +1603,18 @@ WriteLiteral(">限制輸入75字內</div>\r\n                                   
             #line hidden
 WriteLiteral("                                    </tbody>\r\n                                </t" +
 "able>\r\n                                <!--table end-->\r\n                       " +
-"     </div>\r\n                        </div>\r\n\r\n");
+"     </div>\r\n                        </div>\r\n                        ");
+
+WriteLiteral("\r\n");
 
             
-            #line 334 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 376 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                         
             
             #line default
             #line hidden
             
-            #line 334 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 376 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                          if (Model.SET_MESSAGE.M_MESSAGE18.IsNullOrEmpty() == false)
                         {
                             
@@ -1620,14 +1622,14 @@ WriteLiteral("                                    </tbody>\r\n                  
             #line default
             #line hidden
             
-            #line 336 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 378 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                        Write(Html.Partial(Model.SET_MESSAGE.M_MESSAGE18, Model));
 
             
             #line default
             #line hidden
             
-            #line 336 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 378 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                
                         }
 
@@ -1637,13 +1639,13 @@ WriteLiteral("                                    </tbody>\r\n                  
 WriteLiteral("\r\n");
 
             
-            #line 339 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 381 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                         
             
             #line default
             #line hidden
             
-            #line 339 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 381 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                          if (Model.ItemID >= 0 && Model.SET_BASE.M_Base02)
                         {
 
@@ -1667,7 +1669,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                    ");
 
             
-            #line 344 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 386 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                Write(Model.VerifyStatus);
 
             
@@ -1704,7 +1706,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 352 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 394 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.CreateUser);
 
             
@@ -1726,7 +1728,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 356 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 398 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.CreateDatetime);
 
             
@@ -1764,7 +1766,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 365 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 407 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.UpdateUser);
 
             
@@ -1786,7 +1788,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 369 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 411 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.UpdateDatetime);
 
             
@@ -1824,7 +1826,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 378 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 420 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.VerifyUser);
 
             
@@ -1846,7 +1848,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 382 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 424 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.VerifyDateTime);
 
             
@@ -1856,7 +1858,7 @@ WriteLiteral("</div>\r\n                                    </div>\r\n          
 "   </div>\r\n                            </div>\r\n");
 
             
-            #line 386 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 428 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                         }
 
             
@@ -1882,83 +1884,83 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 28290), Tuple.Create("\"", 28357)
+WriteAttribute("src", Tuple.Create(" src=\"", 31885), Tuple.Create("\"", 31952)
             
-            #line 402 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 28296), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
+            #line 444 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 31891), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
             
             #line default
             #line hidden
-, 28296), false)
+, 31891), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 28381), Tuple.Create("\"", 28436)
+WriteAttribute("src", Tuple.Create(" src=\"", 31976), Tuple.Create("\"", 32031)
             
-            #line 403 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 28387), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
+            #line 445 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 31982), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
             
             #line default
             #line hidden
-, 28387), false)
+, 31982), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 28460), Tuple.Create("\"", 28501)
+WriteAttribute("src", Tuple.Create(" src=\"", 32055), Tuple.Create("\"", 32096)
             
-            #line 404 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 28466), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+            #line 446 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 32061), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 28466), false)
+, 32061), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 28525), Tuple.Create("\"", 28577)
+WriteAttribute("src", Tuple.Create(" src=\"", 32120), Tuple.Create("\"", 32172)
             
-            #line 405 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 28531), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
+            #line 447 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 32126), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
             
             #line default
             #line hidden
-, 28531), false)
+, 32126), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 28601), Tuple.Create("\"", 28647)
+WriteAttribute("src", Tuple.Create(" src=\"", 32196), Tuple.Create("\"", 32242)
             
-            #line 406 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 28607), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+            #line 448 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 32202), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 28607), false)
+, 32202), false)
 );
 
 WriteLiteral("></script>\r\n \r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 28674), Tuple.Create("\"", 28698)
-, Tuple.Create(Tuple.Create("", 28680), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 28680), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 32269), Tuple.Create("\"", 32293)
+, Tuple.Create(Tuple.Create("", 32275), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 32275), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 28722), Tuple.Create("\"", 28747)
-, Tuple.Create(Tuple.Create("", 28728), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
-, 28728), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 32317), Tuple.Create("\"", 32342)
+, Tuple.Create(Tuple.Create("", 32323), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
+, 32323), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n            var fileupload = \'" +
 "");
 
             
-            #line 412 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 454 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                          Write(Model.UploadFileName);
 
             
@@ -1967,7 +1969,7 @@ WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n         
 WriteLiteral("\';\r\n            var selactiveitem = \'");
 
             
-            #line 413 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 455 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                             Write(Model.ActiveItemID);
 
             
@@ -1978,7 +1980,7 @@ WriteLiteral("\';\r\n\r\n            $(\'#btn_clear\').click(function () {\r\n  
 "       $(\'#ImageFileLocation\').val(\'");
 
             
-            #line 419 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 461 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                     Write(Model.ImageFileLocation);
 
             
@@ -1987,7 +1989,7 @@ WriteLiteral("\';\r\n\r\n            $(\'#btn_clear\').click(function () {\r\n  
 WriteLiteral("\');\r\n\r\n            var fileupload = \'");
 
             
-            #line 421 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 463 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                          Write(Model.UploadFileName);
 
             
@@ -2003,7 +2005,7 @@ WriteLiteral(@"'
             $(""#btn_return"").click(function () { CreatePost('");
 
             
-            #line 428 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 470 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                         Write(Url.Action("ModelItem"));
 
             
@@ -2012,7 +2014,7 @@ WriteLiteral(@"'
 WriteLiteral("\', { mainid: \'");
 
             
-            #line 428 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 470 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                               Write(Model.ModelID);
 
             
@@ -2021,7 +2023,7 @@ WriteLiteral("\', { mainid: \'");
 WriteLiteral("\'});});\r\n            if (\'");
 
             
-            #line 429 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 471 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
             Write(Model.ItemID);
 
             
@@ -2030,7 +2032,7 @@ WriteLiteral("\'});});\r\n            if (\'");
 WriteLiteral("\'>0 && \'");
 
             
-            #line 429 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 471 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                  Write(Model.ImageFileName);
 
             
@@ -2040,7 +2042,7 @@ WriteLiteral("\'!=\'\') {\r\n                $(\'#div_oldfile\').show();\r\n    
 "f (\'");
 
             
-            #line 432 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 474 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
             Write(Model.ItemID);
 
             
@@ -2049,7 +2051,7 @@ WriteLiteral("\'!=\'\') {\r\n                $(\'#div_oldfile\').show();\r\n    
 WriteLiteral("\'>0 && \'");
 
             
-            #line 432 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 474 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                  Write(Model.RelateImageName);
 
             
@@ -2082,7 +2084,7 @@ WriteLiteral(@"'!='') {
                filebrowserImageUploadUrl: '");
 
             
-            #line 456 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 498 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                       Write(Url.Action("Upload"));
 
             
@@ -2091,7 +2093,7 @@ WriteLiteral(@"'!='') {
 WriteLiteral("?command=QuickUpload&type=Images\',\r\n               filebrowserUploadUrl: \'");
 
             
-            #line 457 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 499 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                  Write(Url.Action("UploadFile"));
 
             
@@ -2104,182 +2106,213 @@ WriteLiteral("?command=QuickUpload&type=Files\',\r\n            });\r\n         
 "                      indent: false,\r\n                        breakBeforeOpen: f" +
 "alse,\r\n                        breakAfterOpen: false,\r\n                        b" +
 "reakBeforeClose: false,\r\n                        breakAfterClose: false\r\n       " +
-"             });\r\n            });\r\n\r\n            $(\'#btn_file_add\').click(functi" +
-"on (evt) {\r\n\r\n                evt.preventDefault();\r\n\r\n                var html " +
-"= \'<tr class=\"tr_file\">\';\r\n                html += \'   <td class=\"text-center\">\'" +
-";\r\n                html += \'   <label class=\"mt-checkbox mt-checkbox-single mt-c" +
-"heckbox-outline\">\';\r\n                html += \'       <input type=\"checkbox\" clas" +
-"s=\"checkboxes chksel\">\';\r\n                html += \'       <span></span>\';\r\n     " +
-"           html += \'   </label>\';\r\n                html += \'   </td>\';\r\n        " +
-"        html += \'   <td class=\"text-center\">\';\r\n                html += \'       " +
-"<input type=\"file\" id=\"uploadfile\" class=\"display_inline\" name=\"UploadFile\">\';\r\n" +
-"                html += \'       <span class=\"required float_left\">建議檔案大小5MB內</sp" +
-"an>\';\r\n                html += \'   </td>\';\r\n                html += \'   <td clas" +
-"s=\"text-left\"> \';\r\n                html += \'       <input type=\"text\" name=\"Titl" +
-"e\" id=\"Title\" maxlength=\"75\" class=\"form-control\" >\';\r\n                html += \'" +
-"       <span class=\"required\" id=\"Title-error\" style=\"display:none;\">標題說明 必須填寫！<" +
-"/span>\';\r\n                html += \'       <div class=\"required\">限制輸入75字內</div>\';" +
-"\r\n                html += \'   </td>\';\r\n                html += \'   <td class=\"te" +
-"xt-center\">\';\r\n                html += \'       <input type=\"text\" name=\"UploadFi" +
-"leDesc\" id=\"UploadFileDesc\" maxlength=\"75\" class=\"form-control\">\';\r\n            " +
-"    html += \'       <span class=\"required\" id=\"UploadFileDesc-error\" style=\"disp" +
-"lay:none;\">檔案說明 必須填寫！</span>\';\r\n                html += \'       <div class=\"red\"" +
-">限制輸入75字內</div>\'\r\n                html += \'   </td>\';\r\n                html += \'" +
-"</tr>\';\r\n\r\n                if ($(\'#tbl_file>tbody tr\').length == 0) {\r\n         " +
-"           $(\'#tbl_file>tbody\').append(html);\r\n                }\r\n              " +
-"  else {\r\n                    $(\'#tbl_file>tbody tr:last\').after(html);\r\n       " +
-"         }\r\n\r\n            })\r\n\r\n             $(\'#btn_file_del\').click(function (" +
-") {\r\n                $(\'.chksel:checked\').parents(\'tr\').remove();\r\n             " +
-"})\r\n\r\n            $(\'#btn_image_add\').click(function (evt) {\r\n\r\n                " +
-"evt.preventDefault();\r\n\r\n                var html = \'<tr class=\"tr_image\">\';\r\n  " +
-"              html += \'   <td class=\"text-center\">\';\r\n                html += \' " +
-"  <label class=\"mt-checkbox mt-checkbox-single mt-checkbox-outline\">\';\r\n        " +
-"        html += \'       <input type=\"checkbox\" class=\"checkboxes image\">\';\r\n    " +
-"            html += \'       <span></span>\';\r\n                html += \'   </label" +
-">\';\r\n                html += \'   </td>\';\r\n                html += \'   <td class=" +
-"\"text-center\">\';\r\n                html += \'       <input type=\"file\" id=\"uploadf" +
-"ile\" class=\"display_inline\" name=\"UploadFile\" accept=\"image/*\">\';\r\n             " +
-"   html += \'       <span class=\"required float_left\">建議檔案大小5MB內</span>\';\r\n      " +
-"          html += \'   </td>\';\r\n                html += \'   <td class=\"text-cente" +
-"r\">\';\r\n                html += \'   </td>\';\r\n                html += \'   <td clas" +
-"s=\"text-center\">\';\r\n                html += \'       <input type=\"text\" name=\"Upl" +
-"oadFileDesc\" id=\"UploadFileDesc\" maxlength=\"75\" class=\"form-control\">\';\r\n       " +
-"         html += \'       <span class=\"required\" id=\"UploadFileDesc-error\" style=" +
-"\"display:none;\">檔案說明 必須填寫！</span>\';\r\n                html += \'       <div class=" +
-"\"red\">限制輸入75字內</div>\'\r\n                html += \'   </td>\';\r\n                html" +
-" += \'</tr>\';\r\n\r\n                if ($(\'#tbl_image>tbody tr\').length == 0) {\r\n   " +
-"                 $(\'#tbl_image>tbody\').append(html);\r\n                }\r\n       " +
-"         else {\r\n                    $(\'#tbl_image>tbody tr:last\').after(html);\r" +
-"\n                }\r\n\r\n            })\r\n\r\n             $(\'#btn_image_del\').click(f" +
-"unction () {\r\n                $(\'.image:checked\').parents(\'tr\').remove();\r\n     " +
-"        })\r\n\r\n            $(\'#EdDateStr\').change(function () {\r\n                " +
-"var new_date = moment($(\'#EdDateStr\').val(), \"YYYY/MM/DD\").add(1, \'days\');\r\n    " +
-"            $(\'#UnPublicshStr\').val(new_date.format(\'YYYY/MM/DD\'));\r\n\r\n         " +
-"   })\r\n            $(\'#editform\').submit(function (event) {\r\n\r\n               $(" +
-"\".required\").hide();\r\n                 var inputval = $(\"#form-body2 :input\").fi" +
-"lter(function () { return $(this).val() == \"\" && $(this).hasClass(\'checkitem\'); " +
-"});\r\n                for (var idx = 0; idx < inputval.length; idx++) {\r\n        " +
-"            $(\"#\" + inputval[idx].name + \"-error\").show();\r\n                }\r\n " +
-"               if (inputval.length > 0) { return false; }\r\n                var f" +
-"ile = $(\"#file_image\");\r\n                var _validFileExtensions = [\".jpg\", \".p" +
-"ng\", \".gif\", \".jpeg\"];\r\n                var sFileName = file.val();\r\n           " +
-"     if (sFileName.length > 0) {\r\n                    var blnValid = false;\r\n   " +
-"                 for (var j = 0; j < _validFileExtensions.length; j++) {\r\n      " +
-"                  var sCurExtension = _validFileExtensions[j];\r\n                " +
-"        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtens" +
-"ion.length).toLowerCase() == sCurExtension.toLowerCase()) {\r\n                   " +
-"         blnValid = true;\r\n                            break;\r\n                 " +
-"       }\r\n                    }\r\n                    if (!blnValid) {\r\n         " +
-"               alert(\"只能上傳Image檔案\");\r\n                        file.outerHTML = f" +
-"ile.outerHTML;\r\n                        return false;\r\n                    }\r\n  " +
-"              }\r\n\r\n                var rfile = $(\"#file_relateimage\");\r\n        " +
-"        sFileName = rfile.val();\r\n                if (sFileName.length > 0) {\r\n " +
-"                   var blnValid = false;\r\n                    for (var j = 0; j " +
-"< _validFileExtensions.length; j++) {\r\n                        var sCurExtension" +
-" = _validFileExtensions[j];\r\n                        if (sFileName.substr(sFileN" +
-"ame.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurEx" +
-"tension.toLowerCase()) {\r\n                            blnValid = true;\r\n        " +
-"                    break;\r\n                        }\r\n                    }\r\n  " +
-"                  if (!blnValid) {\r\n                        alert(\"相關圖片只能上傳Image" +
-"檔案\");\r\n                        file.outerHTML = file.outerHTML;\r\n               " +
-"         return false;\r\n                    }\r\n                }\r\n\r\n            " +
-"   var formData = new FormData();\r\n               var array = $(\'#editform\').ser" +
-"ializeArray();\r\n               $.each(array, function () {\r\n                   f" +
-"ormData.append(this.name, this.value);\r\n               });\r\n               formD" +
-"ata.append(\"HtmlContent\", _html.encode(CKEDITOR.instances.HtmlContent.getData())" +
-");\r\n                formData.append(\"Title\", _html.encode($(\'#Title\').val()));\r\n" +
-"\r\n                \r\n                //在這裡注入資料\r\n                if (typeof Inject" +
-"Data === \'function\') {\r\n                    formData= InjectData(formData);\r\n   " +
-"             }\r\n               \r\n                var iscon = true;\r\n            " +
-"    if ($(\'#LinkUrl\').val() != \"\" && $(\'#LinkUrlDesc\').val() == \"\") {\r\n         " +
-"           $(\'#LinkUrlDesc-error\').show();\r\n                    iscon = false;\r\n" +
-"                }\r\n                var images = $(\'#file_image\').get(0).files;\r\n" +
-"                if (images.length > 0) {\r\n                    formData.append(\"I" +
-"mageFile\", images[0]);\r\n                    if ($(\'#ImageFileDesc\').val() == \"\")" +
-" {\r\n                        $(\'#ImageFileDesc-error\').show();\r\n                 " +
-"       iscon = false;\r\n                    }\r\n                } else {\r\n        " +
-"            formData.append(\"ImageFile\", null);\r\n                    if ($(\'#Ima" +
-"geFileName\').val() != \"\") {\r\n                        if ($(\'#ImageFileDesc\').val" +
-"() == \"\") {\r\n                            $(\'#ImageFileDesc-error\').show();\r\n    " +
-"                        iscon = false;\r\n                        }\r\n             " +
-"       }\r\n                }\r\n               //\r\n                var rimages = $(" +
-"\'#file_relateimage\').get(0).files;\r\n                if (rimages.length > 0) {\r\n " +
-"                   formData.append(\"RelateImageFile\", rimages[0]);\r\n            " +
-"    } else {\r\n                    formData.append(\"RelateImageFile\", null);\r\n   " +
-"             }\r\n            var uploadfile = $(\'#SingleUploadfile\').get(0).files" +
-";\r\n                if (uploadfile.length > 0) {\r\n                    formData.ap" +
-"pend(\"UploadFile\", uploadfile[0]);\r\n                    if ($(\'#SingleUploadFile" +
-"Desc\').val() == \"\") {\r\n                        $(\'#SingleUploadFileDesc-error\')." +
-"show();\r\n                        iscon = false;\r\n                    }\r\n        " +
-"        } else {\r\n                    formData.append(\"UploadFile\", null);\r\n    " +
-"                if ($(\'#UploadFileName\').val() != \"\") {\r\n                       " +
-" if ($(\'#SingleUploadFileDesc\').val() == \"\") {\r\n                            $(\'#" +
-"SingleUploadFileDesc-error\').show();\r\n                            iscon = false;" +
-"\r\n                        }\r\n                    }\r\n                }\r\n\r\n       " +
-"       if (DateBetweenVaild(\'StDateStr\',\'EdDateStr\') == false) {\r\n              " +
-"      alert(\'顯示日期_開始日期必須小於結束日期！\');\r\n                    return false;\r\n         " +
-"     }\r\n\r\n               if ($(\'#fileDownloadItem_LinkUrl\').val() != \"\" && $(\'#f" +
-"ileDownloadItem_LinkUrlDesc\').val() == \'\') {\r\n                   iscon = false;\r" +
-"\n                   $(\'#LinkUrlDesc-error\').show();\r\n               }\r\n\r\n       " +
-"     var i = 0;\r\n            $(\'.tr_file\').each(function () {\r\n                 " +
-"  var uploadfile = $(this).find(\'#uploadfile\').get(0).files;\r\n                  " +
-" if (uploadfile.length > 0) {\r\n                       formData.append(\"fileDownl" +
-"oadFiles[\" + i + \"].UploadFile\", uploadfile[0]);\r\n                       formDat" +
-"a.append(\"fileDownloadFiles[\" + i + \"].UploadFileDesc\", $(this).find(\'#UploadFil" +
-"eDesc\').val());\r\n                       formData.append(\"fileDownloadFiles[\" + i" +
-" + \"].Title\", $(this).find(\'#Title\').val());\r\n                       if ($(this)" +
-".find(\'#UploadFileDesc\').val() == \"\") {\r\n                           $(this).find" +
-"(\'#UploadFileDesc-error\').show();\r\n                           iscon = false;\r\n  " +
-"                     }\r\n                       if ($(this).find(\'#Title\').val() " +
-"== \"\") {\r\n                           $(this).find(\'#Title-error\').show();\r\n     " +
+"             });\r\n            });\r\n \r\n//            $(\"#btn_active_add\").click(f" +
+"unction (evt) {\r\n//                evt.preventDefault();\r\n//                var " +
+"html = \'<tr class=\"tr_active\">\';\r\n//                html += \'<td class=\"text-cen" +
+"ter\">\'\r\n//                 html += \'<label class=\"mt-checkbox mt-checkbox-single" +
+" mt-checkbox-outline\">\'\r\n//                 html += \'<input type=\"checkbox\" clas" +
+"s=\"checkboxes active\">\'\r\n//                   html += \'<span></span>\'\r\n//       " +
+"            html += \'</label>\'\r\n//                      html += \'</td>\'\r\n//     " +
+"               html += \'<td class=\"text-center\">\'\r\n//                    html +=" +
+" \' <div class=\"col-md-10 col-sm-12 col-xs-12 bg-white mobile_white\">\'\r\n//       " +
+"             html += \'<div class=\"input-group input-large\" style=\"float:left\">\'\r" +
+"\n//                html += \'<div class=\"date-picker input-daterange\" data-date-f" +
+"ormat=\"yyyy/mm/dd\">\'   \r\n//                     html += `<input class=\"form-cont" +
+"rol text-box single-line\" id=\"StDateStr\" name=\"StDateStr\" placeholder=\"開始日期\" rea" +
+"donly=\"readonly\" type=\"text\" value=\"\">`                                \r\n//     " +
+"                   html += \' </div>\'\r\n//                        html += \'<span c" +
+"lass=\"input-group-addon\">to</span>\'\r\n//                        html += \'<div cla" +
+"ss=\"date-picker input-daterange\" data-date-format=\"yyyy/mm/dd\">\'\r\n//            " +
+"            html += `<input class=\"form-control text-box single-line\" id=\"EdDate" +
+"Str\" name=\"EdDateStr\" placeholder=\"結束日期\" readonly=\"readonly\" type=\"text\" value=\"" +
+"\">`         \r\n//                          html += \'</div>\'\r\n//                  " +
+"       html += \'</div>\'\r\n//                          html += \'<div class=\"\" styl" +
+"e=\"float:left; padding-left:5px;\">\'\r\n//                         html += \' <butto" +
+"n type=\"button\" class=\"btn blue\" id=\"btn_clear\">清空</button>\'\r\n//                " +
+"            html += \' </div>\'\r\n//                               html += \'</div>\'" +
+"\r\n//                             html += \'</td>\'\r\n//                html += \'</t" +
+"r>\';\r\n//                var row = $(\'#tbl_active>tbody tr\');\r\n////              " +
+"  $(row).find(\"input\").removeClass(\"hasDatepicker\").removeAttr(\"id\").datepicker(" +
+"{\r\n////       format: \"yyyy/mm/dd\",\r\n////        autoclose: true,\r\n////        l" +
+"anguage: \'zh-TW\'\r\n////})\r\n//                  if (row.length == 0) {\r\n//        " +
+"            row.append(html);\r\n//                }\r\n//                else {\r\n//" +
+"                    row.after(html);\r\n//                }\r\n//            })\r\n   " +
+"         $(\'#btn_file_add\').click(function (evt) {\r\n\r\n                evt.preven" +
+"tDefault();\r\n\r\n                var html = \'<tr class=\"tr_file\">\';\r\n             " +
+"   html += \'   <td class=\"text-center\">\';\r\n                html += \'   <label cl" +
+"ass=\"mt-checkbox mt-checkbox-single mt-checkbox-outline\">\';\r\n                htm" +
+"l += \'       <input type=\"checkbox\" class=\"checkboxes chksel\">\';\r\n              " +
+"  html += \'       <span></span>\';\r\n                html += \'   </label>\';\r\n     " +
+"           html += \'   </td>\';\r\n                html += \'   <td class=\"text-cent" +
+"er\">\';\r\n                html += \'       <input type=\"file\" id=\"uploadfile\" class" +
+"=\"display_inline\" name=\"UploadFile\">\';\r\n                html += \'       <span cl" +
+"ass=\"required float_left\">建議檔案大小5MB內</span>\';\r\n                html += \'   </td>" +
+"\';\r\n                html += \'   <td class=\"text-left\"> \';\r\n                html " +
+"+= \'       <input type=\"text\" name=\"Title\" id=\"Title\" maxlength=\"75\" class=\"form" +
+"-control\" >\';\r\n                html += \'       <span class=\"required\" id=\"Title-" +
+"error\" style=\"display:none;\">標題說明 必須填寫！</span>\';\r\n                html += \'     " +
+"  <div class=\"required\">限制輸入75字內</div>\';\r\n                html += \'   </td>\';\r\n " +
+"               html += \'   <td class=\"text-center\">\';\r\n                html += \'" +
+"       <input type=\"text\" name=\"UploadFileDesc\" id=\"UploadFileDesc\" maxlength=\"7" +
+"5\" class=\"form-control\">\';\r\n                html += \'       <span class=\"require" +
+"d\" id=\"UploadFileDesc-error\" style=\"display:none;\">檔案說明 必須填寫！</span>\';\r\n        " +
+"        html += \'       <div class=\"red\">限制輸入75字內</div>\'\r\n                html +" +
+"= \'   </td>\';\r\n                html += \'</tr>\';\r\n\r\n                if ($(\'#tbl_f" +
+"ile>tbody tr\').length == 0) {\r\n                    $(\'#tbl_file>tbody\').append(h" +
+"tml);\r\n                }\r\n                else {\r\n                    $(\'#tbl_fi" +
+"le>tbody tr:last\').after(html);\r\n                }\r\n\r\n            })\r\n\r\n        " +
+"     $(\'#btn_file_del\').click(function () {\r\n                $(\'.chksel:checked\'" +
+").parents(\'tr\').remove();\r\n             })\r\n\r\n            $(\'#btn_image_add\').cl" +
+"ick(function (evt) {\r\n\r\n                evt.preventDefault();\r\n\r\n               " +
+" var html = \'<tr class=\"tr_image\">\';\r\n                html += \'   <td class=\"tex" +
+"t-center\">\';\r\n                html += \'   <label class=\"mt-checkbox mt-checkbox-" +
+"single mt-checkbox-outline\">\';\r\n                html += \'       <input type=\"che" +
+"ckbox\" class=\"checkboxes image\">\';\r\n                html += \'       <span></span" +
+">\';\r\n                html += \'   </label>\';\r\n                html += \'   </td>\';" +
+"\r\n                html += \'   <td class=\"text-center\">\';\r\n                html +" +
+"= \'       <input type=\"file\" id=\"uploadfile\" class=\"display_inline\" name=\"Upload" +
+"File\" accept=\"image/*\">\';\r\n                html += \'       <span class=\"required" +
+" float_left\">建議檔案大小5MB內</span>\';\r\n                html += \'   </td>\';\r\n         " +
+"       html += \'   <td class=\"text-center\">\';\r\n                html += \'   </td>" +
+"\';\r\n                html += \'   <td class=\"text-center\">\';\r\n                html" +
+" += \'       <input type=\"text\" name=\"UploadFileDesc\" id=\"UploadFileDesc\" maxleng" +
+"th=\"75\" class=\"form-control\">\';\r\n                html += \'       <span class=\"re" +
+"quired\" id=\"UploadFileDesc-error\" style=\"display:none;\">檔案說明 必須填寫！</span>\';\r\n   " +
+"             html += \'       <div class=\"red\">限制輸入75字內</div>\'\r\n                h" +
+"tml += \'   </td>\';\r\n                html += \'</tr>\';\r\n\r\n                if ($(\'#" +
+"tbl_image>tbody tr\').length == 0) {\r\n                    $(\'#tbl_image>tbody\').a" +
+"ppend(html);\r\n                }\r\n                else {\r\n                    $(\'" +
+"#tbl_image>tbody tr:last\').after(html);\r\n                }\r\n\r\n            })\r\n\r\n" +
+"             $(\'#btn_image_del\').click(function () {\r\n                $(\'.image:" +
+"checked\').parents(\'tr\').remove();\r\n             })\r\n\r\n            $(\'#EdDateStr\'" +
+").change(function () {\r\n                var new_date = moment($(\'#EdDateStr\').va" +
+"l(), \"YYYY/MM/DD\").add(1, \'days\');\r\n                $(\'#UnPublicshStr\').val(new_" +
+"date.format(\'YYYY/MM/DD\'));\r\n\r\n            })\r\n            $(\'#editform\').submit" +
+"(function (event) {\r\n\r\n               $(\".required\").hide();\r\n                 v" +
+"ar inputval = $(\"#form-body2 :input\").filter(function () { return $(this).val() " +
+"== \"\" && $(this).hasClass(\'checkitem\'); });\r\n                for (var idx = 0; i" +
+"dx < inputval.length; idx++) {\r\n                    $(\"#\" + inputval[idx].name +" +
+" \"-error\").show();\r\n                }\r\n                if (inputval.length > 0) " +
+"{ return false; }\r\n                var file = $(\"#file_image\");\r\n               " +
+" var _validFileExtensions = [\".jpg\", \".png\", \".gif\", \".jpeg\"];\r\n                " +
+"var sFileName = file.val();\r\n                if (sFileName.length > 0) {\r\n      " +
+"              var blnValid = false;\r\n                    for (var j = 0; j < _va" +
+"lidFileExtensions.length; j++) {\r\n                        var sCurExtension = _v" +
+"alidFileExtensions[j];\r\n                        if (sFileName.substr(sFileName.l" +
+"ength - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtensi" +
+"on.toLowerCase()) {\r\n                            blnValid = true;\r\n             " +
+"               break;\r\n                        }\r\n                    }\r\n       " +
+"             if (!blnValid) {\r\n                        alert(\"只能上傳Image檔案\");\r\n  " +
+"                      file.outerHTML = file.outerHTML;\r\n                        " +
+"return false;\r\n                    }\r\n                }\r\n\r\n                var r" +
+"file = $(\"#file_relateimage\");\r\n                sFileName = rfile.val();\r\n      " +
+"          if (sFileName.length > 0) {\r\n                    var blnValid = false;" +
+"\r\n                    for (var j = 0; j < _validFileExtensions.length; j++) {\r\n " +
+"                       var sCurExtension = _validFileExtensions[j];\r\n           " +
+"             if (sFileName.substr(sFileName.length - sCurExtension.length, sCurE" +
+"xtension.length).toLowerCase() == sCurExtension.toLowerCase()) {\r\n              " +
+"              blnValid = true;\r\n                            break;\r\n            " +
+"            }\r\n                    }\r\n                    if (!blnValid) {\r\n    " +
+"                    alert(\"相關圖片只能上傳Image檔案\");\r\n                        file.oute" +
+"rHTML = file.outerHTML;\r\n                        return false;\r\n                " +
+"    }\r\n                }\r\n\r\n               var formData = new FormData();\r\n     " +
+"          var array = $(\'#editform\').serializeArray();\r\n               $.each(ar" +
+"ray, function () {\r\n                   formData.append(this.name, this.value);\r\n" +
+"               });\r\n               formData.append(\"HtmlContent\", _html.encode(C" +
+"KEDITOR.instances.HtmlContent.getData()));\r\n                formData.append(\"Tit" +
+"le\", _html.encode($(\'#Title\').val()));\r\n\r\n                \r\n                //在這" +
+"裡注入資料\r\n                if (typeof InjectData === \'function\') {\r\n                " +
+"    formData= InjectData(formData);\r\n                }\r\n               \r\n       " +
+"         var iscon = true;\r\n                if ($(\'#LinkUrl\').val() != \"\" && $(\'" +
+"#LinkUrlDesc\').val() == \"\") {\r\n                    $(\'#LinkUrlDesc-error\').show(" +
+");\r\n                    iscon = false;\r\n                }\r\n                var i" +
+"mages = $(\'#file_image\').get(0).files;\r\n                if (images.length > 0) {" +
+"\r\n                    formData.append(\"ImageFile\", images[0]);\r\n                " +
+"    if ($(\'#ImageFileDesc\').val() == \"\") {\r\n                        $(\'#ImageFil" +
+"eDesc-error\').show();\r\n                        iscon = false;\r\n                 " +
+"   }\r\n                } else {\r\n                    formData.append(\"ImageFile\"," +
+" null);\r\n                    if ($(\'#ImageFileName\').val() != \"\") {\r\n           " +
+"             if ($(\'#ImageFileDesc\').val() == \"\") {\r\n                           " +
+" $(\'#ImageFileDesc-error\').show();\r\n                            iscon = false;\r\n" +
+"                        }\r\n                    }\r\n                }\r\n           " +
+"    //\r\n                var rimages = $(\'#file_relateimage\').get(0).files;\r\n    " +
+"            if (rimages.length > 0) {\r\n                    formData.append(\"Rela" +
+"teImageFile\", rimages[0]);\r\n                } else {\r\n                    formDa" +
+"ta.append(\"RelateImageFile\", null);\r\n                }\r\n            var uploadfi" +
+"le = $(\'#SingleUploadfile\').get(0).files;\r\n                if (uploadfile.length" +
+" > 0) {\r\n                    formData.append(\"UploadFile\", uploadfile[0]);\r\n    " +
+"                if ($(\'#SingleUploadFileDesc\').val() == \"\") {\r\n                 " +
+"       $(\'#SingleUploadFileDesc-error\').show();\r\n                        iscon =" +
+" false;\r\n                    }\r\n                } else {\r\n                    fo" +
+"rmData.append(\"UploadFile\", null);\r\n                    if ($(\'#UploadFileName\')" +
+".val() != \"\") {\r\n                        if ($(\'#SingleUploadFileDesc\').val() ==" +
+" \"\") {\r\n                            $(\'#SingleUploadFileDesc-error\').show();\r\n  " +
+"                          iscon = false;\r\n                        }\r\n           " +
+"         }\r\n                }\r\n\r\n              if (DateBetweenVaild(\'StDateStr\'," +
+"\'EdDateStr\') == false) {\r\n                    alert(\'顯示日期_開始日期必須小於結束日期！\');\r\n    " +
+"                return false;\r\n              }\r\n\r\n               if ($(\'#fileDow" +
+"nloadItem_LinkUrl\').val() != \"\" && $(\'#fileDownloadItem_LinkUrlDesc\').val() == \'" +
+"\') {\r\n                   iscon = false;\r\n                   $(\'#LinkUrlDesc-erro" +
+"r\').show();\r\n               }\r\n\r\n            var i = 0;\r\n            $(\'.tr_file" +
+"\').each(function () {\r\n                   var uploadfile = $(this).find(\'#upload" +
+"file\').get(0).files;\r\n                   if (uploadfile.length > 0) {\r\n         " +
+"              formData.append(\"fileDownloadFiles[\" + i + \"].UploadFile\", uploadf" +
+"ile[0]);\r\n                       formData.append(\"fileDownloadFiles[\" + i + \"].U" +
+"ploadFileDesc\", $(this).find(\'#UploadFileDesc\').val());\r\n                       " +
+"formData.append(\"fileDownloadFiles[\" + i + \"].Title\", $(this).find(\'#Title\').val" +
+"());\r\n                       if ($(this).find(\'#UploadFileDesc\').val() == \"\") {\r" +
+"\n                           $(this).find(\'#UploadFileDesc-error\').show();\r\n     " +
 "                      iscon = false;\r\n                       }\r\n                " +
-"   } else {\r\n                       formData.append(\"fileDownloadFiles[\" + i + \"" +
-"].UploadFile\", null);\r\n                       formData.append(\"fileDownloadFiles" +
-"[\" + i + \"].UploadFileName\", $(this).find(\'#UploadFileName\').val());\r\n          " +
-"             formData.append(\"fileDownloadFiles[\" + i + \"].UploadFilePath\", $(th" +
-"is).find(\'#UploadFilePath\').val());\r\n                       formData.append(\"fil" +
-"eDownloadFiles[\" + i + \"].UploadFileDesc\", $(this).find(\'#UploadFileDesc\').val()" +
-");\r\n                       formData.append(\"fileDownloadFiles[\" + i + \"].UploadF" +
-"ileSize\", $(this).find(\'#UploadFileSize\').val());\r\n                       formDa" +
-"ta.append(\"fileDownloadFiles[\" + i + \"].UploadFileType\", $(this).find(\'#UploadFi" +
-"leType\').val());\r\n                       formData.append(\"fileDownloadFiles[\" + " +
-"i + \"].Title\", $(this).find(\'#Title\').val());\r\n                       if ($(this" +
-").find(\'#UploadFileName\').val() != \"\") {\r\n                           if ($(this)" +
-".find(\'#UploadFileDesc\').val() == \"\") {\r\n                               $(this)." +
-"find(\'#UploadFileDesc-error\').show();\r\n                               iscon = fa" +
-"lse;\r\n                           }\r\n                           if ($(this).find(" +
-"\'#Title\').val() == \"\") {\r\n                               $(this).find(\'#Title-er" +
-"ror\').show();\r\n                               iscon = false;\r\n                  " +
-"         }\r\n                       }\r\n                   }\r\n\r\n                  " +
-" i++;\r\n            })\r\n\r\n            var i = 0;\r\n            $(\'.tr_image\').each" +
-"(function () {\r\n                   var uploadfile = $(this).find(\'#uploadfile\')." +
-"get(0).files;\r\n                   if (uploadfile.length > 0) {\r\n                " +
-"       formData.append(\"messageImages[\" + i + \"].UploadFile\", uploadfile[0]);\r\n " +
-"                      formData.append(\"messageImages[\" + i + \"].UploadFileDesc\"," +
-" $(this).find(\'#UploadFileDesc\').val());\r\n                       if ($(this).fin" +
-"d(\'#UploadFileDesc\').val() == \"\") {\r\n                           $(this).find(\'#U" +
-"ploadFileDesc-error\').show();\r\n                           iscon = false;\r\n      " +
-"                 }\r\n                   } else {\r\n                       formData" +
-".append(\"messageImages[\" + i + \"].UploadFile\", null);\r\n                       fo" +
-"rmData.append(\"messageImages[\" + i + \"].UploadFileName\", $(this).find(\'#UploadFi" +
-"leName\').val());\r\n                       formData.append(\"messageImages[\" + i + " +
-"\"].UploadFilePath\", $(this).find(\'#UploadFilePath\').val());\r\n                   " +
-"    formData.append(\"messageImages[\" + i + \"].UploadFileDesc\", $(this).find(\'#Up" +
-"loadFileDesc\').val());\r\n                       if ($(this).find(\'#UploadFileName" +
-"\').val() != \"\") {\r\n                           if ($(this).find(\'#UploadFileDesc\'" +
-").val() == \"\") {\r\n                               $(this).find(\'#UploadFileDesc-e" +
-"rror\').show();\r\n                               iscon = false;\r\n                 " +
-"          }\r\n                       }\r\n                   }\r\n\r\n                 " +
-"  i++;\r\n            })\r\n\r\n                if (iscon == false) { return false;}\r\n" +
-"                $.ajax({\r\n                    url: this.action,\r\n               " +
-"     data: formData,\r\n                    type: \'POST\',\r\n                    cac" +
-"he: false,\r\n                    contentType: false,\r\n                    process" +
-"Data: false,\r\n                    success: function (data) {\r\n                  " +
-"      alert(data);\r\n                        if (data == \'新增成功\' || data == \'修改成功\'" +
-") {\r\n                            CreatePost(\'");
+"       if ($(this).find(\'#Title\').val() == \"\") {\r\n                           $(t" +
+"his).find(\'#Title-error\').show();\r\n                           iscon = false;\r\n  " +
+"                     }\r\n                   } else {\r\n                       form" +
+"Data.append(\"fileDownloadFiles[\" + i + \"].UploadFile\", null);\r\n                 " +
+"      formData.append(\"fileDownloadFiles[\" + i + \"].UploadFileName\", $(this).fin" +
+"d(\'#UploadFileName\').val());\r\n                       formData.append(\"fileDownlo" +
+"adFiles[\" + i + \"].UploadFilePath\", $(this).find(\'#UploadFilePath\').val());\r\n   " +
+"                    formData.append(\"fileDownloadFiles[\" + i + \"].UploadFileDesc" +
+"\", $(this).find(\'#UploadFileDesc\').val());\r\n                       formData.appe" +
+"nd(\"fileDownloadFiles[\" + i + \"].UploadFileSize\", $(this).find(\'#UploadFileSize\'" +
+").val());\r\n                       formData.append(\"fileDownloadFiles[\" + i + \"]." +
+"UploadFileType\", $(this).find(\'#UploadFileType\').val());\r\n                      " +
+" formData.append(\"fileDownloadFiles[\" + i + \"].Title\", $(this).find(\'#Title\').va" +
+"l());\r\n                       if ($(this).find(\'#UploadFileName\').val() != \"\") {" +
+"\r\n                           if ($(this).find(\'#UploadFileDesc\').val() == \"\") {\r" +
+"\n                               $(this).find(\'#UploadFileDesc-error\').show();\r\n " +
+"                              iscon = false;\r\n                           }\r\n    " +
+"                       if ($(this).find(\'#Title\').val() == \"\") {\r\n              " +
+"                 $(this).find(\'#Title-error\').show();\r\n                         " +
+"      iscon = false;\r\n                           }\r\n                       }\r\n  " +
+"                 }\r\n\r\n                   i++;\r\n            })\r\n\r\n            var" +
+" i = 0;\r\n            $(\'.tr_image\').each(function () {\r\n                   var u" +
+"ploadfile = $(this).find(\'#uploadfile\').get(0).files;\r\n                   if (up" +
+"loadfile.length > 0) {\r\n                       formData.append(\"messageImages[\" " +
+"+ i + \"].UploadFile\", uploadfile[0]);\r\n                       formData.append(\"m" +
+"essageImages[\" + i + \"].UploadFileDesc\", $(this).find(\'#UploadFileDesc\').val());" +
+"\r\n                       if ($(this).find(\'#UploadFileDesc\').val() == \"\") {\r\n   " +
+"                        $(this).find(\'#UploadFileDesc-error\').show();\r\n         " +
+"                  iscon = false;\r\n                       }\r\n                   }" +
+" else {\r\n                       formData.append(\"messageImages[\" + i + \"].Upload" +
+"File\", null);\r\n                       formData.append(\"messageImages[\" + i + \"]." +
+"UploadFileName\", $(this).find(\'#UploadFileName\').val());\r\n                      " +
+" formData.append(\"messageImages[\" + i + \"].UploadFilePath\", $(this).find(\'#Uploa" +
+"dFilePath\').val());\r\n                       formData.append(\"messageImages[\" + i" +
+" + \"].UploadFileDesc\", $(this).find(\'#UploadFileDesc\').val());\r\n                " +
+"       if ($(this).find(\'#UploadFileName\').val() != \"\") {\r\n                     " +
+"      if ($(this).find(\'#UploadFileDesc\').val() == \"\") {\r\n                      " +
+"         $(this).find(\'#UploadFileDesc-error\').show();\r\n                        " +
+"       iscon = false;\r\n                           }\r\n                       }\r\n " +
+"                  }\r\n\r\n                   i++;\r\n            })\r\n\r\n              " +
+"  if (iscon == false) { return false;}\r\n                $.ajax({\r\n              " +
+"      url: this.action,\r\n                    data: formData,\r\n                  " +
+"  type: \'POST\',\r\n                    cache: false,\r\n                    contentT" +
+"ype: false,\r\n                    processData: false,\r\n                    succes" +
+"s: function (data) {\r\n                        alert(data);\r\n                    " +
+"    if (data == \'新增成功\' || data == \'修改成功\') {\r\n                            CreateP" +
+"ost(\'");
 
             
-            #line 743 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 824 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                    Write(Url.Action("ModelItem"));
 
             
@@ -2288,7 +2321,7 @@ WriteLiteral("?command=QuickUpload&type=Files\',\r\n            });\r\n         
 WriteLiteral("\', { mainid: \'");
 
             
-            #line 743 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 824 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                          Write(Model.ModelID);
 
             
