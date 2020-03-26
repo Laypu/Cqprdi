@@ -1,0 +1,153 @@
+﻿@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+}
+
+<!--page bar start-->
+<div class="page-bar all_width">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Model")">模組管理</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">專屬版面</a>
+        </li>
+    </ul>
+</div>
+<div class="title_01">@ViewBag.Title</div>
+
+<div class="portlet light bordered">
+    <!--set item start-->
+    <div class="table-toolbar">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12 mobile_left">
+            <p class="display_inline">
+                <button class="btn green-meadow" id='btn_add'>新增 <i class="fa fa-plus"></i></button>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="search_menu" style="display: none;">
+        <div class="portlet light form-fit bordered" id="searchForm">
+            <div class="portlet-body form">
+                <div class="form-horizontal form-bordered">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <div class="col-md-2 search_item_1">名稱</div>
+                            <div class="col-md-4 bg-white">
+                                <input type="text" class="form-control_1" id="Name" />
+                            </div>
+                            <div class="col-md-2 search_item_1">管理者</div>
+                            <div class="col-md-4 bg-white">
+                                <input type="text" class="form-control_1" id="Manager" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center search_padding">
+            <button type="button" class="btn blue" id="btn_search">搜尋 <i class="fa fa-search"></i></button>
+            <button type="button" class="btn blue-hoki" id="btn_searchrefresh">清除搜尋<i class="fa fa-refresh"></i></button>
+        </div>
+    </div>
+    <!--search item end-->
+
+    <div class="table-scrollable">
+        <table class="table table-bordered table-hover" border="0" cellspacing="0" cellpadding="0"
+               id="eventtable"
+               data-url="@Url.Action("PagingMain")"
+               data-sort-name='ID'
+               data-page-size='10'
+               data-filed-id='ID'
+               data-max-pagination='10'>
+            <thead>
+                <tr class="bg-grey_1" filed-class='odd gradeX'>
+                    <th width="80" class="text-center" filed-type='delcheckbox'>
+                        <label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'>
+                            <input type='checkbox' class='checkboxes' id="chk_all" /><span></span>
+                        </label>
+                        <button class="btn red-mint btn-xs" id='btn_del'><i class="glyphicon glyphicon-trash"></i></button>
+                    </th>
+
+                    <th filed-name='Name' class="text-center" filed-type='link'>專屬版面名稱</th>
+                    <th filed-name='ManagerName' width="150px" class="text-center" filed-item-class='text-center'>管理者</th>
+                    <th filed-name='GROUP_NAME' width="150px" class="text-center" filed-item-class='text-center'>群組</th>
+                    <th filed-name='customertr' width="350px" class="text-center" filed-type='function'>網址</th>
+                    <th filed-name='Enabled' width="80px" class="text-center" filed-type='checkbox' filed-item-class="checkboxes chkstatus">上架</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="page_number" class="table-toolbar">
+        <div class="col-md-4 col-sm-12 col-xs-12 page_total" id="tableinfo"></div>
+        <div class="col-md-8 col-sm-12 col-xs-12 page_icon">
+            <div class="btn-group" id="pagination">
+            </div>
+        </div>
+    </div>
+    <!--table end-->
+</div>
+@section scripts {
+    <script src="~/Scripts/datatable.js"></script>
+    <script src="~/Scripts/bootbox.min.js"></script>
+    <script src="~/Scripts/clipboard.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            mytable = $("#eventtable").myDataTable().TableList[0];
+            mytable.settingTdData = myDataTableTr;
+            mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
+                var totalclick = mytable.keepcheckid.length;
+                $("#" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + "~" + (offsetcnt + nowpagecnt - 1));
+            };
+
+            RegisterSearchItem();
+
+             $("#btn_searchrefresh").click(function () {
+                $("#searchForm :input").val('');
+                mytable.GetData();
+             });
+
+            var SearchModelBase = mytable.SearchModelBase;
+            SearchModelBase.Search = $('#Name').val();
+            SearchModelBase.Key = $('#Manager').val();
+            mytable.GetData(1);
+            var obj = {};
+            obj.item = "單元名稱";
+
+            $("#btn_search").click(function () {
+                var SearchModelBase = mytable.SearchModelBase;
+                SearchModelBase.Search = $('#Name').val();
+                SearchModelBase.Key = $('#Manager').val();
+                mytable.GetData();
+            });
+
+            RegisterClickAll("#chk_all", '#eventtable tbody .chksel', "#selvalue");
+            RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("SetMainDelete")', obj);
+            RegisterClicklink("#eventtable", ".edit", '@Url.Action("MessageEdit")', { idkey: "ID"},"ID");
+            RegisterClick("#eventtable", ".chkstatus", '@Url.Action("SetItemStatus")', obj);
+
+            $("#btn_add").click(function () {
+                CreatePost('@Url.Action("MessageEdit")', null);
+            });
+
+            var clipboard = new Clipboard('.btn', {
+                text: function (event) {
+                    return $(event).attr('copy');
+                }
+            });
+        });
+        function customertr(row, columnidx, idx, filedname, tableid, type, fileditemclass) {
+            return "<td><input  type='text' readonly=readonly style='width:250px; display:inline' class='form-control' value='/web/" + row['URL'] + "'/><button class='btn grey-mint' style='margin-left:20px' copy='/web/" + row['URL'] + "'>複製</button></td>";
+        }
+    </script>
+}

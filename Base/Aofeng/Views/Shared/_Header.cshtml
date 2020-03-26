@@ -1,0 +1,133 @@
+﻿@using Oaww.Entity;
+@using Oaww.HtmlHelp;
+@{
+    Layout = null;
+
+    List<Menu> TopMenu = (List<Menu>)ViewBag.TopMenu;
+
+    List<Menu> UpMenu = (List<Menu>)ViewBag.UpMenu;
+
+    List<ADMain> AdRight = (List<ADMain>)ViewBag.AdRight;
+
+    SEO SEO = (SEO)ViewBag.SEO;
+
+    SiteLayout siteLayout = CommonRazorFunctions.GetSiteLayout();
+}
+<div id="header">
+    <div class="bg"></div>
+    <div class="inner-width">
+        <div class="logo">
+            <a href="@Url.Action("Index","Home")"><img src="~/Content/img/logo.png" alt="" /></a>
+        </div>
+        <div class="nav_menu">
+            <ul>
+                <li><a id="Accesskey_U" href="#;return%20false;" title="上方選單區" accesskey="U">:::</a></li>
+                @foreach (var menu in UpMenu.OrderBy(t => t.Sort))
+                {
+                    <li>@Html.aira_Top_HyperLink_Menu(menu, menu.Icon, null)</li>
+                }
+                @{
+                    //todo
+                }
+                <li class="desk-show search_bar">
+
+
+                    <form method="post" style="margin:0px" action="@Url.Action("Search","Search")">
+                        <input tabindex="0" type="text" name="key" title="全站搜尋*" placeholder="全站搜尋">
+                        <button style="border:none;background-color:white;padding:0px;width:30px"><i class="fa fa-search" aria-hidden="true"></i></button>                       
+                    </form>
+                </li>
+                @*<li><a href="#" class="icon rss" title="RSS"><i class="fa fa-rss" aria-hidden="true"></i> <span>RSS</span></a></li>*@
+                <li><a href="#" class="icon fb" title="FB粉專"><i class="fa fa-facebook" aria-hidden="true"></i> <span>FB粉專</span></a></li>
+                <!-- <li><a href="#" class="icon yt" title="youtube官方頻道"><i class="fa fa-youtube" aria-hidden="true"></i> <span>youtube官方頻道</span></a></li> -->
+            </ul>
+        </div>
+        <div class="quick_box on">
+            <div class="title">便民服務</div>
+            <ul>
+                @foreach (var m in AdRight)
+                {
+                    <li>
+                        <a href="@m.Link_Href" title="@Html.Raw((m.ADDesc==null?"":m.ADDesc.Replace(Environment.NewLine, "<br>").safeHtmlFragment()))" style="background-color:@(m.Color.IsNullOrEmpty()?"#000":m.Color)">
+                            <div class="icon"><i class="@m.Icon" aria-hidden="true"></i></div>
+                            <span>@m.AD_Name</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <a href="#" class="switch" title="隱藏便民服務介面">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                <span>隱藏便民服務介面</span>
+            </a>
+        </div>
+        <a href="#" class="quick_box_btn" title="顯示便民服務介面"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+    </div>
+    <div class="top_menu">
+        <div class="inner-width">
+            <div class="mobile-show search_bar">
+                <input tabindex="0" type="text" title="全站搜尋" placeholder="全站搜尋"><a href="#"><i class="fa fa-search" aria-hidden="true"></i><span>送出</span></a>
+            </div>
+            <ul>
+                @foreach (Menu Menu1st in TopMenu.Where(t => t.MenuLevel == 1).OrderBy(t => t.Sort))
+                {
+
+
+                    if (TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
+                    {
+                        <li class="submenuhead">
+                            @Html.aira_HyperLink_Menu(Menu1st, null)
+
+                            <ul class="submenu">
+                                @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
+                                {
+                                    if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                    {
+                                        <li class="submenuhead2">
+
+                                            @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                            {
+                                                @Html.aira_Top_HyperLink_Menu(Menu2nd, null)
+                                                <ul class="submenu2">
+                                                    @foreach (Menu Menu3rd in TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
+                                                    {
+                                                        <li>
+                                                            @Html.aira_HyperLink_Menu(Menu3rd, null)
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                            else
+                                            {
+                                                @Html.aira_HyperLink_Menu(Menu2nd, null)
+                                            }
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>@Html.aira_HyperLink_Menu(Menu2nd, null)</li>
+                                    }
+                                }
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @Html.aira_HyperLink_Menu(Menu1st, null)
+                        </li>
+                    }
+
+                }
+
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="menu_btn">
+        <div class="m1"></div>
+        <div class="m2"></div>
+        <div class="m3"></div>
+    </div>
+
+    <div class="top_menu_mask"></div>
+</div>

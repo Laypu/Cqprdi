@@ -1,0 +1,152 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using Oaww.Utility;
+
+@model SET_LOGIN
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.M_Login01</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/components.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-3.0.0.min.js"></script>
+
+</head>
+
+<body>
+    <div class="login">
+        <div class="right" style="background:url(@Url.Content(Model.M_Login05))">
+            <div class="title">@Model.M_Login01</div>
+            <div class="font_con">
+                <span class="text-shadow">
+                    @Html.Raw(Model.M_Login02.safeHtmlFragment())
+                </span>
+
+                @if (Model.M_Login03.IsNullOrEmpty() == false)
+                {
+                    <span class="fa-stack fa-xs">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="text-shadow">@Model.M_Login03</span>
+                    <span>&nbsp; &nbsp; &nbsp;</span>
+                }
+
+                @if (Model.M_Login04.IsNullOrEmpty() == false)
+                {
+                    <span class="fa-stack fa-xs">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="text-shadow">@Model.M_Login04</span>
+                }
+
+            </div>
+        </div>
+        <div class="left">
+            <div class="logo"><img src="@Url.Content(Model.M_Login06)" alt="" /></div>
+
+            @using (Html.BeginForm("LoginCheck", "Auth", FormMethod.Post, new { @id = "form1", @class = "form-horizontal form-validate", @enctype = "multipart/form-data" }))
+            {
+                <input type="hidden" name="Login" id="hidLogin" />
+                <input type="hidden" name="Password" id="hidPwd" />
+                <div class="input_box">
+                    <div class="input-group">
+                        <span class="input-group-addon input-circle-left">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input type="text" class="form-control input-circle-right" placeholder="ID" id="txtLogin" MaxLength="10">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon input-circle-left">
+                            <i class="fa fa-key"></i>
+                        </span>
+                        <input type="password" class="form-control input-circle-right" placeholder="Password" id="txtPwd">
+                    </div>
+
+                    @Html.Captcha(4, "Captcha")
+
+                    <div class="input-group" style="width:100%;">
+                        <label style="color:red">@TempData["Error"]</label>
+                    </div>
+
+                    <input type="hidden" name="ReturnUrl" value="@ViewData["ReturnUrl"]" />
+                </div>
+
+                <button type="button" class="btn green-seagreen" style="margin-top:20px" onclick="Send()">登入</button>
+            }
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="~/Scripts/aes.js"></script>
+<script src="~/Scripts/aesEncrytDecry.js"></script>
+
+<script type="text/javascript">
+
+    $().ready(function () {
+
+        if ('@TempData["alterMessage"]' != '') {
+            alert('@TempData["alterMessage"]');
+        }
+
+    })
+
+    function Captcha(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13) {
+            Send();
+        }
+    }
+
+
+
+    function Send() {
+        event.preventDefault();
+
+        if (DataValidate()) {
+
+
+            $('#hidLogin').val(aesEncryDecry.encryptStringAES($('#txtLogin').val()));
+            $('#hidPwd').val(aesEncryDecry.encryptStringAES($('#txtPwd').val()));
+
+            $('#form1').submit();
+        }
+    }
+
+    function DataValidate() {
+
+        var msg = '';
+        if ($('#txtLogin').val() == '') {
+            msg += '- 請輸入使用者代號!! \r\n';
+        }
+
+        if ($('#txtPwd').val() == '') {
+            msg += '- 請輸入密碼!! \r\n';
+        }
+
+        if (msg == '') {
+            return true;
+        }
+        else {
+            alert(msg);
+            return false;
+        }
+    }
+</script>

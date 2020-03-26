@@ -1,0 +1,468 @@
+/*
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+*/
+
+body
+{
+	/* Font */
+	/* Emoji fonts are added to visualise them nicely in Internet Explorer. */
+	font-family: sans-serif, Arial, Verdana, "Trebuchet MS", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 12px;
+
+	/* Text color */
+	color: #333;
+
+	/* Remove the background color to make it transparent. */
+	background-color: #fff;
+
+	margin: 20px;
+}
+
+.cke_editable
+{
+	font-size: 13px;
+	line-height: 1.6;
+
+	/* Fix for missing scrollbars with RTL texts. (#10488) */
+	word-wrap: break-word;
+}
+
+blockquote
+{
+	font-style: italic;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	padding: 2px 0;
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 0;
+}
+
+.cke_contents_ltr blockquote
+{
+	padding-left: 20px;
+	padding-right: 8px;
+	border-left-width: 5px;
+}
+
+.cke_contents_rtl blockquote
+{
+	padding-left: 8px;
+	padding-right: 20px;
+	border-right-width: 5px;
+}
+
+a
+{
+	color: #0782C1;
+}
+
+ol,ul,dl
+{
+	/* IE7: reset rtl list margin. (#7334) */
+	*margin-right: 0px;
+	/* Preserved spaces for list items with text direction different than the list. (#6249,#8049)*/
+	padding: 0 40px;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+	font-weight: normal;
+	line-height: 1.2;
+}
+
+hr
+{
+	border: 0px;
+	border-top: 1px solid #ccc;
+}
+
+img.right
+{
+	border: 1px solid #ccc;
+	float: right;
+	margin-left: 15px;
+	padding: 5px;
+}
+
+img.left
+{
+	border: 1px solid #ccc;
+	float: left;
+	margin-right: 15px;
+	padding: 5px;
+}
+
+pre
+{
+	white-space: pre-wrap; /* CSS 2.1 */
+	word-wrap: break-word; /* IE7 */
+	-moz-tab-size: 4;
+	tab-size: 4;
+}
+
+.marker
+{
+	background-color: Yellow;
+}
+
+span[lang]
+{
+	font-style: italic;
+}
+
+figure
+{
+	text-align: center;
+	outline: solid 1px #ccc;
+	background: rgba(0,0,0,0.05);
+	padding: 10px;
+	margin: 10px 20px;
+	display: inline-block;
+}
+
+figure > figcaption
+{
+	text-align: center;
+	display: block; /* For IE8 */
+}
+
+a > img {
+	padding: 1px;
+	margin: 1px;
+	border: none;
+	outline: 1px solid #0782C1;
+}
+
+/* Widget Styles */
+.code-featured
+{
+	border: 5px solid red;
+}
+
+.math-featured
+{
+	padding: 20px;
+	box-shadow: 0 0 2px rgba(200, 0, 0, 1);
+	background-color: rgba(255, 0, 0, 0.05);
+	margin: 10px;
+}
+
+.image-clean
+{
+	border: 0;
+	background: none;
+	padding: 0;
+}
+
+.image-clean > figcaption
+{
+	font-size: .9em;
+	text-align: right;
+}
+
+.image-grayscale
+{
+	background-color: white;
+	color: #666;
+}
+
+.image-grayscale img, img.image-grayscale
+{
+	filter: grayscale(100%);
+}
+
+.embed-240p
+{
+	max-width: 426px;
+	max-height: 240px;
+	margin:0 auto;
+}
+
+.embed-360p
+{
+	max-width: 640px;
+	max-height: 360px;
+	margin:0 auto;
+}
+
+.embed-480p
+{
+	max-width: 854px;
+	max-height: 480px;
+	margin:0 auto;
+}
+
+.embed-720p
+{
+	max-width: 1280px;
+	max-height: 720px;
+	margin:0 auto;
+}
+
+.embed-1080p
+{
+	max-width: 1920px;
+	max-height: 1080px;
+	margin:0 auto;
+}
+
+/*-----------------------------------------2019.10.23舊站設定--------------------------------------------*/
+/*內容*/
+.year{
+	width:100%;
+}
+.year th { /*年度標題*/
+	background-color: #746145;
+	font-family: 微軟正黑體, Arial, Helvetica, sans-serif;
+	font-size: 0.875em;
+	color: #FFF;
+	height: 35px;
+	border-bottom: 1px solid #FFF;
+	text-align: center;
+	line-height: 35px;
+}
+.year td { /*年度內容*/
+	/*text-align: center;*/
+	line-height: 35px;
+	border: 1px solid #CCC;
+	padding:0 10px;
+}
+
+.year2 td {
+	background-color: #746145;
+	border-bottom: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+	text-align: center;
+	line-height: 35px;
+}
+.year2 td a{
+	background-color: #746145;
+	display: block;
+}
+.year2 td a:hover{
+	background-color: #619810;
+}
+.year2 td a:focus{
+    outline-color: #619810;
+    outline-style:dotted;
+}
+
+.year3 td {
+	line-height: 35px;
+	padding: 1px;
+}
+
+.year4{
+	margin-top: 20px;
+}
+.year4 td{
+	line-height: 35px;
+}
+.year4 th{
+	line-height: 35px;
+    text-align: center;
+}
+
+.year5{
+	margin-top: 20px;
+}
+.year5 td {
+	line-height: 35px;
+	text-align: center;
+	border: 1px solid #CCC;
+}
+.year5 th {
+	line-height: 35px;
+	text-align: center;
+	border: 1px solid #CCC;
+}
+
+.year6 th {
+	line-height: 35px;
+	text-align: center;
+	background-color: #619810;
+}
+.year6 td {
+	line-height: 35px;
+	text-align: center;
+	border: 1px solid #CCC;
+}
+.year7{
+	line-height: 35px;
+	padding-bottom: 25px;
+	margin-bottom: 25px;
+}
+.year7 td{
+	border-bottom: 1px solid #CCC;
+}
+
+.year-title{
+	margin-top: 20px;	
+}
+.year-title table .tabTD {
+	border-bottom: 1px solid #CCC;
+	height: 40px;
+}
+
+.WebLink th {
+	background-color: #FFF;
+	font-family: 微軟正黑體, Arial, Helvetica, sans-serif;
+	font-size: 1.125em;
+	color: #000;
+    border: 1px solid #CCC;
+	height: 35px;
+	text-align: left;
+	line-height: 35px;
+}
+.WebLink td {
+	text-align: left;
+	line-height: 35px;
+	border: 1px solid #CCC;
+}
+
+.con_td td{ /*表格 4邊灰線*/
+	padding: 10px;
+	border: 1px solid #CCC;
+}
+.con_td th{ /*表格 4邊灰線*/
+	padding: 10px;
+	border: 1px solid #CCC;
+}
+
+.con_td2{ /*表格 膚底 下白線*/
+	padding: 10px;
+	background-color: #eee3d1;
+	border-bottom: 1px solid #FFF;
+	text-align: center;
+}
+.con_td3{ /*表格 上右下灰線*/
+	padding: 10px;
+	border-top: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+.con_td4 .td-laft{ /*表格 左-咖啡底-粗*/
+	border-bottom: 3px solid #9b7c53;
+	padding-bottom: 10px;
+	vertical-align: top;
+	padding-top: 15px;
+}
+.con_td4 .td-right{ /*表格 右-咖啡底-細*/
+	border-bottom: 1px solid #9b7c53;
+	padding-bottom: 10px;
+	vertical-align: top;
+	padding: 15px 0 15px 10px;
+}
+.con_td4 li {
+	padding-bottom: 8px;
+}
+
+.con_td4 .td-laft2{ /*表格 左*/
+	padding-bottom: 10px;
+	vertical-align: top;
+	padding-top: 15px;
+}
+.con_td4 .td-right2{ /*表格 右-咖啡底-細*/
+	border-bottom: 1px solid #ccc;
+	vertical-align: top;
+	padding-top: 13px;
+	padding-left: 10px;
+	overflow: hidden;
+	padding-bottom: 13px;
+}
+.right2_con{
+	float: left;
+	width: 360px;
+	padding-bottom: 10px;
+}
+
+
+/*-----------------------------------------2019.11.26 for編輯器--------------------------------------------*/
+h3 {
+    font-size: 1.6em;
+    line-height: 150%;
+    margin: 5px 0px 10px 0px;
+    font-weight: bold;
+    background: #f5f5f5;
+    padding: 5px 15px;
+    border-left: solid #ac8e62 5px;
+    color: #333;
+    width: 100%;
+    float: left;
+}
+.title_04{
+	font-family: 微軟正黑體, Arial, Helvetica, sans-serif;
+    font-size: 1.45em;
+    color: #bb7739;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+.text-center{
+	text-align:center;
+}
+.table-scrollable {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: none;
+}
+.table-scrollable > .x_table {
+	width: 100% !important;
+	margin: 0 !important;
+	min-width: 650px;
+}
+.table{
+    border: solid #ddd 1px;
+	text-align:center;
+}
+.table_hover tbody tr:hover td {
+    background: rgba(0,105,62,0.05) !important;
+}
+.table > thead > tr > th {
+    white-space: nowrap;
+    padding: 8px 5px !important;
+    background: #666;
+    color: #fff;
+    font-weight: 500;
+	vertical-align: middle !important;
+	text-align:center;
+	border-top: solid #ddd 1px;
+}
+.table th {
+    background: #f9f9f9;
+    padding: 8px 5px !important;
+    border-right: solid #ddd 1px;
+    color: #333;
+	font-weight: 500;
+    vertical-align: middle !important;
+	text-align:center;
+	border-top: solid #ddd 1px;
+}
+.table tr td {
+    padding: 8px 5px !important;
+    vertical-align: middle !important;
+    border-right: solid #ddd 1px;
+	border-top: solid #ddd 1px;
+}
+.table_bg_01{
+	background:#817461 !important;/*咖啡*/
+	color:#fff !important;
+}
+.table_bg_02{
+	background:#588216 !important;/*綠*/
+	color:#fff !important;
+}
+.table_bg_03{
+	background:#746145 !important;/*深咖啡*/
+	color:#fff !important;
+}
+.table_bg_04{
+	background:#f9f9f9 !important;/*灰白底+黑字*/
+	color:#333 !important;
+}
+.table_bg_05{
+	background:#fff !important;/*白底+黑字*/
+	color:#333 !important;
+}

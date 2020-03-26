@@ -1,0 +1,230 @@
+﻿
+@model ADEditModel
+
+@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+}
+<!--page bar start-->
+<div class="page-bar all_width">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <i class="fa fa-circle"></i>
+            <a href="@Url.Action("Index","Model")">模組元件</a>
+            <i class="fa fa-circle"></i>            
+            <span href="#">@Model.SET_ADKanban.M_KANBAN01</span>
+            <i class="fa fa-circle"></i>
+        </li>
+    </ul>
+</div>
+<!--page bar end-->
+<!--message start-->
+<div class="title_01">@Model.SET_ADKanban.M_KANBAN01</div>
+
+<div class="portlet light bordered">
+
+    <form class="form-horizontal form-bordered" method="Post" id="editform" action='@Url.Action("SaveKanban")' enctype="multipart/form-data">
+        @Html.HiddenFor(Model => Model.ID)
+        @Html.HiddenFor(Model => Model.Type)
+        @Html.HiddenFor(Model => Model.Img_Name_Ori)
+        @Html.HiddenFor(Model => Model.Img_Name_Thumb)
+        @Html.HiddenFor(Model => Model.Img_Show_Name)
+        @Html.HiddenFor(Model => Model.UploadVideoFileDesc)
+        @Html.HiddenFor(Model => Model.UploadVideoFileName)
+        @Html.HiddenFor(Model => Model.UploadVideoFilePath)
+
+        <input id="hid_isAdd" type="hidden" name="isAdd" value='@ViewBag.IsAdd' />
+        <div class="portlet light form-fit bordered">
+            <div class="portlet-body form">
+                <div class="form-horizontal form-bordered">
+                    <div class="form-body" id="form-body">
+
+
+
+                        <div class="form-group ">
+                            <div class="col-md-2 col-sm-2 col-xs-12 search_item">@Html.Require() 標題</div>
+                            <div class="col-md-10 col-sm-10 col-xs-12 bg-white mobile_white">
+                                @Html.EditorFor(model => model.AD_Name, new { htmlAttributes = new { @class = "form-control checkitem", @maxlength = "300", @id = "AD_Name" } })
+                                <div class="red">限制輸入300字內</div>
+                                <span class="required" id="AD_Name-error" style="display:none">標題必須輸入</span>
+                            </div>
+                        </div>
+                        <div class="form-group @(Model.SET_ADKanban.M_KANBAN02 == false?"hide":"")">
+                            <div class="col-md-2 col-sm-2 col-xs-12 search_item">描述</div>
+                            <div class="col-md-10 col-sm-10 col-xs-12 bg-white mobile_white">
+                                <textarea cols="80" name="ADDesc" rows="3" class="form-control" maxlength="500">@Model.ADDesc</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group @(Model.SET_ADKanban.M_KANBAN05 == false?"hide":"")">
+                            <div class="col-md-2 col-sm-2 col-xs-12 search_item">@Html.Require() 圖片上傳 </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 bg-white mobile_white">
+                                <div id="div_oldfile" style="display:none"><a href="@Model.ImageUrl" target="preview">@Model.Img_Show_Name</a><label style="color:blue;margin-left:10px;cursor:pointer" id="delimage">刪除</label></div>
+                                <input id="file_image" type="file" class="form-control" style="width:500px" name="uploadfile" accept="image/*" />
+                                <span style="color:red; font-size:12px">@Model.SET_AD.M_AD05</span>
+                            </div>
+                        </div>
+                        <div class="form-group @(Model.SET_ADKanban.M_KANBAN04 == false ?"hide":"")">
+                            <div class="col-md-2 col-sm-2 col-xs-12 search_item">@Html.Require() 影片上傳 </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 bg-white mobile_white">
+
+                                <div id="div_olduploadfile" style="display:none"><a href="@Url.Content("~/"+Model.UploadVideoFilePath)" target="preview">@Model.UploadVideoFileName</a><label style="color:blue;margin-left:10px;cursor:pointer" id="delupfile">刪除</label></div>
+                                <input id="uploadvideofile" type="file" class="form-control" style="width:500px" name="VideoFile" accept="video/*" />
+                            </div>
+                        </div>
+                        <div class="form-group @(Model.SET_ADKanban.M_KANBAN03 == false?"hide":"")">
+                            <div class="col-md-2 col-sm-2 col-xs-12 search_item">連結路徑</div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 bg-white mobile_white">
+                                @Html.EditorFor(model => model.Link_Href, new { htmlAttributes = new { @class = "form-control", @maxlenght = "1000" } })
+                                <div class="red">限制輸入1000字內</div>
+                            </div>
+                        </div>
+                        <div class="form-group @(Model.SET_ADKanban.M_KANBAN03 == false?"hide":"")">
+                            <div class="col-md-2 col-sm-2 col-xs-12 search_item">開啟方式</div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 bg-white mobile_white">
+                                @Html.RadioButtonFor(model => model.Link_Mode, 1, new { style = "margin-left :0px", @checked = "checked" })原視窗
+                                @Html.RadioButtonFor(model => model.Link_Mode, 2, new { style = "margin-left :40px" }) 新視窗
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center search_padding" id="div_buttons">
+
+            <button type="submit" class="btn blue" id="btn_submit">確認送出</button>
+            @if (Model.SET_AD.ID > 0)
+            {
+                <button type="button" class="btn blue" id="btn_return">返回列表</button>
+            }
+        </div>
+    </form>
+
+</div>
+@section scripts {
+    <script src="@Url.Content("~/Scripts/components-date-time-pickers.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
+    <script src="~/Scripts/_html.js"></script>
+    <script>
+        $(function () {
+
+            if ('@Model.ID'>0 && '@Model.Img_Name_Ori'!='') {
+                $('#div_oldfile').show();
+            }
+
+            if ('@Model.ID'>0 && '@Model.UploadVideoFilePath'!='') {
+                $('#div_olduploadfile').show();
+            }
+
+            $('#delimage').click(function () {
+                $('#div_oldfile').hide();
+                $('#Img_Name_Ori').val('');
+            });
+
+            $('#delupfile').click(function () {
+                $('#div_olduploadfile').hide();
+                $('#UploadVideoFileName').val('');
+            });
+
+            $('#btn_return').click(function () {
+                CreatePost('@Url.Action("Index")', { type: $("#Type").val()});
+            });
+
+            $('#editform').submit(function (event) {
+                var inputval = $("#form-body :input").filter(function () { return $(this).val() == "" && $(this).hasClass('checkitem'); });
+                for (var idx = 0; idx < inputval.length; idx++) {
+                    $("#" + inputval[idx].name + "-error").show();
+                }
+                if (inputval.length > 0) { return false; }
+                var _validFileExtensions = [".jpg", ".png", ".gif", ".jpeg"];
+
+
+                    var file = $("#file_image");
+                    var sFileName = file.val();
+                    if (sFileName.length > 0) {
+                        var blnValid = false;
+                        for (var j = 0; j < _validFileExtensions.length; j++) {
+                            var sCurExtension = _validFileExtensions[j];
+                            if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                blnValid = true;
+                                break;
+                            }
+                        }
+                        if (!blnValid) {
+                            alert("只能上傳Image檔案");
+                            file.outerHTML = file.outerHTML;
+                            return false;
+                        }
+                }
+
+
+
+                var formData = new FormData();
+                var array = $('#editform').serializeArray();
+                $.each(array, function () {
+                    formData.append(this.name, this.value);
+                });
+
+
+                var uploadvideofile = $('#uploadvideofile').get(0).files;
+                if (uploadvideofile.length > 0) {
+                    formData.append("VideoFile", uploadvideofile[0]);
+                } else {
+                    formData.append("VideoFile", null);
+                }
+
+                 var images = $('#file_image').get(0).files;
+                if (images.length > 0) {
+                    formData.append("ImageFile", images[0]);
+                }
+
+                if (images.length == 0 && uploadvideofile.length == 0) {
+
+                    if (
+                        $('#Img_Name_Ori').val() == '' && $('#UploadVideoFileName').val() == ''&&
+                        ('@Model.SET_ADKanban.M_KANBAN04' == 'True' || '@Model.SET_ADKanban.M_KANBAN05' == 'True')
+                        ) {
+                        alert("必須上傳廣告圖片或是影片");
+                        return false;
+                    }
+                }
+
+                
+
+                if ($('#AD_Name').val() == '') {
+                    alert("標題必須輸入");
+                    return false;
+                }
+
+                $('#btn_submit').attr('disabled', 'disabled');
+
+                $.ajax({
+                    url: "@Url.Action("SaveKanban")",
+                    data: formData,
+                    type: 'POST',
+                    cache: false,
+                    headers: {
+                        RequestVerificationToken: '@CommonRazorFunctions.GetAntiForgery()'
+                    },
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        alert(data);
+                        if ((data == '新增成功' || data == '修改成功')                           
+                           )
+                        {
+                            location.reload();
+                        }
+
+                    }, error: function () {
+                        // handle error
+                    }
+                });
+                return false;
+            });
+
+
+        });
+    </script>
+
+}
+

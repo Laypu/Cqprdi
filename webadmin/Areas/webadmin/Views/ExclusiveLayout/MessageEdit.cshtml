@@ -1,0 +1,201 @@
+﻿@model ExclusiveLayoutViewModel
+@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+
+    List<SelectListItem> Group = Model.SET_LAYOUT_GROUPs.Select(t => new SelectListItem() { Value = t.ID.ToString(), Text = t.GROUP_NAME }).ToList();
+    List<SelectListItem> Users = Model.Users.Select(t => new SelectListItem() { Value = t.ID.ToString(), Text = t.User_Name }).ToList();
+}
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Model")">模組元件</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index")">專屬版面</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">編輯</a>
+        </li>
+    </ul>
+</div>
+
+<div class="title_01">@(Model.ExclusiveLayout.ID <= 0 ? "新增" : "修改")專屬版面</div>
+<div class="portlet light bordered">
+
+    <form class="form-horizontal form-bordered" method="Post" id="editform" action='@Url.Action("SaveItem")' enctype="multipart/form-data">
+
+        @Html.HiddenFor(Model => Model.ExclusiveLayout.ID)
+        @Html.HiddenFor(Model => Model.ExclusiveLayout.Enabled)
+        @Html.HiddenFor(Model => Model.ExclusiveLayout.Lang_ID)
+        @Html.HiddenFor(m => m.ExclusiveLayout.ImageFileName)
+        @Html.HiddenFor(m => m.ExclusiveLayout.ImageFileOrgName)
+        <div class="portlet light form-fit bordered">
+            <div class="portlet-body form">
+                <div class="form-horizontal form-bordered">
+                    <div class="form-body" id="form-body2">
+
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-xs-12 search_item">@Html.Require() 群組</div>
+                            <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                @Html.DropDownListFor(m => m.ExclusiveLayout.GroupID, Group, new { @class = "form-control_1 checkitem" })
+                                <span class="required" id="Title-error" style="display:none;">群組 必須填寫！</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-xs-12 search_item">@Html.Require() 管理者</div>
+                            <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                @Html.DropDownListFor(m => m.ExclusiveLayout.Manager, Users, new { @class = "form-control_1 checkitem" })
+                                <span class="required" id="Title-error" style="display:none;">管理者 必須填寫！</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-xs-12 search_item">@Html.Require() 版面名稱</div>
+                            <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                @Html.TextBoxFor(m => m.ExclusiveLayout.Name, new { @class = "form-control checkitem", @maxlength = "50" })
+                                <div class="red">限制輸入50字內</div>
+                                <span class="required" id="Title-error" style="display:none;">版面名稱 必須填寫！</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-xs-12 search_item">@Html.Require() 網址/(名稱)</div>
+                            <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                @Html.TextBoxFor(m => m.ExclusiveLayout.URL, new { @class = "form-control checkitem", @maxlength = "50" })
+                                <div class="red">限制輸入50字內，且只能輸入英數，第一個字不能為數字</div>
+                                <span class="required" id="Title-error" style="display:none;">版面名稱 必須填寫！</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-xs-12 search_item">備註</div>
+                            <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                @Html.TextAreaFor(m => m.ExclusiveLayout.Remark, new { @row = 5, @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group bg-grey_1">
+                            <div class="col-md-2 col-sm-12 search_item">視覺圖片</div>
+                            <div class="col-md-10 col-sm-12 bg-white mobile_white">
+                                <div class="col-md-12">
+                                    <div id="div_oldfile" style="display:none">
+                                        <a href="@(Model.ExclusiveLayout.ImagelUrl==null?"#":Url.Content(Model.ExclusiveLayout.ImagelUrl))" target="preview">@Model.ExclusiveLayout.ImageFileOrgName</a>
+                                        <label style="color:blue;margin-left:10px;cursor:pointer" id="delimage">刪除</label>
+                                    </div>
+                                    <div style="display:inline">
+                                        <input id="file_image" type="file" class="display_inline" name="ImageFile" accept="image/*" />
+                                        <div class="red">檔案類型jpg、png、gif，建議檔案大小2MB內，尺寸寬度2000*400px內</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center search_padding" id="div_buttons">
+
+            <button type="submit" class="btn blue" id="btn_submit">確認送出</button>
+            <button type="button" class="btn blue" id="btn_return">返回列表</button>
+
+        </div>
+    </form>
+
+</div>
+@section scripts {
+
+    <script src="@Url.Content("~/Scripts/custom.js")"></script>
+    <script src="~/Scripts/Common.js"></script>
+    <script>
+        $(function () {
+            if ('@Model.ExclusiveLayout.ID'>0 && '@Model.ExclusiveLayout.ImageFileName'!='') {
+                $('#div_oldfile').show();
+            }
+            $('#delimage').click(function () {
+                $('#div_oldfile').hide();
+                $('#ExclusiveLayout_ImageFileName').val('');
+                $('#ExclusiveLayout_ImageFileOrgName').val('');
+            });
+
+            $("#btn_return").click(function () { CreatePost('@Url.Action("Index")', null);});
+
+            $('#editform').submit(function (event) {
+
+               $(".required").hide();
+                 var inputval = $("#form-body2 :input").filter(function () { return $(this).val() == "" && $(this).hasClass('checkitem'); });
+                for (var idx = 0; idx < inputval.length; idx++) {
+                    $("#" + inputval[idx].name + "-error").show();
+                }
+                if (inputval.length > 0) { return false; }
+
+                var file = $("#file_image");
+                var _validFileExtensions = [".jpg", ".png", ".gif", ".jpeg"];
+                var sFileName = file.val();
+                if (sFileName.length > 0) {
+                    var blnValid = false;
+                    for (var j = 0; j < _validFileExtensions.length; j++) {
+                        var sCurExtension = _validFileExtensions[j];
+                        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                            blnValid = true;
+                            break;
+                        }
+                    }
+                    if (!blnValid) {
+                        alert("只能上傳Image檔案");
+                        file.outerHTML = file.outerHTML;
+                        return false;
+                    }
+                }
+
+               var formData = new FormData();
+               var array = $('#editform').serializeArray();
+               $.each(array, function () {
+                   formData.append(this.name, this.value);
+               });
+
+                var images = $('#file_image').get(0).files;
+                if (images.length > 0) {
+                    formData.append("ExclusiveLayout.ImageFile", images[0]);
+                    if ($('#ImageFileDesc').val() == "") {
+                        $('#ImageFileDesc-error').show();
+                        iscon = false;
+                    }
+                } else {
+                    formData.append("ExclusiveLayout.ImageFile", null);
+                    if ($('#ImageFileName').val() != "") {
+                        if ($('#ImageFileDesc').val() == "") {
+                            $('#ImageFileDesc-error').show();
+                            iscon = false;
+                        }
+                    }
+                }
+
+
+                $.ajax({
+                    url: this.action,
+                    data: formData,
+                    type: 'POST',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        alert(data);
+                        if (data == '新增成功' || data == '修改成功') {
+                            CreatePost('@Url.Action("Index")');
+                        }
+                    }, error: function () {
+                        // handle error
+                    }
+                });
+                return false;
+            });
+
+        });
+
+
+    </script>
+
+}

@@ -1,0 +1,243 @@
+﻿@model SiteMapEditModel
+
+@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+}
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Model")">模組元件</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","SiteMap")">網站導覽</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">編輯</a>
+        </li>
+    </ul>
+
+</div>
+<!--page bar end-->
+<!--message start-->
+<div class="title_01">@Model.ModelName</div>
+
+<div class="portlet light bordered">
+
+    <form class="form-horizontal form-bordered" method="Post" id="editform" action='@Url.Action("SaveItem")' enctype="multipart/form-data">
+        <!--<div class="search_padding">
+            <button type="button" class="btn blue" id="btn_seoshow">進階設定</button>
+        </div>-->
+        @Html.HiddenFor(Model => Model.SiteMapItem.ItemID)
+        @Html.HiddenFor(Model => Model.SiteMapItem.ModelID)
+        @Html.HiddenFor(Model => Model.SiteMapItem.UploadFileName)
+        @Html.HiddenFor(Model => Model.SiteMapItem.UploadFilePath)
+        @Html.HiddenFor(Model => Model.SiteMapItem.ImageFileName)
+
+        <div class="portlet light form-fit bordered">
+            <div class="portlet-body form">
+                <div class="form-horizontal form-bordered">
+                    <div class="form-body" id="form-body2">
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-xs-12 search_item">無障礙說明</div>
+                            <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                <textarea cols="80" id="HtmlContent" rows="20">@HttpUtility.HtmlDecode(Model.SiteMapItem.HtmlContent)</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group @(Model.SET_BASE.M_Base03?"":"hide")">
+                            <div class="col-md-2 col-sm-12 search_item">快速鍵說明</div>
+                            <div class="col-md-10 col-sm-12 bg-white mobile_white language_set">
+                                <div class="display_inline margin_bottom">
+                                    <button type="button" class="btn green-meadow" id="btn_add">新增 <i class="fa fa-plus"></i></button>
+                                    <button type="button" class="btn red" id="btn_del">刪除 <i class="glyphicon glyphicon-trash"></i></button>
+                                </div>
+
+                                <!--table start-->
+                                <table class="table table-bordered nomarginbottom" id="tbl_file" border="0" cellspacing="0" cellpadding="0">
+                                    <thead>
+                                        <tr>
+                                            <th width="60" class="text-center" filed-type="delcheckbox">刪除</th>
+                                            <th class="text-center">
+                                                區塊說明
+                                                <div class="red">限制輸入30字內</div>
+                                            </th>
+                                            <th class="text-center">快速鍵 <div class="red">限制輸入10字內</div></th>
+                                            <th class="text-center">介紹 <div class="red">限制輸入100字內</div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var key in Model.siteMapKeys)
+                                        {
+                                            <tr class="tr_file">
+                                                <td class="text-center">
+                                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                        <input type="checkbox" class="checkboxes chksel">
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                                <td class="text-center">
+                                                    <input type="text" id="AreaName" name="AreaName" maxlength="30" class="form-control" value="@key.AreaName" />
+                                                </td>
+                                                <td class="text-center">
+                                                    <input type="text" id="QuickKey" name="QuickKey" maxlength="10" class="form-control" value="@key.QuickKey" />
+                                                </td>
+                                                <td class="text-center">
+                                                    <input type="text" id="Introduction" name="Introduction" maxlength="100" class="form-control" value="@key.QuickKey" />
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <!--table end-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center search_padding" id="div_buttons">
+
+            <button type="submit" class="btn blue" id="btn_submit">確認送出</button>
+
+
+            <button type="button" class="btn blue" id="btn_return">返回列表</button>
+        </div>
+    </form>
+
+</div>
+@section scripts {
+    <script src="@Url.Content("~/Scripts/components-date-time-pickers.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
+    <script src="@Url.Content("~/Scripts/custom.js")"></script>
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootbox.min.js")"></script>
+    <script src="~/Scripts/_html.js"></script>
+    <script>
+        $(function () {
+
+            $('#btn_add').click(function (evt) {
+
+                evt.preventDefault();
+
+                var html = '';
+                html += ' <tr class="tr_file">';
+                html += '   <td class="text-center">';
+                html += '       <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">';
+                html += '           <input type="checkbox" class="checkboxes chksel">';
+                html += '           <span></span>';
+                html += '       </label>';
+                html += '   </td>';
+                html += '   <td class="text-center">';
+                html += '       <input type="text" id="AreaName" name="AreaName" class="form-control" maxlength="30" value="" />';
+                html += '   </td>';
+                html += '   <td class="text-center">';
+                html += '       <input type="text" id="QuickKey" name="QuickKey" class="form-control" maxlength="10" value="" />';
+                html += '   </td>';
+                html += '   <td class="text-center">';
+                html += '       <input type="text" id="Introduction" name="Introduction" class="form-control" maxlength="100" value="" />';
+                html += '   </td>';
+                html += ' </tr>';
+
+                if ($('#tbl_file>tbody tr').length == 0) {
+                    $('#tbl_file>tbody').append(html);
+                }
+                else {
+                    $('#tbl_file>tbody tr:last').after(html);
+                }
+            })
+
+            $('#btn_del').click(function () {
+                $('.chksel:checked').parents('tr').remove();
+            })
+
+            $("#btn_return").click(function () { CreatePost('@Url.Action("Index")'); });
+
+            var ckedit = CKEDITOR.replace('HtmlContent', {
+                height: 300,
+               filebrowserImageUploadUrl: '@Url.Action("Upload")?command=QuickUpload&type=Images',
+               filebrowserUploadUrl: '@Url.Action("UploadFile")?command=QuickUpload&type=Files',
+            });
+            CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
+            CKEDITOR.config.shiftEnterMode = CKEDITOR.ENTER_P;
+            CKEDITOR.on('instanceReady', function (ev) {
+                ev.editor.dataProcessor.writer.setRules('p',
+                    {
+                        indent: false,
+                        breakBeforeOpen: false,
+                        breakAfterOpen: false,
+                        breakBeforeClose: false,
+                        breakAfterClose: false
+                    });
+            });
+
+            $('#editform').submit(function (event) {
+
+               $(".required").hide();
+                 var inputval = $("#form-body2 :input").filter(function () { return $(this).val() == "" && $(this).hasClass('checkitem'); });
+                for (var idx = 0; idx < inputval.length; idx++) {
+                    $("#" + inputval[idx].name + "-error").show();
+                }
+                if (inputval.length > 0) { return false; }
+
+               var formData = new FormData();
+               var array = $('#editform').serializeArray();
+               $.each(array, function () {
+                   formData.append(this.name, this.value);
+               });
+
+                formData.append("SiteMapItem.HtmlContent", _html.encode(CKEDITOR.instances.HtmlContent.getData()));
+
+                var i = 0;
+                $('.tr_file').each(function () {
+                    formData.append("siteMapKeys[" + i + "].AreaName", $(this).find('#AreaName').val());
+                    formData.append("siteMapKeys[" + i + "].QuickKey", $(this).find('#QuickKey').val());
+                    formData.append("siteMapKeys[" + i + "].Introduction", $(this).find('#Introduction').val());
+                    i++;
+                });
+
+                $.ajax({
+                    url: this.action,
+                    data: formData,
+                    type: 'POST',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        alert(data);
+                        CreatePost('@Url.Action("Index")', { mainid: '@Model.SiteMapItem.ModelID'});
+                    }, error: function () {
+                        // handle error
+                    }
+                });
+                return false;
+            });
+            if ('@ViewBag.isview' == 'Y') {
+                $('#sel_unit,#editform :input').attr('disabled', 'disabled');
+
+
+                var btns = '<button type="button" class="btn blue"  onclick="window.location.href=\'@Url.Action("Verify", "Config")\'">返回列表</button> &nbsp;'
+
+
+                $('#div_buttons').empty().append(btns);
+            }
+        });
+
+        function callpreview() {
+            var htmlcontent = CKEDITOR.instances.HtmlContent.getData();
+            if (htmlcontent == "") { htmlcontent = "</br>" }
+            bootbox.alert({
+                title: "預覽",
+                message: htmlcontent,
+                size: 'large'
+            });
+        }
+    </script>
+
+}
+

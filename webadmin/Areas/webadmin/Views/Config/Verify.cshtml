@@ -1,0 +1,200 @@
+﻿@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+    List<SET_MENU> ListMenu = (List<SET_MENU>)ViewData["ListMenu"];
+}
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index", "Home")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">系統管理</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">審核管理</a>
+        </li>
+    </ul>
+</div>
+<!--page bar end-->
+<!--message start-->
+<div class="title_01">審核管理</div>
+
+<div class="portlet light bordered">
+    <!--set item start-->
+    <div class="table-toolbar">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="display_inline">
+                <p class="class_title">審核狀態</p>
+                <select class="form-control_1" id="sel_status">
+                    <option value="">全部</option>
+                    <option value="0" selected>審核中</option>
+                    <option value="1">已通過</option>
+                    <option value="2">未通過</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12 mobile_left">
+            <p class="display_inline">
+                <button class="btn blue search_icon">搜尋 <i class="fa fa-search"></i></button>
+            </p>
+        </div>
+    </div>
+    <!--set item end-->
+    <!--search item start-->
+    <div class="search_menu" style="display: none" id="searchForm">
+        <div class="portlet light form-fit bordered" id="searchForm">
+            <div class="portlet-body form">
+                <form class="form-horizontal form-bordered">
+                    <div class="form-body" id="searchForm">
+                        <div class="form-group bg-grey_1">
+                            <div class="col-md-2 search_item">模組名稱</div>
+                            <div class="col-md-10 bg-white">
+                                @Html.DropDownList("ModuleName", (IEnumerable<SelectListItem>)ViewData["ListGroup"], new { @class = "form-control_1" })
+                            </div>
+                        </div>
+                        <div class="form-group bg-grey_1">
+                            <div class="col-md-2 search_item">日期區間</div>
+                            <div class="col-md-10 bg-white">
+                                <div class="input-group input-large">
+                                    <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
+                                        <input type="text" id="PublicshDateFrom" name="PublicshDateFrom" class="form-control" readonly placeholder="開始日期" />
+                                    </div>
+                                    <span class="input-group-addon"> to </span>
+                                    <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
+                                        <input type="text" id="PublicshDateTo" name="PublicshDateTo" class="form-control" readonly placeholder="開始日期" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group bg-grey_1">
+                            <div class="col-md-2 search_item">新增/修改人員</div>
+                            <div class="col-md-4 bg-white">
+                                <input type="text" class="form-control" id="Empolyee" name="Empolyee" />
+                            </div>
+                            <div class="col-md-2 search_item">訊息標題</div>
+                            <div class="col-md-4 bg-white">
+                                <input type="text" class="form-control" id="Title" name="Title" />
+                            </div>
+                        </div>
+                        <div class="form-group bg-grey_1">
+                            <div class="col-md-2 search_item">更動狀態</div>
+                            <div class="col-md-4 bg-white">
+                                <select class="form_02" id='ChangeStatus'>
+                                    <option value="">全部</option>
+                                    <option value="1">新增</option>
+                                    <option value="2">修改</option>
+
+                                </select>
+                            </div>
+                            <div class="col-md-2 search_item">審核狀態</div>
+                            <div class="col-md-4 bg-white">
+                                <select class="form-control_1" id="VerifyStatus">
+                                    <option value="">全部</option>
+                                    <option value="0" selected>審核中</option>
+                                    <option value="1">已通過</option>
+                                    <option value="2">未通過</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="text-center search_padding">
+            <button type="button" class="btn blue" id="btn_search">搜尋 <i class="fa fa-search"></i></button>
+
+        </div>
+    </div>
+    <!--search item end-->
+    <!--table start-->
+    <div class="table-scrollable">
+        <table class="table table-bordered table-hover" border="0" cellspacing="0" cellpadding="0"
+               id="eventtable"
+               data-url="@Url.Action("PagingVerify")"
+               data-sort-name='ModelID'
+               data-page-size='10'
+               data-filed-id='ID'
+               data-max-pagination='10'>
+            <thead>
+                <tr>
+                    <th filed-name='UpdateTime' width="160px" class="text-center">新增/修改時間</th>
+                    <th filed-name='Name' class="text-center" width="100px">模組名稱</th>
+                    <th filed-name='TitleLink' class="text-center">訊息標題</th>
+                    <th filed-name='UpdateUser' class="text-center" width="80px">新增/修改人員</th>
+                    <th filed-name='UpdateStatus' class="text-center" width="50px">更動狀態</th>
+                    <th filed-name='Status' class="text-center" width="50px">審核狀態</th>
+                    <th filed-name='OptionHtml' class="text-center" width="180px">審核</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <!--table end-->
+    <!--頁碼 start-->
+    <div id="page_number" class="table-toolbar">
+        <div class="col-md-4 col-sm-12 col-xs-12 page_total" id="tableinfo"></div>
+        <div class="col-md-8 col-sm-12 col-xs-12 page_icon">
+            <div class="btn-group" id="pagination">
+            </div>
+        </div>
+    </div>
+    <!--頁碼 end-->
+</div>
+@*<input type="hidden" id="totalcnt" value="@ViewBag.Totalcnt" />*@
+<!--message end-->
+@section scripts {
+    <script src="@Url.Content("~/Scripts/components-date-time-pickers.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
+    <script src="@Url.Content("~/Scripts/datatable.js")"></script>
+    <script src="@Url.Content("~/Scripts/custom.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootbox.min.js")"></script>
+    <script>
+        $(document).ready(function () {
+            mytable = $("#eventtable").myDataTable().TableList[0];
+            mytable.settingTdData = myDataTableTr;
+            mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
+                var totalclick = mytable.keepcheckid.length;
+                $("#" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + "~" + (offsetcnt + nowpagecnt - 1));
+            };
+            var SearchModelBase = mytable.SearchModelBase;
+            SearchModelBase.Key = "0";
+            mytable.GetData(1);
+
+            $("#sel_status").change(function () {
+                SearchModelBase.Key = $("#sel_status").val();
+                mytable.GetData(1);
+            });
+            $('#btn_search').click(function () {
+                SearchModelBase.Key = $("#VerifyStatus").val();
+                SearchModelBase.ChangeStatus = $("#ChangeStatus").val();
+                SearchModelBase.Title = $("#Title").val();
+                SearchModelBase.Empolyee = $("#Empolyee").val();
+                SearchModelBase.PublicshDateFrom = $("#PublicshDateFrom").val();
+                SearchModelBase.PublicshDateTo = $("#PublicshDateTo").val();
+                SearchModelBase.ModuleName = $("#ModuleName").val();
+                mytable.GetData(1);
+            })
+
+            RegisterClickAndData("#eventtable", ".verifyok", '@Url.Action("SetVerifyOK")', {},mytable);
+            RegisterClickAndData("#eventtable", ".verifyrefuse", '@Url.Action("SetVerifyRefuse")', {}, mytable);
+            $("#eventtable").delegate(".verifyview", "click", function () {
+                var modid = $(this).attr('modid');
+                var itemid = $(this).attr('itemid');
+                var mainid = $(this).attr('mainid');
+                @foreach(var m in ListMenu)
+                {
+                    <text>
+                    if (modid == '@m.M_Menu01') {
+                        CreatePost('@Url.Action(m.M_Menu05, m.M_Menu04)', { 'id': mainid,'mainid': mainid, 'itemid': itemid, 'isview': 'Y' });
+                    }
+                    </text>
+                }
+            });
+        });
+
+    </script>
+}

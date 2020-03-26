@@ -1,0 +1,26 @@
+﻿@model MessageViewModel
+@{
+    bool isPrint = (bool)ViewBag.print;
+
+    if (isPrint)
+    {
+        Layout = "~/Views/Shared/_Print.cshtml";
+    }
+}
+<div class="title_bar">
+    <h1>@ViewBag.modelName</h1>
+</div>
+<ul class="his_list owl-carousel owl-theme">
+    @foreach (var m in Model.ListMessageItem.OrderBy(t => t.Sort))
+    {
+        <li>
+            <div class="pic imgLiquidFill"><img src="@Url.Content("~/UploadImage/HistoryItem/"+m.RelateImageFileName)" alt=""> </div>
+            <div class="txt">
+                <h4>@m.Title</h4>
+                <p>@Html.Raw(HttpUtility.HtmlDecode(m.HtmlContent))</p>
+            </div>
+        </li>
+    }
+
+</ul>
+

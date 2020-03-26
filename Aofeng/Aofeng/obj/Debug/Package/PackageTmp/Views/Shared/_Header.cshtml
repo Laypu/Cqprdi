@@ -1,0 +1,128 @@
+﻿@using Oaww.Entity;
+@using Oaww.HtmlHelp;
+@{
+    Layout = null;
+
+    List<Menu> TopMenu = (List<Menu>)ViewBag.TopMenu;
+
+    List<Menu> UpMenu = (List<Menu>)ViewBag.UpMenu;
+
+    List<ADMain> AdRight = (List<ADMain>)ViewBag.AdRight;
+
+    SEO SEO = (SEO)ViewBag.SEO;
+
+    SiteLayout siteLayout = CommonRazorFunctions.GetSiteLayout();
+}
+<div id="header">
+    <div class="bg"></div>
+    <div class="inner-width">
+        <div class="logo">
+            <a href="@Url.Action("Index","Home")"><img src="~/Content/img/logo.png" alt="" /></a>
+        </div>
+        <div class="top_menu">
+            <div class="inner-width">
+                <div class="mobile-show search_bar">
+                    <input tabindex="0" type="text" title="@("全站搜尋".GetLang())" placeholder="@("全站搜尋".GetLang())"><a href="#"><i class="fa fa-search" aria-hidden="true"></i><span>@("全站搜尋".GetLang())</span></a>
+                </div>
+                <ul>
+                    @foreach (Menu Menu1st in TopMenu.Where(t => t.MenuLevel == 1).OrderBy(t => t.Sort))
+                    {
+
+
+                        if (TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
+                        {
+                            <li class="submenuhead">
+                                @Html.aira_HyperLink_Menu(Menu1st, null)
+
+                                <ul class="submenu">
+                                    @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
+                                    {
+                                        if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                        {
+                                            <li class="submenuhead2">
+
+                                                @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                                {
+                                                    @Html.aira_Top_HyperLink_Menu(Menu2nd, null)
+                                                    <ul class="submenu2">
+                                                        @foreach (Menu Menu3rd in TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
+                                                        {
+                                                            <li>
+                                                                @Html.aira_HyperLink_Menu(Menu3rd, null)
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                }
+                                                else
+                                                {
+                                                    @Html.aira_HyperLink_Menu(Menu2nd, null)
+                                                }
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>@Html.aira_HyperLink_Menu(Menu2nd, null)</li>
+                                        }
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                @Html.aira_HyperLink_Menu(Menu1st, null)
+                            </li>
+                        }
+
+                    }
+                    <li class="search_bar"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="nav_menu">
+            <ul>
+                @{
+                    List<Lang> ListLang = (List<Lang>)ViewBag.ListLang;
+                }
+                @if (ListLang.Count > 1)
+                {
+                    foreach (var m in ListLang.Where(t => t.ID.ToString() != Session["LangID"].ToString()))
+                    {
+                        <li class="desk-show"><a href="@Url.Action("ChangeLang","Home",new { lang=m.ID})" langid='@m.ID' title="@m.Disp_Name">@m.Disp_Name</a></li>
+                    }
+                }
+                @*@if (Session["LangID"].ToString() == "1")
+                    {
+                        <li class="desk-show"><a href="@Url.Action("ChangeLang","Home",new { lang=2})" langid='2' title="EN">EN</a></li>
+                    }
+                    else
+                    {
+                        <li class="desk-show"><a href="@Url.Action("ChangeLang","Home",new { lang=1})" langid='2' title="中文">中文</a></li>
+
+                    }*@
+
+                @foreach (var menu in UpMenu.OrderBy(t => t.Sort))
+                {
+                    <li>@Html.aira_Icon_HyperLink_Menu(menu, menu.Icon, new { @class = "icon" })</li>
+                }
+            </ul>
+        </div>
+        <div class="top_menu_mask"></div>
+    </div>
+
+    <div class="menu_btn">
+        <div class="m1"></div>
+        <div class="m2"></div>
+        <div class="m3"></div>
+    </div>
+
+    <div class="search_box">
+        <div class="inner-width">
+            <form method="post" action="@Url.Action("Search","Search")">
+                <input type="text" name="key" title="@("全站搜尋".GetLang())" placeholder="@("請輸入欲搜尋關鍵字".GetLang())">
+                <button class="btn_send">@("送出".GetLang())</button>
+            </form>
+        </div>
+    </div>
+</div>

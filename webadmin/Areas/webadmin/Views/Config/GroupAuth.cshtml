@@ -1,0 +1,439 @@
+﻿@using Oaww.ViewModel;
+@using Oaww.Entity;
+@using Oaww.Utility;
+@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+}
+@model AdminFunctionModel
+@{
+    Model.AdminMenuFunctionInput = (from t in Model.AdminMenuFunctionInput
+                                    join m in Model.MenuList on t.ItemID equals m.ID
+
+                                    select new AdminFunctionAuth
+                                    {
+                                        GroupID = t.GroupID,
+                                        LangID = t.LangID,
+                                        ItemID = t.ItemID,
+                                        Type = t.Type,
+                                        GID = t.GID,
+                                        FunGroup = t.FunGroup,
+                                        MenuType = m.MenuType.HasValue ? m.MenuType.Value : 1
+
+                                    }).ToList();
+}
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index", "Home")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">系統管理</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("GroupEdit", "Config")">後台權限管理</a>
+            <i class="fa fa-circle"></i>
+        </li>
+    </ul>
+</div>
+
+<div class="title_01">@(Model.GroupID.IsNullOrEmpty() ? "新增" : "修改")群組管理</div>
+<form class="form-horizontal form-bordered" method="Post" id="editform" action='@Url.Action("GroupAuthSave")' enctype="multipart/form-data">
+    <div class="portlet light bordered">
+
+        <div class="portlet light form-fit bordered">
+            <div class="portlet-body form">
+                <div class="form-horizontal form-bordered">
+                    <input type="hidden" name="IsInsert" id="IsInsert" value="@(Model.GroupID.IsNullOrEmpty() ?"1":"2")" />
+                    <div class="form-body">
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 search_item"><span class="red">*</span>群組代碼</div>
+                            <div class="col-md-10 col-sm-12 bg-white mobile_white">
+                                <input type="text" class="form-control input-medium checkitem" value="@Model.GroupID" id="groupid" @(Model.GroupID.IsNullOrEmpty() ? "" : "readonly")>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 search_item"><span class="red">*</span>群組名稱</div>
+                            <div class="col-md-10 col-sm-12 bg-white mobile_white">
+                                <input type="text" class="form-control input-medium checkitem" value="@Model.GroupName" id="groupname">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 search_item">管理選項</div>
+                            <div class="col-md-10 col-sm-12 bg-white mobile_white">
+                                @{
+                                    int AuthCount = 0;
+                                    foreach (var m in Model.AdminFunctionList)
+                                    {
+                                        AuthCount += m.Value.Count;
+                                    }
+                                }
+                                <!--系統功能(上方選單) start-->
+                                <div class="competence_title">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        管理選項
+                                        <input type="checkbox" class="checkboxes checkallitem" @(AuthCount == Model.AdminFixFunctionInput.Count ? "checked" : "") id="fix_all" />
+                                        <span></span>
+                                    </label>
+                                </div>
+
+                                <div class="table-scrollable fix_all">
+                                    <table class="table table-bordered competence_table" id="tbl_system" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                            @if (Model.AdminFunctionList.ContainsKey(1))
+                                            {
+                                                <tr>
+                                                    <td class="class_01">
+                                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                            內容總管
+                                                            <input type="checkbox" class="checkboxes xd-check1 checkall" onchange="_xp.onClickCustomMiddle(this,this.checked,'tbl_system','fix_all')"
+                                                                   @(Model.AdminFunctionList[1].Count == Model.AdminFixFunctionInput.Where(t => t.GID == 1).Count() ? "checked" : "") />
+                                                            <span></span>
+                                                        </label>
+                                                    </td>
+                                                    <td class="class_02">
+                                                        @{
+                                                            var groupdata = Model.AdminFunctionList[1];
+                                                            var ischeck = "";
+                                                            foreach (var g in groupdata)
+                                                            {
+                                                                ischeck = Model.AdminFixFunctionInput.Any(x => x.ItemID == g.ID) ? "checked=checked" : "";
+                                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                    @g.ItemName<input type="checkbox" class="checkboxes xd-check2 checkitem"
+                                                                                      onclick="_xp.onClickCustomLast(this,'tbl_system','fix_all')"
+                                                                                      id='fix_@g.ID' @ischeck /><span></span>
+                                                                </label>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+
+                                            }
+                                            @if (Model.AdminFunctionList.ContainsKey(2))
+                                            {
+                                                <tr>
+                                                    <td class="class_01">
+                                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                            系統管理
+                                                            <input type="checkbox" class="checkboxes xd-check1 checkall" onchange="_xp.onClickCustomMiddle(this,this.checked,'tbl_system','fix_all')"
+                                                                   @(Model.AdminFunctionList[2].Count == Model.AdminFixFunctionInput.Where(t => t.GID == 2).Count() ? "checked" : "") />
+                                                            <span></span>
+                                                        </label>
+                                                    </td>
+                                                    <td class="class_02">
+                                                        @{
+
+                                                           var groupdata = Model.AdminFunctionList[2];
+                                                             var ischeck = "";
+                                                            foreach (var g in groupdata)
+                                                            {
+                                                                ischeck = Model.AdminFixFunctionInput.Any(x => x.ItemID == g.ID) ? "checked=checked" : "";
+                                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                    @g.ItemName<input type="checkbox" class="checkboxes xd-check2 checkitem"
+                                                                                      onclick="_xp.onClickCustomLast(this,'tbl_system','fix_all')"
+                                                                                      id='fix_@g.ID' @ischeck /><span></span>
+                                                                </label>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                            @if (Model.AdminFunctionList.ContainsKey(3))
+                                            {
+                                                <tr>
+                                                    <td class="class_01">
+                                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                            網站選單
+                                                            <input type="checkbox" class="checkboxes xd-check1 checkall" onchange="_xp.onClickCustomMiddle(this,this.checked,'tbl_system','fix_all')"
+                                                                   @(Model.AdminFunctionList[3].Count == Model.AdminFixFunctionInput.Where(t => t.GID == 3).Count() ? "checked" : "") />
+                                                            <span></span>
+                                                        </label>
+                                                    </td>
+                                                    <td class="class_02">
+                                                        @{
+                                                           var groupdata = Model.AdminFunctionList[3];
+                                                             var ischeck = "";
+                                                            foreach (var g in groupdata)
+                                                            {
+                                                                ischeck = Model.AdminFixFunctionInput.Any(x => x.ItemID == g.ID) ? "checked=checked" : "";
+                                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                    @g.ItemName<input type="checkbox" class="checkboxes xd-check2 checkitem"
+                                                                                      onclick="_xp.onClickCustomLast(this,'tbl_system','fix_all')"
+                                                                                      id='fix_@g.ID' @ischeck /><span></span>
+                                                                </label>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+
+                                            }
+                                            @if (Model.AdminFunctionList.ContainsKey(4))
+                                            {
+                                                <tr>
+                                                    <td class="class_01">
+                                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                            版面設定
+                                                            <input type="checkbox" class="checkboxes xd-check1 checkall" onchange="_xp.onClickCustomMiddle(this,this.checked,'tbl_system','fix_all')"
+                                                                   @(Model.AdminFunctionList[4].Count == Model.AdminFixFunctionInput.Where(t => t.GID == 4).Count() ? "checked" : "") />
+                                                            <span></span>
+                                                        </label>
+                                                    </td>
+                                                    <td class="class_02">
+                                                        @{
+                                                           var groupdata = Model.AdminFunctionList[4];
+                                                             var ischeck = "";
+                                                            foreach (var g in groupdata)
+                                                            {
+                                                                ischeck = Model.AdminFixFunctionInput.Any(x => x.ItemID == g.ID) ? "checked=checked" : "";
+                                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                    @g.ItemName<input type="checkbox" class="checkboxes xd-check2 checkitem"
+                                                                                      onclick="_xp.onClickCustomLast(this,'tbl_system','fix_all')"
+                                                                                      id='fix_@g.ID' @ischeck /><span></span>
+                                                                </label>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                            @if (Model.AdminFunctionList.ContainsKey(5))
+                                            {
+                                                <tr>
+                                                    <td class="class_01">
+                                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                            模組元件
+                                                            <input type="checkbox" class="checkboxes xd-check1 checkall" onchange="_xp.onClickCustomMiddle(this,this.checked,'tbl_system','fix_all')"
+                                                                   @(Model.AdminFunctionList[5].Count == Model.AdminFixFunctionInput.Where(t => t.GID == 5).Count() ? "checked" : "") />
+                                                            <span></span>
+                                                        </label>
+                                                    </td>
+                                                    <td class="class_02">
+                                                        @{
+                                                           var groupdata = Model.AdminFunctionList[5];
+                                                             var ischeck = "";
+                                                            foreach (var g in groupdata)
+                                                            {
+                                                                ischeck = Model.AdminFixFunctionInput.Any(x => x.ItemID == g.ID) ? "checked=checked" : "";
+                                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                    @g.ItemName<input type="checkbox" class="checkboxes xd-check2 checkitem"
+                                                                                      onclick="_xp.onClickCustomLast(this,'tbl_system','fix_all')"
+                                                                                      id='fix_@g.ID' @ischeck /><span></span>
+                                                                </label>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--系統功能(上方選單) end-->
+                                <!--主要選單 start-->
+                                @{
+                                    for (var mtidx = 1; mtidx <= 3; mtidx++)
+                                    {
+                                        <div class="competence_title">
+                                            @if (mtidx == 1)
+                                            {<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                    主要選單
+                                                    <input type="checkbox" class="checkboxes checkallitem"
+                                                           @(Model.MenuList.Where(t => t.MenuType == 1).Count() == Model.AdminMenuFunctionInput.Where(t => t.MenuType == 1).Count() ? "checked" : "")
+                                                           id="menu_1" />
+                                                    <span></span>
+                                                </label> }
+                                            else if (mtidx == 2)
+                                            { <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                    上方選單
+                                                    <input type="checkbox" class="checkboxes checkallitem"
+                                                           @(Model.MenuList.Where(t => t.MenuType == 2).Count() == Model.AdminMenuFunctionInput.Where(t => t.MenuType == 2).Count() ? "checked" : "")
+                                                           id="menu_2" />
+                                                    <span></span>
+                                                </label> }
+                                            else if (mtidx == 3)
+                                            { <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" id="menu_3">
+                                                    下方選單
+                                                    <input type="checkbox" class="checkboxes checkallitem"
+                                                           @(Model.MenuList.Where(t => t.MenuType == 3).Count() == Model.AdminMenuFunctionInput.Where(t => t.MenuType == 3).Count() ? "checked" : "")
+                                                           id="menu_3" />
+                                                    <span></span>
+                                                </label>}
+                                        </div>
+                                        <div class="table-scrollable menu_@mtidx">
+                                            <table class="table table-bordered competence_table" id="tbl_menu_@mtidx" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tbody>
+                                                    @{
+                                                        var l1arr = Model.MenuList.Where(v => v.MenuLevel == 1 && v.MenuType == mtidx);
+                                                        foreach (var l1 in l1arr)
+                                                        {
+                                                            var l2arr = Model.MenuList.Where(v => v.ParentID == l1.ID).ToArray();
+                                                            var l1rowcount = 0;
+                                                            var arrl2stratidx = new List<int>();
+                                                            var l3useidx = 0;
+                                                            foreach (var l2 in l2arr)
+                                                            {
+                                                                var l3cnt = Model.MenuList.Where(v => v.ParentID == l2.ID).Count();
+                                                                arrl2stratidx.Add(l1rowcount);
+                                                                l1rowcount += Math.Max(1, l3cnt);
+                                                            }
+                                                            //先產生第一組tr
+                                                            l1rowcount = l1rowcount == 0 ? 1 : l1rowcount;
+                                                            IList<Menu> _l3menu = null;
+                                                            for (var idx = 0; idx < l1rowcount; idx++)
+                                                            {
+                                                                <tr>
+                                                                    @if (idx == 0)
+                                                                    {
+                                                                      var  ischeck = @Model.AdminMenuFunctionInput.Any(x => x.ItemID == l1.ID) ? "checked=checked" : "";
+                                                                        <td class='class_03' rowspan='@l1rowcount'>
+                                                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                                @(string.IsNullOrEmpty(l1.DisplayName) ? l1.MenuName : l1.DisplayName)
+                                                                                <input type="checkbox" class="checkboxes checkitem"
+                                                                                       onclick="_xp.onClickMenuMiddle(this,'tbl_menu_@mtidx','menu_@mtidx','menu_@mtidx')"
+                                                                                       id="menu_@l1.ID" @ischeck /><span></span>
+                                                                            </label>
+                                                                        </td>
+                                                                        if (l2arr.Count() == 0)
+                                                                        {
+                                                                            <td class='class_03'>&nbsp;</td>
+                                                                            <td class='class_03'>&nbsp;</td>
+                                                                        }
+                                                                    }
+                                                                    @if (arrl2stratidx.Contains(idx))
+                                                                    {
+                                                                        var l2arridx = arrl2stratidx.IndexOf(idx);
+                                                                        if (l2arridx >= l2arr.Count())
+                                                                        {
+                                                                            <td class='class_03'>&nbsp;</td>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            _l3menu = Model.MenuList.Where(v => v.ParentID == @l2arr[l2arridx].ID).ToArray();
+                                                                            l3useidx = 0;
+                                                                         var   ischeck = @Model.AdminMenuFunctionInput.Any(x => x.ItemID == l2arr[l2arridx].ID) ? "checked=checked" : "";
+                                                                            <td class='class_03' rowspan='@(_l3menu.Count()==0?1:_l3menu.Count())'>
+                                                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                                    @(string.IsNullOrEmpty(l2arr[l2arridx].DisplayName) ? l2arr[l2arridx].MenuName : l2arr[l2arridx].DisplayName)
+                                                                                    <input type="checkbox" class="checkboxes checkitem" data-parent="menu_@l2arr[l2arridx].ParentID"
+                                                                                           onclick="_xp.onClickMenuMiddle(this,'tbl_menu_@mtidx','menu_@mtidx','menu_@l2arr[l2arridx].ParentID')"
+                                                                                           id="menu_@l2arr[l2arridx].ID" @ischeck />
+                                                                                    <span></span>
+                                                                                </label>
+
+                                                                            </td>
+                                                                            if (_l3menu.Count() == 0)
+                                                                            {
+                                                                                <td class='class_03'>&nbsp;</td>
+                                                                            }
+                                                                        }
+                                                                    }
+
+                                                                    @if (_l3menu != null && l3useidx < _l3menu.Count())
+                                                                    {
+
+                                                                      var  ischeck = Model.AdminMenuFunctionInput.Any(x => x.ItemID == _l3menu[l3useidx].ID) ? "checked=checked" : "";
+
+                                                                        <td class='class_03'>
+                                                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                                @(string.IsNullOrEmpty(_l3menu[l3useidx].DisplayName) ? _l3menu[l3useidx].MenuName : _l3menu[l3useidx].DisplayName)
+                                                                                <input type="checkbox" class="checkboxes checkitem"
+                                                                                       onclick="_xp.onClickMenuLast(this,'tbl_menu_@mtidx','menu_@mtidx','menu_@_l3menu[l3useidx].ParentID','menu_@l1.ID')"
+                                                                                       data-parent="menu_@_l3menu[l3useidx].ParentID"
+                                                                                       id="menu_@_l3menu[l3useidx].ID" @ischeck />
+                                                                                <span></span>
+                                                                            </label>
+
+                                                                        </td>
+                                                                        l3useidx += 1;
+                                                                    }
+                                                                </tr>
+                                                            }
+                                                        }
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="text-center search_padding">
+            <button type="submit" class="btn blue">@(Model.GroupID.IsNullOrEmpty() ? "新增" : "修改")</button>
+            <button type="button" class="btn blue" id="btn_return">回上一層</button>
+        </div>
+    </div>
+</form>
+<!--message end-->
+<!--content end-->
+@section scripts {
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/_xp.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#btn_return").click(function () {
+                location.href="@Url.Action("GroupEdit")"
+            });
+
+
+            $("#editform").delegate((".checkall"), "click", function () {
+                var thischk = this.checked;
+                var allcheck = $(this).parents('tr').find('.checkitem').prop('checked', thischk);
+            });
+            $("#editform").delegate((".checkallitem"), "click", function () {
+                var thischk = this.checked;
+                var id = this.id;
+                var allcheck = $(this).parents('.form-group').find('.' + id).find(':checkbox').prop('checked', thischk);
+            });
+            $('#editform').submit(function (event) {
+                if ($('#groupname').val() == "") {
+                    alert("群組名稱必須輸入");
+                    return false;
+                }
+                if ($('#groupid').val() == "") {
+                    alert("群組代碼必須輸入");
+                    return false;
+                }
+                var formData = new FormData();
+                var array = $('#editform').serializeArray();
+                var checkitem = $('#editform .checkitem');
+                formData.append("groupname", $('#groupname').val());
+                formData.append("langid", $("#sel_lang").val());
+                formData.append("IsInsert", $("#IsInsert").val());
+                formData.append("groupid", $('#groupid').val());
+                $.each(checkitem, function () {
+                    formData.append("inputdata[" + this.id+"]", this.checked);
+                });
+
+                $.ajax({
+                    url: this.action,
+                    data: formData,
+                    type: 'POST',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    headers: {
+                        RequestVerificationToken: '@CommonRazorFunctions.GetAntiForgery()'
+                    },
+                    success: function (data) {
+                        alert("儲存成功");
+                         location.href="@Url.Action("GroupEdit")"
+                    }, error: function () {
+                        // handle error
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}

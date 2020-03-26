@@ -1,0 +1,232 @@
+﻿@using Oaww.Entity;
+@using Oaww.ViewModel;
+@using Oaww.Utility;
+@using CaptchaMvc.HtmlHelpers;
+@model ForwardViewModel
+@{
+    Layout = null;
+    #region SEO
+    SEO SEO = (SEO)ViewBag.SEO;
+
+    string KeyWord = string.Empty;
+
+    for (int i = 1; i <= 10; i++)
+    {
+        string value = SEO.GetType().GetProperty("Keywords" + i.ToString()).GetValue(SEO, null).ToString();
+        if (!value.IsNullOrEmpty())
+        {
+            KeyWord = KeyWord + "," + value;
+        }
+    }
+
+    KeyWord = KeyWord.TrimStart(',');
+
+    #endregion
+
+    #region GA
+    SiteFlow siteFlow = (SiteFlow)ViewBag.SiteFlow;
+
+
+    #endregion
+
+    SiteLayout siteLayout = CommonRazorFunctions.GetSiteLayout();
+
+}
+
+
+<!doctype html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="all" />
+    <title>@SEO.Title</title>
+    <meta name="title" content="@SEO.Title" />
+    @if (!SEO.Description.IsNullOrEmpty())
+    {
+        <meta name="description" content="@SEO.Description" />
+    }
+    @if (!KeyWord.IsNullOrEmpty())
+    {
+        <meta name="keywords" content="@KeyWord" />
+    }
+    <meta name="copyright" content="© 2020 @SEO.Title" />
+    <link rel="shortcut icon" type="image/png" href="~/Content/img/favicon.png">
+
+    <!-- OG -->
+    <meta property="fb:app_id" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="澳豐科技股份有限公司">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+
+    <!-- MOBILE METAS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- CSS -->
+    <link href="~/Scripts/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Scripts/owlcarousel/assets/owl.theme.default.css" rel="stylesheet" />
+    <link href="~/Content/front/main.css" rel="stylesheet" />
+</head>
+
+<body class="inx">
+
+    <div class="loadbar"></div>
+
+    <div id="wrapper">
+
+        <!--header-->
+        @Html.Partial("~/Views/Shared/_Header.cshtml")
+
+        <!--content-->
+
+        <div id="content" class="page">
+            <div class="page_banner peload">
+                <div class="pic imgLiquidFill"><img src="~/Content/images/banner_p1.jpg" alt=""></div>
+            </div>
+            <!--path-->
+            <div id="path">
+                <div class="inner-width">
+                    @Html.Partial("~/Views/Shared/_Link.cshtml")
+
+                </div>
+            </div>
+            <div class="inner_box page">
+                <div class="txt-width">
+                    <div class="title_bar page">
+                        <h1>
+                            <span>@("mail分享".GetLang())</span>
+                            @Model.Name
+                        </h1>
+                    </div>
+                    <div class="forms">
+                        <form method="post" id="editForm" action="@Url.Action("Forward_OK")">
+                            @Html.HiddenFor(m => m.Name)
+                            @Html.HiddenFor(m => m.Url)
+
+                            <div class="form-item">
+                                <label><span class="is-req">* </span>@("寄件者".GetLang())</label>
+                                <input type="text" class="checkitem" name="sender" id="sender" value="@Model.sender">
+                                <span class="required" id="sender-Error" style="display:none">@("請輸入寄件者".GetLang())！</span>
+                            </div>
+                            <div class="form-item">
+                                <label><span class="is-req">* </span>@("寄件者Email".GetLang())</label>
+                                <input type="text" class="checkitem" name="sender_mail" id="sender_mail" value="@Model.sender_mail">
+                                <span class="required" id="sender_mail-Error" style="display:none">@("請輸入寄件者Email".GetLang())！</span>
+                                @if (Model.btn == "sender_mail_E")
+                                {
+                                    <span class="required">@("寄件者Email格式錯誤".GetLang())！</span>
+                                }
+                            </div>
+
+                            <div class="form-item">
+                                <label><span class="is-req">* </span>@("朋友Email".GetLang())</label>
+                                <input type="text" class="checkitem" name="receive_email" id="receive_email" value="@Model.receive_email">
+                                <i>@("多組 Email 間請以 ; 分隔".GetLang())</i>
+                                <span class="required" id="receive_email-Error" style="display:none">@("請輸入朋友Email".GetLang())！</span>
+                                @if (Model.btn == "receive_email_E")
+                                {
+                                    <span class="required">@("朋友Email格式錯誤".GetLang())！</span>
+                                }
+                            </div>
+
+                            <div class="form-item">
+                                <label>@("給朋友的訊息".GetLang())</label>
+                                <textarea rows="6" style="height: 150px;" id="message" name="message">@Model.message</textarea>
+                            </div>
+                            <div class="form-item">
+                                <label for="CaptchaInputText">@("驗證碼".GetLang())</label>
+
+                                @{
+                                    ViewData["submitBtn"] = Model.btn;
+                                }
+                                @Html.Captcha(4, "Captcha", ViewData, new CaptchaMvc.Models.ParameterModel("btn", Model.btn))
+
+
+                            </div>
+                            <div class="form-item is-buttons">
+                                <button class="btn_send" type="submit" id="btn_send">@("送出".GetLang())</button>
+                                <button class="btn_clear" id="btn_clear" onclick="Cancel(event)">@("取消".GetLang())</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+
+        @Html.Partial("~/Views/Shared/_Footer.cshtml")
+
+    </div>
+
+    <!--BASE-->
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/libs/jquery.easing.min.js"></script>
+    <script src="~/Scripts/libs/imgLiquid-min.js"></script>
+    <script src="~/Scripts/libs/iscroll-probe.min.js"></script>
+
+    <!--scrollmagic-->
+    <script src="~/Scripts/libs/highlight.pack.js"></script>
+    <script src="~/Scripts/libs/modernizr.custom.min.js"></script>
+    <script src="~/Scripts/libs/greensock/TweenMax.min.js"></script>
+    <script src="~/Scripts/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <script src="~/Scripts/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+    <script src="~/Scripts/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+    <script src="~/Scripts/libs/iscroll-probe.min.js"></script>
+
+    <!--PhotoSwipe-->
+    <link rel="stylesheet" href="~/Scripts/PhotoSwipe/photoswipe.css">
+    <link rel="stylesheet" href="~/Scripts/PhotoSwipe/default-skin.css">
+    <script src="~/Scripts/PhotoSwipe/photoswipe.min.js"></script>
+    <script src="~/Scripts/PhotoSwipe/photoswipe-ui-default.min.js"></script>
+    @Html.Action("Pswp_box", "Empty")
+
+    <!-- owl.carousel -->
+    <script src="~/Scripts/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- custom -->
+    <script src="~/Scripts/effect.js"></script>
+    <!-- 針對 IE10 版本以前使用者顯示 Chrome 安裝提示 -->
+    <!--[if lte IE 9 ]>
+    <script>
+        $body.attr({style:"overflow: hidden !important; background-attachment: fixed !important;"});
+    </script>
+    <div class="ie">
+        <p><img src="images/old.png" alt=""/></p>
+        <h3>您瀏覽器版本太舊了</h3>
+        <h5>Windows 使用者請更新IE到最新版本</h5>
+        <p>推薦使用 <a href="http://www.google.com/intl/zh-TW/chrome/" target="_blank">google chrome 瀏覽器</a></p>
+    </div>
+    <![endif]-->
+</body>
+</html>
+
+<script type="text/javascript">
+    $().ready(function () {
+        $('#btn_send').submit(function () {
+            $(".required").hide();
+
+            var inputval = $("#form-body2 :input").filter(function () { return $(this).val() == "" && $(this).hasClass('checkitem'); });
+            for (var idx = 0; idx < inputval.length; idx++) {
+                $("#" + inputval[idx].name + "-error").show();
+            }
+            if (inputval.length > 0) { return false; }
+
+            $('#editForm').submit();
+        })
+    })
+
+    function Cancel(event) {
+
+        event.preventDefault();
+
+        $('#sender').val('');
+        $('#sender_mail').val('');
+        $('#receive_email').val('');
+        $('#message').val('');
+    }
+</script>

@@ -1,0 +1,142 @@
+﻿@model Dictionary
+@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+}
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Message")">系統參數</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            清單
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">編輯</a>
+        </li>
+    </ul>
+
+</div>
+<!--page bar end-->
+<!--message start-->
+<div class="title_01">系統參數@(Model.IsInsert == "A" ? "新增" : "修改")</div>
+<div class="portlet light bordered">
+
+    <form class="form-horizontal form-bordered" method="Post" id="editform" action='@Url.Action("SaveItem")' enctype="multipart/form-data">
+        <!--<div class="search_padding">
+            <button type="button" class="btn blue" id="btn_seoshow">進階設定</button>
+        </div>-->
+        @Html.HiddenFor(Model => Model.Category)
+        @Html.HiddenFor(Model => Model.ID)
+        @Html.HiddenFor(Model => Model.IsInsert)
+        <div class="portlet light form-fit bordered">
+            <div class="portlet-body form">
+                <div class="form-horizontal form-bordered">
+                    <div class="form-body" id="form-body2">
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-xs-12 search_item">@Html.Require() 名稱</div>
+                            <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                <input id="Group_Name" type="text" name="Group_Name" class="form-control checkitem" maxlength="50" value="@Model.Group_Name" />
+                                <div class="red">限制輸入50字內</div>
+                                <span class="required" id="Group_Name-error" style="display:none;">標題 必須填寫！</span>
+                            </div>
+                        </div>
+                        @if (Model.Type == "TradeMark")
+                        {
+                            <div class="form-group">
+                                <div class="col-md-2 col-sm-12 col-xs-12 search_item">廠牌</div>
+                                <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                    @Html.DropDownListFor(m => m.ParentID, (List<SelectListItem>)ViewData["TradeMark"], new { @class = "form-control_1" })
+                                </div>
+                            </div>
+                        }
+                        else if (Model.Type == "Price")
+                        {
+                            <div class="form-group">
+                                <div class="col-md-2 col-sm-12 col-xs-12 search_item">原廠價錢</div>
+                                <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                    <input id="ExCode" type="text" name="ExCode" class="form-control checkitem" value="@Model.ExCode" />
+                                    <span class="required" id="Group_Name-error" style="display:none;">原廠價錢 必須填寫！</span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="text-center search_padding" id="div_buttons">
+
+            <button type="submit" class="btn blue" id="btn_submit">確認送出</button>
+
+            <button type="button" class="btn blue" id="btn_return">返回列表</button>
+
+        </div>
+    </form>
+
+</div>
+@section scripts {
+    <script src="@Url.Content("~/Scripts/components-date-time-pickers.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
+    <script src="@Url.Content("~/Scripts/custom.js")"></script>
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootbox.min.js")"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/_html.js"></script>
+    <script src="~/Scripts/Common.js"></script>
+    <script>
+        $(function () {
+
+            var iscon = true;
+            $("#btn_return").click(function () { CreatePost('@Url.Action("Index")', { Category: '@Model.Category'});});
+
+            $('#editform').submit(function (event) {
+
+               $(".required").hide();
+                 var inputval = $("#form-body2 :input").filter(function () { return $(this).val() == "" && $(this).hasClass('checkitem'); });
+                for (var idx = 0; idx < inputval.length; idx++) {
+                    $("#" + inputval[idx].name + "-error").show();
+                }
+                if (inputval.length > 0) { return false; }
+
+                 var formData = new FormData();
+               var array = $('#editform').serializeArray();
+               $.each(array, function () {
+                   formData.append(this.name, this.value);
+               });
+
+                formData.append('Type', '@Model.Type');
+
+                if (iscon == false) { return false;}
+                $.ajax({
+                    url: this.action,
+                    data: formData,
+                    type: 'POST',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+
+                        alert(data);
+                        if (data == "存檔成功") {
+                            CreatePost('@Url.Action("Index")', { Category: '@Model.Category'});
+                        }
+
+                    }, error: function () {
+                        // handle error
+                    }
+                });
+                return false;
+            });
+
+        });
+
+
+    </script>
+
+}

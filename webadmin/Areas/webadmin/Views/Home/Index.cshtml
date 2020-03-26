@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+}
+
+<!--page bar start-->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+    </ul>
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        if('@ViewData["Auth"]' =='N'){
+            alert('並無此Menu權限！');
+        }
+    </script>
+}

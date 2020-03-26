@@ -1,0 +1,115 @@
+﻿@model PageIndexSetting
+
+<!--page bar start-->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Model")">模組設定</a>
+            <i class="fa fa-circle"></i>
+        </li>
+    </ul>
+</div>
+<!--page bar end-->
+<!--message start-->
+<div class="title_01">全文檢索管理</div>
+<form class="form-horizontal form-bordered" method="Post" id="editform" action='@Url.Action("SaveIndexSetting")'>
+    @Html.HiddenFor(Model => Model.ID)
+    <div class="portlet light form-fit bordered" id="div_seo">
+        <div class="portlet-body form">
+            <div class="form-horizontal form-bordered">
+                <div class="form-body" id="form-body">
+                    <div class="form-group">
+                        <div class="col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item">檢索說明</div>
+                        <div class="col-md-10 col-sm-10 col-xs-12 bg-white mobile_white">
+                            <textarea cols="80" id="HtmlContent" rows="20">@HttpUtility.HtmlDecode(Model.HtmlContent)</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item">每頁顯示筆數</div>
+                        <div class="col-md-4 col-sm-4 col-xs-12 bg-white mobile_white">
+                            <select class="form_02" id="ShowCount" name="ShowCount">
+                                <option value="10">10</option>
+                                <option value="30">30</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6 hidden-xs bg-white">&nbsp;</div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="text-center search_padding">
+        <button type="submit" class="btn blue" id="btn_submit">確認送出</button>
+    </div>
+</form>
+@section scripts {
+    <script src="@Url.Content("~/Scripts/datatable.js")"></script>
+    <script src="@Url.Content("~/Scripts/custom.js")"></script>
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+    <script src="~/Scripts/_html.js"></script>
+    <script>
+        $(function () {
+            $("#ShowCount").val('@Model.ShowCount');
+
+             var ckedit = CKEDITOR.replace('HtmlContent', {
+                    height: 300,
+                    filebrowserImageUploadUrl: '@Url.Action("Upload")?command=QuickUpload&type=Images'
+                });
+
+                CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
+                CKEDITOR.config.shiftEnterMode = CKEDITOR.ENTER_P;
+                CKEDITOR.on('instanceReady', function (ev) {
+                    ev.editor.dataProcessor.writer.setRules('p',
+                        {
+                            indent: false,
+                            breakBeforeOpen: false,
+                            breakAfterOpen: false,
+                            breakBeforeClose: false,
+                            breakAfterClose: false
+                        });
+                });
+
+            $('#editform').submit(function (event) {
+
+                var formData = new FormData();
+                var array = $('#editform').serializeArray();
+                formData.append("HtmlContent", _html.encode(CKEDITOR.instances.HtmlContent.getData()));
+                $.each(array, function () {
+                    formData.append(this.name, this.value);
+                });
+
+                $.ajax({
+                    url: this.action,
+                    type: "Post",
+                    data: formData,
+                    headers: {
+                        RequestVerificationToken: '@CommonRazorFunctions.GetAntiForgery()'
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        alert(result);
+                        if (result == "設定成功") {
+                            location.reload();
+                        }
+
+                    }
+                });
+                return false;
+            })
+        });
+    </script>
+
+}
+

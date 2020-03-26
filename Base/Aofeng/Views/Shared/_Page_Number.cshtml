@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+
+    int nowPage = (int)ViewBag.NowPage;
+    int total = (int)ViewBag.Total;
+    int ShowCount = (int)ViewBag.ShowCount;
+
+    var pageCount = (int)Math.Ceiling((decimal)total / ShowCount);
+
+    int minPage = 1;
+    int maxPage = 5;
+
+    if(nowPage+2 > pageCount)
+    {
+        maxPage = pageCount;
+        minPage = pageCount - 4 > 0 ? pageCount - 4 : 1;
+    }
+    
+}
+    <div id="page_number" class="pager_bar">
+
+        <button type="submit" class="arr" name="nowpage" value="@(nowPage==1?1:nowPage-1)" title="上一頁"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+        @for (int i = minPage; i <= maxPage; i++)
+        {
+            <button type="submit" class="@(nowPage==i ?"cur":"")" name="nowpage" value="@(nowPage<pageCount?nowPage+1:nowPage)" title="@i-Page">@i</button>
+        }               
+        <button type="submit" class="arr" name="nowpage" value="@(nowPage<pageCount?nowPage+1:nowPage)" title="下一頁"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+
+        <p>總筆數：@ViewBag.Total，顯示<strong>@((nowPage - 1) * ShowCount + 1)~@(nowPage * ShowCount)</strong> </p>
+    </div>

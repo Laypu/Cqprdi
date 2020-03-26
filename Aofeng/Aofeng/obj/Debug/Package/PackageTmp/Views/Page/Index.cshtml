@@ -1,0 +1,49 @@
+﻿@model PageIndexItem
+@{
+    bool isPrint = (bool)ViewBag.print;
+
+    if (isPrint)
+    {
+        Layout = "~/Views/Shared/_Print.cshtml";
+    }
+}
+<div class="edit">
+    <div class="title_bar">
+        <h1>@Model.ItemName</h1>
+    </div>
+    @if (Model.ImageFileName.IsNullOrEmpty() == false)
+    {
+        if (Model.ImageFileLocation == "1")
+        {
+            <img src="@Url.Content("~/UploadImage/PageEdit/"+Model.ImageFileName)" class="img_padding" alt="" align="left">
+        }
+        else if (Model.ImageFileLocation == "2")
+        {
+            <p align="center"><img src="@Url.Content("~/UploadImage/PageEdit/"+Model.ImageFileName)" class="img_padding" alt=""></p>
+        }
+        else
+        {
+            <img src="@Url.Content("~/UploadImage/PageEdit/"+Model.ImageFileName)" class="img_padding" alt="" align="right">
+        }
+
+    }
+
+    <p>@Html.Raw(HttpUtility.HtmlDecode(Model.HtmlContent))</p>
+    <div class="clear"></div>
+</div>
+<hr>
+@if (Model.LinkUrl.IsNullOrEmpty() == false)
+{
+    <div class="links_bar">
+        <div class="title">@("相關連結".GetLang())</div>
+        <a href="@Model.LinkUrl">@Model.LinkUrlDesc</a>
+    </div>
+}
+@if (Model.UploadFilePath.IsNullOrEmpty() == false)
+{
+    <div class="downloads_bar">
+        <div class="title">@("檔案下載".GetLang())</div>
+        <a href="@Url.Action("FileDownLoad2")?modelid=@Model.ModelID&&itemid=@Model.ItemID">@Model.UploadFileName</a>
+    </div>
+}
+

@@ -1,0 +1,59 @@
+﻿@using Oaww.HtmlHelp;
+@using Oaww.Entity;
+@{
+    Layout = null;
+    List<Menu> TopMenu = (List<Menu>)ViewBag.TopMenu;
+    List<Menu> DownMenu = (List<Menu>)ViewBag.DownMenu;
+
+    SiteLayout siteLayout = CommonRazorFunctions.GetSiteLayout();
+}
+
+<div class="sitemenu_box">
+    <div class="inner-width">
+        <ul class="m1">
+            @foreach (Menu Menu1st in TopMenu.Where(t => t.MenuLevel == 1).OrderBy(t => t.Sort))
+            {
+                <li>
+                    @Html.aira_HyperLink_Menu(Menu1st, null)
+                    @if (TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
+                    {
+
+                    }
+                    <ul class="submenu">
+                        @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
+                        {
+                            <li>@Html.aira_HyperLink_Menu(Menu2nd, null)</li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="footer">
+    <div class="inner-width">
+        <a href="#;return%20false;" id="Accesskey_Z" accesskey="Z" title="頁尾網站資訊">:::</a>
+
+        <div class="foot_menu">
+            @foreach (var menu in DownMenu.OrderBy(t => t.Sort))
+            {
+                @Html.aira_HyperLink_Menu(menu, null)
+            }     
+        </div>
+        <div class="info">
+            @Html.Raw(HttpUtility.HtmlDecode(siteLayout.HtmlContent).safeHtmlFragment())
+           
+        </div>
+
+        <div class="media">
+            <a href="#" title="無障礙網站"><img src="~/Content/img/mark1.png" alt="通過A檢測等級無障礙網頁檢測"></a>
+            <a href="#" title="無障礙網站"><img src="~/Content/img/mark2.png" alt="通過A檢測等級無障礙網頁檢測"></a>
+            <p>最佳瀏覽解析度為 1200*768 以上<br> Copyright © 2019 財團法人賑災基金會 All Rights Reserved.</p>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+

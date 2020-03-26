@@ -1,0 +1,195 @@
+﻿@using Oaww.Entity;
+@using Oaww.Business;
+@using System.Dynamic;
+@using System.Collections.Generic;
+
+@{
+
+    Layout = null;
+
+    SET_BASE SET_BASE = (SET_BASE)ViewBag.SET_BASE;
+
+    var AuthList = (List<AdminFunctionAuth>)ViewBag.AuthList;
+    AuthList = AuthList.Where(t => t.Type == 0).ToList();
+    string[] Roles = (string[])ViewBag.Role;
+
+
+    List<AdminFunction> ListAdminFunction = (List<AdminFunction>)ViewBag.ListAdminFunction;
+
+    List<Lang> LisLang = (List<Lang>)ViewBag.Lang;
+
+    bool IsAdmin = Roles.Contains("administrators");
+
+    string[] ListTopMenu = { "內容總管", "系統管理", "網站選單", "版面設定", "模組元件" };
+
+    //remove 審核的menu
+    if (SET_BASE.M_Base02 == false)
+    {
+        if (ListAdminFunction.Where(t => t.Url == "Config/Verify").Count() > 0)
+        {
+            var verify = ListAdminFunction.Where(t => t.Url == "Config/Verify").First();
+
+            ListAdminFunction.Remove(verify);
+            if (AuthList.Any(t => t.ItemID == verify.ID))
+            {
+                AuthList = AuthList.Where(t => t.ItemID != verify.ID).ToList();
+            }
+        }
+    }
+
+    
+}
+
+<div class="page-header navbar navbar-fixed-top">
+    <div class="page-header-inner ">
+
+        <!--logo start-->
+        <div class="page-logo">
+            <a href="@Url.Action("Index", "Home")" class="logo-default">@SET_BASE.M_Base01-後台管理</a>
+            <div class="menu-toggler sidebar-toggler">
+                <span></span>
+            </div>
+        </div>
+        <!--logo end-->
+        <!--mobile menu start-->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            <span></span>
+        </a>
+        <!--mobile menu end-->
+        <!--top menu start-->
+        <div class="collapse navbar-collapse top-navbar">
+            <ul class="nav navbar-nav">
+
+                @{ int i = 1;}
+                @foreach (var top in ListTopMenu)
+                {
+                    string icon = string.Empty;
+
+                    if (i == 1)
+                    {
+                        icon = "icon-directions";
+                    }
+                    else if (i == 2)
+                    {
+                        icon = "icon-settings";
+                    }
+                    else if (i == 3)
+                    {
+                        icon = "icon-layers";
+                    }
+                    else if (i == 4)
+                    {
+                        icon = "icon-puzzle";
+                    }
+                    else
+                    {
+                        icon = "icon-social-dropbox";
+                    }
+
+
+                    if (IsAdmin || (AuthList != null && AuthList.Any(v => v.GID == i)))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="@ListTopMenu[i-1]">
+                                <i class="@icon"></i> <span class="top_menu_title">@ListTopMenu[i - 1]</span> <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @if (IsAdmin)
+                                {
+                                    foreach (var m in ListAdminFunction.Where(t => t.GroupID == i).OrderBy(t => t.ID))
+                                    {
+                                        if (m.Parameter.IsNullOrEmpty() == false && m.Parameter.Contains("="))
+                                        {
+                                            var values = new RouteValueDictionary();
+                                            values[m.Parameter.Split('=')[0]] = m.Parameter.Split('=')[1];
+                                            <li><a href="@Url.Action(m.Action,m.Controller,values)">@m.ItemName</a></li>
+
+                                        }
+                                        else
+                                        {
+
+                                            <li><a href="@Url.Action(m.Action,m.Controller)">@m.ItemName</a></li>
+                                        }
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    foreach (var m in AuthList.Where(t => t.GID == i))
+                                    {
+                                        AdminFunction adminFunction = ListAdminFunction.Where(t => t.ID == m.ItemID).FirstOrDefault();
+
+                                        if (adminFunction.Parameter.IsNullOrEmpty() == false && adminFunction.Parameter.Contains("="))
+                                        {
+                                            var values = new RouteValueDictionary();
+                                            values[adminFunction.Parameter.Split('=')[0]] = adminFunction.Parameter.Split('=')[1];
+
+                                            <li><a href="@Url.Action(adminFunction.Action,adminFunction.Controller,values)">@adminFunction.ItemName</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a href="@Url.Action(adminFunction.Action,adminFunction.Controller)">@adminFunction.ItemName</a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </li>
+                    }
+                    i++;
+                }
+            </ul>
+            @if (LisLang.Count > 1 && (Session["menutype"].ToString()=="1" || Session["menutype"].ToString()=="2" &&  Session["menutype"].ToString()=="3"))
+            {
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="語系切換"><i class="fa fa-language"></i> <span class="top_menu_title">語系切換</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @foreach (Lang m in LisLang)
+                            {
+                                <li><a href='#' langid='@m.ID' class='langchange'>@m.Disp_Name</a></li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+            }
+            <div class="top-menu hidden-sm hidden-xs">
+                <ul class="nav navbar-nav pull-right">
+                    @if ((Session["menutype"].ToString() == "1" || Session["menutype"].ToString() == "2" && Session["menutype"].ToString() == "3"))
+                    {
+                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                            <a href="@Url.Action("Index","Home",new {@area="" })" target="_blank" title="瀏覽前台">
+                                <i class="fa fa-television"></i>
+                                <span class="title">瀏覽前台</span>
+                            </a>
+                        </li>
+                    }
+
+                    <li class="dropdown dropdown-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                            <i class="icon-user"></i> @CommonRazorFunctions.UserName()
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="@Url.Action("Logout", "Auth")" title="登出">
+                                    <i class="fa fa-sign-out"></i> 登出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!--top menu end-->
+
+    </div>
+</div>
+
+@functions{
+    public static void AddProperty(string name, string value)
+    {
+
+    }
+}

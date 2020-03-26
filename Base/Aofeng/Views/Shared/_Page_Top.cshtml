@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+
+    UnitSetting unitSetting = (UnitSetting)ViewBag.UnitSetting;
+}
+
+@if (unitSetting.IsForward)
+{
+    <a href="@Url.Action("Forward","Common",new {@Url = HttpUtility.UrlEncode(ViewBag.Url),@Name=ViewBag.modelName })" title="轉寄好友"><img src="~/Content/img/icon_mail.png" alt="轉寄好友"></a>
+}
+@if (unitSetting.IsPrint)
+{
+    <a href="@ViewBag.PrintUrl" target="_blank" title="友善列印(另開新視窗)"><img src="~/Content/img/icon_print.png" alt="友善列印(另開新視窗)"></a>
+}
+@if (unitSetting.IsShare)
+{
+    <a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));" title="分享至 Facebook[另開新視窗]" target="_self"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+    <a href="javascript: void(window.open('http://twitter.com/home/?status='.concat(encodeURIComponent(document.title)).concat(' ').concat(encodeURIComponent(location.href))));" title="分享至 twitter[另開新視窗]" target="_self"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="javascript: void(window.open('http://line.naver.jp/R/msg/text/?'.concat(encodeURIComponent(location.href)) ));" title="分享至 line[另開新視窗]" target="_self">LINE</a>
+    @*<a href="@("http://www.facebook.com/share.php?u="+HttpUtility.UrlEncode(Request.Url.AbsoluteUri))" target="_blank" title="facebook分享(另開新視窗)"><img src="~/Content/img/icon_facebook.png" alt="facebook分享(另開新視窗)"></a>
+    <a href="@("http://twitter.com/intent/tweet?url="+HttpUtility.UrlEncode(Request.Url.AbsoluteUri))" target="_blank" title="twitter分享(另開新視窗)"><img src="~/Content/img/icon_twitter.png" alt="twitter分享(另開新視窗)"></a>
+    <a href="@("http://www.plurk.com/?qualifier=shares&status="+HttpUtility.UrlEncode(Request.Url.AbsoluteUri))" target="_blank" title="plurk分享(另開新視窗)"><img src="~/Content/img/icon_plurk.png" alt="plurk分享(另開新視窗)"></a>*@
+}

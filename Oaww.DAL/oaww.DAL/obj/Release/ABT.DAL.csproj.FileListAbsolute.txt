@@ -1,0 +1,9 @@
+C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\bin\Release\ABT.DAL.dll
+C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\bin\Release\ABT.DAL.pdb
+C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\bin\Release\Dapper.dll
+C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\bin\Release\Dapper.xml
+C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\bin\Release\Dapper.Contrib.xml
+C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\obj\Release\ABT.DAL.csprojAssemblyReference.cache
+C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\obj\Release\ABT.DAL.csproj.CopyComplete
+C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\obj\Release\ABT.DAL.dll
+C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\obj\Release\ABT.DAL.pdb

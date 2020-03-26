@@ -1,0 +1,194 @@
+﻿@using Oaww.Entity;
+@using Oaww.ViewModel;
+@using Oaww.Utility;
+@using CaptchaMvc.HtmlHelpers;
+@model ForwardViewModel
+@{
+    Layout = null;
+    #region SEO
+    SEO SEO = (SEO)ViewBag.SEO;
+
+    string KeyWord = string.Empty;
+
+    for (int i = 1; i <= 10; i++)
+    {
+        string value = SEO.GetType().GetProperty("Keywords" + i.ToString()).GetValue(SEO, null).ToString();
+        if (!value.IsNullOrEmpty())
+        {
+            KeyWord = KeyWord + "," + value;
+        }
+    }
+
+    KeyWord = KeyWord.TrimStart(',');
+
+    #endregion
+
+    #region GA
+    SiteFlow siteFlow = (SiteFlow)ViewBag.SiteFlow;
+
+
+    #endregion
+
+    SiteLayout siteLayout = CommonRazorFunctions.GetSiteLayout();
+
+}
+
+
+<!doctype html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="all" />
+    <title>@SEO.Title</title>
+    <meta name="title" content="@SEO.Title" />
+    @if (!SEO.Description.IsNullOrEmpty())
+    {
+        <meta name="description" content="@SEO.Description" />
+    }
+    @if (!KeyWord.IsNullOrEmpty())
+    {
+        <meta name="keywords" content="@KeyWord" />
+    }
+    <meta name="copyright" content="© 2020 @SEO.Title" />
+    <link rel="shortcut icon" type="image/png" href="~/favicon.ico">
+    <meta property="fb:app_id" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="中華穀類食品工業技術研究所">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/theme.css">
+    <link rel="stylesheet" href="~/css/theme-elements.css">
+    <link rel="stylesheet" href="~/css/settings.css" media="screen">
+
+    <!--fontawesome start-->
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/css/brands.min.css">
+    <link rel="stylesheet" href="~/css/solid.min.css">
+    <link rel="stylesheet" href="~/css/regular.min.css">
+    <!--fontawesome end-->
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="~/css/style.css">
+    <noscript>
+        <link rel="stylesheet" href="~/css/noscript.css">
+    </noscript>
+
+</head>
+
+<body style="max-width:806px; margin:0 auto; background: url(@Url.Content("~/Content/img/bg_05.jpg"));">
+    <div class="con_box">
+        <div class="con_banner"><img src="@Url.Content("~/Content/img/print_banner.jpg")" alt="" /></div><!--建議尺寸740*185px-->
+        <div class="title">
+            <h2>
+                <span>@("mail分享".GetLang())</span>
+                @Model.Name
+            </h2>
+        </div>
+        <div class="con_float">
+            <form method="post" id="editForm" action="@Url.Action("Forward_OK")">
+                <div class="form_con">
+                    <div class="table form_box">
+                        @Html.HiddenFor(m => m.Name)
+                        @Html.HiddenFor(m => m.Url)
+
+                        <div class="table-row">
+                            <div class="form_q"><label for="sender"><span class="red">* </span>@("寄件者".GetLang())</label></div><!--英文版Sender--> <!--標題label for值需與對應input id值相同-->
+                            <div class="form_a">
+                                <input type="text" class="form-control checkitem" name="sender" id="sender" value="@Model.sender">
+                                @if (Model.btn == "sender")
+                                {
+                                    <span class="required" id="sender-Error" >@("請輸入寄件者".GetLang())！</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="form_q"><label for="sender_mail"><span class="red">*</span> @("寄件者Email".GetLang())</label></div><!--英文版Sender's Email-->
+                            <div class="form_a">
+                                <input type="text" class="form-control checkitem" name="sender_mail" id="sender_mail" value="@Model.sender_mail">
+                                @if (Model.btn == "sender_mail")
+                                {
+                            <span class="required" id="sender_mail-Error">@("請輸入寄件者Email".GetLang())！</span>
+                                }
+                                @if (Model.btn == "sender_mail_E")
+                                {
+                                    <span class="required">@("寄件者Email格式錯誤".GetLang())！</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="form_q"><label for="receive_email"><span class="red">*</span> @("朋友Email".GetLang())</label></div><!--英文版Receive Email-->
+                            <div class="form_a">
+                                <input type="text" class="form-control checkitem" name="receive_email" id="receive_email" value="@Model.receive_email">
+                                <div class="red">@("多組 Email 間請以 ; 分隔".GetLang())</div><!--英文版Multiple sets of mail please;-->
+                                @if (Model.btn == "receive_email")
+                                {
+                                    <span class="required" id="receive_email-Error">@("請輸入朋友Email".GetLang())！</span>
+                                }
+                                @if (Model.btn == "receive_email_E")
+                                {
+                                    <span class="required">@("朋友Email格式錯誤".GetLang())！</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="form_q"><label for="message">@("給朋友的訊息".GetLang())</label></div><!--英文版Give friends a message-->
+                            <div class="form_a">
+                                <textarea id="message" rows="5" class="form-control" type="text">@Model.message</textarea>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="form_q"><label for="verification_code"><span class="red">*</span> @("驗證碼".GetLang())</label></div><!--英文verification code-->
+                            <div class="form_a">
+                                @{
+                                    ViewData["submitBtn"] = Model.btn;
+                                }
+                                @Html.Captcha(4, "Captcha", ViewData, new CaptchaMvc.Models.ParameterModel("btn", Model.btn))
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit_btn">
+                    <label for="btn_send">
+                        <button class="btn_01" title="送出" type="submit" id="btn_send">@("送出".GetLang())</button>
+                    </label>
+                    <label for="btn_clear">
+                        <button i class="btn_01" title="取消" id="btn_clear" onclick="Cancel(event)">@("取消".GetLang())</button>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="con_footer">網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容、網站資訊內容</div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $().ready(function () {
+        $('#btn_send').submit(function () {
+            $(".required").hide();
+            var inputval = $("input[type='text']").filter(function () { return $(this).val() == "" && $(this).hasClass('checkitem'); });
+            for (var idx = 0; idx < inputval.length; idx++) {
+                $("#" + inputval[idx].name + "-error").show();
+            }
+            if (inputval.length > 0) { return false; }
+
+            $('#editForm').submit();
+        })
+    })
+
+    function Cancel(event) {
+
+        event.preventDefault();
+
+        $('#sender').val('');
+        $('#sender_mail').val('');
+        $('#receive_email').val('');
+        $('#message').val('');
+        $(".required").hide();
+    }
+</script>

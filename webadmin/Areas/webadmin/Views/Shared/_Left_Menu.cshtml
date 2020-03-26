@@ -1,0 +1,217 @@
+﻿@using Oaww.Entity;
+@using Oaww.Business;
+@{
+    Layout = null;
+
+     ExclusiveLayoutService _exclusiveLayoutService = new ExclusiveLayoutService();
+
+    List<Menu> menus = (List<Menu>)ViewBag.MenuList;
+
+    string menuType = Session["menutype"] == null ? "1" : Session["menutype"].ToString();
+
+    string MenuName = string.Empty;
+    if (menuType == "1")
+    {
+        MenuName = "主要選單";
+    }
+    else if(menuType == "2")
+    {
+        MenuName = "上方選單";
+    }
+    else if(menuType == "3")
+    {
+        MenuName = "下方選單";
+    }
+    else
+    {
+        MenuName= _exclusiveLayoutService.GetLayoutName(int.Parse(menuType) - 3);
+    }
+}
+
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" id="menulist">
+
+            <li class="nav-item start active open">
+                <a href="#" class="nav-link nav-toggle">
+                    <i class="icon-star"></i>
+                    <span class="title">
+                        @MenuName
+                    </span>
+                </a>
+            </li>
+            @{
+                List<Menu> Menu1Temp = menus.Where(t => t.MenuLevel == 1).ToList();
+                List<Menu> Menu2Temp = new List<Menu>();
+                List<Menu> Menu3Temp = new List<Menu>();
+            }
+
+            @foreach (Menu Menu1st in Menu1Temp.OrderBy(t => t.Sort))
+            {
+                <li class="nav-item letter">
+
+                    <a href="#" class="nav-link nav-toggle">
+                        <i class="fa fa-dot-circle-o"></i>
+                        @if (CommonRazorFunctions.CheckIsAdmin() == false && Menu1st.LinkMode == 3)
+                        {
+                            <span class="title">@Menu1st.MenuName</span>
+                        }
+                        else
+                        {
+                            <span class="title" index="@Menu1st.ID">@Menu1st.MenuName</span>
+                        }
+
+
+                        @if (menus.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
+                        {
+                            <span class="arrow"></span>
+                        }
+                    </a>
+
+                    @if (menus.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
+                    {
+                        <ul class="sub-menu">
+
+                            @{
+                                Menu2Temp = menus.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).ToList();
+                            }
+
+                            @foreach (Menu Menu2nd in Menu2Temp.OrderBy(t => t.Sort))
+                            {
+
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link nav-toggle">
+                                        @if (CommonRazorFunctions.CheckIsAdmin() == false
+                                            && menus.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0
+                                            && Menu2nd.LinkMode == 3
+                                            )
+                                        {
+                                            <span class="title">@Menu2nd.MenuName</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="title" index="@Menu2nd.ID">@Menu2nd.MenuName</span>
+                                        }
+
+                                        @if (menus.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                        {
+                                            <span class="arrow"></span>
+                                        }
+                                    </a>
+                                    @if (menus.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                    {
+                                        <ul class="sub-menu">
+                                            @{
+                                                Menu3Temp = menus.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).ToList();
+                                            }
+                                            @foreach (Menu Menu3rd in Menu3Temp.OrderBy(t => t.Sort))
+                                            {
+
+
+                                                <li class="nav-item">
+                                                    <a href="#" class="nav-link ">
+                                                        <span class="title" index="@Menu3rd.ID">@Menu3rd.MenuName</span>
+                                                    </a>
+                                                </li>
+
+                                            }
+                                            @{
+                                                Menu3Temp.ForEach(t =>
+                                                {
+                                                    menus.Remove(t);
+                                                });
+                                            }
+                                        </ul>
+                                    }
+                                </li>
+
+                            }
+                            @{
+                                Menu2Temp.ForEach(t =>
+                                {
+                                    menus.Remove(t);
+                                });
+                            }
+                        </ul>
+                    }
+                </li>
+
+
+
+            }
+            @{
+                Menu1Temp.ForEach(t =>
+                {
+                    menus.Remove(t);
+                });
+            }
+
+            @{
+                Menu2Temp = menus.Where(t => t.MenuLevel == 2).ToList();
+            }
+
+            @foreach (Menu Menu2nd in Menu2Temp)
+            {
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+
+                        <span class="title" index="@Menu2nd.ID">@Menu2nd.MenuName</span>
+                        @if (menus.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                        {
+                            <span class="arrow"></span>
+                        }
+                    </a>
+                    @if (menus.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                    {
+                        <ul class="sub-menu">
+
+                            @{
+                                Menu3Temp = menus.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).ToList();
+                            }
+
+                            @foreach (Menu Menu3rd in Menu3Temp)
+                            {
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link ">
+                                        <span class="title" index="@Menu3rd.ID">@Menu3rd.MenuName</span>
+                                    </a>
+                                </li>
+
+                            }
+
+                            @{
+                                Menu3Temp.ForEach(t =>
+                                {
+                                    menus.Remove(t);
+                                });
+                            }
+                        </ul>
+                    }
+                </li>
+
+            }
+
+            @{
+                Menu2Temp.ForEach(t =>
+                {
+                    menus.Remove(t);
+                });
+            }
+
+            @foreach (Menu Menu3rd in menus.Where(t => t.MenuLevel == 3))
+            {
+
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <span class="title" index="@Menu3rd.ID">@Menu3rd.MenuName</span>
+                    </a>
+                </li>
+
+            }
+        </ul>
+    </div>
+</div>
