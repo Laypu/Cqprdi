@@ -43,3 +43,17 @@ C:\Users\203\Downloads\澳豐\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusi
 C:\Users\203\Downloads\澳豐\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csproj.CopyComplete
 C:\Users\203\Downloads\澳豐\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.dll
 C:\Users\203\Downloads\澳豐\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.pdb
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.BaseBusiness.dll
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.BaseBusiness.pdb
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Microsoft.SqlServer.Smo.dll
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\NLog.dll
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.DAL.dll
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.DAL.pdb
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Dapper.xml
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Dapper.Contrib.xml
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\NLog.xml
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csprojAssemblyReference.cache
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csproj.CopyComplete
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.dll
+D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.pdb

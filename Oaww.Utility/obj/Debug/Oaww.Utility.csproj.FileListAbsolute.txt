@@ -40,3 +40,13 @@ C:\Users\203\Downloads\澳豐\Oaww.Utility\obj\Debug\Oaww.Utility.csprojAssembly
 C:\Users\203\Downloads\澳豐\Oaww.Utility\obj\Debug\Oaww.Utility.csproj.CopyComplete
 C:\Users\203\Downloads\澳豐\Oaww.Utility\obj\Debug\Oaww.Utility.dll
 C:\Users\203\Downloads\澳豐\Oaww.Utility\obj\Debug\Oaww.Utility.pdb
+D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Utility.dll
+D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Utility.pdb
+D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Entity.dll
+D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Dapper.Contrib.dll
+D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Dapper.dll
+D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Entity.pdb
+D:\穀物\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.csprojAssemblyReference.cache
+D:\穀物\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.csproj.CopyComplete
+D:\穀物\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.dll
+D:\穀物\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.pdb

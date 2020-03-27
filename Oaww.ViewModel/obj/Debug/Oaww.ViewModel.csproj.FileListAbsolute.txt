@@ -50,3 +50,11 @@ C:\Users\203\Desktop\穀物\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.csprojAssemb
 C:\Users\203\Desktop\穀物\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.csproj.CopyComplete
 C:\Users\203\Desktop\穀物\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.dll
 C:\Users\203\Desktop\穀物\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.pdb
+D:\穀物\Cqprdi\Oaww.ViewModel\bin\Debug\Oaww.ViewModel.dll
+D:\穀物\Cqprdi\Oaww.ViewModel\bin\Debug\Oaww.ViewModel.pdb
+D:\穀物\Cqprdi\Oaww.ViewModel\bin\Debug\Oaww.Entity.dll
+D:\穀物\Cqprdi\Oaww.ViewModel\bin\Debug\Oaww.Entity.pdb
+D:\穀物\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.csprojAssemblyReference.cache
+D:\穀物\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.csproj.CopyComplete
+D:\穀物\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.dll
+D:\穀物\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.pdb

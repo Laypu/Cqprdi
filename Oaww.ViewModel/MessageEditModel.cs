@@ -17,6 +17,7 @@ namespace Oaww.ViewModel
             PublicshStr = DateTime.Now.ToString("yyyy/MM/dd");
             Title = "";
             messageImages = new List<MessageImage>();
+            messageDateRange = new List<ActiveDateRange>();
         }
         public int ModelID { get; set; }
         public string ModelName { get; set; }
@@ -81,7 +82,7 @@ namespace Oaww.ViewModel
         public string ComnonHtml2 { get; set; }
         public List<MessageFile> fileDownloadFiles { get; set; }
         public  List<MessageImage> messageImages { get; set; }
-
+        public List<ActiveDateRange> messageDateRange { get; set; }
         public SET_MESSAGE SET_MESSAGE { get; set; }
         public SET_BASE SET_BASE { get; set; }
     }

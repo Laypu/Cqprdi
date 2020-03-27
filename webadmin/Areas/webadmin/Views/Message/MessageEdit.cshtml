@@ -330,7 +330,7 @@
                                 <!--table end-->
                             </div>
                         </div>
-                        @*<div class="form-group bg-grey_1">
+                        <div class="form-group bg-grey_1 @(Model.SET_MESSAGE.M_MESSAGE19 ==false ?"hide":"")">
                             <div class="col-md-2 col-sm-12 search_item">活動區間</div>
                             <div class="col-md-10 col-sm-12 bg-white mobile_white language_set">
                                 <div class="display_inline margin_bottom">
@@ -345,34 +345,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="tr_active">
-                                            <td class="text-center">
-                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                    <input type="checkbox" class="checkboxes active">
-                                                    <span></span>
-                                                </label>
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
-                                                    <div class="input-group input-large" style="float:left">
-                                                        <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
-                                                            <input class="form-control text-box single-line" id="StDateStr1" name="StDateStr1" placeholder="開始日期" readonly="readonly" type="text" value="">
-                                                        </div>
-                                                        <span class="input-group-addon">to</span>
-                                                        <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
-                                                            <input class="form-control text-box single-line" id="EdDateStr1" name="EdDateStr1" placeholder="結束日期" readonly="readonly" type="text" value="">
+                                        @foreach (var MessActDate in Model.messageDateRange)
+                                        {
+                                            <tr class="tr_active">
+                                                <td class="text-center">
+                                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                        <input type="checkbox" class="checkboxes active">
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                                        <div class="input-group input-large" style="float:left">
+                                                            <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
+                                                                <input class="form-control text-box single-line sdate" id="StDate" placeholder="開始日期" readonly="readonly" type="text" value="@MessActDate.StartDate">
+                                                            </div>
+                                                            <span class="input-group-addon">to</span>
+                                                            <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
+                                                                <input class="form-control text-box single-line edate" id="EdDate"  placeholder="結束日期" readonly="readonly" type="text" value="@MessActDate.EndDate">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="" style="float:left; padding-left:5px;">
-                                                        <button type="button" class="btn blue" id="btn_clear">清空</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                                </td>
+                                            </tr>
+                                        }
+                                        </tbody>
                                 </table>
                             </div>
-                        </div>*@
+                        </div>
                         @if (Model.SET_MESSAGE.M_MESSAGE18.IsNullOrEmpty() == false)
                         {
                             @Html.Partial(Model.SET_MESSAGE.M_MESSAGE18, Model)
@@ -510,46 +510,55 @@
                         breakAfterClose: false
                     });
             });
- 
-//            $("#btn_active_add").click(function (evt) {
-//                evt.preventDefault();
-//                var html = '<tr class="tr_active">';
-//                html += '<td class="text-center">'
-//                 html += '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">'
-//                 html += '<input type="checkbox" class="checkboxes active">'
-//                   html += '<span></span>'
-//                   html += '</label>'
-//                      html += '</td>'
-//                    html += '<td class="text-center">'
-//                    html += ' <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">'
-//                    html += '<div class="input-group input-large" style="float:left">'
-//                html += '<div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">'   
-//                     html += `<input class="form-control text-box single-line" id="StDateStr" name="StDateStr" placeholder="開始日期" readonly="readonly" type="text" value="">`                                
-//                        html += ' </div>'
-//                        html += '<span class="input-group-addon">to</span>'
-//                        html += '<div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">'
-//                        html += `<input class="form-control text-box single-line" id="EdDateStr" name="EdDateStr" placeholder="結束日期" readonly="readonly" type="text" value="">`         
-//                          html += '</div>'
-//                         html += '</div>'
-//                          html += '<div class="" style="float:left; padding-left:5px;">'
-//                         html += ' <button type="button" class="btn blue" id="btn_clear">清空</button>'
-//                            html += ' </div>'
-//                               html += '</div>'
-//                             html += '</td>'
-//                html += '</tr>';
-//                var row = $('#tbl_active>tbody tr');
-////                $(row).find("input").removeClass("hasDatepicker").removeAttr("id").datepicker({
-////       format: "yyyy/mm/dd",
-////        autoclose: true,
-////        language: 'zh-TW'
-////})
-//                  if (row.length == 0) {
-//                    row.append(html);
-//                }
-//                else {
-//                    row.after(html);
-//                }
-//            })
+             var itemlen = $('.tr_active').length;
+            $("#btn_active_add").click(function (evt) {
+                evt.preventDefault();
+                var html = '<tr class="tr_active">';
+                html += '<td class="text-center">'
+                 html += '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">'
+                 html += '<input type="checkbox" class="checkboxes active">'
+                   html += '<span></span>'
+                   html += '</label>'
+                      html += '</td>'
+                    html += '<td class="text-center">'
+                    html += ' <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">'
+                    html += '<div class="input-group input-large" style="float:left">'
+                html += '<div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">'   
+                     html += `<input class="form-control text-box single-line sdate" id="StDate"  placeholder="開始日期" readonly="readonly" type="text" value="">`                                
+                        html += ' </div>'
+                        html += '<span class="input-group-addon">to</span>'
+                        html += '<div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">'
+                        html += `<input class="form-control text-box single-line edate" id="EdDate"  placeholder="結束日期" readonly="readonly" type="text" value="">`         
+                          html += '</div>'
+                         html += '</div>'
+                               html += '</div>'
+                             html += '</td>'
+                html += '</tr>';
+                  if ($('#tbl_active>tbody tr').length == 0) {
+                    $('#tbl_active>tbody').append(html);
+                }
+                else {
+                    $('#tbl_active>tbody tr:last').after(html);
+                }
+                bindDatePick()
+                itemlen++
+            })
+             $('#btn_active_del').click(function () {
+                $('.active:checked').parents('tr').remove();
+             })
+    //重新綁定DatePicker
+    function bindDatePick() {
+                  $('.sdate').datepicker({
+        format: "yyyy/mm/dd",
+        autoclose: true,
+        language: 'zh-TW'
+        });
+    $('.edate').datepicker({
+        format: "yyyy/mm/dd",
+        autoclose: true,
+        language: 'zh-TW'
+    });
+            }
             $('#btn_file_add').click(function (evt) {
 
                 evt.preventDefault();
@@ -783,7 +792,18 @@
 
                    i++;
             })
-
+                var d = 0;
+                $('.tr_active').each(function () {
+                    var stdate = $(this).find('#StDate').val();
+                    var eddate = $(this).find('#EdDate').val();
+                    if (DateBetweenVaild('StDate','EdDate') == false) {
+                    alert('顯示日期_開始日期必須小於結束日期！');
+                    return false;
+                   }
+                    formData.append("messageDateRange[" + d + "].StartDate", stdate);
+                    formData.append("messageDateRange[" + d + "].EndDate", eddate);
+                    d++;
+                })
             var i = 0;
             $('.tr_image').each(function () {
                    var uploadfile = $(this).find('#uploadfile').get(0).files;

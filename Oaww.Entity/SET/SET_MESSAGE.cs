@@ -62,5 +62,9 @@ namespace Oaww.Entity.SET
         public bool M_MESSAGE16 { get; set; }
         public bool M_MESSAGE17 { get; set; }
         public string M_MESSAGE18 { get; set; }
+        /// <summary>
+        /// 活動區間
+        /// </summary>
+        public bool M_MESSAGE19 { get; set; }
     }
 }

@@ -14,40 +14,50 @@ namespace Aofeng.Controllers
 {
     public class ActiveController : BaseController
     {
-        PageService _service = new PageService(11);
         CommonService _commonService = new CommonService();
+        MessageService _service = new MessageService(11);
         // GET: Active
-        public ActionResult Index(string itemid, string mid, bool isPrint = false)
+        public ActionResult Index(string itemid, string mid, int nowpage = 1, int jumpPage = 0, int? group = -1, string classType = "large")
         {
-            ViewBag.print = isPrint;
 
-            if (itemid.IsNullOrEmpty() || mid.IsNullOrEmpty()) { return RedirectToAction("Index", "Home"); }
-
-            PageIndexItem PageIndexItem = _service.GetVaildPageIndexItemByItemID(itemid, this.LanguageID);
-
-            if (PageIndexItem == null || PageIndexItem.HtmlContent == null)
+            if (string.IsNullOrEmpty(itemid))
             {
                 return RedirectToAction("Index", "Home");
             }
 
-            PageIndexItem.HtmlContent = HttpUtility.HtmlDecode(PageIndexItem.HtmlContent);
+            MessageViewModel model = new MessageViewModel() { mid = mid, itemid = itemid, group = group, classType = classType };
+            if (group == -1)
+            {
+                group = null;
+            }
+            model.ListGroupMessage = _service.GetVaildGroupMessages(itemid);
+            model.ListGroupMessage.Insert(0, new GroupMessage() { ID = -1, Group_Name = "全部" });
+            MessageUnitSetting messageUnitSetting = (MessageUnitSetting)ViewBag.UnitSetting;
+            int ShowCount = messageUnitSetting.ShowCount.HasValue ? messageUnitSetting.ShowCount.Value : 10; //沒有預設10
+            ViewBag.UnitSetting = new MessageUnitSetting();
 
-            ViewBag.PageImage = _commonService.GetGeneralList<PageImage>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", itemid } }).ToList();
+            Menu menu = _commonService.GetMenuByMid(mid);
 
-            ViewBag.BoxClass = "inner_box";
+            #region Grid
 
-            //FB Image
-            UrlHelper helper = new UrlHelper(Request.RequestContext);
-            var urlBuilder = new System.UriBuilder(Request.Url.AbsoluteUri) { Path = helper.Content("~/UploadImage/Active/" + PageIndexItem.ImageFileName), Query = null, };
-            ViewBag.ImageUrl = PageIndexItem.ImageFileName.IsNullOrEmpty() ? "" : urlBuilder.ToString();
-            ViewBag.FBContent = PageIndexItem.HtmlContent.StripHTML().Replace("\n", "").Replace("\t", "");
+            var paging = _service.GetPaging(itemid, group, "", nowpage, ShowCount);
 
-            return View(PageIndexItem);
+            model.ListMessageItem = paging.rows;
+
+            //Grid一定要有
+            ViewBag.Total = paging.total;
+            ViewBag.ShowCount = ShowCount;
+            ViewBag.NowPage = nowpage;
+            #endregion
+
+            ViewBag.BoxClass = "news_box";
+
+            return View(model);
         }
 
         public ActionResult FileDownLoad2(string modelid, string itemid)
         {
-            var model = _service.GetModelByID(modelid, itemid);
+            var model = _service.GetMessageItemByID(itemid);
             string filepath = model.UploadFilePath;
             string oldfilename = model.UploadFileName;
             var uploadfilepath = ConfigurationManager.AppSettings["UploadFile"];

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActiveDateRange.cs" />
     <Compile Include="ADKanban.cs" />
     <Compile Include="ADMain.cs" />
     <Compile Include="AdminFunction.cs" />

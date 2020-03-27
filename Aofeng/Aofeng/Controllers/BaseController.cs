@@ -199,20 +199,14 @@ namespace Aofeng.Controllers
 
                 UrlHelper urlHelper = new UrlHelper(filterContext.RequestContext);
                 //取得UnitSetting
-                if (menu.ModelID.HasValue && (menu.ModelID.Value == 1 || menu.ModelID.Value == 11))
+                if (menu.ModelID.HasValue && (menu.ModelID.Value == 1))
                 {
                     unitSetting = _commonService.GetUnitSetting("PageUnitSetting", menu.ModelItemID.ToString());
                     if(menu.ModelID == 1)
                     {
                         ViewBag.PrintUrl = urlHelper.Action("Index", "Page", new { @itemid = menu.ModelItemID, @mid = menu.ID, @print= true });
                         ViewBag.ForwardUrl = urlHelper.Action("Index", "Page", new { @itemid = menu.ModelItemID, @mid = menu.ID });
-                    }
-                    else if (menu.ModelID == 11)
-                    {
-                        ViewBag.PrintUrl = urlHelper.Action("Index", "Active", new { @itemid = menu.ModelItemID, @mid = menu.ID, @print = true });
-                        ViewBag.ForwardUrl = urlHelper.Action("Index", "Active", new { @itemid = menu.ModelItemID, @mid = menu.ID });
-                    }
-                   
+                    }   
                 }
                 else if (menu.ModelID.HasValue && _menuService.ChkModelInMessage(menu.ModelID.Value.ToString()))
                 {
@@ -239,6 +233,11 @@ namespace Aofeng.Controllers
                     {
                         ViewBag.PrintUrl = urlHelper.Action("MessageView", "History", new { @itemid = ItemID, @mid = menu.ID, @isPrint = true });
                         ViewBag.ForwardUrl = urlHelper.Action("Index", "History", new { @itemid = menu.ModelItemID, @mid = menu.ID });
+                    }
+                    else if (menu.ModelID == 11)
+                    {
+                        ViewBag.PrintUrl = urlHelper.Action("MessageView", "Active", new { @itemid = menu.ModelItemID, @mid = menu.ID, @print = true });
+                        ViewBag.ForwardUrl = urlHelper.Action("Index", "Active", new { @itemid = menu.ModelItemID, @mid = menu.ID });
                     }
                 }
                 else if (menu.ModelID.HasValue && menu.ModelID.Value == 3)
