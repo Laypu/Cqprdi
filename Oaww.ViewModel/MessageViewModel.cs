@@ -36,6 +36,7 @@ namespace Oaww.ViewModel
 
         public List<MessageFile> ListMessageFile { get; set; }
         public List<MessageImage> ListMessageImage { get; set; }
+        public List<ActiveDateRange> ListActiveDateRange { get; set; }
 
     }
 }

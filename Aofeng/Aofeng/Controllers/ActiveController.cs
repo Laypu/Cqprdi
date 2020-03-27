@@ -32,6 +32,7 @@ namespace Aofeng.Controllers
             }
             model.ListGroupMessage = _service.GetVaildGroupMessages(itemid);
             model.ListGroupMessage.Insert(0, new GroupMessage() { ID = -1, Group_Name = "全部" });
+            model.ListActiveDateRange = _service.GetActiveDateRangeALL(itemid);
             MessageUnitSetting messageUnitSetting = (MessageUnitSetting)ViewBag.UnitSetting;
             int ShowCount = messageUnitSetting.ShowCount.HasValue ? messageUnitSetting.ShowCount.Value : 10; //沒有預設10
             ViewBag.UnitSetting = new MessageUnitSetting();
@@ -51,6 +52,32 @@ namespace Aofeng.Controllers
             #endregion
 
             ViewBag.BoxClass = "news_box";
+
+            return View(model);
+        }
+        public ActionResult MessageView(string itemid, string mid, string GroupName, bool isPrint = false)
+        {
+            ViewBag.print = isPrint;
+
+            MessageViewModel model = new MessageViewModel() { mid = mid };
+
+            model.MessageItem = _service.GetMessageItemByID(itemid);
+
+            model.GroupName = _service.GetGroupName(model.MessageItem.GroupID.Value);
+
+            model.ListMessageFile = _service.GetFileDownloadFiles(itemid);
+            model.ListMessageImage = _service.GetFileDownloadImages(itemid);
+            ViewBag.PublishDate = model.MessageItem.PublicshDate.Value.ToString("yyyy/MM/dd");
+            ViewBag.BoxClass = "inner_box";
+
+
+            ViewBag.modelName = model.MessageItem.Title;
+            model.ListActiveDateRange = _service.GetActiveDateRange(itemid);
+            //FB Image
+            UrlHelper helper = new UrlHelper(Request.RequestContext);
+            var urlBuilder = new System.UriBuilder(Request.Url.AbsoluteUri) { Path = helper.Content("~/UploadImage/MessageItem/" + model.MessageItem.RelateImageFileName), Query = null, };
+            ViewBag.ImageUrl = model.MessageItem.RelateImageFileName.IsNullOrEmpty() ? "" : urlBuilder.ToString();
+            ViewBag.FBContent = model.MessageItem.HtmlContent.StripHTML().Replace("\n", "").Replace("\t", "");
 
             return View(model);
         }

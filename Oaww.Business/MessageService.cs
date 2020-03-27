@@ -960,9 +960,23 @@ namespace Oaww.Business
             return _commonService.GetGeneralList<MessageImage>("ItemID=@ItemID "
                                                                     , new Dictionary<string, string>() { { "ItemID", ItemID }
                                                                                                         }).ToList();
-
         }
+        public List<ActiveDateRange> GetActiveDateRangeALL(string ItemID)
+        {
+            //新增
+            return _commonService.GetGeneralList<ActiveDateRange>("ModelID=@ModelID "
+                                                          , new Dictionary<string, string>() { { "ModelID", ItemID } }).ToList();
+        }
+
+        public List<ActiveDateRange> GetActiveDateRange(string ItemID)
+        {
+            //新增
+            return _commonService.GetGeneralList<ActiveDateRange>("ItemID=@ItemID "
+                                                                    , new Dictionary<string, string>() { { "ItemID", ItemID } }).ToList();
+        }
+
         #endregion
+
 
         public void UpdateClickcnt(string ItemID)
         {

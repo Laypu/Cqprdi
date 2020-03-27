@@ -236,7 +236,7 @@ namespace Aofeng.Controllers
                     }
                     else if (menu.ModelID == 11)
                     {
-                        ViewBag.PrintUrl = urlHelper.Action("MessageView", "Active", new { @itemid = menu.ModelItemID, @mid = menu.ID, @print = true });
+                        ViewBag.PrintUrl = urlHelper.Action("MessageView", "Active", new { @itemid = ItemID, @mid = menu.ID, @isPrint = true });
                         ViewBag.ForwardUrl = urlHelper.Action("Index", "Active", new { @itemid = menu.ModelItemID, @mid = menu.ID });
                     }
                 }
