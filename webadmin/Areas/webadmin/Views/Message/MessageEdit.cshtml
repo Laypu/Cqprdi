@@ -330,7 +330,49 @@
                                 <!--table end-->
                             </div>
                         </div>
-
+                        @*<div class="form-group bg-grey_1">
+                            <div class="col-md-2 col-sm-12 search_item">活動區間</div>
+                            <div class="col-md-10 col-sm-12 bg-white mobile_white language_set">
+                                <div class="display_inline margin_bottom">
+                                    <button type="button" class="btn green-meadow" id="btn_active_add">新增 <i class="fa fa-plus"></i></button>
+                                    <button type="button" class="btn red" id="btn_active_del">刪除 <i class="glyphicon glyphicon-trash"></i></button>
+                                </div>
+                                <table class="table table-bordered nomarginbottom" id="tbl_active" border="0" cellspacing="0" cellpadding="0">
+                                    <thead>
+                                        <tr>
+                                            <th width="60" class="text-center" filed-type="delcheckbox">刪除</th>
+                                            <th class="text-center">活動區間</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="tr_active">
+                                            <td class="text-center">
+                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                    <input type="checkbox" class="checkboxes active">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
+                                                    <div class="input-group input-large" style="float:left">
+                                                        <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
+                                                            <input class="form-control text-box single-line" id="StDateStr1" name="StDateStr1" placeholder="開始日期" readonly="readonly" type="text" value="">
+                                                        </div>
+                                                        <span class="input-group-addon">to</span>
+                                                        <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
+                                                            <input class="form-control text-box single-line" id="EdDateStr1" name="EdDateStr1" placeholder="結束日期" readonly="readonly" type="text" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="" style="float:left; padding-left:5px;">
+                                                        <button type="button" class="btn blue" id="btn_clear">清空</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>*@
                         @if (Model.SET_MESSAGE.M_MESSAGE18.IsNullOrEmpty() == false)
                         {
                             @Html.Partial(Model.SET_MESSAGE.M_MESSAGE18, Model)
@@ -468,7 +510,46 @@
                         breakAfterClose: false
                     });
             });
-
+ 
+//            $("#btn_active_add").click(function (evt) {
+//                evt.preventDefault();
+//                var html = '<tr class="tr_active">';
+//                html += '<td class="text-center">'
+//                 html += '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">'
+//                 html += '<input type="checkbox" class="checkboxes active">'
+//                   html += '<span></span>'
+//                   html += '</label>'
+//                      html += '</td>'
+//                    html += '<td class="text-center">'
+//                    html += ' <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">'
+//                    html += '<div class="input-group input-large" style="float:left">'
+//                html += '<div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">'   
+//                     html += `<input class="form-control text-box single-line" id="StDateStr" name="StDateStr" placeholder="開始日期" readonly="readonly" type="text" value="">`                                
+//                        html += ' </div>'
+//                        html += '<span class="input-group-addon">to</span>'
+//                        html += '<div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">'
+//                        html += `<input class="form-control text-box single-line" id="EdDateStr" name="EdDateStr" placeholder="結束日期" readonly="readonly" type="text" value="">`         
+//                          html += '</div>'
+//                         html += '</div>'
+//                          html += '<div class="" style="float:left; padding-left:5px;">'
+//                         html += ' <button type="button" class="btn blue" id="btn_clear">清空</button>'
+//                            html += ' </div>'
+//                               html += '</div>'
+//                             html += '</td>'
+//                html += '</tr>';
+//                var row = $('#tbl_active>tbody tr');
+////                $(row).find("input").removeClass("hasDatepicker").removeAttr("id").datepicker({
+////       format: "yyyy/mm/dd",
+////        autoclose: true,
+////        language: 'zh-TW'
+////})
+//                  if (row.length == 0) {
+//                    row.append(html);
+//                }
+//                else {
+//                    row.after(html);
+//                }
+//            })
             $('#btn_file_add').click(function (evt) {
 
                 evt.preventDefault();
