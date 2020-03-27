@@ -133,6 +133,7 @@ C:\Users\203\Desktop\穀物\Oaww.Business\obj\Debug\Oaww.Business.csprojAssembly
 C:\Users\203\Desktop\穀物\Oaww.Business\obj\Debug\Oaww.Business.csproj.CopyComplete
 C:\Users\203\Desktop\穀物\Oaww.Business\obj\Debug\Oaww.Business.dll
 C:\Users\203\Desktop\穀物\Oaww.Business\obj\Debug\Oaww.Business.pdb
+<<<<<<< HEAD
 D:\穀物\Cqprdi\Oaww.Business\bin\Debug\Oaww.Business.dll
 D:\穀物\Cqprdi\Oaww.Business\bin\Debug\Oaww.Business.pdb
 D:\穀物\Cqprdi\Oaww.Business\bin\Debug\Oaww.BaseBusiness.dll
@@ -153,3 +154,26 @@ D:\穀物\Cqprdi\Oaww.Business\obj\Debug\Oaww.Business.csprojAssemblyReference.c
 D:\穀物\Cqprdi\Oaww.Business\obj\Debug\Oaww.Business.csproj.CopyComplete
 D:\穀物\Cqprdi\Oaww.Business\obj\Debug\Oaww.Business.dll
 D:\穀物\Cqprdi\Oaww.Business\obj\Debug\Oaww.Business.pdb
+=======
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.Business.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.Business.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.BaseBusiness.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.DAL.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.Entity.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.Utility.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.ViewModel.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\AntiXssLibrary.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\HtmlSanitizationLibrary.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.BaseBusiness.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.DAL.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.Entity.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.Utility.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\bin\Debug\Oaww.ViewModel.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\obj\Debug\Oaww.Business.csprojAssemblyReference.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\obj\Debug\Oaww.Business.csproj.CoreCompileInputs.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\obj\Debug\Oaww.Business.csproj.CopyComplete
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\obj\Debug\Oaww.Business.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Business\obj\Debug\Oaww.Business.pdb
+>>>>>>> 4ef9bd4cde9a010e4dc6595f1ef0c65a40b84a67

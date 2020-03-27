@@ -40,6 +40,7 @@ C:\Users\203\Downloads\澳豐\Oaww.Utility\obj\Debug\Oaww.Utility.csprojAssembly
 C:\Users\203\Downloads\澳豐\Oaww.Utility\obj\Debug\Oaww.Utility.csproj.CopyComplete
 C:\Users\203\Downloads\澳豐\Oaww.Utility\obj\Debug\Oaww.Utility.dll
 C:\Users\203\Downloads\澳豐\Oaww.Utility\obj\Debug\Oaww.Utility.pdb
+<<<<<<< HEAD
 D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Utility.dll
 D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Utility.pdb
 D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Entity.dll
@@ -50,3 +51,16 @@ D:\穀物\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.csprojAssemblyReference.cac
 D:\穀物\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.csproj.CopyComplete
 D:\穀物\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.dll
 D:\穀物\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.pdb
+=======
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Utility.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Utility.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Entity.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\bin\Debug\Dapper.Contrib.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\bin\Debug\Dapper.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\bin\Debug\Oaww.Entity.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.csprojAssemblyReference.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.csproj.CoreCompileInputs.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.csproj.CopyComplete
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.pdb
+>>>>>>> 4ef9bd4cde9a010e4dc6595f1ef0c65a40b84a67

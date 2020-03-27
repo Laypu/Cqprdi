@@ -43,6 +43,7 @@ C:\Users\203\Downloads\澳豐\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusi
 C:\Users\203\Downloads\澳豐\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csproj.CopyComplete
 C:\Users\203\Downloads\澳豐\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.dll
 C:\Users\203\Downloads\澳豐\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.pdb
+<<<<<<< HEAD
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.BaseBusiness.dll
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.BaseBusiness.pdb
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
@@ -57,3 +58,20 @@ D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csprojAs
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csproj.CopyComplete
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.dll
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.pdb
+=======
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.BaseBusiness.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.BaseBusiness.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\NLog.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.DAL.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.DAL.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Dapper.xml
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Dapper.Contrib.xml
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\NLog.xml
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csprojAssemblyReference.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csproj.CoreCompileInputs.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csproj.CopyComplete
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.pdb
+>>>>>>> 4ef9bd4cde9a010e4dc6595f1ef0c65a40b84a67
