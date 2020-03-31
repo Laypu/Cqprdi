@@ -134,6 +134,17 @@ namespace Aofeng.Controllers
                     filterContext.HttpContext.Cache.Insert("Lang" , ListLang, null, DateTime.Now.AddMinutes(1), Cache.NoSlidingExpiration);
                     ViewBag.ListLang = ListLang;
                     #endregion
+
+                    //#region 總人數跟最後更新時間
+
+                    //SiteConfig ListConfig = _commonService.GetALLSiteConfig("1");
+                    //if (ListConfig != null)
+                    //{
+                    //    var nowtotatlcnt = (ListConfig.TotalVisitCnt == null ? 0 : ListConfig.TotalVisitCnt) + 1;
+                    //}
+                    //filterContext.HttpContext.Cache.Insert("Lang", ListLang, null, DateTime.Now.AddMinutes(1), Cache.NoSlidingExpiration);
+                    //ViewBag.ListLang = ListLang;
+                    //#endregion
                 }
             }
 

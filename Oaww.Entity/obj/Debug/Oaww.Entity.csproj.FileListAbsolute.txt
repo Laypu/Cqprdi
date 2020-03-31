@@ -47,3 +47,4 @@ C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.csproj.Cop
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.pdb
 >>>>>>> 4ef9bd4cde9a010e4dc6595f1ef0c65a40b84a67
+D:\穀物\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.csprojAssemblyReference.cache

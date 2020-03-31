@@ -1708,7 +1708,14 @@ namespace Oaww.Business
             }
             return base.GetObject<SEO>(sql);
         }
+        public SiteConfig GetALLSiteConfig(string ID)
+        {
+            string sql = @"select * from SiteConfig where ID=@ID";
+            base.Parameter.Clear();
+            base.Parameter.Add(new SqlParameter("@ID", ID));
 
+            return base.GetObject<SiteConfig>(sql);
+        }
         public SEO GetSEOByTypeNameAndID(string typeName, string Lang, string typeID = "")
         {
             string sql = @"select * from SEO where TypeName=@typeName and Lang_ID=@Lang_ID ";

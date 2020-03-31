@@ -104,6 +104,7 @@
     <Compile Include="SET\SET_MESSAGE_ADD.cs" />
     <Compile Include="SET\SET_PAGE.cs" />
     <Compile Include="SET\SET_LAYOUT.cs" />
+    <Compile Include="SiteConfig.cs" />
     <Compile Include="SiteFlow.cs" />
     <Compile Include="SiteLayout.cs" />
     <Compile Include="SiteMap\SiteMapItem.cs" />
