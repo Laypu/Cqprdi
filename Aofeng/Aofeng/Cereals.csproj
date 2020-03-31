@@ -178,6 +178,7 @@
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\EmptyController.cs" />
     <Compile Include="Controllers\FileDownloadController.cs" />
+    <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1165,6 +1166,7 @@
     <Content Include="Views\Gallery\MessageView.cshtml" />
     <Content Include="Views\Empty\Pswp_box.cshtml" />
     <Content Include="Views\History\MessageView.cshtml" />
+    <Content Include="Views\Form\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
