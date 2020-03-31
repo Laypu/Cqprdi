@@ -20,6 +20,7 @@ namespace Aofeng.Controllers
         MenuService _menuService = new MenuService();
         private static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         private int? _Lang = 1;
+        SiteConfigService _siteConfigService = new SiteConfigService();
 
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
@@ -80,6 +81,10 @@ namespace Aofeng.Controllers
                     ViewBag.SiteFlow = filterContext.HttpContext.Cache.Get("SiteFlow" + _Lang.ToString());
                     ViewBag.ADKanban = filterContext.HttpContext.Cache.Get("ADKanban" + _Lang.ToString());                    
                     ViewBag.ListLang = filterContext.HttpContext.Cache.Get("Lang");
+                    ViewBag.online = filterContext.HttpContext.Cache.Get("online");
+                    ViewBag.todayonline= filterContext.HttpContext.Cache.Get("todayonline");
+                    ViewBag.hisusecount= filterContext.HttpContext.Cache.Get("hisusecount");
+                    ViewBag.lastupdatedate= filterContext.HttpContext.Cache.Get("lastupdatedate");
                 }
                 else
                 {
@@ -135,16 +140,40 @@ namespace Aofeng.Controllers
                     ViewBag.ListLang = ListLang;
                     #endregion
 
-                    //#region 總人數跟最後更新時間
+                    #region 人數跟最後更新時間
 
-                    //SiteConfig ListConfig = _commonService.GetALLSiteConfig("1");
-                    //if (ListConfig != null)
-                    //{
-                    //    var nowtotatlcnt = (ListConfig.TotalVisitCnt == null ? 0 : ListConfig.TotalVisitCnt) + 1;
-                    //}
-                    //filterContext.HttpContext.Cache.Insert("Lang", ListLang, null, DateTime.Now.AddMinutes(1), Cache.NoSlidingExpiration);
-                    //ViewBag.ListLang = ListLang;
-                    //#endregion
+                    SiteConfig ListConfig = _siteConfigService.GetALLSiteConfig("1");
+                    if (ListConfig != null)
+                    {
+                        ListConfig.TotalVisitCnt = (ListConfig.TotalVisitCnt == null ? 0 : ListConfig.TotalVisitCnt) + 1;
+                        _siteConfigService.Update(ListConfig);
+                        
+                    }
+                    var hisusecount = ListConfig.TotalVisitCnt;
+                    filterContext.HttpContext.Cache.Insert("hisusecount", hisusecount, null, DateTime.Now.AddMinutes(1), Cache.NoSlidingExpiration);
+                    filterContext.HttpContext.Cache.Insert("lastupdatedate", ListConfig.LastUpdateDate, null, DateTime.Now.AddMinutes(1), Cache.NoSlidingExpiration);
+                    ViewBag.hisusecount = hisusecount;
+                    ViewBag.lastupdatedate = ListConfig.LastUpdateDate;
+                    if (System.Web.HttpContext.Current.Session["LoginDate"] == null) {
+                        System.Web.HttpContext.Current.Application.Lock();
+                        if (DateTime.Now.ToString("yyyyMMdd") != System.Web.HttpContext.Current.Application["onlinedate"].ToString())
+                        {
+                            System.Web.HttpContext.Current.Application["todayonline"] = 0;
+                            System.Web.HttpContext.Current.Application["onlinedate"] = DateTime.Now.ToString("yyyyMMdd");
+                        }
+                        int online = (int)System.Web.HttpContext.Current.Application["online"];
+                        int todayonline = (int)System.Web.HttpContext.Current.Application["todayonline"];
+
+                        System.Web.HttpContext.Current.Application["online"] = online + 1;
+                        System.Web.HttpContext.Current.Application["todayonline"] = todayonline + 1;
+                        System.Web.HttpContext.Current.Session["LoginDate"] = DateTime.Now;
+                        System.Web.HttpContext.Current.Application.UnLock();
+                   }
+                    ViewBag.online = (int)System.Web.HttpContext.Current.Application["online"];
+                    ViewBag.todayonline = (int)System.Web.HttpContext.Current.Application["todayonline"];
+                    filterContext.HttpContext.Cache.Insert("online", (int)System.Web.HttpContext.Current.Application["online"], null, DateTime.Now.AddMinutes(1), Cache.NoSlidingExpiration);
+                    filterContext.HttpContext.Cache.Insert("todayonline", (int)System.Web.HttpContext.Current.Application["todayonline"], null, DateTime.Now.AddMinutes(1), Cache.NoSlidingExpiration);
+                    #endregion
                 }
             }
 
