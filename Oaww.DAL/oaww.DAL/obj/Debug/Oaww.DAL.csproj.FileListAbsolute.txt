@@ -27,6 +27,16 @@ C:\Users\203\Downloads\澳豐\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csprojAssembl
 C:\Users\203\Downloads\澳豐\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csproj.CopyComplete
 C:\Users\203\Downloads\澳豐\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.dll
 C:\Users\203\Downloads\澳豐\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.pdb
+<<<<<<< HEAD
+D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Oaww.DAL.dll
+D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Oaww.DAL.pdb
+D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Dapper.xml
+D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Dapper.Contrib.xml
+D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csprojAssemblyReference.cache
+D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csproj.CopyComplete
+D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.dll
+D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.pdb
+=======
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Oaww.DAL.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Oaww.DAL.pdb
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Dapper.xml
@@ -36,3 +46,4 @@ C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csproj.
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csproj.CopyComplete
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.pdb
+>>>>>>> 4ef9bd4cde9a010e4dc6595f1ef0c65a40b84a67

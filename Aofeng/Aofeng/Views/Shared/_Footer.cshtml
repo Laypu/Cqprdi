@@ -63,7 +63,7 @@
 
             <div class="quantity">
                 <img src="@Url.Content("~/UploadImage/SiteLayout/")@siteLayout.LogoImgNameOri" align="left">
-                線上人數：10<br>
+                線上人數：@HttpContext.Current.Application["OnlineUsers"] <br>
                 本日瀏覽人數：92<br>
                 總瀏覽人數：56040<br>
                 網站最後更新日期：2019/07/04

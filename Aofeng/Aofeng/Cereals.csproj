@@ -1084,6 +1084,9 @@
     <Content Include="UploadFile\MessageItem\637174603018234803.jpg" />
     <Content Include="UploadFile\MessageItem\637174603018265121.jpg" />
     <Content Include="UploadFile\PageEdit\637174585884631041.sql" />
+    <Content Include="UploadImage\ActiveItem\637209127027396925_index_pic_08.jpg" />
+    <Content Include="UploadImage\ActiveItem\637209127599153246_pic_03.jpg" />
+    <Content Include="UploadImage\ActiveItem\logo_400x300.jpg" />
     <Content Include="UploadImage\ADMain\637174664864863240_banner_1.jpg" />
     <Content Include="UploadImage\ADMain\637174664864863240_thumb.jpg" />
     <Content Include="UploadImage\ADMain\637174668016788757_banner_2.jpg" />
@@ -1167,6 +1170,7 @@
     <Content Include="Views\Empty\Pswp_box.cshtml" />
     <Content Include="Views\History\MessageView.cshtml" />
     <Content Include="Views\Form\Index.cshtml" />
+    <Content Include="Views\Active\MessageView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

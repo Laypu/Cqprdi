@@ -202,8 +202,7 @@
                         }       
                     </ul>
                 </div>
-                @*<div class="news">
-                    各項單元show 前5筆資料
+                <div class="news">
                     <h2 data-sr="enter top over 1.5s">公告訊息</h2>
 
                     <div class="tabs">
@@ -217,313 +216,71 @@
                             <div class="tab-pane active" id="page_01">
 
                                 <ul class="list">
-                                    <li data-sr="enter bottom over 1.5s">
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/12/06</div>
-                                            <div class="title">*2020第三屆品元盃韓國麵包熱銷12週年慶創意競賽</div>
-                                        </a>
-                                    </li>
-                                    <li data-sr="enter bottom over 1.5s">
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/12/05</div>
-                                            <div class="title">2019國產鮮奶應用創意大賽職業組及學生組得獎名單公佈</div>
-                                        </a>
-                                    </li>
-                                    <li data-sr="enter bottom over 1.5s">
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">歡迎踴躍報名參加2019/12/26由世界麵包大師冠軍王鵬傑示範講習－2019第三場國產農業原料應用教育推廣講習會</div>
-                                        </a>
-                                    </li>
-                                    <li data-sr="enter bottom over 1.5s">
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">採購公告－108年度第3梯次全國技能檢定烘焙食品職類乙級術科測試</div>
-                                        </a>
-                                    </li>
-                                    <li data-sr="enter bottom over 1.5s">
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">本所承辦108年度第3梯次全國技能檢定烘焙食品職類乙級，預定辦理期間</div>
-                                        </a>
-                                    </li>
+                                    @foreach (var m in Model.ListFaq)
+                                    {
+                                        <li data-sr="enter bottom over 1.5s">
+                                            <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1143",GroupName=m.GroupName }):"#")">
+                                                <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
+                                                <div class="title">@m.Title</div>
+                                            </a>
+                                        </li>
+                                    }
                                 </ul>
-                                <div class="btn_box" data-sr="enter bottom over 1.5s"><a href="news.html" class="btn_01" title="">more</a></div>
-
+                                <div class="btn_box" data-sr="enter bottom over 1.5s"><a href="@Url.Action("index","Message",new { @itemid ="1024", mid = "1143" })" class="btn_01" title="">more</a></div>
                             </div>
 
                             <div class="tab-pane" id="page_02">
                                 <ul class="list">
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/12/06</div>
-                                            <div class="title">2020 新食代關鍵趨勢：從安全到安心的消費洞察全解析/div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/12/05</div>
-                                            <div class="title">「全家」力推Clean Label少添加食品 最熱賣的就是它</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">後食安時代 政府、產業「食安成績單」總盤點</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">從真實消費到「真食消費」 這一次、消費者作主！</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">超加工「食」代》你知道一天會吃進多少添加物嗎？</div>
-                                        </a>
-                                    </li>
+                                    @foreach (var m in Model.ListImage)
+                                    {
+                                        <li>
+                                            <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1144",GroupName=m.GroupName }):"#")">
+                                                <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
+                                                <div class="title">@m.Title</div>
+                                            </a>
+                                        </li>
+                                    }
                                 </ul>
-                                <div class="btn_box" data-sr="enter bottom over 1.5s"><a href="news.html" class="btn_01" title="">more</a></div>
+                                <div class="btn_box" data-sr="enter bottom over 1.5s"><a href="@Url.Action("index","Message",new { @itemid ="1026", mid = "1144" })" class="btn_01" title="">more</a></div>
                             </div>
 
                             <div class="tab-pane" id="page_03">
                                 <ul class="list">
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/12/06</div>
-                                            <div class="title">2020第三屆品元盃韓國麵包熱銷12週年慶創意競賽</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/12/05</div>
-                                            <div class="title">2019國產鮮奶應用創意大賽職業組及學生組得獎名單公佈</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">2019國產鮮奶應用創意大賽決賽入圍名單</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">2019野創盃決賽 - 大專組、高中職組得獎名單</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">2019台灣小麥麵粉「野創盃」麵包烘焙競賽辦法及中央氣象局颱風預報</div>
-                                        </a>
-                                    </li>
+                                    @foreach (var m in Model.ListDownload)
+                                    {
+                                        <li>
+                                            <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Active",new {@itemid=m.ItemID,mid="1142",GroupName=m.GroupName }):"#")">
+                                                <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
+                                                <div class="title">@m.Title</div>
+                                            </a>
+                                        </li>
+                                    }
                                 </ul>
-                                <div class="btn_box" data-sr="enter bottom over 1.5s"><a href="news.html" class="btn_01" title="">more</a></div>
+                                <div class="btn_box" data-sr="enter bottom over 1.5s"><a href="@Url.Action("index","Active",new { @itemid ="1023", mid = "1142" })" class="btn_01" title="">more</a></div>
                             </div>
 
                             <div class="tab-pane" id="page_04">
                                 <ul class="list">
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/12/06</div>
-                                            <div class="title">黑金後攻烘焙「白金商機」　專家：下個戰場是「這個」</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/12/05</div>
-                                            <div class="title">農糧署開發米食品　「蓬萊麵」含51%米穀粉</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">好書導讀／智能工廠 未來營運基礎</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">數據控管流程 傳統糕餅店精準掌握客群</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="news_detail.html">
-                                            <div class="date">2019/11/26</div>
-                                            <div class="title">2020 新食代關鍵趨勢：從安全到安心的消費洞察全解析</div>
-                                        </a>
-                                    </li>
+                                    @foreach (var m in Model.AboutLink)
+                                    {
+                                        <li>
+                                            <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1145",GroupName=m.GroupName }):"#")">
+                                                <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
+                                                <div class="title">@m.Title</div>
+                                            </a>
+                                        </li>
+                                    }
                                 </ul>
-                                <div class="btn_box" data-sr="enter bottom over 1.5s"><a href="news.html" class="btn_01" title="">more</a></div>
+                                <div class="btn_box" data-sr="enter bottom over 1.5s"><a href="@Url.Action("index","Message",new { @itemid ="1025", mid = "1145" })" class="btn_01" title="">more</a></div>
                             </div>
 
                         </div>
                     </div>
 
-                </div>*@
+                </div>
 
             </div>
         </div>
-        <!--index_news_03 end-->
-        <!--content-->
-        @*<div id="content">
-
-            top_banner
-            <div class="top_banner peload">
-                <ul class="owl-carousel owl-theme">
-                    @foreach (var m in Model.ListMainRoller)
-                    {
-                        if (m.UploadVideoFilePath.IsNullOrEmpty() == false) //影片
-                        {
-                            <li>
-                                <div class="pic video" data-videosrc="@Url.Content("~"+m.UploadVideoFilePath)"></div>
-                                <div class="inner-width">
-                                    <div class="txt">
-                                        <h2>@Html.Raw(m.AD_Name.Replace(Environment.NewLine, "<br/>"))</h2>
-                                        <p>@m.ADDesc</p>
-                                        <div class="more_bar center">
-                                            @if (m.Link_Href.IsNullOrEmpty() == false)
-                                            {
-                                                <a href="@m.Link_Href" target="@(m.Link_Mode=="1"?"_self":"_blank")" class="btn_more">More <i class="fa fa-external-link" aria-hidden="true"></i></a>
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        }
-                        else //圖片
-                        {
-                            <li>
-                                <div class="pic imgLiquidFill"><img src="@Url.Content("~/UploadImage/ADMain/"+m.Img_Name_Ori)" alt=""></div>
-                                <div class="inner-width">
-                                    <div class="txt">
-                                        <h2>@Html.Raw(m.AD_Name.Replace(Environment.NewLine, "<br/>"))</h2>
-                                        <p>@m.ADDesc</p>
-                                        <div class="more_bar center">
-                                            @if (m.Link_Href.IsNullOrEmpty() == false)
-                                            {
-                                                <a href="@m.Link_Href" target="@(m.Link_Mode=="1"?"_self":"_blank")" class="btn_more">More <i class="fa fa-external-link" aria-hidden="true"></i></a>
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        }
-                    }
-
-                </ul>
-            </div>
-
-            inx_pro_box
-            <div class="inx_pro_box">
-                <div class="inner-width">
-                    <ul>
-                        @foreach (var m in Model.ListThemeAD)
-                        {
-                            <li>
-                                <a href="@m.Link_Href">
-                                    <div class="pic imgLiquidFill"><img src="@Url.Content("~/UploadImage/ADMain/"+m.Img_Name_Ori)" alt="@m.AD_Name"></div>
-                                    <div class="title">
-                                        <h3>
-                                            <span>@m.AD_Name</span>
-                                            @if (!m.ADDesc.IsNullOrEmpty())
-                                            {
-                                                @Html.Raw(m.ADDesc.Replace(Environment.NewLine, "<br/>"))
-                                            }
-                                        </h3>
-                                        <div class="more">more</div>
-                                    </div>
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                    <div class="clear"></div>
-                </div>
-            </div>
-
-            inx_news_box
-            <div class="inx_news_box">
-                <div class="bg">
-                    <div class="pic imgLiquidFill"><img src="@Url.Content("~/UploadImage/ADMain/"+Model.DynamicNews.Img_Name_Ori)" alt=""></div>
-                </div>
-                <div class="inner-width">
-                    <div class="main">
-                        <div class="title_bar page">
-                            <h2>@Model.DynamicNews.AD_Name</h2>
-                        </div>
-                        <ul>
-                            @{
-                                string NewsMid = System.Configuration.ConfigurationManager.AppSettings["NewsMid"];
-                            }
-                            @foreach (var m in Model.ListNews)
-                            {
-                                <li>
-                                    <a href="@Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid=NewsMid,GroupName=m.GroupName })">
-                                        <div class="date">
-                                            <b>@(m.PublicshDate.HasValue ? m.PublicshDate.Value.Day.ToString() : "")</b>
-                                            <span>@(m.PublicshDate.HasValue ? m.PublicshDate.Value.ToString("MMM", System.Globalization.CultureInfo.CreateSpecificCulture("en-US")) : "")</span>
-                                        </div>
-                                        <div class="txt">
-                                            <h3>@m.Title</h3>
-                                            <p>
-                                                @m.Introduction
-                                            </p>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </a>
-                                </li>
-                            }
-                        </ul>
-                        <div class="more_bar center">
-                            <a href="@Model.DynamicNews.Link_Href" class="btn_more">more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-
-            inx_about_box
-            <div class="inx_about_box">
-                <div class="inner-width">
-                    <div class="cover">
-                        <video controls width="100%">
-                            <source src="@Url.Content("~/"+Model.ThemeKanban.UploadVideoFilePath)" type="video/mp4">
-                            Sorry, your browser doesn't support embedded videos.
-                        </video>
-                    </div>
-
-                    <div class="txt">
-                        <div class="bg"></div>
-                        <h3>
-
-                            @Model.ThemeKanban.AD_Name
-                        </h3>
-                        <p>@Model.ThemeKanban.ADDesc</p>
-                        <div class="more_bar">
-                            <a href="@(Model.ThemeKanban.Link_Href.IsNullOrEmpty()?"#":Model.ThemeKanban.Link_Href)" class="btn_more">more</a>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-
-            inx_spo_box
-            <div class="inx_spo_box">
-                <div class="inner-width">
-                    <ul class="owl-carousel owl-theme">
-                        @foreach (var m in Model.ListIcon)
-                        {
-                            <li><a href="@(m.Link_Href.IsNullOrEmpty()?"#":m.Link_Href)"><img src="@Url.Content("~/UploadImage/AdMain/"+m.Img_Name_Ori)" alt="@m.AD_Name"></a></li>
-                        }
-                    </ul>
-                    <div class="clear"></div>
-                </div>
-            </div>
-        </div>*@
-        <!--index_info start-->
         <div class="index_info">
             <div class="container">
                 <div class="title">

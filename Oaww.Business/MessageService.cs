@@ -394,6 +394,8 @@ namespace Oaww.Business
 
                 model.messageImages = _commonService.GetGeneralList<MessageImage>("ItemID=@ItemID and ModelID=@ModelID",
                                                                                          new Dictionary<string, string>() { { "ItemID", itemid }, { "ModelID", modelid } }).ToList();
+                model.messageDateRange = _commonService.GetGeneralList<ActiveDateRange>("ItemID=@ItemID and ModelID=@ModelID",
+                                                                                         new Dictionary<string, string>() { { "ItemID", itemid }, { "ModelID", modelid } }).ToList();
 
                 var hasvdata = _commonService.GetGeneralList<VerifyData>("ModelID=@ModelID and ModelMainID=@ModelMainID and ModelItemID=@ModelItemID",
                                                                 new Dictionary<string, string>() { { "ModelID", _ModelID.ToString() },
@@ -538,6 +540,16 @@ namespace Oaww.Business
                                 t.ItemID = (int)r;
                                 t.ModelID = model.ModelID;
 
+                                base.InsertObject(t, tran);
+                            });
+                        }
+                        if (model.messageDateRange != null)
+                        {
+                            //新增files
+                            model.messageDateRange.ForEach(t =>
+                            {
+                                t.ItemID = (int)r;
+                                t.ModelID = model.ModelID;
                                 base.InsertObject(t, tran);
                             });
                         }
@@ -724,7 +736,21 @@ namespace Oaww.Business
                                 base.InsertObject(t, tran);
                             });
                         }
+                        sql = @"delete  ActiveDateRange where ItemID=@ItemID and ModelID=@ModelID";
+                        base.Parameter.Clear();
+                        base.Parameter.Add(new SqlParameter("@ItemID", model.ItemID));
+                        base.Parameter.Add(new SqlParameter("@ModelID", model.ModelID));
+                        base.ExeNonQuery(sql, tran);
 
+                        if (model.messageDateRange != null)
+                        {
+                            model.messageDateRange.ForEach(t =>
+                            {
+                                t.ItemID = olddata.ItemID;
+                                t.ModelID = (int)olddata.ModelID;
+                                base.InsertObject(t, tran);
+                            });
+                        }
                         sql = @"delete  MessageImage where ItemID=@ItemID and ModelID=@ModelID";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@ItemID", model.ItemID));
@@ -934,9 +960,23 @@ namespace Oaww.Business
             return _commonService.GetGeneralList<MessageImage>("ItemID=@ItemID "
                                                                     , new Dictionary<string, string>() { { "ItemID", ItemID }
                                                                                                         }).ToList();
-
         }
+        public List<ActiveDateRange> GetActiveDateRangeALL(string ItemID)
+        {
+            //新增
+            return _commonService.GetGeneralList<ActiveDateRange>("ModelID=@ModelID "
+                                                          , new Dictionary<string, string>() { { "ModelID", ItemID } }).ToList();
+        }
+
+        public List<ActiveDateRange> GetActiveDateRange(string ItemID)
+        {
+            //新增
+            return _commonService.GetGeneralList<ActiveDateRange>("ItemID=@ItemID "
+                                                                    , new Dictionary<string, string>() { { "ItemID", ItemID } }).ToList();
+        }
+
         #endregion
+
 
         public void UpdateClickcnt(string ItemID)
         {

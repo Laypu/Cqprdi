@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -77,6 +79,29 @@ namespace Aofeng.Controllers
             ViewBag.FBContent = model.MessageItem.HtmlContent.StripHTML().Replace("\n", "").Replace("\t", "");
 
             return View(model);
+        }
+        public ActionResult FileDownLoad2(string modelid, string itemid)
+        {
+            var model = _service.GetMessageItemByID(itemid);
+            string filepath = model.UploadFilePath;
+            string oldfilename = model.UploadFileName;
+            var uploadfilepath = ConfigurationManager.AppSettings["UploadFile"];
+            if (uploadfilepath.IsNullOrEmpty())
+            {
+                uploadfilepath = Request.PhysicalApplicationPath + "\\UploadFile";
+            }
+            if (filepath != "")
+            {
+                string filename = System.IO.Path.GetFileName(filepath);
+                if (string.IsNullOrEmpty(oldfilename)) { oldfilename = filename; }
+                Stream iStream = new FileStream(uploadfilepath + filepath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                return File(iStream, "application/octet-stream", oldfilename);
+            }
+            else
+            {
+                return RedirectToAction("Error");
+            }
+
         }
     }
 }

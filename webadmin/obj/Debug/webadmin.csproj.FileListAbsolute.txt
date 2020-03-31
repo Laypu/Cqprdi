@@ -500,7 +500,6 @@ D:\穀物\Cqprdi\webadmin\bin\Oaww.Utility.pdb
 D:\穀物\Cqprdi\webadmin\bin\Oaww.ViewModel.pdb
 D:\穀物\Cqprdi\webadmin\bin\EntityFramework.xml
 D:\穀物\Cqprdi\webadmin\bin\EntityFramework.SqlServer.xml
-D:\穀物\Cqprdi\webadmin\bin\ICSharpCode.SharpZipLib.xml
 D:\穀物\Cqprdi\webadmin\bin\Microsoft.AspNet.Identity.Core.xml
 D:\穀物\Cqprdi\webadmin\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\穀物\Cqprdi\webadmin\bin\Microsoft.AspNet.Identity.Owin.xml
@@ -509,7 +508,6 @@ D:\穀物\Cqprdi\webadmin\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\穀物\Cqprdi\webadmin\bin\Microsoft.Owin.Security.xml
 D:\穀物\Cqprdi\webadmin\bin\Microsoft.Owin.Security.Cookies.xml
 D:\穀物\Cqprdi\webadmin\bin\Microsoft.Owin.Security.OAuth.xml
-D:\穀物\Cqprdi\webadmin\bin\Newtonsoft.Json.xml
 D:\穀物\Cqprdi\webadmin\bin\NLog.xml
 D:\穀物\Cqprdi\webadmin\bin\System.Web.Mvc.xml
 D:\穀物\Cqprdi\webadmin\bin\System.Web.Helpers.xml
