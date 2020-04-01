@@ -5,7 +5,10 @@
     List<Menu> TopMenu = (List<Menu>)ViewBag.TopMenu;
     List<Menu> UpMenu = (List<Menu>)ViewBag.UpMenu;
     List<Menu> DownMenu = (List<Menu>)ViewBag.DownMenu;
-
+    int online=(int)ViewBag.online;
+      int   todayonline=(int)ViewBag.todayonline;
+      int   hisusecount=(int)ViewBag.hisusecount;
+      string  lastupdatedate=(string)ViewBag.lastupdatedate;
     SiteLayout siteLayout = CommonRazorFunctions.GetSiteLayout(Session["LangID"].ToString());
 
     ADKanban ADKanban = (ADKanban)ViewBag.ADKanban;
@@ -63,10 +66,10 @@
 
             <div class="quantity">
                 <img src="@Url.Content("~/UploadImage/SiteLayout/")@siteLayout.LogoImgNameOri" align="left">
-                線上人數：@HttpContext.Current.Application["OnlineUsers"] <br>
-                本日瀏覽人數：92<br>
-                總瀏覽人數：56040<br>
-                網站最後更新日期：2019/07/04
+                線上人數：@online <br>
+                本日瀏覽人數：@todayonline<br>
+                總瀏覽人數：@hisusecount<br>
+                網站最後更新日期：@lastupdatedate
             </div>
         </div>
         <div class="line visible-sm"></div>
