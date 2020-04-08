@@ -62,7 +62,7 @@ namespace Aofeng.Controllers
             ViewBag.ShowCount = pageIndexSetting.ShowCount.HasValue ? pageIndexSetting.ShowCount.Value : 10;
             ViewBag.NowPage = nowpage;
 
-            ViewBag.modelName = $"站內檢索 - \"{key}\"";
+            ViewBag.modelName = $"搜尋結果 - \"{key}\"";
             ViewBag.mid = "Search";
 
             return View(model);

@@ -25,7 +25,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         private SET_BASE SET_BASE;
         private SET_MENU SET_MENU;
         protected List<SET_MESSAGE_ADD> SET_MESSAGE_ADDs;
-
+        SiteConfigService _siteConfigService = new SiteConfigService();
         public MessageController()
         {
             SET_MESSAGE = _commonService.GetGeneral<SET_MESSAGE>("M_MESSAGE01=@ID", new Dictionary<string, string>() { { "ID", _ModelID.ToString() } });
@@ -219,7 +219,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         public ActionResult SaveItem(MessageEditModel model)
         {
             var uploadfilepath = ConfigurationManager.AppSettings["UploadFile"];
-
+            SiteConfig ListConfig = _siteConfigService.GetALLSiteConfig("1");
             if (uploadfilepath.IsNullOrEmpty())
             {
                 uploadfilepath = Request.PhysicalApplicationPath + "\\UploadFile";
@@ -356,7 +356,8 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
                 string result = _service.CreateItem(model, this.LanguageID, this.Account, this.UserName);
 
-
+                ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
+                _siteConfigService.Update(ListConfig);
                 return Content(result);
             }
             else
@@ -370,6 +371,8 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
                 if (result == "修改成功")
                 {
+                    ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
+                    _siteConfigService.Update(ListConfig);
                     var oldroot = System.Web.HttpContext.Current.Request.PhysicalApplicationPath + $"\\UploadImage\\{SET_MESSAGE.M_MESSAGE02}\\";
 
                     //刪除舊檔案,如果還在就不刪除

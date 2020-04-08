@@ -48,7 +48,15 @@ namespace ASP
         }
         public override void Execute()
         {
-WriteLiteral("<!--page bar start-->\r\n<div");
+            
+            #line 2 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+  
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n<!--page bar start-->\r\n<div");
 
 WriteLiteral(" class=\"page-bar\"");
 
@@ -58,14 +66,14 @@ WriteLiteral(" class=\"page-breadcrumb\"");
 
 WriteLiteral(">\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 136), Tuple.Create("\"", 170)
+WriteAttribute("href", Tuple.Create(" href=\"", 203), Tuple.Create("\"", 237)
             
-            #line 7 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 143), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home")
+            #line 9 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+, Tuple.Create(Tuple.Create("", 210), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home")
             
             #line default
             #line hidden
-, 143), false)
+, 210), false)
 );
 
 WriteLiteral(">Home</a>\r\n            <i");
@@ -74,14 +82,14 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 267), Tuple.Create("\"", 302)
+WriteAttribute("href", Tuple.Create(" href=\"", 334), Tuple.Create("\"", 369)
             
-            #line 11 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 274), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
+            #line 13 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+, Tuple.Create(Tuple.Create("", 341), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
             
             #line default
             #line hidden
-, 274), false)
+, 341), false)
 );
 
 WriteLiteral(">模組設定</a>\r\n            <i");
@@ -101,14 +109,14 @@ WriteLiteral(" method=\"Post\"");
 
 WriteLiteral(" id=\"editform\"");
 
-WriteAttribute("action", Tuple.Create(" action=\'", 540), Tuple.Create("\'", 580)
+WriteAttribute("action", Tuple.Create(" action=\'", 607), Tuple.Create("\'", 647)
             
-            #line 19 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
- , Tuple.Create(Tuple.Create("", 549), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveIndexSetting")
+            #line 21 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+ , Tuple.Create(Tuple.Create("", 616), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveIndexSetting")
             
             #line default
             #line hidden
-, 549), false)
+, 616), false)
 );
 
 WriteLiteral(">\r\n");
@@ -116,7 +124,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("    ");
 
             
-            #line 20 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+            #line 22 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
 Write(Html.HiddenFor(Model => Model.ID));
 
             
@@ -144,7 +152,7 @@ WriteLiteral(" id=\"form-body\"");
 
 WriteLiteral(">\r\n                    <div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group hide\"");
 
 WriteLiteral(">\r\n                        <div");
 
@@ -165,7 +173,7 @@ WriteLiteral(" rows=\"20\"");
 WriteLiteral(">");
 
             
-            #line 28 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+            #line 30 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
                                                                       Write(HttpUtility.HtmlDecode(Model.HtmlContent));
 
             
@@ -175,6 +183,50 @@ WriteLiteral("</textarea>\r\n                        </div>\r\n                 
 "            <div");
 
 WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                        <div");
+
+WriteLiteral(" class=\"col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item\"");
+
+WriteLiteral(">熱門關鍵字</div>\r\n                        <div");
+
+WriteLiteral(" class=\"col-md-10 col-sm-10 col-xs-12 bg-white mobile_white\"");
+
+WriteLiteral(">\r\n                            <ul");
+
+WriteLiteral(" class=\"input_inline\"");
+
+WriteLiteral(">\r\n                                <li> ");
+
+            
+            #line 37 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+                                Write(Html.EditorFor(model => model.HotKey1, new { htmlAttributes = new { @class = "form-control" } }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</li>\r\n                                <li>");
+
+            
+            #line 38 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+                               Write(Html.EditorFor(model => model.HotKey2, new { htmlAttributes = new { @class = "form-control" } }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</li>\r\n                                <li>");
+
+            
+            #line 39 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+                               Write(Html.EditorFor(model => model.HotKey3, new { htmlAttributes = new { @class = "form-control" } }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</li>\r\n                            </ul>\r\n                        </div>\r\n       " +
+"             </div>\r\n                    <div");
+
+WriteLiteral(" class=\"form-group hide\"");
 
 WriteLiteral(">\r\n                        <div");
 
@@ -232,52 +284,52 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 2291), Tuple.Create("\"", 2335)
+WriteAttribute("src", Tuple.Create(" src=\"", 3176), Tuple.Create("\"", 3220)
             
-            #line 56 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 2297), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+            #line 68 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+, Tuple.Create(Tuple.Create("", 3182), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 2297), false)
+, 3182), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 2359), Tuple.Create("\"", 2400)
+WriteAttribute("src", Tuple.Create(" src=\"", 3244), Tuple.Create("\"", 3285)
             
-            #line 57 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 2365), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+            #line 69 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+, Tuple.Create(Tuple.Create("", 3250), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 2365), false)
+, 3250), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 2424), Tuple.Create("\"", 2476)
+WriteAttribute("src", Tuple.Create(" src=\"", 3309), Tuple.Create("\"", 3361)
             
-            #line 58 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 2430), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
+            #line 70 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+, Tuple.Create(Tuple.Create("", 3315), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
             
             #line default
             #line hidden
-, 2430), false)
+, 3315), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 2500), Tuple.Create("\"", 2524)
-, Tuple.Create(Tuple.Create("", 2506), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 2506), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 3385), Tuple.Create("\"", 3409)
+, Tuple.Create(Tuple.Create("", 3391), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 3391), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n            $(\"#ShowCount\").va" +
 "l(\'");
 
             
-            #line 62 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+            #line 74 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
                             Write(Model.ShowCount);
 
             
@@ -287,7 +339,7 @@ WriteLiteral("\');\r\n\r\n             var ckedit = CKEDITOR.replace(\'HtmlConte
 "       height: 300,\r\n                    filebrowserImageUploadUrl: \'");
 
             
-            #line 66 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+            #line 78 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
                                            Write(Url.Action("Upload"));
 
             
@@ -313,7 +365,7 @@ WriteLiteral(@"?command=QuickUpload&type=Images'
 
                 var formData = new FormData();
                 var array = $('#editform').serializeArray();
-                formData.append(""HtmlContent"", _html.encode(CKEDITOR.instances.HtmlContent.getData()));
+                //formData.append(""HtmlContent"", _html.encode(CKEDITOR.instances.HtmlContent.getData()));
                 $.each(array, function () {
                     formData.append(this.name, this.value);
                 });
@@ -326,7 +378,7 @@ WriteLiteral(@"?command=QuickUpload&type=Images'
                         RequestVerificationToken: '");
 
             
-            #line 96 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
+            #line 108 "..\..\Areas\webadmin\Views\Model\IndexSetting.cshtml"
                                               Write(CommonRazorFunctions.GetAntiForgery());
 
             

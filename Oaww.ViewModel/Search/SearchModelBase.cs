@@ -17,5 +17,7 @@ namespace Oaww.ViewModel
         public string Key { get; set; }
         public string LangId { get; set; }
         public int ModelID { get; set; }
+
+        public int cnt { get; set; }
     }
 }

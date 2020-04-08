@@ -19,6 +19,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         PageService _service;
         MenuService _menuService = new MenuService();
         CommonService _commonService = new CommonService();
+        SiteConfigService _siteConfigService = new SiteConfigService();
         protected int _ModelID = 1;
         protected string _Path = "PageEdit";
         private SET_PAGE SET_PAGE;
@@ -266,6 +267,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         /// <returns></returns>
         public ActionResult SaveItem(PageEditItemModel model)
         {
+            SiteConfig ListConfig = _siteConfigService.GetALLSiteConfig("1");
             var uploadfilepath = ConfigurationManager.AppSettings["UploadFile"];
 
             if (uploadfilepath.IsNullOrEmpty())
@@ -345,12 +347,15 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             {
 
                 string result = _service.CreatePageEdit(model, this.LanguageID, this.Account);
-
+                ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
+                _siteConfigService.Update(ListConfig);
 
                 return Content(result);
             }
             else
             {
+                ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
+                _siteConfigService.Update(ListConfig);
                 PageEditItemModel Premodel = _service.GetModelByID(model.ModelID.ToString(), model.ItemID.ToString());
 
                 PageIndexItem olddata = _service.GetPageIndexItemByItemID(model.ItemID.ToString());

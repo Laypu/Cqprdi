@@ -1171,6 +1171,7 @@
     <Content Include="Views\History\MessageView.cshtml" />
     <Content Include="Views\Form\Index.cshtml" />
     <Content Include="Views\Active\MessageView.cshtml" />
+    <Content Include="Views\Shared\_LayoutSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

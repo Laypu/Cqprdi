@@ -21,7 +21,7 @@ namespace Aofeng.Controllers
         private static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         private int? _Lang = 1;
         SiteConfigService _siteConfigService = new SiteConfigService();
-
+        ModelService _service = new ModelService();
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             base.Initialize(requestContext);
@@ -85,6 +85,7 @@ namespace Aofeng.Controllers
                     ViewBag.todayonline= filterContext.HttpContext.Cache.Get("todayonline");
                     ViewBag.hisusecount= filterContext.HttpContext.Cache.Get("hisusecount");
                     ViewBag.lastupdatedate= filterContext.HttpContext.Cache.Get("lastupdatedate");
+                    ViewBag.HotKey= filterContext.HttpContext.Cache.Get("pageIndexSetting" + _Lang.ToString());
                 }
                 else
                 {
@@ -139,7 +140,12 @@ namespace Aofeng.Controllers
                     filterContext.HttpContext.Cache.Insert("Lang" , ListLang, null, DateTime.Now.AddMinutes(1), Cache.NoSlidingExpiration);
                     ViewBag.ListLang = ListLang;
                     #endregion
-
+                    #region 熱門關鍵字
+                     var pageIndexSetting = _service.GetPageIndexSetting(this.LanguageID.ToString());
+                    pageIndexSetting = pageIndexSetting ?? new PageIndexSetting();
+                    filterContext.HttpContext.Cache.Insert("pageIndexSetting" + _Lang.ToString(), pageIndexSetting, null, DateTime.Now.AddMinutes(1), Cache.NoSlidingExpiration);
+                    ViewBag.HotKey = pageIndexSetting;
+                    #endregion
                     #region 人數跟最後更新時間
 
                     SiteConfig ListConfig = _siteConfigService.GetALLSiteConfig("1");

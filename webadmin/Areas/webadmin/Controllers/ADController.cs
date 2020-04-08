@@ -17,7 +17,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
     {
         CommonService _commonService = new CommonService();
         ADService _service = new ADService();
-
+        SiteConfigService _siteConfigService = new SiteConfigService();
         #region Grid
         [AuthFilter(_FuncionID = "AD/Index", _paramter = "type")]
         public ActionResult Index(string type = "1")
@@ -192,7 +192,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         {
             var adpath = "ADMain";
             model.SType = "P";
-
+            SiteConfig ListConfig = _siteConfigService.GetALLSiteConfig("1");
             //刪除原本檔案
             if (model.ImageFile != null)
             {
@@ -414,6 +414,8 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                             }
 
                         }
+                        ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
+                        _siteConfigService.Update(ListConfig);
                     }
                     catch (Exception ex)
                     {
@@ -429,7 +431,8 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             {
                 string result = _service.Create(model, this.Account, this.UserName);
 
-
+                ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
+                _siteConfigService.Update(ListConfig);
                 return Content(result);
             }
 
