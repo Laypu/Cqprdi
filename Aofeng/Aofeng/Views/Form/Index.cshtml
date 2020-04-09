@@ -21,13 +21,24 @@
                         foreach (var item in Model.formSelItems)
                         {
 
-                            @item.DefaultText
+                            @*@item.DefaultText*@
                             <div class="table-row">
                                 @switch (item.ItemMode)
                                 {
                                     //textbox
                                     case 1:
-                                        <div class="form_q"><label for="@item.ID">@item.Title</label></div>
+                                <div class="form_q">
+                                    <label for="@item.ID">
+                                        @*@{var STR = Html.Raw("<span class='red'>( 必填 )</span>")}
+        @item.Title@(item.MustInput ==true ? STR: "")*@
+                                        @item.Title
+                                        @if (item.MustInput == true)
+                                        {
+                                            <span class='red'>( 必填 )</span>
+                                        }
+                                    </label>
+                               
+                                </div>
                                         <div class="form_a">
                                             <input type="text" name="@item.ID" @(Model.btn == item.ID.ToString() ? "autofocus" : "") class="form-control" id="@item.ID" value="@item.DefaultText">
                                             

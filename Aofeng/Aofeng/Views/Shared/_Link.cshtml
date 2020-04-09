@@ -68,18 +68,19 @@
 @Menu1st.MenuName<i class="fa fa-angle-right" aria-hidden="true"></i>
 @if (menuLevel == 2)
 {
-<span class="active">
-    @menu.MenuName
-</span>
+    <span class="active">
+        @menu.MenuName
+    </span>
 }
 @if (menuLevel == 3)
 {
-<span class="active">
-    @menu2nd.MenuName
-</span>
-<span class="active">
-    @menu.MenuName
-</span>
+    <span class="active">
+        @menu2nd.MenuName
+    </span>
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    <span class="active">
+        @menu.MenuName
+    </span>
 }
 
 

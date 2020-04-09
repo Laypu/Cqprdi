@@ -65,7 +65,7 @@ namespace Aofeng.Controllers
             List<FormSelItem> ListFormSelItem = _Service.GetListFormSelItem(itemid);
             string ErrorMessage = string.Empty;
 
-            ListFormSelItem.OrderByDescending(t=>t.ID).ToList().ForEach(t =>
+            ListFormSelItem.OrderBy(t=>t.ID).ToList().ForEach(t =>
             {
                 if (Request[t.ID.ToString()] != null)
                 {
@@ -131,6 +131,11 @@ namespace Aofeng.Controllers
             {
                 return Json(result);
             }
+        }
+        public ActionResult ConfirmContent(string mid, string itemid)
+        {
+            FormSetting formSetting = _Service.GetItemFormSetting(itemid);
+            return View(formSetting);
         }
     }
 }

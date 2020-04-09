@@ -30,8 +30,8 @@ namespace Oaww.Business
 
         public List<FormSelItem> GetListFormSelItem(string ItemID)
         {
-            return _commonService.GetGeneralList<FormSelItem>("ItemID=@ItemID", new Dictionary<string, string>() { { "ItemID", ItemID } })
-                                                               .ToList();
+            return _commonService.GetGeneralList<FormSelItem>("ItemID=@ItemID", new Dictionary<string, string>() { { "ItemID", ItemID } }).OrderBy(t=>t.Sort).ToList();
+                                                             
         }
 
         public FormSetting GetItemFormSetting(string ItemID)
@@ -543,7 +543,7 @@ namespace Oaww.Business
             var input = data.First().JSONStr;
             var dict = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(input);
 
-            sql = @"select * from FormSelItem where ItemID=@ItemID";
+            sql = @"select * from FormSelItem where ItemID=@ItemID ";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@ItemID", data.First().MainID));
             var inputitem = base.SearchList<FormSelItem>(sql).ToDictionary(v => v.ID.ToString(), v => v.Title);
