@@ -16,17 +16,18 @@ namespace Aofeng.Controllers
         public ActionResult Index()
         {
             HomeViewModel model = new HomeViewModel();
-
             model.ListMainRoller = _commonService.GetAdMainByID("1", this.LanguageID);
             model.ListThemeAD = _commonService.GetAdMainByID("2", this.LanguageID);
             model.DynamicNews = _commonService.GetKanbanByID("3", this.LanguageID.ToString());
-            model.ListNews = _service.GetMessageItemByModelID("1022", 8, this.LanguageID);
-            model.ListFaq = _service.GetMessageItemByModelID("1024", 5, this.LanguageID);//所務訊息
-            model.AboutLink = _service.GetMessageItemByModelID("1025", 5, this.LanguageID);//市場動態  
-            model.ListImage=_service.GetMessageItemByModelID("1026", 5, this.LanguageID);//研討會訊息
-            model.ListDownload= _service.GetMessageItemByModelID("1023", 5, this.LanguageID);//	比賽訊息
+            var LisNewId = model.DynamicNews.Link_Href.Split('=')[1].Split('&')[0];
+            model.ListNews = _service.GetMessageItemByModelID(LisNewId, 8, this.LanguageID);
+            model.ListFaq = this.LanguageID==1?_service.GetMessageItemByModelID("1024", 5, this.LanguageID): _service.GetMessageItemByModelID("1027", 5, this.LanguageID);//所務訊息
+            model.AboutLink = this.LanguageID == 1 ? _service.GetMessageItemByModelID("1025", 5, this.LanguageID): _service.GetMessageItemByModelID("1028", 5, this.LanguageID);//市場動態  
+            model.ListImage= this.LanguageID == 1 ? _service.GetMessageItemByModelID("1026", 5, this.LanguageID): _service.GetMessageItemByModelID("1029", 5, this.LanguageID);//研討會訊息
+            model.ListDownload= this.LanguageID == 1 ? _service.GetMessageItemByModelID("1023", 5, this.LanguageID): _service.GetMessageItemByModelID("1030", 5, this.LanguageID);//	比賽訊息
             model.QuickLink = _commonService.GetAdMainByID("6", this.LanguageID); //快速連結專區
             model.ListIcon = _commonService.GetAdMainByID("5", this.LanguageID);
+            model.NowLanguage = this.LanguageID;
             return View(model);
         }
 

@@ -9,6 +9,7 @@ namespace Oaww.ViewModel
 {
     public class HomeViewModel
     {
+        public int NowLanguage { get; set; }
         public List<ADMain> ListMainRoller { get; set; }
         public List<ADMain> ListIcon { get; set; }
         public ADMain Marquee { get; set; }

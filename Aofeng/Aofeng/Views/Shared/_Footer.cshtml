@@ -66,10 +66,10 @@
 
             <div class="quantity">
                 <img src="@Url.Content("~/UploadImage/SiteLayout/")@siteLayout.LogoImgNameOri" align="left">
-                線上人數：@online <br>
-                本日瀏覽人數：@todayonline<br>
-                總瀏覽人數：@hisusecount<br>
-                網站最後更新日期：@lastupdatedate
+                @("線上人數".GetLang())：@online <br>
+                @("本日瀏覽人數".GetLang())：@todayonline<br>
+                @("總瀏覽人數".GetLang())：@hisusecount<br>
+                @("網站最後更新日期".GetLang())：@lastupdatedate
             </div>
         </div>
         <div class="line visible-sm"></div>
@@ -102,8 +102,10 @@
                 </label>
                 <button class="search_icon"><i class="fa fa-search"></i></button>
 
-                <div class="hotword">熱門搜尋：
-                <a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey1})" title="@pageIndexSetting.HotKey1">@pageIndexSetting.HotKey1</a>、<a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey2})" title="@pageIndexSetting.HotKey2">@pageIndexSetting.HotKey2</a>、<a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey3})" title="@pageIndexSetting.HotKey3">@pageIndexSetting.HotKey3</a></div>
+                <div class="hotword">
+                    @("熱門搜尋".GetLang())：
+                                <a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey1})" title="@pageIndexSetting.HotKey1">@pageIndexSetting.HotKey1</a>、<a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey2})" title="@pageIndexSetting.HotKey2">@pageIndexSetting.HotKey2</a>、<a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey3})" title="@pageIndexSetting.HotKey3">@pageIndexSetting.HotKey3</a>
+                            </div>
             </div>
         </form>
         </div>
