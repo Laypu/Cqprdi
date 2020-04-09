@@ -1,7 +1,9 @@
 ﻿@using Oaww.ViewModel.Search;
 
 @model AdvanceSearchModel
-
+@{ 
+    Layout = "~/Views/Shared/_LayoutSearch.cshtml";
+}
 
 <table width="100%">
     <tbody>
@@ -27,14 +29,14 @@
             }
 
         }
-        @if (m.URL == "History/MessageView")
+        @*@if (m.URL == "History/MessageView")
         {
             <td><a href="../@(m.URL)?mid=@m.ID&itemid=@m.ModelID" title="@m.Title">@Html.Raw(showTitle)</a></td>
         }
         else
-        {
+        {*@
             <td><a href="../@(m.URL)?mid=@m.ID&itemid=@m.ItemID" title="@m.Title">@Html.Raw(showTitle)</a></td>
-        }
+        @*}*@
 
     </tr>
         }

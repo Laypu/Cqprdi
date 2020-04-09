@@ -1,5 +1,7 @@
 ﻿@model PageIndexSetting
-
+@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+}
 <!--page bar start-->
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -22,13 +24,23 @@
         <div class="portlet-body form">
             <div class="form-horizontal form-bordered">
                 <div class="form-body" id="form-body">
-                    <div class="form-group">
+                    <div class="form-group hide">
                         <div class="col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item">檢索說明</div>
                         <div class="col-md-10 col-sm-10 col-xs-12 bg-white mobile_white">
                             <textarea cols="80" id="HtmlContent" rows="20">@HttpUtility.HtmlDecode(Model.HtmlContent)</textarea>
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item">熱門關鍵字</div>
+                        <div class="col-md-10 col-sm-10 col-xs-12 bg-white mobile_white">
+                            <ul class="input_inline">
+                                <li> @Html.EditorFor(model => model.HotKey1, new { htmlAttributes = new { @class = "form-control" } })</li>
+                                <li>@Html.EditorFor(model => model.HotKey2, new { htmlAttributes = new { @class = "form-control" } })</li>
+                                <li>@Html.EditorFor(model => model.HotKey3, new { htmlAttributes = new { @class = "form-control" } })</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group hide">
                         <div class="col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item">每頁顯示筆數</div>
                         <div class="col-md-4 col-sm-4 col-xs-12 bg-white mobile_white">
                             <select class="form_02" id="ShowCount" name="ShowCount">
@@ -83,7 +95,7 @@
 
                 var formData = new FormData();
                 var array = $('#editform').serializeArray();
-                formData.append("HtmlContent", _html.encode(CKEDITOR.instances.HtmlContent.getData()));
+                //formData.append("HtmlContent", _html.encode(CKEDITOR.instances.HtmlContent.getData()));
                 $.each(array, function () {
                     formData.append(this.name, this.value);
                 });

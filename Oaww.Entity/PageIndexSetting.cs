@@ -15,5 +15,11 @@ namespace Oaww.Entity
         public int? ShowCount { get; set; }
         public string HtmlContent { get; set; }
 
+        public string HotKey1 { get; set; }
+
+        public string HotKey2 { get; set; }
+
+        public string HotKey3 { get; set; }
+
     }
 }

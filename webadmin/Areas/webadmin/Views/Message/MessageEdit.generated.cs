@@ -631,19 +631,24 @@ WriteLiteral(" />\r\n                                        <div");
 
 WriteLiteral(" class=\"red\"");
 
-WriteLiteral(">檔案類型jpg、png、gif，建議檔案大小2MB內，尺寸寬度480*480px內</div>\r\n                               " +
-"     </div>\r\n                                </div>\r\n                           " +
-" </div>\r\n                        </div>\r\n                        <div");
+WriteLiteral(">檔案類型jpg、png、gif，建議檔案大小2MB內，尺寸400*300px內</div>\r\n                                 " +
+"       <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 7428), Tuple.Create("\"", 7499)
-, Tuple.Create(Tuple.Create("", 7436), Tuple.Create("form-group", 7436), true)
+WriteLiteral(" class=\"red\"");
+
+WriteLiteral(">Ps.首頁焦點活動建議尺寸480*480px內</div>\r\n                                    </div>\r\n     " +
+"                           </div>\r\n                            </div>\r\n         " +
+"               </div>\r\n                        <div");
+
+WriteAttribute("class", Tuple.Create(" class=\"", 7514), Tuple.Create("\"", 7585)
+, Tuple.Create(Tuple.Create("", 7522), Tuple.Create("form-group", 7522), true)
             
-            #line 122 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 7446), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE08 == false ?"hide":""
+            #line 123 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create(" ", 7532), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE08 == false ?"hide":""
             
             #line default
             #line hidden
-, 7447), false)
+, 7533), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -659,7 +664,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                ");
 
             
-            #line 125 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 126 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                            Write(Html.RadioButtonFor(m => m.Link_Mode, "1"));
 
             
@@ -670,7 +675,7 @@ WriteLiteral(" 可開啟內容頁\r\n");
 WriteLiteral("                                ");
 
             
-            #line 126 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 127 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                            Write(Html.RadioButtonFor(m => m.Link_Mode, "2"));
 
             
@@ -679,15 +684,15 @@ WriteLiteral("                                ");
 WriteLiteral(" 不可開啟內容頁\r\n                            </div>\r\n                        </div>\r\n   " +
 "                     <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 7970), Tuple.Create("\"", 8041)
-, Tuple.Create(Tuple.Create("", 7978), Tuple.Create("form-group", 7978), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 8056), Tuple.Create("\"", 8127)
+, Tuple.Create(Tuple.Create("", 8064), Tuple.Create("form-group", 8064), true)
             
-            #line 129 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 7988), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE09 == false ?"hide":""
+            #line 130 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create(" ", 8074), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE09 == false ?"hide":""
             
             #line default
             #line hidden
-, 7989), false)
+, 8075), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -709,7 +714,7 @@ WriteLiteral(" rows=\"20\"");
 WriteLiteral(">");
 
             
-            #line 132 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 133 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                           Write(HttpUtility.HtmlDecode(Model.HtmlContent));
 
             
@@ -718,15 +723,15 @@ WriteLiteral(">");
 WriteLiteral("</textarea>\r\n                            </div>\r\n                        </div>\r\n" +
 "                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 8462), Tuple.Create("\"", 8533)
-, Tuple.Create(Tuple.Create("", 8470), Tuple.Create("form-group", 8470), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 8548), Tuple.Create("\"", 8619)
+, Tuple.Create(Tuple.Create("", 8556), Tuple.Create("form-group", 8556), true)
             
-            #line 135 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 8480), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE15 == false ?"hide":""
+            #line 136 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create(" ", 8566), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE15 == false ?"hide":""
             
             #line default
             #line hidden
-, 8481), false)
+, 8567), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -750,7 +755,7 @@ WriteLiteral(" rows=\"5\"");
 WriteLiteral(">");
 
             
-            #line 138 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 139 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                                          Write(Model.Introduction);
 
             
@@ -759,16 +764,16 @@ WriteLiteral(">");
 WriteLiteral("</textarea>\r\n                            </div>\r\n                        </div>\r\n" +
 "                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 8962), Tuple.Create("\"", 9043)
-, Tuple.Create(Tuple.Create("", 8970), Tuple.Create("form-group", 8970), true)
-, Tuple.Create(Tuple.Create(" ", 8980), Tuple.Create("bg-grey_1", 8981), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 9048), Tuple.Create("\"", 9129)
+, Tuple.Create(Tuple.Create("", 9056), Tuple.Create("form-group", 9056), true)
+, Tuple.Create(Tuple.Create(" ", 9066), Tuple.Create("bg-grey_1", 9067), true)
             
-            #line 141 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 8990), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE10 == false ?"hide":""
+            #line 142 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create(" ", 9076), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE10 == false ?"hide":""
             
             #line default
             #line hidden
-, 8991), false)
+, 9077), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -791,14 +796,14 @@ WriteLiteral(" style=\"display:none\"");
 
 WriteLiteral("><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 9352), Tuple.Create("\"", 9425)
+WriteAttribute("href", Tuple.Create(" href=\"", 9438), Tuple.Create("\"", 9511)
             
-            #line 145 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-         , Tuple.Create(Tuple.Create("", 9359), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl == null?"":Url.Content(Model.ImageUrl.AntiXss())
+            #line 146 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+         , Tuple.Create(Tuple.Create("", 9445), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl == null?"":Url.Content(Model.ImageUrl.AntiXss())
             
             #line default
             #line hidden
-, 9359), false)
+, 9445), false)
 );
 
 WriteLiteral(" target=\"preview\"");
@@ -806,7 +811,7 @@ WriteLiteral(" target=\"preview\"");
 WriteLiteral(">");
 
             
-            #line 145 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 146 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                                                                                                         Write(Html.Raw(Model.ImageFileOrgName.safeHtmlFragment()));
 
             
@@ -863,7 +868,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 155 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 156 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                    Write(Html.EditorFor(model => model.ImageFileDesc, new { htmlAttributes = new { @class = "form-control mobile_input display_inline", @maxlength = "75" } }));
 
             
@@ -896,24 +901,24 @@ WriteLiteral(" class=\"col-md-10\"");
 
 WriteLiteral(">\r\n                                        <select");
 
-WriteAttribute("name", Tuple.Create(" name=\"", 10973), Tuple.Create("\"", 11023)
+WriteAttribute("name", Tuple.Create(" name=\"", 11059), Tuple.Create("\"", 11109)
             
-            #line 163 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 10980), Tuple.Create<System.Object, System.Int32>(Html.IdFor(model=>model.ImageFileLocation)
+            #line 164 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 11066), Tuple.Create<System.Object, System.Int32>(Html.IdFor(model=>model.ImageFileLocation)
             
             #line default
             #line hidden
-, 10980), false)
+, 11066), false)
 );
 
-WriteAttribute("id", Tuple.Create(" id=\"", 11024), Tuple.Create("\"", 11072)
+WriteAttribute("id", Tuple.Create(" id=\"", 11110), Tuple.Create("\"", 11158)
             
-            #line 163 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                      , Tuple.Create(Tuple.Create("", 11029), Tuple.Create<System.Object, System.Int32>(Html.IdFor(model=>model.ImageFileLocation)
+            #line 164 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+                      , Tuple.Create(Tuple.Create("", 11115), Tuple.Create<System.Object, System.Int32>(Html.IdFor(model=>model.ImageFileLocation)
             
             #line default
             #line hidden
-, 11029), false)
+, 11115), false)
 );
 
 WriteLiteral(" class=\"form-control w-auto\"");
@@ -934,16 +939,16 @@ WriteLiteral(">右</option></select>\r\n                                    </di
 "                 </div>\r\n                            </div>\r\n                   " +
 "     </div>\r\n\r\n                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 11379), Tuple.Create("\"", 11459)
-, Tuple.Create(Tuple.Create("", 11387), Tuple.Create("form-group", 11387), true)
-, Tuple.Create(Tuple.Create(" ", 11397), Tuple.Create("bg-grey_1", 11398), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 11465), Tuple.Create("\"", 11545)
+, Tuple.Create(Tuple.Create("", 11473), Tuple.Create("form-group", 11473), true)
+, Tuple.Create(Tuple.Create(" ", 11483), Tuple.Create("bg-grey_1", 11484), true)
             
-            #line 169 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 11407), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE03 ==false ?"hide":""
+            #line 170 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create(" ", 11493), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE03 ==false ?"hide":""
             
             #line default
             #line hidden
-, 11408), false)
+, 11494), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -1020,13 +1025,13 @@ WriteLiteral(">圖片說明</th>\r\n                                        </tr
 "              </thead>\r\n                                    <tbody>\r\n");
 
             
-            #line 188 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 189 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                         
             
             #line default
             #line hidden
             
-            #line 188 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 189 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                          foreach (var fileDownloadFile in Model.messageImages)
                                         {
 
@@ -1068,14 +1073,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFileName\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 13774), Tuple.Create("\"", 13815)
+WriteAttribute("value", Tuple.Create(" value=\"", 13860), Tuple.Create("\"", 13901)
             
-            #line 199 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 13782), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileName
+            #line 200 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+                       , Tuple.Create(Tuple.Create(" ", 13868), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileName
             
             #line default
             #line hidden
-, 13783), false)
+, 13869), false)
 );
 
 WriteLiteral(" />\r\n                                                        <input");
@@ -1084,14 +1089,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFilePath\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 13917), Tuple.Create("\"", 13958)
+WriteAttribute("value", Tuple.Create(" value=\"", 14003), Tuple.Create("\"", 14044)
             
-            #line 200 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 13925), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFilePath
+            #line 201 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+                       , Tuple.Create(Tuple.Create(" ", 14011), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFilePath
             
             #line default
             #line hidden
-, 13926), false)
+, 14012), false)
 );
 
 WriteLiteral(" />\r\n\r\n                                                    </div>\r\n              " +
@@ -1116,14 +1121,14 @@ WriteLiteral(" class=\"text-center\"");
 
 WriteLiteral(">\r\n                                                    <img");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 14435), Tuple.Create("\"", 14501)
+WriteAttribute("src", Tuple.Create(" src=\"", 14521), Tuple.Create("\"", 14587)
             
-            #line 207 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 14441), Tuple.Create<System.Object, System.Int32>(Url.Action("ImageDownLoad",new {FID=fileDownloadFile.FID })
+            #line 208 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 14527), Tuple.Create<System.Object, System.Int32>(Url.Action("ImageDownLoad",new {FID=fileDownloadFile.FID })
             
             #line default
             #line hidden
-, 14441), false)
+, 14527), false)
 );
 
 WriteLiteral(" style=\"height:100px\"");
@@ -1139,14 +1144,14 @@ WriteLiteral(">\r\n                                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 14742), Tuple.Create("\"", 14782)
+WriteAttribute("value", Tuple.Create(" value=\"", 14828), Tuple.Create("\"", 14868)
             
-            #line 210 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 14750), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileDesc
+            #line 211 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 14836), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileDesc
             
             #line default
             #line hidden
-, 14750), false)
+, 14836), false)
 );
 
 WriteLiteral(" id=\"UploadFileDesc\"");
@@ -1171,7 +1176,7 @@ WriteLiteral(">限制輸入75字內</div>\r\n                                   
 "                                   </tr>\r\n");
 
             
-            #line 215 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 216 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                         }
 
             
@@ -1181,15 +1186,15 @@ WriteLiteral("                                    </tbody>\r\n                  
 "able>\r\n                                <!--table end-->\r\n                       " +
 "     </div>\r\n                        </div>\r\n\r\n                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 15454), Tuple.Create("\"", 15524)
-, Tuple.Create(Tuple.Create("", 15462), Tuple.Create("form-group", 15462), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 15540), Tuple.Create("\"", 15610)
+, Tuple.Create(Tuple.Create("", 15548), Tuple.Create("form-group", 15548), true)
             
-            #line 222 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 15472), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE11 ==false ?"hide":""
+            #line 223 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create(" ", 15558), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE11 ==false ?"hide":""
             
             #line default
             #line hidden
-, 15473), false)
+, 15559), false)
 );
 
 WriteLiteral(@" "" >
@@ -1203,7 +1208,7 @@ WriteLiteral(@" "" >
 WriteLiteral("                                        ");
 
             
-            #line 228 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 229 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                    Write(Html.EditorFor(model => model.LinkUrl, new { htmlAttributes = new { @class = "form-control", @maxlength = "1000" } }));
 
             
@@ -1221,7 +1226,7 @@ WriteLiteral(@"
 WriteLiteral("                                        ");
 
             
-            #line 235 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 236 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                    Write(Html.EditorFor(model => model.LinkUrlDesc, new { htmlAttributes = new { @class = "form-control", @maxlength = "200" } }));
 
             
@@ -1240,7 +1245,7 @@ WriteLiteral(@"
 WriteLiteral("                                        ");
 
             
-            #line 243 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 244 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                    Write(Html.RadioButtonFor(model => model.OpenMode, 1, new { style = "margin-left :0px", @checked = "checked" }));
 
             
@@ -1251,7 +1256,7 @@ WriteLiteral(" 原視窗<br />\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 244 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 245 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                    Write(Html.RadioButtonFor(model => model.OpenMode, 2, new { style = "" }));
 
             
@@ -1262,7 +1267,7 @@ WriteLiteral(" 新視窗<br />\r\n                                    </div>\r\n
 ">\r\n\r\n                        <div class=\"form-group bg-grey_1 ");
 
             
-            #line 250 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 251 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                      Write(Model.SET_MESSAGE.M_MESSAGE04 ?"hide":"");
 
             
@@ -1275,7 +1280,7 @@ WriteLiteral(@""">
                                     <div id=""div_olduploadfile"" style=""display:none""><a href=""");
 
             
-            #line 254 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 255 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                          Write(Url.Action("FileDownLoad2"));
 
             
@@ -1284,7 +1289,7 @@ WriteLiteral(@""">
 WriteLiteral("?modelid=");
 
             
-            #line 254 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 255 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                                                               Write(Model.ModelID);
 
             
@@ -1293,7 +1298,7 @@ WriteLiteral("?modelid=");
 WriteLiteral("&&itemid=");
 
             
-            #line 254 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 255 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                                                                                      Write(Model.ItemID);
 
             
@@ -1302,7 +1307,7 @@ WriteLiteral("&&itemid=");
 WriteLiteral("\" target=\"preview\">");
 
             
-            #line 254 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 255 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                                                                                                                      Write(Model.UploadFileName);
 
             
@@ -1326,7 +1331,7 @@ WriteLiteral(@"</a><label style=""color:blue;margin-left:10px;cursor:pointer"" i
 WriteLiteral("                                        ");
 
             
-            #line 267 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 268 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                    Write(Html.EditorFor(model => model.UploadFileDesc, new { htmlAttributes = new { @class = "form-control mobile_input display_inline", @id = "SingleUploadFileDesc" } }));
 
             
@@ -1342,7 +1347,7 @@ WriteLiteral(@"
                         <div class=""form-group bg-grey_1 ");
 
             
-            #line 274 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 275 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                      Write(Model.SET_MESSAGE.M_MESSAGE04 ==false ?"hide":"");
 
             
@@ -1370,13 +1375,13 @@ WriteLiteral(@""">
 ");
 
             
-            #line 293 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 294 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                         
             
             #line default
             #line hidden
             
-            #line 293 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 294 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                          foreach (var fileDownloadFile in Model.fileDownloadFiles)
                                         {
 
@@ -1418,14 +1423,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFileName\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 21880), Tuple.Create("\"", 21921)
+WriteAttribute("value", Tuple.Create(" value=\"", 21966), Tuple.Create("\"", 22007)
             
-            #line 304 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 21888), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileName
+            #line 305 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+                       , Tuple.Create(Tuple.Create(" ", 21974), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileName
             
             #line default
             #line hidden
-, 21889), false)
+, 21975), false)
 );
 
 WriteLiteral(" />\r\n                                                        <input");
@@ -1434,14 +1439,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFilePath\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 22023), Tuple.Create("\"", 22064)
+WriteAttribute("value", Tuple.Create(" value=\"", 22109), Tuple.Create("\"", 22150)
             
-            #line 305 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 22031), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFilePath
+            #line 306 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+                       , Tuple.Create(Tuple.Create(" ", 22117), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFilePath
             
             #line default
             #line hidden
-, 22032), false)
+, 22118), false)
 );
 
 WriteLiteral(" />\r\n                                                        <input");
@@ -1450,14 +1455,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFileSize\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 22166), Tuple.Create("\"", 22207)
+WriteAttribute("value", Tuple.Create(" value=\"", 22252), Tuple.Create("\"", 22293)
             
-            #line 306 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 22174), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileSize
+            #line 307 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+                       , Tuple.Create(Tuple.Create(" ", 22260), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileSize
             
             #line default
             #line hidden
-, 22175), false)
+, 22261), false)
 );
 
 WriteLiteral(" />\r\n                                                        <input");
@@ -1466,26 +1471,26 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFileType\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 22309), Tuple.Create("\"", 22350)
+WriteAttribute("value", Tuple.Create(" value=\"", 22395), Tuple.Create("\"", 22436)
             
-            #line 307 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 22317), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileType
+            #line 308 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+                       , Tuple.Create(Tuple.Create(" ", 22403), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileType
             
             #line default
             #line hidden
-, 22318), false)
+, 22404), false)
 );
 
 WriteLiteral(" />\r\n                                                        <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 22414), Tuple.Create("\"", 22480)
+WriteAttribute("href", Tuple.Create(" href=\"", 22500), Tuple.Create("\"", 22566)
             
-            #line 308 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 22421), Tuple.Create<System.Object, System.Int32>(Url.Action("FileDownLoad",new {FID=fileDownloadFile.FID })
+            #line 309 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 22507), Tuple.Create<System.Object, System.Int32>(Url.Action("FileDownLoad",new {FID=fileDownloadFile.FID })
             
             #line default
             #line hidden
-, 22421), false)
+, 22507), false)
 );
 
 WriteLiteral(" target=\"preview\"");
@@ -1495,7 +1500,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                                            ");
 
             
-            #line 309 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 310 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                        Write(fileDownloadFile.UploadFileName);
 
             
@@ -1526,14 +1531,14 @@ WriteLiteral(">\r\n                                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 23141), Tuple.Create("\"", 23172)
+WriteAttribute("value", Tuple.Create(" value=\"", 23227), Tuple.Create("\"", 23258)
             
-            #line 317 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 23149), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.Title
+            #line 318 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 23235), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.Title
             
             #line default
             #line hidden
-, 23149), false)
+, 23235), false)
 );
 
 WriteLiteral(" id=\"Title\"");
@@ -1563,14 +1568,14 @@ WriteLiteral(">\r\n                                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 23645), Tuple.Create("\"", 23685)
+WriteAttribute("value", Tuple.Create(" value=\"", 23731), Tuple.Create("\"", 23771)
             
-            #line 322 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 23653), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileDesc
+            #line 323 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 23739), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileDesc
             
             #line default
             #line hidden
-, 23653), false)
+, 23739), false)
 );
 
 WriteLiteral(" id=\"UploadFileDesc\"");
@@ -1595,7 +1600,7 @@ WriteLiteral(">限制輸入75字內</div>\r\n                                   
 "                                   </tr>\r\n");
 
             
-            #line 327 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 328 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                         }
 
             
@@ -1609,7 +1614,7 @@ WriteLiteral(@"                                    </tbody>
                         <div class=""form-group bg-grey_1 ");
 
             
-            #line 333 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 334 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                      Write(Model.SET_MESSAGE.M_MESSAGE19 ==false ?"hide":"");
 
             
@@ -1633,13 +1638,13 @@ WriteLiteral(@""">
 ");
 
             
-            #line 348 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 349 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                         
             
             #line default
             #line hidden
             
-            #line 348 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 349 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                          foreach (var MessActDate in Model.messageDateRange)
                                         {
 
@@ -1699,14 +1704,14 @@ WriteLiteral(" readonly=\"readonly\"");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 26909), Tuple.Create("\"", 26939)
+WriteAttribute("value", Tuple.Create(" value=\"", 26995), Tuple.Create("\"", 27025)
             
-            #line 361 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                                                                                                            , Tuple.Create(Tuple.Create("", 26917), Tuple.Create<System.Object, System.Int32>(MessActDate.StartDate
+            #line 362 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+                                                                                                            , Tuple.Create(Tuple.Create("", 27003), Tuple.Create<System.Object, System.Int32>(MessActDate.StartDate
             
             #line default
             #line hidden
-, 26917), false)
+, 27003), false)
 );
 
 WriteLiteral(">\r\n                                                            </div>\r\n          " +
@@ -1732,14 +1737,14 @@ WriteLiteral(" readonly=\"readonly\"");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 27429), Tuple.Create("\"", 27457)
+WriteAttribute("value", Tuple.Create(" value=\"", 27515), Tuple.Create("\"", 27543)
             
-            #line 365 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                                                                                                             , Tuple.Create(Tuple.Create("", 27437), Tuple.Create<System.Object, System.Int32>(MessActDate.EndDate
+            #line 366 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+                                                                                                             , Tuple.Create(Tuple.Create("", 27523), Tuple.Create<System.Object, System.Int32>(MessActDate.EndDate
             
             #line default
             #line hidden
-, 27437), false)
+, 27523), false)
 );
 
 WriteLiteral(@">
@@ -1751,7 +1756,7 @@ WriteLiteral(@">
 ");
 
             
-            #line 371 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 372 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                         }
 
             
@@ -1761,13 +1766,13 @@ WriteLiteral("                                        </tbody>\r\n              
 " </table>\r\n                            </div>\r\n                        </div>\r\n");
 
             
-            #line 376 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 377 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                         
             
             #line default
             #line hidden
             
-            #line 376 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 377 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                          if (Model.SET_MESSAGE.M_MESSAGE18.IsNullOrEmpty() == false)
                         {
                             
@@ -1775,14 +1780,14 @@ WriteLiteral("                                        </tbody>\r\n              
             #line default
             #line hidden
             
-            #line 378 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 379 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                        Write(Html.Partial(Model.SET_MESSAGE.M_MESSAGE18, Model));
 
             
             #line default
             #line hidden
             
-            #line 378 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 379 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                
                         }
 
@@ -1792,13 +1797,13 @@ WriteLiteral("                                        </tbody>\r\n              
 WriteLiteral("\r\n");
 
             
-            #line 381 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 382 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                         
             
             #line default
             #line hidden
             
-            #line 381 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 382 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                          if (Model.ItemID >= 0 && Model.SET_BASE.M_Base02)
                         {
 
@@ -1822,7 +1827,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                    ");
 
             
-            #line 386 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 387 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                Write(Model.VerifyStatus);
 
             
@@ -1859,7 +1864,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 394 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 395 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.CreateUser);
 
             
@@ -1881,7 +1886,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 398 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 399 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.CreateDatetime);
 
             
@@ -1919,7 +1924,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 407 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 408 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.UpdateUser);
 
             
@@ -1941,7 +1946,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 411 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 412 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.UpdateDatetime);
 
             
@@ -1979,7 +1984,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 420 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 421 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.VerifyUser);
 
             
@@ -2001,7 +2006,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 424 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 425 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                      Write(Model.VerifyDateTime);
 
             
@@ -2011,7 +2016,7 @@ WriteLiteral("</div>\r\n                                    </div>\r\n          
 "   </div>\r\n                            </div>\r\n");
 
             
-            #line 428 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 429 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                         }
 
             
@@ -2037,83 +2042,83 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 31923), Tuple.Create("\"", 31990)
-            
-            #line 444 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 31929), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
-            
-            #line default
-            #line hidden
-, 31929), false)
-);
-
-WriteLiteral("></script>\r\n    <script");
-
-WriteAttribute("src", Tuple.Create(" src=\"", 32014), Tuple.Create("\"", 32069)
+WriteAttribute("src", Tuple.Create(" src=\"", 32009), Tuple.Create("\"", 32076)
             
             #line 445 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 32020), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
+, Tuple.Create(Tuple.Create("", 32015), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
             
             #line default
             #line hidden
-, 32020), false)
+, 32015), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32093), Tuple.Create("\"", 32134)
+WriteAttribute("src", Tuple.Create(" src=\"", 32100), Tuple.Create("\"", 32155)
             
             #line 446 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 32099), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 32106), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
             
             #line default
             #line hidden
-, 32099), false)
+, 32106), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32158), Tuple.Create("\"", 32210)
+WriteAttribute("src", Tuple.Create(" src=\"", 32179), Tuple.Create("\"", 32220)
             
             #line 447 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 32164), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
+, Tuple.Create(Tuple.Create("", 32185), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 32164), false)
+, 32185), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32234), Tuple.Create("\"", 32280)
+WriteAttribute("src", Tuple.Create(" src=\"", 32244), Tuple.Create("\"", 32296)
             
             #line 448 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 32240), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 32250), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
             
             #line default
             #line hidden
-, 32240), false)
+, 32250), false)
+);
+
+WriteLiteral("></script>\r\n    <script");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 32320), Tuple.Create("\"", 32366)
+            
+            #line 449 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 32326), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+            
+            #line default
+            #line hidden
+, 32326), false)
 );
 
 WriteLiteral("></script>\r\n \r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32307), Tuple.Create("\"", 32331)
-, Tuple.Create(Tuple.Create("", 32313), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 32313), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 32393), Tuple.Create("\"", 32417)
+, Tuple.Create(Tuple.Create("", 32399), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 32399), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32355), Tuple.Create("\"", 32380)
-, Tuple.Create(Tuple.Create("", 32361), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
-, 32361), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 32441), Tuple.Create("\"", 32466)
+, Tuple.Create(Tuple.Create("", 32447), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
+, 32447), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n            var fileupload = \'" +
 "");
 
             
-            #line 454 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 455 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                          Write(Model.UploadFileName);
 
             
@@ -2122,7 +2127,7 @@ WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n         
 WriteLiteral("\';\r\n            var selactiveitem = \'");
 
             
-            #line 455 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 456 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                             Write(Model.ActiveItemID);
 
             
@@ -2133,7 +2138,7 @@ WriteLiteral("\';\r\n\r\n            $(\'#btn_clear\').click(function () {\r\n  
 "       $(\'#ImageFileLocation\').val(\'");
 
             
-            #line 461 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 462 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                     Write(Model.ImageFileLocation);
 
             
@@ -2142,7 +2147,7 @@ WriteLiteral("\';\r\n\r\n            $(\'#btn_clear\').click(function () {\r\n  
 WriteLiteral("\');\r\n\r\n            var fileupload = \'");
 
             
-            #line 463 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 464 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                          Write(Model.UploadFileName);
 
             
@@ -2158,7 +2163,7 @@ WriteLiteral(@"'
             $(""#btn_return"").click(function () { CreatePost('");
 
             
-            #line 470 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 471 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                         Write(Url.Action("ModelItem"));
 
             
@@ -2167,7 +2172,7 @@ WriteLiteral(@"'
 WriteLiteral("\', { mainid: \'");
 
             
-            #line 470 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 471 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                                               Write(Model.ModelID);
 
             
@@ -2176,7 +2181,7 @@ WriteLiteral("\', { mainid: \'");
 WriteLiteral("\'});});\r\n            if (\'");
 
             
-            #line 471 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 472 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
             Write(Model.ItemID);
 
             
@@ -2185,7 +2190,7 @@ WriteLiteral("\'});});\r\n            if (\'");
 WriteLiteral("\'>0 && \'");
 
             
-            #line 471 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 472 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                  Write(Model.ImageFileName);
 
             
@@ -2195,7 +2200,7 @@ WriteLiteral("\'!=\'\') {\r\n                $(\'#div_oldfile\').show();\r\n    
 "f (\'");
 
             
-            #line 474 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 475 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
             Write(Model.ItemID);
 
             
@@ -2204,7 +2209,7 @@ WriteLiteral("\'!=\'\') {\r\n                $(\'#div_oldfile\').show();\r\n    
 WriteLiteral("\'>0 && \'");
 
             
-            #line 474 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 475 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                  Write(Model.RelateImageName);
 
             
@@ -2237,7 +2242,7 @@ WriteLiteral(@"'!='') {
                filebrowserImageUploadUrl: '");
 
             
-            #line 498 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 499 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                       Write(Url.Action("Upload"));
 
             
@@ -2246,7 +2251,7 @@ WriteLiteral(@"'!='') {
 WriteLiteral("?command=QuickUpload&type=Images\',\r\n               filebrowserUploadUrl: \'");
 
             
-            #line 499 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 500 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                  Write(Url.Action("UploadFile"));
 
             
@@ -2473,7 +2478,7 @@ WriteLiteral("?command=QuickUpload&type=Files\',\r\n            });\r\n         
 "         CreatePost(\'");
 
             
-            #line 844 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 845 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                    Write(Url.Action("ModelItem"));
 
             
@@ -2482,7 +2487,7 @@ WriteLiteral("?command=QuickUpload&type=Files\',\r\n            });\r\n         
 WriteLiteral("\', { mainid: \'");
 
             
-            #line 844 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 845 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                          Write(Model.ModelID);
 
             
