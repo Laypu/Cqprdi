@@ -13,7 +13,7 @@ namespace Aofeng.Controllers
     {
         CommonService _commonService = new CommonService();
         MessageService _service = new MessageService(3);
-        public ActionResult Index(string itemid, string mid, int nowpage = 1, int jumpPage = 0, int? group = -1, bool print = false)
+        public ActionResult Index(string itemid, string mid, int nowpage = 0, int jumpPage = 0, int? group = -1, bool print = false)
         {
             #region page action計算
             if (nowpage == 0 && jumpPage != 0)

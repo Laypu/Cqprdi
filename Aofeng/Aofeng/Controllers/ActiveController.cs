@@ -17,9 +17,16 @@ namespace Aofeng.Controllers
         CommonService _commonService = new CommonService();
         MessageService _service = new MessageService(11);
         // GET: Active
-        public ActionResult Index(string itemid, string mid, int nowpage = 1, int jumpPage = 0, int? group = -1, string classType = "large")
+        public ActionResult Index(string itemid, string mid, int nowpage = 0, int jumpPage = 0, int? group = -1, string classType = "large")
         {
-
+            if (nowpage == 0 && jumpPage != 0)
+            {
+                nowpage = jumpPage;
+            }
+            else if (nowpage == 0 && jumpPage == 0)
+            {
+                nowpage = 1;
+            }
             if (string.IsNullOrEmpty(itemid))
             {
                 return RedirectToAction("Index", "Home");

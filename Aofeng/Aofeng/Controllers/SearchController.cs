@@ -61,9 +61,9 @@ namespace Aofeng.Controllers
             ViewBag.Total = paging.total;
             ViewBag.ShowCount = pageIndexSetting.ShowCount.HasValue ? pageIndexSetting.ShowCount.Value : 10;
             ViewBag.NowPage = nowpage;
-
-            ViewBag.modelName = $"搜尋結果 - \"{key}\"";
+            ViewBag.modelName = this.LanguageID == 1?$"搜尋結果 - \"{key}\"": $"result - \"{key}\"";
             ViewBag.mid = "Search";
+            ViewBag.Language = this.LanguageID;
 
             return View(model);
         }

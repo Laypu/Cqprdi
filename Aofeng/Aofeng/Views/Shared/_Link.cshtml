@@ -59,7 +59,14 @@
 
     if (ViewBag.mid == "Search")
     {
-        Menu1st = new Menu() { MenuName = "站內檢索" };
+        if ((int)ViewBag.Language == 1)
+        {
+            Menu1st = new Menu() { MenuName = "搜尋結果" };
+        }
+        else
+        {
+            Menu1st = new Menu() { MenuName = "result" };
+        }
     }
 }
 
