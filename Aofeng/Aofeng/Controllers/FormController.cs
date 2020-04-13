@@ -111,8 +111,8 @@ namespace Aofeng.Controllers
 
             string result = _Service.SaveForm(JsonConvert.SerializeObject(json, Formatting.None), json, itemid);
 
-            if(itemid == "1" || itemid == "2")
-            {
+            //if(itemid == "1" || itemid == "2")
+            //{
                 if (result == "輸入失敗")
                 {
                     Session["ErrorMessage"] = "輸入失敗！";
@@ -126,11 +126,11 @@ namespace Aofeng.Controllers
                     Session["ErrorMessage"] = result;
                     return RedirectToAction("ConfirmContent", new { mid = mid, itemid = itemid });
                 }
-            }
-            else
-            {
-                return Json(result);
-            }
+            //}
+            //else
+            //{
+            //    return Json(result);
+            //}
         }
         public ActionResult ConfirmContent(string mid, string itemid)
         {
