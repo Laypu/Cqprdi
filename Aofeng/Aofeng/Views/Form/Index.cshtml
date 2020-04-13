@@ -40,7 +40,7 @@
                                
                                 </div>
                                         <div class="form_a">
-                                            <input type="text" name="@item.ID" @(Model.btn == item.ID.ToString() ? "autofocus" : "") class="form-control" id="@item.ID" value="@item.DefaultText">
+                                            <input type="text" name="@item.ID" @(Model.btn == item.ID.ToString() ? "autofocus" : "") class="form-control" id="@item.ID" placeholder="@item.DefaultText">
                                             
                                             <div class="required">@item.Description</div>
                                         </div>
@@ -53,7 +53,7 @@
                                                       @(item.ColumnNum.HasValue ? "size=" + item.ColumnNum.Value : "")
                                                       @(item.TextLength.HasValue ? "maxlength=" + item.TextLength.Value : "")
                                                       @(item.RowNum.HasValue ? "rows=" + item.RowNum.Value : "")
-                                                      class="form-control @(item.MustInput?"checkitem":"")" rows="5" >@item.DefaultText</textarea>
+                                                      class="form-control @(item.MustInput?"checkitem":"")" rows="5" placeholder="@item.DefaultText" ></textarea>
                                             
                                             <div class="required">@item.Description</div>
                                         </div>

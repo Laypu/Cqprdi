@@ -2445,40 +2445,43 @@ WriteLiteral("?command=QuickUpload&type=Files\',\r\n            });\r\n         
 "           i++;\r\n            })\r\n                var d = 0;\r\n                $(\'" +
 ".tr_active\').each(function () {\r\n                    var stdate = $(this).find(\'" +
 "#StDate\').val();\r\n                    var eddate = $(this).find(\'#EdDate\').val()" +
-";\r\n                    if (DateBetweenVaild(\'StDate\',\'EdDate\') == false) {\r\n    " +
-"                alert(\'顯示日期_開始日期必須小於結束日期！\');\r\n                    return false;\r" +
-"\n                   }\r\n                    formData.append(\"messageDateRange[\" +" +
-" d + \"].StartDate\", stdate);\r\n                    formData.append(\"messageDateRa" +
-"nge[\" + d + \"].EndDate\", eddate);\r\n                    d++;\r\n                })\r" +
-"\n            var i = 0;\r\n            $(\'.tr_image\').each(function () {\r\n        " +
-"           var uploadfile = $(this).find(\'#uploadfile\').get(0).files;\r\n         " +
-"          if (uploadfile.length > 0) {\r\n                       formData.append(\"" +
-"messageImages[\" + i + \"].UploadFile\", uploadfile[0]);\r\n                       fo" +
-"rmData.append(\"messageImages[\" + i + \"].UploadFileDesc\", $(this).find(\'#UploadFi" +
-"leDesc\').val());\r\n                       if ($(this).find(\'#UploadFileDesc\').val" +
-"() == \"\") {\r\n                           $(this).find(\'#UploadFileDesc-error\').sh" +
-"ow();\r\n                           iscon = false;\r\n                       }\r\n    " +
-"               } else {\r\n                       formData.append(\"messageImages[\"" +
-" + i + \"].UploadFile\", null);\r\n                       formData.append(\"messageIm" +
-"ages[\" + i + \"].UploadFileName\", $(this).find(\'#UploadFileName\').val());\r\n      " +
-"                 formData.append(\"messageImages[\" + i + \"].UploadFilePath\", $(th" +
-"is).find(\'#UploadFilePath\').val());\r\n                       formData.append(\"mes" +
-"sageImages[\" + i + \"].UploadFileDesc\", $(this).find(\'#UploadFileDesc\').val());\r\n" +
-"                       if ($(this).find(\'#UploadFileName\').val() != \"\") {\r\n     " +
-"                      if ($(this).find(\'#UploadFileDesc\').val() == \"\") {\r\n      " +
-"                         $(this).find(\'#UploadFileDesc-error\').show();\r\n        " +
-"                       iscon = false;\r\n                           }\r\n           " +
-"            }\r\n                   }\r\n\r\n                   i++;\r\n            })\r\n" +
-"\r\n                if (iscon == false) { return false;}\r\n                $.ajax({" +
-"\r\n                    url: this.action,\r\n                    data: formData,\r\n  " +
-"                  type: \'POST\',\r\n                    cache: false,\r\n            " +
-"        contentType: false,\r\n                    processData: false,\r\n          " +
-"          success: function (data) {\r\n                        alert(data);\r\n    " +
-"                    if (data == \'新增成功\' || data == \'修改成功\') {\r\n                   " +
-"         CreatePost(\'");
+";\r\n                    var fromDate = new Date(stdate);\r\n                    var" +
+" to = new Date(eddate);\r\n                    if (stdate == \"\" || eddate == \"\") {" +
+"\r\n                        alert(\'請輸入開始日期和結束日期！\');\r\n                     iscon = " +
+"false;\r\n                    }\r\n                    if (to < fromDate) {\r\n       " +
+"                 alert(\'顯示日期_開始日期必須小於結束日期！\');\r\n                    iscon = false" +
+";\r\n                    }\r\n                    formData.append(\"messageDateRange[" +
+"\" + d + \"].StartDate\", stdate);\r\n                    formData.append(\"messageDat" +
+"eRange[\" + d + \"].EndDate\", eddate);\r\n                    d++;\r\n                " +
+"})\r\n            var i = 0;\r\n            $(\'.tr_image\').each(function () {\r\n     " +
+"              var uploadfile = $(this).find(\'#uploadfile\').get(0).files;\r\n      " +
+"             if (uploadfile.length > 0) {\r\n                       formData.appen" +
+"d(\"messageImages[\" + i + \"].UploadFile\", uploadfile[0]);\r\n                      " +
+" formData.append(\"messageImages[\" + i + \"].UploadFileDesc\", $(this).find(\'#Uploa" +
+"dFileDesc\').val());\r\n                       if ($(this).find(\'#UploadFileDesc\')." +
+"val() == \"\") {\r\n                           $(this).find(\'#UploadFileDesc-error\')" +
+".show();\r\n                           iscon = false;\r\n                       }\r\n " +
+"                  } else {\r\n                       formData.append(\"messageImage" +
+"s[\" + i + \"].UploadFile\", null);\r\n                       formData.append(\"messag" +
+"eImages[\" + i + \"].UploadFileName\", $(this).find(\'#UploadFileName\').val());\r\n   " +
+"                    formData.append(\"messageImages[\" + i + \"].UploadFilePath\", $" +
+"(this).find(\'#UploadFilePath\').val());\r\n                       formData.append(\"" +
+"messageImages[\" + i + \"].UploadFileDesc\", $(this).find(\'#UploadFileDesc\').val())" +
+";\r\n                       if ($(this).find(\'#UploadFileName\').val() != \"\") {\r\n  " +
+"                         if ($(this).find(\'#UploadFileDesc\').val() == \"\") {\r\n   " +
+"                            $(this).find(\'#UploadFileDesc-error\').show();\r\n     " +
+"                          iscon = false;\r\n                           }\r\n        " +
+"               }\r\n                   }\r\n\r\n                   i++;\r\n            }" +
+")\r\n\r\n                if (iscon == false) { return false;}\r\n                $.aja" +
+"x({\r\n                    url: this.action,\r\n                    data: formData,\r" +
+"\n                    type: \'POST\',\r\n                    cache: false,\r\n         " +
+"           contentType: false,\r\n                    processData: false,\r\n       " +
+"             success: function (data) {\r\n                        alert(data);\r\n " +
+"                       if (data == \'新增成功\' || data == \'修改成功\') {\r\n                " +
+"            CreatePost(\'");
 
             
-            #line 845 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 851 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                    Write(Url.Action("ModelItem"));
 
             
@@ -2487,7 +2490,7 @@ WriteLiteral("?command=QuickUpload&type=Files\',\r\n            });\r\n         
 WriteLiteral("\', { mainid: \'");
 
             
-            #line 845 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
+            #line 851 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
                                                                          Write(Model.ModelID);
 
             
