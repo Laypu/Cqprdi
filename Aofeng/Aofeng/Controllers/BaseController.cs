@@ -317,7 +317,7 @@ namespace Aofeng.Controllers
 
             ViewBag.StyleImage = StyleImage;
 
-
+            ViewBag.langID = _Lang;
             ViewBag.UnitSetting = unitSetting == null ? new UnitSetting() : unitSetting;
             #endregion
 
