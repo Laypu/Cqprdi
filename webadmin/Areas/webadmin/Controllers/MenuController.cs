@@ -19,7 +19,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         MenuService _service = new MenuService();
         CommonService _commonService = new CommonService();
         ExclusiveLayoutService _exclusiveLayoutService = new ExclusiveLayoutService();
-
+        FormService _Fservice = new FormService();
         /// <summary>
         /// 網站選單
         /// </summary>
@@ -203,6 +203,10 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                 //表示有舊資料
             }
 
+
+                          
+
+
             if (model.LinkUploadFile != null)
             {
                 model.LinkUploadFileName = model.LinkUploadFile.FileName.Split('\\').Last();
@@ -224,9 +228,56 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             }
             model.LangID = int.Parse(this.LanguageID);
 
+
+            
             if (model.ID <= 0)
             {
+                int itemold =0;
+                if (model.ModelID == 4 && model.ModelItemID == -1)
+                {
+                    itemold = model.ModelItemID;
+
+                }
+                
+                
                 string result = _service.Create(model, this.Account, this.UserName);
+                                
+                
+                var itemNew = model.ModelItemID;
+                if (itemold  == -1)
+                {
+                    FormItemSettingModel Fmodel = new FormItemSettingModel()
+                    {
+                        MainID = itemNew,
+                        SelList = null,
+                        Description = "",
+                        Title = "姓名",
+                        ItemMode = 1,//是textbox
+                        TextLength = "20",
+                        RowNum = null,
+                        ColumnNum = "10",
+                        DefaultText = ""
+                        
+
+                    };
+                    _Fservice.EditSelItem(Fmodel);
+                    FormItemSettingModel FmodelEmail = new FormItemSettingModel()
+                    {
+                        MainID = itemNew,
+                        SelList = null,
+                        Description = "",
+                        Title = "Email",
+                        ItemMode = 1,//是textbox
+                        TextLength = "30",
+                        RowNum = null,
+                        ColumnNum = "20",
+                        DefaultText = ""
+
+
+                    };
+                    _Fservice.EditSelItem(FmodelEmail);
+                }
+
                 return Content(result);
             }
             else

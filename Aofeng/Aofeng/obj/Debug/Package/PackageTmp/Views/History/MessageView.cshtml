@@ -1,0 +1,76 @@
+﻿@model MessageViewModel
+@{
+    bool isPrint = (bool)ViewBag.print;
+
+    if (isPrint)
+    {
+        Layout = "~/Views/Shared/_Print.cshtml";
+    }
+}
+<div class="date">
+    @(Model.MessageItem.PublicshDate?.ToString("yyyy/MM/dd"))
+    @if (Model.GroupName.IsNullOrEmpty() == false)
+    {
+        <span class="top_class">@Model.GroupName</span>
+    }
+</div>
+<span>
+    @if (string.IsNullOrEmpty(Model.MessageItem.ImageFileOrgName) == false)
+    {
+        <!--圖片置左-->
+        if (Model.MessageItem.ImageFileLocation == "1")
+        {
+            <img src="@Url.Content("~/UploadImage/RecommendedTrips/")@Model.MessageItem.ImageFileName" class="img_padding" alt="@Model.MessageItem.ImageFileDesc" align="left">
+        }
+        else if (Model.MessageItem.ImageFileLocation == "2")
+        {
+            <div align="center"><p class="text_center"><img src="@Url.Content("~/UploadImage/RecommendedTrips/")@Model.MessageItem.ImageFileName" class="img_padding" alt="@Model.MessageItem.ImageFileDesc"></p></div>
+        }
+        else if (Model.MessageItem.ImageFileLocation == "3")
+        {
+            <img src="@Url.Content("~/UploadImage/RecommendedTrips/")@Model.MessageItem.ImageFileName" class="img_padding" alt="@Model.MessageItem.ImageFileDesc" align="right">
+        }
+
+    }
+</span>
+<div class="edit_con">
+    @Html.Raw(HttpUtility.HtmlDecode(Model.MessageItem.HtmlContent))
+</div>
+@if (Model.ListMessageImage.FirstOrDefault() != null)
+{
+    <div class="pho_list_title">@("相關相片".GetLang())</div>
+    <div class="pho_list pho-gallery">
+        @foreach (var m in Model.ListMessageImage)
+        {
+            <a href="@Url.Content("~/UploadFile/" + m.UploadFilePath)" class="item imgLiquidFill"><img src="@Url.Content("~/UploadFile/" + m.UploadFilePath)" alt="" /><figure>@m.UploadFileDesc</figure></a>
+        }
+    </div>
+}
+    <div class="page_bottom">
+        @if (Model.MessageItem.LinkUrl.IsNullOrEmpty() == false)
+        {
+            <div class="link">
+                <div class="title"><i class="fa fa-link" aria-hidden="true"></i>@("相關連結".GetLang())</div>
+                <div class="con_font">
+                    <a href="@Model.MessageItem.LinkUrl">@Model.MessageItem.LinkUrlDesc</a>
+                </div>
+            </div>
+        }
+        @if (Model.MessageItem.UploadFilePath.IsNullOrEmpty() == false)
+        {
+            <div class="download">
+                <div class="title"><i class="fa fa-download" aria-hidden="true"></i>@("檔案下載".GetLang())</div>
+                <div class="con_font">
+                    <a href="@Url.Action("FileDownLoad2")?modelid=@Model.MessageItem.ModelID&&itemid=@Model.MessageItem.ItemID">@Model.MessageItem.UploadFileName</a>
+                </div>
+            </div>
+        }
+    </div>
+    @{
+        if (!isPrint)
+        {
+            <div class="btn_box">
+                <a href="javascript:history.back()" class="btn_01">@("回上一頁".GetLang())</a>
+            </div>
+        }
+    }
