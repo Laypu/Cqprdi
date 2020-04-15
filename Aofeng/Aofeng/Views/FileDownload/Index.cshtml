@@ -84,12 +84,15 @@
         </thead>
         <tbody>
             @foreach (MessageItem MessageItem in Model.ListMessageItem)
-            {
-                var messimg = MessageItem.RelateImageFileName == "" || MessageItem.RelateImageFileName == null ? "logo_400x300.jpg" : MessageItem.RelateImageFileName;
-            <tr>
-                <td scope="row" class="text-center"><img src="@Url.Content("~/UploadImage/FileDownloadItem/"+messimg)" alt="" /></td><!--建議尺寸400*300px；後台未上傳顯示預設圖片logo_400x300.jpg-->
-                <td class="text-center">@MessageItem.PublicshDate</td>
-                <td>@MessageItem.Title</td>
+                {
+                    var messimg = MessageItem.RelateImageFileName == "" || MessageItem.RelateImageFileName == null ? "logo_400x300.jpg" : MessageItem.RelateImageFileName;
+                    var PublicshDate = ((DateTime)MessageItem.PublicshDate).ToString("yyyy/MM/dd");
+                    
+                    <tr>
+    
+                    <td scope="row" class="text-center"><img src="@Url.Content("~/UploadImage/FileDownloadItem/"+messimg)" alt="" /></td><!--建議尺寸400*300px；後台未上傳顯示預設圖片logo_400x300.jpg-->
+                    <td class="text-center">@PublicshDate</td>
+                    <td>@MessageItem.Title</td>
                 @if (MessageItem.GroupName != "無分類")
                 {
                     <td class="text-center">@MessageItem.GroupName</td>
