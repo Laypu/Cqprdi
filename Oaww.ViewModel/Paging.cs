@@ -13,8 +13,11 @@ namespace Oaww.ViewModel
         {
             total = 0;
             rows = new List<T>();
+            cnt = 0;
         }
         public int total { get; set; }
         public List<T> rows { get; set; }
+
+        public int cnt { get; set; }
     }
 }
