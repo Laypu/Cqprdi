@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <div class="col-md-2 col-sm-12 col-xs-12 bg-grey_1 search_item"> 選單英文名稱</div>
                             <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
-                                <input name="DisplayName" type="text" class="form-control" value="@Model.DisplayName" />
+                                <input name="DisplayName" type="text" class="form-control " value="@Model.DisplayName" />
                                 <span class="required" id="DisplayName-error" style="display:none;">選單內容 必須填寫！</span>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                                     <label for="ImageFile" class="col-md-2">程式模組</label>
                                     <div class="col-md-10">
                                         <select style="" id="sel_model" name='@Html.IdFor(m=>m.ModelID)' class="form-control_1">
-                                            <option value="" selected="selected">請選擇程式模組</option>
+                                            <option value="" selected="selected">@Html.Require()請選擇程式模組</option>
                                             @foreach (var m in ListModel)
                                             {
                                                 <option value="@m.Value">@m.Text</option>
@@ -117,6 +117,7 @@
                                     <label for="ImageFile" class="col-md-2">@Html.Require() 連結路徑</label>
                                     <div class="col-md-10">
                                         @Html.EditorFor(model => model.LinkUrl, new { htmlAttributes = new { @class = "form-control" } })
+                                        <span class="required" id="LinkUrl-error" style="display:none;">選單內容 必須填寫！</span>
                                     </div>
                                 </div>
                                 <div class="col-md-12" id="div_file" style="display:none">
@@ -258,7 +259,10 @@
                     alert("請選擇程式模組");
                     return false;
                 }
-
+                if ($('#div_link').is(':visible') && $('#LinkUrl').val() == "") {
+                    alert("請輸入連結");
+                    return false;
+                }
                 var file = $("#file_image");
                 var _validFileExtensions = [".jpg", ".png", ".gif", ".jpeg"];
                 var sFileName = file.val();

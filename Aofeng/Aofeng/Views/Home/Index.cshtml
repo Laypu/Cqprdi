@@ -176,29 +176,29 @@
                     <!--後台提供4組自行輸入，欄位：圖片、標題、連結-->
                     <ul class="list">
                         @if (Model.QuickLink.Count() > 0)
-                                    {
+                         {
                                         foreach (var m in Model.QuickLink)
                                         {
                                             var img = m.Img_Name_Thumb == "" || m.Img_Name_Thumb == null ? "index_icon_02.jpg" : m.Img_Name_Thumb;
                                             if (m.Link_Mode == "2")
                                             {
-                                    <li data-sr="enter bottom over 1.5s">
-                                        <a href="@m.Link_Href" target="_blank" title="@m.AD_Name">
-                                            <div class="img imh_opacity"><img src="@Url.Content("~/UploadImage/ADMain/")@img" alt="@m.AD_Name" /></div>
-                                            <div class="title">@m.AD_Name</div>
-                                        </a>
-                                    </li>
-                                }
-                                else
-                                {
-                    <li data-sr="enter bottom over 1.5s">
-                        <a href="@m.Link_Href" title="@m.AD_Name">
-                            <div class="img imh_opacity"><img src="@Url.Content("~/UploadImage/ADMain/")@img" alt="@m.AD_Name"  /></div>
-                            <div class="title">@m.AD_Name</div>
-                        </a>
-                    </li>
-                                }
-                            }
+                                                <li data-sr="enter bottom over 1.5s">
+                                                    <a href="@m.Link_Href" target="_blank" title="@m.AD_Name">
+                                                        <div class="img imh_opacity"><img src="@Url.Content("~/UploadImage/ADMain/")@img" alt="@m.AD_Name" /></div>
+                                                        <div class="title">@m.AD_Name</div>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                    <li data-sr="enter bottom over 1.5s">
+                                                        <a href="@m.Link_Href" title="@m.AD_Name">
+                                                            <div class="img imh_opacity"><img src="@Url.Content("~/UploadImage/ADMain/")@img" alt="@m.AD_Name"  /></div>
+                                                            <div class="title">@m.AD_Name</div>
+                                                        </a>
+                                                    </li>
+                                            }
+                                        }
                         }       
                     </ul>
                 </div>
@@ -221,14 +221,14 @@
                                         @foreach (var m in Model.ListFaq)
                                         {
                                             <li data-sr="enter bottom over 1.5s">
-                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1154",GroupName=m.GroupName }):"#")">
+                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1154",GroupName=m.GroupName }):"#")" title="@m.Title">
                                                     <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
                                                     <div class="title">@m.Title</div>
                                                 </a>
                                             </li>
                                         }
                                     </ul>
-                                    <div class="btn_box"><a href="@Url.Action("index","Message",new { @itemid ="1024", mid = "1154" })" class="btn_01" title="more">more</a></div>
+                                    <div class="btn_box"><a href="@Url.Action("index","Message",new { @itemid ="1024", mid = "1154" })" class="btn_01" title="more" >more</a></div>
                                 </div>
 
                                 <div class="tab-pane" id="page_02">
@@ -236,7 +236,7 @@
                                         @foreach (var m in Model.ListImage)
                                         {
                                             <li>
-                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1155",GroupName=m.GroupName }):"#")">
+                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1155",GroupName=m.GroupName }):"#")" title="@m.Title">
                                                     <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
                                                     <div class="title">@m.Title</div>
                                                 </a>
@@ -251,7 +251,7 @@
                                         @foreach (var m in Model.ListDownload)
                                         {
                                             <li>
-                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Active",new {@itemid=m.ItemID,mid="1156",GroupName=m.GroupName }):"#")">
+                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Active",new {@itemid=m.ItemID,mid="1156",GroupName=m.GroupName }):"#")" title="@m.Title">
                                                     <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
                                                     <div class="title">@m.Title</div>
                                                 </a>
@@ -266,7 +266,7 @@
                                         @foreach (var m in Model.AboutLink)
                                         {
                                             <li>
-                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1157",GroupName=m.GroupName }):"#")">
+                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1157",GroupName=m.GroupName }):"#")" title="@m.Title">
                                                     <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
                                                     <div class="title">@m.Title</div>
                                                 </a>
@@ -281,81 +281,81 @@
                     }
                     else
                     {
-                <h2 data-sr="enter top over 1.5s">Announcement message</h2>
+                        <h2 data-sr="enter top over 1.5s">News</h2>
 
-                        <div class="tabs">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#page_01" data-toggle="tab" title="Information Of Faculty">Information Of Faculty</a></li>
-                                <li><a href="#page_02" data-toggle="tab" title="Information Of Symposium"> Information Of Symposium</a></li>
-                                <li><a href="#page_03" data-toggle="tab" title="Information Of competition">Information Of Competition</a></li>
-                                <li><a href="#page_04" data-toggle="tab" title="Market Trends">Market Trends</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="page_01">
-
-                                    <ul class="list">
-                                        @foreach (var m in Model.ListFaq)
-                                        {
-                                            <li data-sr="enter bottom over 1.5s">
-                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1161",GroupName=m.GroupName }):"#")">
-                                                    <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
-                                                    <div class="title">@m.Title</div>
-                                                </a>
-                                            </li>
-                                        }
+                                <div class="tabs">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#page_01" data-toggle="tab" title="Information Of Faculty">Faculty</a></li>
+                                        <li><a href="#page_02" data-toggle="tab" title="Information Of Symposium">Symposium</a></li>
+                                        <li><a href="#page_03" data-toggle="tab" title="Information Of competition">Competition</a></li>
+                                        <li><a href="#page_04" data-toggle="tab" title="Market Trends">Market Trends</a></li>
                                     </ul>
-                                    <div class="btn_box"><a href="@Url.Action("index","Message",new { @itemid ="1027", mid = "1161" })" class="btn_01" title="more">more</a></div>
-                                </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="page_01">
 
-                                <div class="tab-pane" id="page_02">
-                                    <ul class="list">
-                                        @foreach (var m in Model.ListImage)
-                                        {
-                                            <li>
-                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1162",GroupName=m.GroupName }):"#")">
-                                                    <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
-                                                    <div class="title">@m.Title</div>
-                                                </a>
-                                            </li>
-                                        }
-                                    </ul>
-                                    <div class="btn_box"><a href="@Url.Action("index","Message",new { @itemid ="1028", mid = "1162" })" class="btn_01" title="more">more</a></div>
-                                </div>
+                                            <ul class="list">
+                                                @foreach (var m in Model.ListFaq)
+                                                {
+                                                    <li data-sr="enter bottom over 1.5s">
+                                                        <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1161",GroupName=m.GroupName }):"#")">
+                                                            <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
+                                                            <div class="title">@m.Title</div>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                            <div class="btn_box"><a href="@Url.Action("index","Message",new { @itemid ="1027", mid = "1161" })" class="btn_01" title="more">more</a></div>
+                                        </div>
 
-                                <div class="tab-pane" id="page_03">
-                                    <ul class="list">
-                                        @foreach (var m in Model.ListDownload)
-                                        {
-                                            <li>
-                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Active",new {@itemid=m.ItemID,mid="1163",GroupName=m.GroupName }):"#")">
-                                                    <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
-                                                    <div class="title">@m.Title</div>
-                                                </a>
-                                            </li>
-                                        }
-                                    </ul>
-                                    <div class="btn_box"><a href="@Url.Action("index","Active",new { @itemid ="1130", mid = "1163" })" class="btn_01" title="more">more</a></div>
-                                </div>
+                                        <div class="tab-pane" id="page_02">
+                                            <ul class="list">
+                                                @foreach (var m in Model.ListImage)
+                                                {
+                                                    <li>
+                                                        <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1162",GroupName=m.GroupName }):"#")">
+                                                            <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
+                                                            <div class="title">@m.Title</div>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                            <div class="btn_box"><a href="@Url.Action("index","Message",new { @itemid ="1028", mid = "1162" })" class="btn_01" title="more">more</a></div>
+                                        </div>
 
-                                <div class="tab-pane" id="page_04">
-                                    <ul class="list">
-                                        @foreach (var m in Model.AboutLink)
-                                        {
-                                            <li>
-                                                <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1164",GroupName=m.GroupName }):"#")">
-                                                    <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
-                                                    <div class="title">@m.Title</div>
-                                                </a>
-                                            </li>
-                                        }
-                                    </ul>
-                                    <div class="btn_box"><a href="@Url.Action("index","Message",new { @itemid ="1029", mid = "1165" })" class="btn_01" title="more">more</a></div>
-                                </div>
+                                        <div class="tab-pane" id="page_03">
+                                            <ul class="list">
+                                                @foreach (var m in Model.ListDownload)
+                                                {
+                                                    <li>
+                                                        <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Active",new {@itemid=m.ItemID,mid="1163",GroupName=m.GroupName }):"#")">
+                                                            <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
+                                                            <div class="title">@m.Title</div>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                            <div class="btn_box"><a href="@Url.Action("index","Active",new { @itemid ="1130", mid = "1163" })" class="btn_01" title="more">more</a></div>
+                                        </div>
 
-                            </div>
+                                        <div class="tab-pane" id="page_04">
+                                            <ul class="list">
+                                                @foreach (var m in Model.AboutLink)
+                                                {
+                                                    <li>
+                                                        <a href="@(m.Link_Mode == 1 ? Url.Action("MessageView","Message",new {@itemid=m.ItemID,mid="1164",GroupName=m.GroupName }):"#")">
+                                                            <div class="date">@m.PublicshDate.Value.ToString("yyy/MM/dd")</div>
+                                                            <div class="title">@m.Title</div>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                            <div class="btn_box"><a href="@Url.Action("index","Message",new { @itemid ="1029", mid = "1165" })" class="btn_01" title="more">more</a></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
                         </div>
-                    }
-                </div>
 
             </div>
         </div>

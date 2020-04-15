@@ -71,36 +71,73 @@
                                             <a href="#" class="size_l" onClick="size_set('font_l')" onkeypress="size_set('font_l')" title="大字級">A+</a><!--英文 L-->
 
                                         </li>
-                                        <li class="share_icon">
-                                            <a href="#" target="_blank" title="facbook(另開新視窗)">
-                                                <!--英文 facebook(new window)-->
-                                                <span class="fa-stack fa-xs">
-                                                    <i class="fa fa-square fa-stack-2x" style="color: #345db7;"></i>
-                                                    <i class="fab fa-facebook-f fa-stack-1x" style="color: #fff;"></i>
-                                                </span>
-                                            </a>
-                                            <a href="#" target="_blank" title="twitter(另開新視窗)">
-                                                <!--英文 twitter(new window)-->
-                                                <span class="fa-stack fa-xs">
-                                                    <i class="fa fa-square fa-stack-2x" style="color: #5da9dd;"></i>
-                                                    <i class="fab fa-twitter fa-stack-1x" style="color: #fff;"></i>
-                                                </span>
-                                            </a>
-                                            <a href="#" target="_blank" title="youtube(另開新視窗)">
-                                                <!--英文 youtube(new window)-->
-                                                <span class="fa-stack fa-xs">
-                                                    <i class="fa fa-square fa-stack-2x" style="color: #e50012;"></i>
-                                                    <i class="fab fa-youtube fa-stack-1x" style="color: #fff;"></i>
-                                                </span>
-                                            </a>
-                                            <a href="#" target="_blank" title="RSS(另開新視窗)" style="display:none;">
-                                                <!--英文 RSS(new window)-->
-                                                <span class="fa-stack fa-xs">
-                                                    <i class="fa fa-square fa-stack-2x" style="color: #e67b32;"></i>
-                                                    <i class="fas fa-rss fa-stack-1x" style="color: #fff;"></i>
-                                                </span>
-                                            </a>
-                                        </li>
+                                        @if (ViewBag.langID == 2)
+                                        {
+                                            <li class="share_icon">
+                                                <a href="#" target="_blank" title="facbook(new window)">
+                                                    <!--英文 facebook(new window)-->
+                                                    <span class="fa-stack fa-xs">
+                                                        <i class="fa fa-square fa-stack-2x" style="color: #345db7;"></i>
+                                                        <i class="fab fa-facebook-f fa-stack-1x" style="color: #fff;"></i>
+                                                    </span>
+                                                </a>
+                                                <a href="#" target="_blank" title="twitter(new window)">
+                                                    <!--英文 twitter(new window)-->
+                                                    <span class="fa-stack fa-xs">
+                                                        <i class="fa fa-square fa-stack-2x" style="color: #5da9dd;"></i>
+                                                        <i class="fab fa-twitter fa-stack-1x" style="color: #fff;"></i>
+                                                    </span>
+                                                </a>
+                                                <a href="#" target="_blank" title="youtube(new window)">
+                                                    <!--英文 youtube(new window)-->
+                                                    <span class="fa-stack fa-xs">
+                                                        <i class="fa fa-square fa-stack-2x" style="color: #e50012;"></i>
+                                                        <i class="fab fa-youtube fa-stack-1x" style="color: #fff;"></i>
+                                                    </span>
+                                                </a>
+                                                <a href="#" target="_blank" title="RSS(new window)" style="display:none;">
+                                                    <!--英文 RSS(new window)-->
+                                                    <span class="fa-stack fa-xs">
+                                                        <i class="fa fa-square fa-stack-2x" style="color: #e67b32;"></i>
+                                                        <i class="fas fa-rss fa-stack-1x" style="color: #fff;"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                        }
+                                        else
+                                        { 
+                                            <li class="share_icon">
+                                                <a href="#" target="_blank" title="facbook(另開新視窗)">
+                                                    <!--英文 facebook(new window)-->
+                                                    <span class="fa-stack fa-xs">
+                                                        <i class="fa fa-square fa-stack-2x" style="color: #345db7;"></i>
+                                                        <i class="fab fa-facebook-f fa-stack-1x" style="color: #fff;"></i>
+                                                    </span>
+                                                </a>
+                                                <a href="#" target="_blank" title="twitter(另開新視窗)">
+                                                    <!--英文 twitter(new window)-->
+                                                    <span class="fa-stack fa-xs">
+                                                        <i class="fa fa-square fa-stack-2x" style="color: #5da9dd;"></i>
+                                                        <i class="fab fa-twitter fa-stack-1x" style="color: #fff;"></i>
+                                                    </span>
+                                                </a>
+                                                <a href="#" target="_blank" title="youtube(另開新視窗)">
+                                                    <!--英文 youtube(new window)-->
+                                                    <span class="fa-stack fa-xs">
+                                                        <i class="fa fa-square fa-stack-2x" style="color: #e50012;"></i>
+                                                        <i class="fab fa-youtube fa-stack-1x" style="color: #fff;"></i>
+                                                    </span>
+                                                </a>
+                                                <a href="#" target="_blank" title="RSS(另開新視窗)" style="display:none;">
+                                                    <!--英文 RSS(new window)-->
+                                                    <span class="fa-stack fa-xs">
+                                                        <i class="fa fa-square fa-stack-2x" style="color: #e67b32;"></i>
+                                                        <i class="fas fa-rss fa-stack-1x" style="color: #fff;"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        }
                                     </ul>
                                 </nav>
                             </div>

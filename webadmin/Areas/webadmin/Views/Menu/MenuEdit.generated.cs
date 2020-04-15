@@ -346,16 +346,16 @@ WriteLiteral(" name=\"DisplayName\"");
 
 WriteLiteral(" type=\"text\"");
 
-WriteLiteral(" class=\"form-control\"");
+WriteLiteral(" class=\"form-control \"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 2550), Tuple.Create("\"", 2576)
+WriteAttribute("value", Tuple.Create(" value=\"", 2551), Tuple.Create("\"", 2577)
             
             #line 53 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
-                  , Tuple.Create(Tuple.Create("", 2558), Tuple.Create<System.Object, System.Int32>(Model.DisplayName
+                   , Tuple.Create(Tuple.Create("", 2559), Tuple.Create<System.Object, System.Int32>(Model.DisplayName
             
             #line default
             #line hidden
-, 2558), false)
+, 2559), false)
 );
 
 WriteLiteral(" />\r\n                                <span");
@@ -441,14 +441,14 @@ WriteLiteral(" style=\"display:none\"");
 
 WriteLiteral("><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 4046), Tuple.Create("\"", 4068)
+WriteAttribute("href", Tuple.Create(" href=\"", 4047), Tuple.Create("\"", 4069)
             
             #line 73 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
-        , Tuple.Create(Tuple.Create("", 4053), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
+        , Tuple.Create(Tuple.Create("", 4054), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
             
             #line default
             #line hidden
-, 4053), false)
+, 4054), false)
 );
 
 WriteLiteral(" target=\"preview\"");
@@ -596,14 +596,14 @@ WriteLiteral(" style=\"\"");
 
 WriteLiteral(" id=\"sel_model\"");
 
-WriteAttribute("name", Tuple.Create(" name=\'", 6664), Tuple.Create("\'", 6696)
+WriteAttribute("name", Tuple.Create(" name=\'", 6665), Tuple.Create("\'", 6697)
             
             #line 103 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 6671), Tuple.Create<System.Object, System.Int32>(Html.IdFor(m=>m.ModelID)
+, Tuple.Create(Tuple.Create("", 6672), Tuple.Create<System.Object, System.Int32>(Html.IdFor(m=>m.ModelID)
             
             #line default
             #line hidden
-, 6671), false)
+, 6672), false)
 );
 
 WriteLiteral(" class=\"form-control_1\"");
@@ -614,7 +614,16 @@ WriteLiteral(" value=\"\"");
 
 WriteLiteral(" selected=\"selected\"");
 
-WriteLiteral(">請選擇程式模組</option>\r\n");
+WriteLiteral(">");
+
+            
+            #line 104 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+                                                                            Write(Html.Require());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("請選擇程式模組</option>\r\n");
 
             
             #line 105 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
@@ -632,14 +641,14 @@ WriteLiteral(">請選擇程式模組</option>\r\n");
             #line hidden
 WriteLiteral("                                                <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 6999), Tuple.Create("\"", 7015)
+WriteAttribute("value", Tuple.Create(" value=\"", 7015), Tuple.Create("\"", 7031)
             
             #line 107 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 7007), Tuple.Create<System.Object, System.Int32>(m.Value
+, Tuple.Create(Tuple.Create("", 7023), Tuple.Create<System.Object, System.Int32>(m.Value
             
             #line default
             #line hidden
-, 7007), false)
+, 7023), false)
 );
 
 WriteLiteral(">");
@@ -667,14 +676,14 @@ WriteLiteral(" style=\"margin-left :10px\"");
 
 WriteLiteral(" id=\"sel_modelitem\"");
 
-WriteAttribute("name", Tuple.Create(" name=\'", 7225), Tuple.Create("\'", 7261)
+WriteAttribute("name", Tuple.Create(" name=\'", 7241), Tuple.Create("\'", 7277)
             
             #line 110 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
-                   , Tuple.Create(Tuple.Create("", 7232), Tuple.Create<System.Object, System.Int32>(Html.IdFor(m=>m.ModelItemID)
+                   , Tuple.Create(Tuple.Create("", 7248), Tuple.Create<System.Object, System.Int32>(Html.IdFor(m=>m.ModelItemID)
             
             #line default
             #line hidden
-, 7232), false)
+, 7248), false)
 );
 
 WriteLiteral(" class=\"form-control_1\"");
@@ -718,8 +727,16 @@ WriteLiteral("                                        ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n                                    </div>\r\n                                </d" +
-"iv>\r\n                                <div");
+WriteLiteral("\r\n                                        <span");
+
+WriteLiteral(" class=\"required\"");
+
+WriteLiteral(" id=\"LinkUrl-error\"");
+
+WriteLiteral(" style=\"display:none;\"");
+
+WriteLiteral(">選單內容 必須填寫！</span>\r\n                                    </div>\r\n                 " +
+"               </div>\r\n                                <div");
 
 WriteLiteral(" class=\"col-md-12\"");
 
@@ -753,20 +770,20 @@ WriteLiteral(" class=\"col-md-10\"");
 
 WriteLiteral(">\r\n                                            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\'", 8365), Tuple.Create("\'", 8417)
+WriteAttribute("href", Tuple.Create(" href=\'", 8504), Tuple.Create("\'", 8556)
             
-            #line 128 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 8372), Tuple.Create<System.Object, System.Int32>(Url.Action("FileDownLoad",new {id=Model.ID})
+            #line 129 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 8511), Tuple.Create<System.Object, System.Int32>(Url.Action("FileDownLoad",new {id=Model.ID})
             
             #line default
             #line hidden
-, 8372), false)
+, 8511), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 128 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 129 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                                                                                Write(Model.LinkUploadFileName);
 
             
@@ -810,7 +827,7 @@ WriteLiteral(" class=\"col-md-2 col-sm-12 col-xs-12 bg-grey_1 search_item\"");
 WriteLiteral(">");
 
             
-            #line 141 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 142 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                                                                        Write(Html.Require());
 
             
@@ -826,7 +843,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                ");
 
             
-            #line 143 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 144 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                            Write(Html.RadioButtonFor(model => model.ShowMode, 1, new { style = "margin-left :0px", @checked = "checked" }));
 
             
@@ -837,7 +854,7 @@ WriteLiteral(" 顯示框架\r\n");
 WriteLiteral("                                ");
 
             
-            #line 144 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 145 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                            Write(Html.RadioButtonFor(model => model.ShowMode, 2, new { style = "margin-left :40px" }));
 
             
@@ -862,7 +879,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                ");
 
             
-            #line 150 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 151 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                            Write(Html.CheckBoxFor(model => model.FrontDisplay.Value, new { @id = "FrontDisplay", @name = "FrontDisplay" }));
 
             
@@ -880,7 +897,7 @@ WriteLiteral(" class=\"col-md-2 col-sm-12 col-xs-12 bg-grey_1 search_item\"");
 WriteLiteral(">");
 
             
-            #line 154 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 155 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                                                                        Write(Html.Require());
 
             
@@ -895,7 +912,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                ");
 
             
-            #line 156 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 157 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                            Write(Html.RadioButtonFor(model => model.OpenMode, 1, new { style = "margin-left :0px", @checked = "checked" }));
 
             
@@ -906,7 +923,7 @@ WriteLiteral(" 原視窗<br />\r\n");
 WriteLiteral("                                ");
 
             
-            #line 157 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 158 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                            Write(Html.RadioButtonFor(model => model.OpenMode, 2, new { style = "" }));
 
             
@@ -917,7 +934,7 @@ WriteLiteral(" 新視窗<br />\r\n");
 WriteLiteral("                                ");
 
             
-            #line 158 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 159 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                            Write(Html.RadioButtonFor(model => model.OpenMode, 3, new { style = "float:left" }));
 
             
@@ -935,7 +952,7 @@ WriteLiteral(" style=\"float:left; margin-left:40px\"");
 WriteLiteral(">視窗寬度</div>");
 
             
-            #line 160 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 161 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                                                                    Write(Html.EditorFor(model => model.WindowWidth, new { htmlAttributes = new { @class = "form-control input-small", style = "float:left; margin-left:2px" } }));
 
             
@@ -948,7 +965,7 @@ WriteLiteral(" style=\"float:left;margin-left:20px\"");
 WriteLiteral(">視窗高度</div>");
 
             
-            #line 161 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 162 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                                                                   Write(Html.EditorFor(model => model.WindowHeight, new { htmlAttributes = new { @class = "form-control input-small", style = "float:left;margin-left:2px" } }));
 
             
@@ -976,24 +993,24 @@ WriteLiteral(" class=\"btn grey-cascade\"");
 
 WriteLiteral(" id=\"btn_return\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 11823), Tuple.Create("\"", 11897)
-, Tuple.Create(Tuple.Create("", 11833), Tuple.Create("location.href=\'", 11833), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 11962), Tuple.Create("\"", 12036)
+, Tuple.Create(Tuple.Create("", 11972), Tuple.Create("location.href=\'", 11972), true)
             
-            #line 173 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
-                  , Tuple.Create(Tuple.Create("", 11848), Tuple.Create<System.Object, System.Int32>(Url.Action("MainMenu")
-            
-            #line default
-            #line hidden
-, 11848), false)
-, Tuple.Create(Tuple.Create("", 11871), Tuple.Create("?menutype=", 11871), true)
-            
-            #line 173 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
-                                                   , Tuple.Create(Tuple.Create("", 11881), Tuple.Create<System.Object, System.Int32>(Model.MenuType
+            #line 174 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+                  , Tuple.Create(Tuple.Create("", 11987), Tuple.Create<System.Object, System.Int32>(Url.Action("MainMenu")
             
             #line default
             #line hidden
-, 11881), false)
-, Tuple.Create(Tuple.Create("", 11896), Tuple.Create("\'", 11896), true)
+, 11987), false)
+, Tuple.Create(Tuple.Create("", 12010), Tuple.Create("?menutype=", 12010), true)
+            
+            #line 174 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+                                                   , Tuple.Create(Tuple.Create("", 12020), Tuple.Create<System.Object, System.Int32>(Model.MenuType
+            
+            #line default
+            #line hidden
+, 12020), false)
+, Tuple.Create(Tuple.Create("", 12035), Tuple.Create("\'", 12035), true)
 );
 
 WriteLiteral(">取消</button>\r\n        </div>\r\n    </form>\r\n");
@@ -1001,23 +1018,23 @@ WriteLiteral(">取消</button>\r\n        </div>\r\n    </form>\r\n");
 DefineSection("scripts", () => {
 
             
-            #line 176 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 177 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
     
             
             #line default
             #line hidden
 WriteLiteral("\r\n        <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 11980), Tuple.Create("\"", 12004)
-, Tuple.Create(Tuple.Create("", 11986), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 11986), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 12119), Tuple.Create("\"", 12143)
+, Tuple.Create(Tuple.Create("", 12125), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 12125), false)
 );
 
 WriteLiteral("></script>\r\n        <script>\r\n        $(function () {\r\n            var fileupload" +
 " = \'");
 
             
-            #line 180 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 181 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                          Write(Model.ImageFile);
 
             
@@ -1026,7 +1043,7 @@ WriteLiteral("></script>\r\n        <script>\r\n        $(function () {\r\n     
 WriteLiteral("\';\r\n          if (\'");
 
             
-            #line 181 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 182 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
           Write(Model.ID);
 
             
@@ -1035,7 +1052,7 @@ WriteLiteral("\';\r\n          if (\'");
 WriteLiteral("\'>0 && \'");
 
             
-            #line 181 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 182 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                            Write(Model.ImgNameOri);
 
             
@@ -1044,13 +1061,13 @@ WriteLiteral("\'>0 && \'");
 WriteLiteral("\'!=\'\') {\r\n                $(\'#div_oldfile\').show();\r\n            }\r\n\r\n");
 
             
-            #line 185 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 186 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 185 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 186 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
              if (string.IsNullOrEmpty(Model.LinkUploadFileName) == false && Model.DeleteUploadFile == "N")
               {
             
@@ -1059,7 +1076,7 @@ WriteLiteral("\'!=\'\') {\r\n                $(\'#div_oldfile\').show();\r\n    
 WriteLiteral("$(\"#div_hasfile\").show(); $(\"#div_nofile\").hide(); ");
 
             
-            #line 186 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 187 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                                                                }
 
             
@@ -1079,7 +1096,7 @@ WriteLiteral(@"
             if ('");
 
             
-            #line 198 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 199 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
             Write(Model.LinkMode);
 
             
@@ -1088,7 +1105,7 @@ WriteLiteral(@"
 WriteLiteral("\' == 2) {\r\n                if (\'");
 
             
-            #line 199 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 200 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                 Write(Model.ModelID);
 
             
@@ -1097,7 +1114,7 @@ WriteLiteral("\' == 2) {\r\n                if (\'");
 WriteLiteral("\' != \'0\') {\r\n                    $(\'#sel_model\').val(\'");
 
             
-            #line 200 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 201 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                     Write(Model.ModelID);
 
             
@@ -1106,7 +1123,7 @@ WriteLiteral("\' != \'0\') {\r\n                    $(\'#sel_model\').val(\'");
 WriteLiteral("\');\r\n                    $.post(\'");
 
             
-            #line 201 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 202 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                        Write(Url.Action("GetModelItem"));
 
             
@@ -1116,7 +1133,7 @@ WriteLiteral("\', {\r\n                        \"modelid\": $(\'#sel_model\').va
 "        \'menutype\': \'");
 
             
-            #line 203 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 204 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                 Write(Model.MenuType);
 
             
@@ -1126,7 +1143,7 @@ WriteLiteral("\'\r\n                    }, function (data) {\r\n                
 "ndTo(\'#sel_modelitem\');\r\n                        $(\'#sel_modelitem\').val(\'");
 
             
-            #line 206 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 207 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                             Write(Model.ModelItemID);
 
             
@@ -1135,7 +1152,7 @@ WriteLiteral("\'\r\n                    }, function (data) {\r\n                
 WriteLiteral("\');\r\n                    });\r\n                }\r\n            } else  if(\'");
 
             
-            #line 209 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 210 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                    Write(Model.LinkMode);
 
             
@@ -1145,7 +1162,7 @@ WriteLiteral("\' == 3){\r\n                $(\'#div_model\').hide();\r\n        
 ".show();\r\n            } else if (\'");
 
             
-            #line 212 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 213 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                    Write(Model.LinkMode);
 
             
@@ -1164,7 +1181,7 @@ WriteLiteral(@"' == 4) {
                $.post('");
 
             
-            #line 222 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 223 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                   Write(Url.Action("GetModelItem"));
 
             
@@ -1174,7 +1191,7 @@ WriteLiteral("\', {\r\n                   \"modelid\": $(\'#sel_model\').val(),\
 "menutype\' :\'");
 
             
-            #line 224 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 225 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                             Write(Model.MenuType);
 
             
@@ -1199,43 +1216,45 @@ WriteLiteral("\'\r\n               }, function (data) {\r\n                     
 ";\r\n                }\r\n                if (inputval.length > 0) { return false; }" +
 "\r\n                if ($(\'#sel_model\').val() != \"\" && $(\'#sel_modelitem\').val() =" +
 "= \"\") {\r\n                    alert(\"請選擇程式模組\");\r\n                    return false" +
-";\r\n                }\r\n\r\n                var file = $(\"#file_image\");\r\n          " +
-"      var _validFileExtensions = [\".jpg\", \".png\", \".gif\", \".jpeg\"];\r\n           " +
-"     var sFileName = file.val();\r\n                if (sFileName.length > 0) {\r\n " +
-"                   var blnValid = false;\r\n                    for (var j = 0; j " +
-"< _validFileExtensions.length; j++) {\r\n                        var sCurExtension" +
-" = _validFileExtensions[j];\r\n                        if (sFileName.substr(sFileN" +
-"ame.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurEx" +
-"tension.toLowerCase()) {\r\n                            blnValid = true;\r\n        " +
-"                    break;\r\n                        }\r\n                    }\r\n  " +
-"                  if (!blnValid) {\r\n                        alert(\"只能上傳Image檔案\")" +
-";\r\n                        file.outerHTML = file.outerHTML;\r\n                   " +
-"     return false;\r\n                    }\r\n                }\r\n                va" +
-"r formData = new FormData();\r\n                var array = $(\'#editform\').seriali" +
-"zeArray();\r\n                $.each(array, function () {\r\n                    for" +
-"mData.append(this.name, this.value);\r\n                });\r\n\r\n                for" +
-"mData.append(\'FrontDisplay\', $(\'#FrontDisplay\').prop(\'checked\') ? true : false);" +
-"\r\n\r\n                var images = $(\'#file_image\').get(0).files;\r\n               " +
-" if (images.length > 0) {\r\n                    formData.append(\"ImageFile\", imag" +
-"es[0]);\r\n                } else {\r\n                    formData.append(\"ImageFil" +
-"e\", null);\r\n                }\r\n                var uploadfile = $(\'#uploadfile\')" +
-".get(0).files;\r\n                if (uploadfile.length > 0) {\r\n                  " +
-"  formData.append(\"LinkUploadFile\", uploadfile[0]);\r\n                } else {\r\n " +
-"                   formData.append(\"LinkUploadFile\", null);\r\n                   " +
-" var value = $(\'input[name=LinkMode]:checked\').val();\r\n                    if (v" +
-"alue == \"4\" && $(\"#LinkUploadFileName\").val()==\"\") {\r\n                        al" +
-"ert(\"請確實上傳檔案\");\r\n                        return false;\r\n                    }\r\n " +
-"               }\r\n                formData.append(\"MenuName\", _html.decode($(\'#M" +
-"enuName\').val()));\r\n\r\n                formData.append(\"DeleteUploadFile\", $(\"#De" +
-"leteUploadFile\").val());\r\n                $.ajax({\r\n                    url: thi" +
-"s.action,\r\n                    data: formData,\r\n                    type: \'POST\'" +
-",\r\n                    cache: false,\r\n                    contentType: false,\r\n " +
-"                   processData: false,\r\n                    success: function (d" +
-"ata) {\r\n                        alert(data);\r\n                        if (data.i" +
-"ndexOf(\"成功\")>=0) { CreatePost(\'");
+";\r\n                }\r\n                if ($(\'#div_link\').is(\':visible\') && $(\'#L" +
+"inkUrl\').val() == \"\") {\r\n                    alert(\"請輸入連結\");\r\n                  " +
+"  return false;\r\n                }\r\n                var file = $(\"#file_image\");" +
+"\r\n                var _validFileExtensions = [\".jpg\", \".png\", \".gif\", \".jpeg\"];\r" +
+"\n                var sFileName = file.val();\r\n                if (sFileName.leng" +
+"th > 0) {\r\n                    var blnValid = false;\r\n                    for (v" +
+"ar j = 0; j < _validFileExtensions.length; j++) {\r\n                        var s" +
+"CurExtension = _validFileExtensions[j];\r\n                        if (sFileName.s" +
+"ubstr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase" +
+"() == sCurExtension.toLowerCase()) {\r\n                            blnValid = tru" +
+"e;\r\n                            break;\r\n                        }\r\n             " +
+"       }\r\n                    if (!blnValid) {\r\n                        alert(\"只" +
+"能上傳Image檔案\");\r\n                        file.outerHTML = file.outerHTML;\r\n       " +
+"                 return false;\r\n                    }\r\n                }\r\n      " +
+"          var formData = new FormData();\r\n                var array = $(\'#editfo" +
+"rm\').serializeArray();\r\n                $.each(array, function () {\r\n           " +
+"         formData.append(this.name, this.value);\r\n                });\r\n\r\n       " +
+"         formData.append(\'FrontDisplay\', $(\'#FrontDisplay\').prop(\'checked\') ? tr" +
+"ue : false);\r\n\r\n                var images = $(\'#file_image\').get(0).files;\r\n   " +
+"             if (images.length > 0) {\r\n                    formData.append(\"Imag" +
+"eFile\", images[0]);\r\n                } else {\r\n                    formData.appe" +
+"nd(\"ImageFile\", null);\r\n                }\r\n                var uploadfile = $(\'#" +
+"uploadfile\').get(0).files;\r\n                if (uploadfile.length > 0) {\r\n      " +
+"              formData.append(\"LinkUploadFile\", uploadfile[0]);\r\n               " +
+" } else {\r\n                    formData.append(\"LinkUploadFile\", null);\r\n       " +
+"             var value = $(\'input[name=LinkMode]:checked\').val();\r\n             " +
+"       if (value == \"4\" && $(\"#LinkUploadFileName\").val()==\"\") {\r\n              " +
+"          alert(\"請確實上傳檔案\");\r\n                        return false;\r\n            " +
+"        }\r\n                }\r\n                formData.append(\"MenuName\", _html." +
+"decode($(\'#MenuName\').val()));\r\n\r\n                formData.append(\"DeleteUploadF" +
+"ile\", $(\"#DeleteUploadFile\").val());\r\n                $.ajax({\r\n                " +
+"    url: this.action,\r\n                    data: formData,\r\n                    " +
+"type: \'POST\',\r\n                    cache: false,\r\n                    contentTyp" +
+"e: false,\r\n                    processData: false,\r\n                    success:" +
+" function (data) {\r\n                        alert(data);\r\n                      " +
+"  if (data.indexOf(\"成功\")>=0) { CreatePost(\'");
 
             
-            #line 317 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 321 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                                             Write(Url.Action("MainMenu"));
 
             
@@ -1244,7 +1263,7 @@ WriteLiteral("\'\r\n               }, function (data) {\r\n                     
 WriteLiteral("\', { menutype: \'");
 
             
-            #line 317 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
+            #line 321 "..\..\Areas\webadmin\Views\Menu\MenuEdit.cshtml"
                                                                                                    Write(Model.MenuType);
 
             
