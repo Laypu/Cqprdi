@@ -1,8 +1,0 @@
-C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\bin\Debug\ABT.DAL.dll
-C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\bin\Debug\ABT.DAL.pdb
-C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\bin\Debug\Dapper.dll
-C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\bin\Debug\Dapper.xml
-C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\obj\Debug\ABT.DAL.csproj.CopyComplete
-C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\obj\Debug\ABT.DAL.dll
-C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\obj\Debug\ABT.DAL.pdb
-C:\03_雷普\05_農業金庫\05_Code\ABTWeb\ABTWeb\Library\ABT.DAL\oaww.DAL\obj\Debug\ABT.DAL.csprojAssemblyReference.cache
