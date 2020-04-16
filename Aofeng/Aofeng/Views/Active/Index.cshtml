@@ -2,7 +2,7 @@
 
 <div class="page_search">
     <ul>
-        @if (Model.ListGroupMessage.Count() == 1 && Model.ListGroupMessage.FirstOrDefault().Group_Name == "無分類" ||Model.ListGroupMessage.Count() == 1 && Model.ListGroupMessage.FirstOrDefault().Group_Name == "全部")
+        @if (Model.ListGroupMessage.Count() == 2 && Model.ListGroupMessage.LastOrDefault().Group_Name == "無分類")
         {
 
         }
@@ -73,7 +73,7 @@
                 <th scope="col" width="20%">代表圖</th>
                 <th scope="col" width="15%">發佈日期</th>
                 <th scope="col">標題</th>
-                @if (Model.ListGroupMessage.Count() == 1 && Model.ListGroupMessage.FirstOrDefault().Group_Name == "無分類")
+                @if (Model.ListGroupMessage.Count() == 2 && Model.ListGroupMessage.LastOrDefault().Group_Name == "無分類")
                 {
 
                 }
@@ -106,7 +106,7 @@
                     <td class="text-center">@Html.Raw(itemdate)</td>
                 }
                 <td><a href="@Url.Action("MessageView",new {@itemid=MessageItem.ItemID,mid=Model.mid,page=Model.nowpage,GroupName=MessageItem.GroupName })" title="">@MessageItem.Title</a></td>
-                @if (Model.ListGroupMessage.Count() == 1 && Model.ListGroupMessage.FirstOrDefault().Group_Name == "無分類")
+                @if (Model.ListGroupMessage.Count() == 2 && Model.ListGroupMessage.LastOrDefault().Group_Name == "無分類")
                 {
 
                 }

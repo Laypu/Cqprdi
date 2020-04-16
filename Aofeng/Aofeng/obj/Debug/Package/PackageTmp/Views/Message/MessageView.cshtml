@@ -9,7 +9,7 @@
 }
 <div class="date">
     @(Model.MessageItem.PublicshDate?.ToString("yyyy/MM/dd"))
-    @if (Model.GroupName.IsNullOrEmpty() == false)
+    @if (Model.GroupName.IsNullOrEmpty() == false && Model.GroupName!="無分類")
     {
         <span class="top_class">@Model.GroupName</span>
     }
@@ -20,15 +20,15 @@
         <!--圖片置左-->
         if (Model.MessageItem.ImageFileLocation == "1")
         {
-            <img src="@Url.Content("~/UploadImage/RecommendedTrips/")@Model.MessageItem.ImageFileName" class="img_padding" alt="@Model.MessageItem.ImageFileDesc" align="left">
+            <img src="@Url.Content("~/UploadImage/MessageItem/")@Model.MessageItem.ImageFileName" class="img_padding" alt="@Model.MessageItem.ImageFileDesc" align="left">
         }
         else if (Model.MessageItem.ImageFileLocation == "2")
         {
-            <div align="center"><p class="text_center"><img src="@Url.Content("~/UploadImage/RecommendedTrips/")@Model.MessageItem.ImageFileName" class="img_padding" alt="@Model.MessageItem.ImageFileDesc"></p></div>
+            <div align="center"><p class="text_center"><img src="@Url.Content("~/UploadImage/MessageItem/")@Model.MessageItem.ImageFileName" class="img_padding" alt="@Model.MessageItem.ImageFileDesc"></p></div>
         }
         else if (Model.MessageItem.ImageFileLocation == "3")
         {
-            <img src="@Url.Content("~/UploadImage/RecommendedTrips/")@Model.MessageItem.ImageFileName" class="img_padding" alt="@Model.MessageItem.ImageFileDesc" align="right">
+            <img src="@Url.Content("~/UploadImage/MessageItem/")@Model.MessageItem.ImageFileName" class="img_padding" alt="@Model.MessageItem.ImageFileDesc" align="right">
         }
 
     }
@@ -36,7 +36,7 @@
 <div class="edit_con">
     @Html.Raw(HttpUtility.HtmlDecode(Model.MessageItem.HtmlContent))
 </div>
-@if (Model.ListMessageImage.FirstOrDefault()!=null)
+@if (Model.ListMessageImage.FirstOrDefault()!=null )
 {
     <div class="pho_list_title">@("相關相片".GetLang())</div>
     <div class="pho_list pho-gallery">

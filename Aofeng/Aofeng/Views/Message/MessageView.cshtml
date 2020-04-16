@@ -9,7 +9,7 @@
 }
 <div class="date">
     @(Model.MessageItem.PublicshDate?.ToString("yyyy/MM/dd"))
-    @if (Model.GroupName.IsNullOrEmpty() == false && Model.GroupName !="無分類")
+    @if (Model.GroupName.IsNullOrEmpty() == false && Model.GroupName!="無分類")
     {
         <span class="top_class">@Model.GroupName</span>
     }
@@ -36,7 +36,7 @@
 <div class="edit_con">
     @Html.Raw(HttpUtility.HtmlDecode(Model.MessageItem.HtmlContent))
 </div>
-@if (Model.ListMessageImage.FirstOrDefault()!=null)
+@if (Model.ListMessageImage.FirstOrDefault()!=null )
 {
     <div class="pho_list_title">@("相關相片".GetLang())</div>
     <div class="pho_list pho-gallery">

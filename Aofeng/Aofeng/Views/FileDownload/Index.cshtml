@@ -45,7 +45,7 @@
 </ul>*@
 <div class="page_search">
     <ul>
-        @if (Model.ListGroupMessage.Count() == 1 && Model.ListGroupMessage.FirstOrDefault().Group_Name == "無分類" || Model.ListGroupMessage.FirstOrDefault().Group_Name == "全部" )
+        @if (Model.ListGroupMessage.Count() == 2 && Model.ListGroupMessage.LastOrDefault().Group_Name == "無分類")
         {
 
         }
@@ -78,7 +78,7 @@
                 <th scope="col" width="20%">代表圖</th>
                 <th scope="col" width="15%">發佈日期</th>
                 <th scope="col">標題</th>
-                @if (Model.ListGroupMessage.Count() == 1 && Model.ListGroupMessage.FirstOrDefault().Group_Name == "無分類")
+                @if (Model.ListGroupMessage.Count() == 2 && Model.ListGroupMessage.LastOrDefault().Group_Name == "無分類")
                 {
 
                 }
@@ -86,19 +86,21 @@
                 {
                     <th scope="col" width="10%">類別</th>
                 }
-
-                <th scope="col" width="80">檔案下載</th>
-            </tr>
+                    <th scope="col" width="80">檔案下載</th>
+                </tr>
         </thead>
         <tbody>
             @foreach (MessageItem MessageItem in Model.ListMessageItem)
-            {
-                var messimg = MessageItem.RelateImageFileName == "" || MessageItem.RelateImageFileName == null ? "logo_400x300.jpg" : MessageItem.RelateImageFileName;
+                {
+                    var messimg = MessageItem.RelateImageFileName == "" || MessageItem.RelateImageFileName == null ? "logo_400x300.jpg" : MessageItem.RelateImageFileName;
+                    var PublicshDate = ((DateTime)MessageItem.PublicshDate).ToString("yyyy/MM/dd");
+                    
             <tr>
+
                 <td scope="row" class="text-center"><img src="@Url.Content("~/UploadImage/FileDownloadItem/"+messimg)" alt="" /></td><!--建議尺寸400*300px；後台未上傳顯示預設圖片logo_400x300.jpg-->
-                <td class="text-center">@MessageItem.PublicshDate</td>
+                <td class="text-center">@PublicshDate</td>
                 <td>@MessageItem.Title</td>
-                @if (Model.ListGroupMessage.Count() == 1 && Model.ListGroupMessage.FirstOrDefault().Group_Name == "無分類")
+                @if (Model.ListGroupMessage.Count() == 2 && Model.ListGroupMessage.LastOrDefault().Group_Name == "無分類")
                 {
 
                 }

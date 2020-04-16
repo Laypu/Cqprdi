@@ -742,7 +742,7 @@ WriteLiteral(">簡介<span");
 
 WriteLiteral(" class=\"red\"");
 
-WriteLiteral(">(首頁活動焦點顯示使用)</span></div>\r\n                            <div");
+WriteLiteral(">(首頁活動焦點顯示用)</span></div>\r\n                            <div");
 
 WriteLiteral(" class=\"col-md-10 col-sm-12 col-xs-12 bg-white mobile_white\"");
 
@@ -768,16 +768,16 @@ WriteLiteral(">");
 WriteLiteral("</textarea>\r\n                            </div>\r\n                        </div>\r\n" +
 "                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 9085), Tuple.Create("\"", 9166)
-, Tuple.Create(Tuple.Create("", 9093), Tuple.Create("form-group", 9093), true)
-, Tuple.Create(Tuple.Create(" ", 9103), Tuple.Create("bg-grey_1", 9104), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 9084), Tuple.Create("\"", 9165)
+, Tuple.Create(Tuple.Create("", 9092), Tuple.Create("form-group", 9092), true)
+, Tuple.Create(Tuple.Create(" ", 9102), Tuple.Create("bg-grey_1", 9103), true)
             
             #line 142 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 9113), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE10 == false ?"hide":""
+, Tuple.Create(Tuple.Create(" ", 9112), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE10 == false ?"hide":""
             
             #line default
             #line hidden
-, 9114), false)
+, 9113), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -800,14 +800,14 @@ WriteLiteral(" style=\"display:none\"");
 
 WriteLiteral("><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 9475), Tuple.Create("\"", 9548)
+WriteAttribute("href", Tuple.Create(" href=\"", 9474), Tuple.Create("\"", 9547)
             
             #line 146 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-         , Tuple.Create(Tuple.Create("", 9482), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl == null?"":Url.Content(Model.ImageUrl.AntiXss())
+         , Tuple.Create(Tuple.Create("", 9481), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl == null?"":Url.Content(Model.ImageUrl.AntiXss())
             
             #line default
             #line hidden
-, 9482), false)
+, 9481), false)
 );
 
 WriteLiteral(" target=\"preview\"");
@@ -905,24 +905,24 @@ WriteLiteral(" class=\"col-md-10\"");
 
 WriteLiteral(">\r\n                                        <select");
 
-WriteAttribute("name", Tuple.Create(" name=\"", 11096), Tuple.Create("\"", 11146)
+WriteAttribute("name", Tuple.Create(" name=\"", 11095), Tuple.Create("\"", 11145)
             
             #line 164 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 11103), Tuple.Create<System.Object, System.Int32>(Html.IdFor(model=>model.ImageFileLocation)
+, Tuple.Create(Tuple.Create("", 11102), Tuple.Create<System.Object, System.Int32>(Html.IdFor(model=>model.ImageFileLocation)
             
             #line default
             #line hidden
-, 11103), false)
+, 11102), false)
 );
 
-WriteAttribute("id", Tuple.Create(" id=\"", 11147), Tuple.Create("\"", 11195)
+WriteAttribute("id", Tuple.Create(" id=\"", 11146), Tuple.Create("\"", 11194)
             
             #line 164 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                      , Tuple.Create(Tuple.Create("", 11152), Tuple.Create<System.Object, System.Int32>(Html.IdFor(model=>model.ImageFileLocation)
+                      , Tuple.Create(Tuple.Create("", 11151), Tuple.Create<System.Object, System.Int32>(Html.IdFor(model=>model.ImageFileLocation)
             
             #line default
             #line hidden
-, 11152), false)
+, 11151), false)
 );
 
 WriteLiteral(" class=\"form-control w-auto\"");
@@ -943,16 +943,16 @@ WriteLiteral(">右</option></select>\r\n                                    </di
 "                 </div>\r\n                            </div>\r\n                   " +
 "     </div>\r\n\r\n                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 11502), Tuple.Create("\"", 11582)
-, Tuple.Create(Tuple.Create("", 11510), Tuple.Create("form-group", 11510), true)
-, Tuple.Create(Tuple.Create(" ", 11520), Tuple.Create("bg-grey_1", 11521), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 11501), Tuple.Create("\"", 11581)
+, Tuple.Create(Tuple.Create("", 11509), Tuple.Create("form-group", 11509), true)
+, Tuple.Create(Tuple.Create(" ", 11519), Tuple.Create("bg-grey_1", 11520), true)
             
             #line 170 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 11530), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE03 ==false ?"hide":""
+, Tuple.Create(Tuple.Create(" ", 11529), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE03 ==false ?"hide":""
             
             #line default
             #line hidden
-, 11531), false)
+, 11530), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -1077,14 +1077,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFileName\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 13897), Tuple.Create("\"", 13938)
+WriteAttribute("value", Tuple.Create(" value=\"", 13896), Tuple.Create("\"", 13937)
             
             #line 200 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 13905), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileName
+                       , Tuple.Create(Tuple.Create(" ", 13904), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileName
             
             #line default
             #line hidden
-, 13906), false)
+, 13905), false)
 );
 
 WriteLiteral(" />\r\n                                                        <input");
@@ -1093,14 +1093,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFilePath\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 14040), Tuple.Create("\"", 14081)
+WriteAttribute("value", Tuple.Create(" value=\"", 14039), Tuple.Create("\"", 14080)
             
             #line 201 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 14048), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFilePath
+                       , Tuple.Create(Tuple.Create(" ", 14047), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFilePath
             
             #line default
             #line hidden
-, 14049), false)
+, 14048), false)
 );
 
 WriteLiteral(" />\r\n\r\n                                                    </div>\r\n              " +
@@ -1125,14 +1125,14 @@ WriteLiteral(" class=\"text-center\"");
 
 WriteLiteral(">\r\n                                                    <img");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 14558), Tuple.Create("\"", 14624)
+WriteAttribute("src", Tuple.Create(" src=\"", 14557), Tuple.Create("\"", 14623)
             
             #line 208 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 14564), Tuple.Create<System.Object, System.Int32>(Url.Action("ImageDownLoad",new {FID=fileDownloadFile.FID })
+, Tuple.Create(Tuple.Create("", 14563), Tuple.Create<System.Object, System.Int32>(Url.Action("ImageDownLoad",new {FID=fileDownloadFile.FID })
             
             #line default
             #line hidden
-, 14564), false)
+, 14563), false)
 );
 
 WriteLiteral(" style=\"height:100px\"");
@@ -1148,14 +1148,14 @@ WriteLiteral(">\r\n                                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 14865), Tuple.Create("\"", 14905)
+WriteAttribute("value", Tuple.Create(" value=\"", 14864), Tuple.Create("\"", 14904)
             
             #line 211 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 14873), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileDesc
+, Tuple.Create(Tuple.Create("", 14872), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileDesc
             
             #line default
             #line hidden
-, 14873), false)
+, 14872), false)
 );
 
 WriteLiteral(" id=\"UploadFileDesc\"");
@@ -1190,15 +1190,15 @@ WriteLiteral("                                    </tbody>\r\n                  
 "able>\r\n                                <!--table end-->\r\n                       " +
 "     </div>\r\n                        </div>\r\n\r\n                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 15577), Tuple.Create("\"", 15647)
-, Tuple.Create(Tuple.Create("", 15585), Tuple.Create("form-group", 15585), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 15576), Tuple.Create("\"", 15646)
+, Tuple.Create(Tuple.Create("", 15584), Tuple.Create("form-group", 15584), true)
             
             #line 223 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 15595), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE11 ==false ?"hide":""
+, Tuple.Create(Tuple.Create(" ", 15594), Tuple.Create<System.Object, System.Int32>(Model.SET_MESSAGE.M_MESSAGE11 ==false ?"hide":""
             
             #line default
             #line hidden
-, 15596), false)
+, 15595), false)
 );
 
 WriteLiteral(@" "" >
@@ -1427,14 +1427,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFileName\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 22003), Tuple.Create("\"", 22044)
+WriteAttribute("value", Tuple.Create(" value=\"", 22002), Tuple.Create("\"", 22043)
             
             #line 305 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 22011), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileName
+                       , Tuple.Create(Tuple.Create(" ", 22010), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileName
             
             #line default
             #line hidden
-, 22012), false)
+, 22011), false)
 );
 
 WriteLiteral(" />\r\n                                                        <input");
@@ -1443,14 +1443,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFilePath\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 22146), Tuple.Create("\"", 22187)
+WriteAttribute("value", Tuple.Create(" value=\"", 22145), Tuple.Create("\"", 22186)
             
             #line 306 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 22154), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFilePath
+                       , Tuple.Create(Tuple.Create(" ", 22153), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFilePath
             
             #line default
             #line hidden
-, 22155), false)
+, 22154), false)
 );
 
 WriteLiteral(" />\r\n                                                        <input");
@@ -1459,14 +1459,14 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFileSize\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 22289), Tuple.Create("\"", 22330)
+WriteAttribute("value", Tuple.Create(" value=\"", 22288), Tuple.Create("\"", 22329)
             
             #line 307 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 22297), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileSize
+                       , Tuple.Create(Tuple.Create(" ", 22296), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileSize
             
             #line default
             #line hidden
-, 22298), false)
+, 22297), false)
 );
 
 WriteLiteral(" />\r\n                                                        <input");
@@ -1475,26 +1475,26 @@ WriteLiteral(" type=\"hidden\"");
 
 WriteLiteral(" id=\"UploadFileType\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 22432), Tuple.Create("\"", 22473)
+WriteAttribute("value", Tuple.Create(" value=\"", 22431), Tuple.Create("\"", 22472)
             
             #line 308 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 22440), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileType
+                       , Tuple.Create(Tuple.Create(" ", 22439), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileType
             
             #line default
             #line hidden
-, 22441), false)
+, 22440), false)
 );
 
 WriteLiteral(" />\r\n                                                        <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 22537), Tuple.Create("\"", 22603)
+WriteAttribute("href", Tuple.Create(" href=\"", 22536), Tuple.Create("\"", 22602)
             
             #line 309 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 22544), Tuple.Create<System.Object, System.Int32>(Url.Action("FileDownLoad",new {FID=fileDownloadFile.FID })
+, Tuple.Create(Tuple.Create("", 22543), Tuple.Create<System.Object, System.Int32>(Url.Action("FileDownLoad",new {FID=fileDownloadFile.FID })
             
             #line default
             #line hidden
-, 22544), false)
+, 22543), false)
 );
 
 WriteLiteral(" target=\"preview\"");
@@ -1535,14 +1535,14 @@ WriteLiteral(">\r\n                                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 23264), Tuple.Create("\"", 23295)
+WriteAttribute("value", Tuple.Create(" value=\"", 23263), Tuple.Create("\"", 23294)
             
             #line 318 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 23272), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.Title
+, Tuple.Create(Tuple.Create("", 23271), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.Title
             
             #line default
             #line hidden
-, 23272), false)
+, 23271), false)
 );
 
 WriteLiteral(" id=\"Title\"");
@@ -1572,14 +1572,14 @@ WriteLiteral(">\r\n                                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 23768), Tuple.Create("\"", 23808)
+WriteAttribute("value", Tuple.Create(" value=\"", 23767), Tuple.Create("\"", 23807)
             
             #line 323 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 23776), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileDesc
+, Tuple.Create(Tuple.Create("", 23775), Tuple.Create<System.Object, System.Int32>(fileDownloadFile.UploadFileDesc
             
             #line default
             #line hidden
-, 23776), false)
+, 23775), false)
 );
 
 WriteLiteral(" id=\"UploadFileDesc\"");
@@ -1708,14 +1708,14 @@ WriteLiteral(" readonly=\"readonly\"");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 27032), Tuple.Create("\"", 27062)
+WriteAttribute("value", Tuple.Create(" value=\"", 27031), Tuple.Create("\"", 27061)
             
             #line 362 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                                                                                                            , Tuple.Create(Tuple.Create("", 27040), Tuple.Create<System.Object, System.Int32>(MessActDate.StartDate
+                                                                                                            , Tuple.Create(Tuple.Create("", 27039), Tuple.Create<System.Object, System.Int32>(MessActDate.StartDate
             
             #line default
             #line hidden
-, 27040), false)
+, 27039), false)
 );
 
 WriteLiteral(">\r\n                                                            </div>\r\n          " +
@@ -1741,14 +1741,14 @@ WriteLiteral(" readonly=\"readonly\"");
 
 WriteLiteral(" type=\"text\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 27552), Tuple.Create("\"", 27580)
+WriteAttribute("value", Tuple.Create(" value=\"", 27551), Tuple.Create("\"", 27579)
             
             #line 366 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-                                                                                                             , Tuple.Create(Tuple.Create("", 27560), Tuple.Create<System.Object, System.Int32>(MessActDate.EndDate
+                                                                                                             , Tuple.Create(Tuple.Create("", 27559), Tuple.Create<System.Object, System.Int32>(MessActDate.EndDate
             
             #line default
             #line hidden
-, 27560), false)
+, 27559), false)
 );
 
 WriteLiteral(@">
@@ -2046,76 +2046,76 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32046), Tuple.Create("\"", 32113)
+WriteAttribute("src", Tuple.Create(" src=\"", 32045), Tuple.Create("\"", 32112)
             
             #line 445 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 32052), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
+, Tuple.Create(Tuple.Create("", 32051), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
             
             #line default
             #line hidden
-, 32052), false)
+, 32051), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32137), Tuple.Create("\"", 32192)
+WriteAttribute("src", Tuple.Create(" src=\"", 32136), Tuple.Create("\"", 32191)
             
             #line 446 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 32143), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
+, Tuple.Create(Tuple.Create("", 32142), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
             
             #line default
             #line hidden
-, 32143), false)
+, 32142), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32216), Tuple.Create("\"", 32257)
+WriteAttribute("src", Tuple.Create(" src=\"", 32215), Tuple.Create("\"", 32256)
             
             #line 447 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 32222), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 32221), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 32222), false)
+, 32221), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32281), Tuple.Create("\"", 32333)
+WriteAttribute("src", Tuple.Create(" src=\"", 32280), Tuple.Create("\"", 32332)
             
             #line 448 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 32287), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
+, Tuple.Create(Tuple.Create("", 32286), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
             
             #line default
             #line hidden
-, 32287), false)
+, 32286), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32357), Tuple.Create("\"", 32403)
+WriteAttribute("src", Tuple.Create(" src=\"", 32356), Tuple.Create("\"", 32402)
             
             #line 449 "..\..\Areas\webadmin\Views\Message\MessageEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 32363), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 32362), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 32363), false)
+, 32362), false)
 );
 
 WriteLiteral("></script>\r\n \r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32430), Tuple.Create("\"", 32454)
-, Tuple.Create(Tuple.Create("", 32436), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 32436), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 32429), Tuple.Create("\"", 32453)
+, Tuple.Create(Tuple.Create("", 32435), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 32435), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 32478), Tuple.Create("\"", 32503)
-, Tuple.Create(Tuple.Create("", 32484), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
-, 32484), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 32477), Tuple.Create("\"", 32502)
+, Tuple.Create(Tuple.Create("", 32483), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
+, 32483), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n            var fileupload = \'" +
