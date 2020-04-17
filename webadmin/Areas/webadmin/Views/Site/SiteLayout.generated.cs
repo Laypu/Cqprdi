@@ -431,9 +431,9 @@ WriteLiteral(" />\r\n                                    </div>\r\n             
 
 WriteLiteral(" style=\"color:red;padding-left; font-size:12px\"");
 
-WriteLiteral(">建議尺寸 360*70px，限jpg、gif、png格式</span>\r\n                                    </div>\r" +
-"\n                                </div>\r\n                            </div>\r\n   " +
-"                     </div>\r\n                        <div");
+WriteLiteral(">建議尺寸 240*200px，限jpg、gif、png格式</span>\r\n                                    </div>" +
+"\r\n                                </div>\r\n                            </div>\r\n  " +
+"                      </div>\r\n                        <div");
 
 WriteLiteral(" class=\"form-group\"");
 
@@ -482,57 +482,57 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 5435), Tuple.Create("\"", 5502)
+WriteAttribute("src", Tuple.Create(" src=\"", 5436), Tuple.Create("\"", 5503)
             
             #line 105 "..\..\Areas\webadmin\Views\Site\SiteLayout.cshtml"
-, Tuple.Create(Tuple.Create("", 5441), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
+, Tuple.Create(Tuple.Create("", 5442), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
             
             #line default
             #line hidden
-, 5441), false)
+, 5442), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 5526), Tuple.Create("\"", 5581)
+WriteAttribute("src", Tuple.Create(" src=\"", 5527), Tuple.Create("\"", 5582)
             
             #line 106 "..\..\Areas\webadmin\Views\Site\SiteLayout.cshtml"
-, Tuple.Create(Tuple.Create("", 5532), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
+, Tuple.Create(Tuple.Create("", 5533), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
             
             #line default
             #line hidden
-, 5532), false)
+, 5533), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 5605), Tuple.Create("\"", 5657)
+WriteAttribute("src", Tuple.Create(" src=\"", 5606), Tuple.Create("\"", 5658)
             
             #line 107 "..\..\Areas\webadmin\Views\Site\SiteLayout.cshtml"
-, Tuple.Create(Tuple.Create("", 5611), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
+, Tuple.Create(Tuple.Create("", 5612), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
             
             #line default
             #line hidden
-, 5611), false)
+, 5612), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 5681), Tuple.Create("\"", 5722)
+WriteAttribute("src", Tuple.Create(" src=\"", 5682), Tuple.Create("\"", 5723)
             
             #line 108 "..\..\Areas\webadmin\Views\Site\SiteLayout.cshtml"
-, Tuple.Create(Tuple.Create("", 5687), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 5688), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 5687), false)
+, 5688), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 5746), Tuple.Create("\"", 5770)
-, Tuple.Create(Tuple.Create("", 5752), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 5752), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 5747), Tuple.Create("\"", 5771)
+, Tuple.Create(Tuple.Create("", 5753), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 5753), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n\r\n           if (\'");
