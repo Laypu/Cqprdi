@@ -95,6 +95,7 @@
     <Compile Include="SEO.cs" />
     <Compile Include="SET\SET_AD.cs" />
     <Compile Include="SET\SET_BASE.cs" />
+    <Compile Include="SET\SET_EPAPER.cs" />
     <Compile Include="SET\SET_LAYOUT_GROUP.cs" />
     <Compile Include="SET\SET_LOGIN.cs" />
     <Compile Include="SET\SET_MENU.cs" />

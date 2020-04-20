@@ -192,6 +192,7 @@
     <Compile Include="Areas\webadmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\webadmin\Controllers\ConfigController.cs" />
     <Compile Include="Areas\webadmin\Controllers\DictionaryController.cs" />
+    <Compile Include="Areas\webadmin\Controllers\EPaperController.cs" />
     <Compile Include="Areas\webadmin\Controllers\ExclusiveLayoutController.cs" />
     <Compile Include="Areas\webadmin\Controllers\FaqController.cs" />
     <Compile Include="Areas\webadmin\Controllers\FileDownloadController.cs" />
@@ -584,6 +585,7 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>MessageEdit.generated.cs</LastGenOutput>
     </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\Index.cshtml" />
     <None Include="Areas\webadmin\Views\Form\AddSelItem.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>AddSelItem.generated.cs</LastGenOutput>

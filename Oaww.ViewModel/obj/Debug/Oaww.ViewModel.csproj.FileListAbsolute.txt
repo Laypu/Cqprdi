@@ -6,3 +6,12 @@ D:\穀物\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.csprojAssemblyReference
 D:\穀物\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.csproj.CopyComplete
 D:\穀物\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.dll
 D:\穀物\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.ViewModel\bin\Debug\Oaww.ViewModel.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.ViewModel\bin\Debug\Oaww.ViewModel.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.ViewModel\bin\Debug\Oaww.Entity.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.ViewModel\bin\Debug\Oaww.Entity.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.csprojAssemblyReference.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.csproj.CopyComplete
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.ViewModel\obj\Debug\Oaww.ViewModel.pdb
