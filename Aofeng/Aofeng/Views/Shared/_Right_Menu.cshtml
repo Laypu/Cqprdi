@@ -51,7 +51,7 @@
     }
 }
 <div class="menu_title">
-    @menu.MenuName
+    @Menu1st.MenuName
 </div>
 @if (TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
 {
@@ -66,19 +66,13 @@
                         bool isOpen = TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Contains(menu);
                         if (is3rd)
                         {
-                            <li class="dropdown-submenu">
-                                @Html.aira_HyperLink_Menu(Menu2nd, "<b>" + Menu2nd.MenuName + "</b>", Menu2nd.MenuName, new { @class = ((Menu2nd.ID.ToString() == mid || isOpen) ? "cur" : "") })
+                            <li class="@(is3rd?"dropdown-submenu":"") @(isOpen?"open":"")">
+                                @Html.aira_HyperLink_Menu(Menu2nd,new { @class = "dropdown-toggle",data_toggle = "dropdown"},"<i class='fa fa-caret-down' aria-hidden='true'></i>")
                                 <ul class="dropdown-menu">
                                     @foreach (Menu Menu3rd in TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
                                     {
-                                        if (Menu3rd.ID.ToString() == mid)
-                                        {
-                                            <li>@Html.aira_HyperLink_Menu(Menu3rd, Menu3rd.MenuName, "", new { @class = "cur" })</li>
-                                        }
-                                        else
-                                        {
-                                            <li>@Html.aira_HyperLink_Menu(Menu3rd, Menu3rd.MenuName, "")</li>
-                                        }
+
+                                            <li>@Html.aira_HyperLink_Menu(Menu3rd, null)</li>
                                     }
                                 </ul>
                             </li>
@@ -86,7 +80,7 @@
                         else
                         {
                             <li>
-                                @Html.aira_HyperLink_Menu(Menu2nd, "<b>" + Menu2nd.MenuName + "</b>", Menu2nd.MenuName, new { @class = (Menu2nd.ID.ToString() == mid ? "cur" : "") })
+                                @Html.aira_HyperLink_Menu(Menu2nd, null)
                             </li>
                         }
                     }
