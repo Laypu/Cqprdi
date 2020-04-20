@@ -585,5 +585,85 @@ namespace Oaww.HtmlHelp
             builder.MergeAttribute("href", urlHelper.Action("Index", Url, new { @itemid = menu.ModelItemID, @mid = menu.ID }));
 
         }
+
+        public static MvcHtmlString aira_HyperLink_SiteMapMenu(this HtmlHelper helper, Menu menu, object htmlAttributes = null)
+        {
+            var builder = new TagBuilder("a");
+            if (menu.LinkMode == 1)
+            {
+                builder.MergeAttribute("href", "javascript:void(0);");
+            }
+            else if (menu.LinkMode == 2) //模組
+            {
+                var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+
+                GetFrontLink(ref builder, menu, urlHelper);
+
+                if (menu.OpenMode == 3)
+                {
+                    builder.MergeAttribute("onclick", $"window.open(this.href, '{menu.MenuName}','width={menu.WindowWidth},height={menu.ImageHeight}'); return false; ");
+                }
+
+            }
+            else if (menu.LinkMode == 3) //超連結
+            {
+                if (menu.LinkUrl.Contains("http"))
+                {
+                    if (menu.LinkUrl.Contains("mid"))
+                    {
+                        builder.MergeAttribute("href", menu.LinkUrl);
+                    }
+                    else
+                    {
+                        builder.MergeAttribute("href", menu.LinkUrl + $"{(menu.LinkUrl.Contains("?") ? "&" : "?")}mid=" + menu.ID);
+                    }
+
+                }
+                else
+                {
+                    UrlHelper urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+
+                    if (menu.LinkUrl.Contains("mid"))
+                    {
+                        builder.MergeAttribute("href", urlHelper.Content("~") + menu.LinkUrl);
+                    }
+                    else
+                    {
+                        builder.MergeAttribute("href", urlHelper.Content("~") + menu.LinkUrl + $"{(menu.LinkUrl.Contains("?") ? "&" : "?")}mid=" + menu.ID);
+                    }
+                }
+
+
+                if (menu.OpenMode == 3)
+                {
+                    builder.MergeAttribute("onclick", $"window.open(this.href, '{menu.MenuName}','width={menu.WindowWidth},height={menu.ImageHeight}'); return false; ");
+                }
+            }
+            else if (menu.LinkMode == 4) //檔案
+            {
+                builder.MergeAttribute("alt", menu.LinkUploadFileName + (menu.OpenMode == 2 || menu.OpenMode == 3 ? aria.newWindow : ""));
+            }
+
+            if (menu.OpenMode == 2)
+            {
+                builder.MergeAttribute("target", "_blank");
+            }
+
+            builder.MergeAttribute("title", menu.MenuName + (menu.OpenMode == 2 || menu.OpenMode == 3 ? aria.newWindow : ""));
+
+            builder.InnerHtml = menu.MenuName;
+
+            if (htmlAttributes != null)
+            {
+                builder.MergeAttributes(new RouteValueDictionary(htmlAttributes));
+            }
+
+
+
+            return MvcHtmlString.Create(builder.ToString());
+        }
+
+
+
     }
 }

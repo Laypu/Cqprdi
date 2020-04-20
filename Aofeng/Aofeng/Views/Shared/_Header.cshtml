@@ -184,11 +184,11 @@
                                                             <ul class="dropdown-menu">
                                                                 @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
                                                                 {
-                                                                    if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                                                    if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
                                                                     {
                                                                         <li class="dropdown-submenu">
 
-                                                                            @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                                                            @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
                                                                             {
                                                                                 @Html.aira_Top_HyperLink_Menu(Menu2nd, null)
                                                                                 <ul class="dropdown-menu">
