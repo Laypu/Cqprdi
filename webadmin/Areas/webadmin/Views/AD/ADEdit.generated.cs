@@ -871,23 +871,9 @@ WriteLiteral(" name=\"VideoFile\"");
 WriteLiteral(" accept=\"video/*\"");
 
 WriteLiteral(" />\r\n                                </div>\r\n                            </div>\r\n" +
-"");
+"                            ");
 
-            
-            #line 117 "..\..\Areas\webadmin\Views\AD\ADEdit.cshtml"
-                            
-            
-            #line default
-            #line hidden
-            
-            #line 117 "..\..\Areas\webadmin\Views\AD\ADEdit.cshtml"
-                             if (Model.Type != "1")
-                            {
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                                <div");
+WriteLiteral("\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
@@ -915,9 +901,7 @@ WriteLiteral("\r\n                                        <div");
 WriteLiteral(" class=\"red\"");
 
 WriteLiteral(">限制輸入1000字內</div>\r\n                                    </div>\r\n                  " +
-"              </div>\r\n");
-
-WriteLiteral("                                <div");
+"              </div>\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
@@ -952,17 +936,10 @@ WriteLiteral("                                        ");
             #line default
             #line hidden
 WriteLiteral(" 新視窗\r\n                                    </div>\r\n                               " +
-" </div>\r\n");
+" </div>\r\n                            ");
 
-            
-            #line 133 "..\..\Areas\webadmin\Views\AD\ADEdit.cshtml"
-                            }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                        </div>\r\n                </div>\r\n            </div>\r\n   " +
-"     </div>\r\n        <div");
+WriteLiteral("\r\n\r\n                        </div>\r\n                </div>\r\n            </div>\r\n " +
+"       </div>\r\n        <div");
 
 WriteLiteral(" class=\"text-center search_padding\"");
 
@@ -984,33 +961,33 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 9985), Tuple.Create("\"", 10052)
+WriteAttribute("src", Tuple.Create(" src=\"", 9993), Tuple.Create("\"", 10060)
             
             #line 149 "..\..\Areas\webadmin\Views\AD\ADEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 9991), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
+, Tuple.Create(Tuple.Create("", 9999), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
             
             #line default
             #line hidden
-, 9991), false)
+, 9999), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 10076), Tuple.Create("\"", 10131)
+WriteAttribute("src", Tuple.Create(" src=\"", 10084), Tuple.Create("\"", 10139)
             
             #line 150 "..\..\Areas\webadmin\Views\AD\ADEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 10082), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
+, Tuple.Create(Tuple.Create("", 10090), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
             
             #line default
             #line hidden
-, 10082), false)
+, 10090), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 10155), Tuple.Create("\"", 10179)
-, Tuple.Create(Tuple.Create("", 10161), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 10161), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 10163), Tuple.Create("\"", 10187)
+, Tuple.Create(Tuple.Create("", 10169), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 10169), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n\r\n            if (\'");

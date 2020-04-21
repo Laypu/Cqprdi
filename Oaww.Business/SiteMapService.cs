@@ -124,10 +124,10 @@ namespace Oaww.Business
                                     (
                                     select 
                                      ROW_NUMBER()OVER(order by sort) as ROW,t.ID
-                                     from ModelAMLMain t where t.Lang_ID=1
+                                     from ModelSiteMapMain t where t.Lang_ID=1
                                     )
                                     update s set s.Sort = t.ROW from cte  t
-                                    left join ModelAMLMain s on t.ID = s.ID";
+                                    left join ModelSiteMapMain s on t.ID = s.ID";
                         base.Parameter.Clear();
                         base.ExeNonQuery(sql, tran);
 

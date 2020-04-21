@@ -20,8 +20,11 @@ namespace Aofeng.Controllers
         {
             if (itemid.IsNullOrEmpty()) { return RedirectToAction("Index", "Home"); }
 
-            SiteMapItem SiteMapmodel = _service.GetSiteMapItemByModelID(itemid);
-            ViewBag.SiteMapHtmlContent = SiteMapmodel.HtmlContent;
+            
+            SiteMapItem SiteMapitemmodel = _service.GetSiteMapItemByModelID(itemid);
+            List<SiteMapKey> SiteMapKeymodel = _service.GetListSiteMapKeyByModelID(SiteMapitemmodel.ModelID.ToString());
+            ViewBag.SiteMapHtmlContent = SiteMapitemmodel.HtmlContent;
+            ViewBag.SiteMapmodel = SiteMapKeymodel;
             return View();
         }
     }

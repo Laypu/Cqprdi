@@ -1,9 +1,13 @@
-﻿
+﻿@{ Layout = null;
+    Layout = "~/Views/Shared/_LayoutSearch.cshtml";
+}
 @{
     var UpMenu = (List<Menu>)ViewBag.UpMenu;
     var TopMenu = (List<Menu>)ViewBag.TopMenu;
     var DownMenu = (List<Menu>)ViewBag.DownMenu;
     var SiteMapHtmlContent = ViewBag.SiteMapHtmlContent;
+    var SiteMapKeyList = (List<Oaww.Entity.SiteMap.SiteMapKey>)ViewBag.SiteMapmodel;
+
     
 }
 
@@ -18,38 +22,45 @@
                 @*<div class="title_01">@Common.GetLangText("Accessibility instructions")</div>*@
                 <div class="con_font">@Html.Raw(SiteMapHtmlContent)</div>
                 <div class="table-scrollable">
-                    @*<table class="table table-bordered table-hover sitemap_table" cellspacing="0" cellpadding="0" border="0" summary="@Common.GetLangText("Accessibility description list, the first column is the block name, the second column is the shortcut key, and the third column is the block introduction")">
-                英文accessibility list
-                <tbody>
-                    <tr>
-                        <th scope="col" class="col-md-3 col-xs-3 text-center">@Common.GetLangText("Blocks")</th>
-                        <th scope="col" class="col-md-2 col-xs-2 text-center">@Common.GetLangText("Shortcuts")</th>英文
-                        <th scope="col" class="text-center">@Common.GetLangText("Intro.")</th>英文Intro.
-                    </tr>
-                    @if (Model.EditInfo.AreaName != null)
+                    @if (SiteMapKeyList.Count() != 0)
                     {
-                        for (var idx = 0; idx < Model.EditInfo.AreaName.Length; idx++)
-                        {
-                            <tr>
-                                <td scope="row" class="text-center">@Model.EditInfo.AreaName[idx]</td>
-                                <td class="text-center">@Model.EditInfo.HotKey[idx]</td>
-                                <td class="text-center">@Model.EditInfo.Intro[idx]</td>
-                            </tr>
-                        }
+                        <table class="table table-bordered table-hover sitemap_table" cellspacing="0" cellpadding="0" border="0" summary="無障礙說明">
+                            @*Accessibility description list, the first column is the block name, the second column is the shortcut key, and the third column is the block introduction*@
+                            @*英文accessibility list*@
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-md-3 col-xs-3 text-center">區塊說明</th>
+                                    <th scope="col" class="col-md-2 col-xs-2 text-center">快速鍵</th>
+                                    <th scope="col" class="text-center">介紹</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var i in SiteMapKeyList)
+                                {
+                                    <tr>
+                                        <td scope="row" class="text-center">@i.AreaName</td>
+                                        <td class="text-center">@i.QuickKey</td>
+                                        <td class="text-center">@i.Introduction</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        <br /><br />
                     }
-                </tbody>
-            </table>*@
+
+
                 </div>
                 <!--後台可編輯 end-->
 
-                <br /><br />
                 @{
                     var level1idx = 0;
                     var level2idx = 0;
                     var level3idx = 0;
                 }
                 <!--上方選單 start-->
-                @*<div class="title_01">@Common.GetLangText("Top menu")</div>*@
+                <h3>上方選單@*@Common.GetLangText("Top menu")*@</h3>
                 <div class="title_01"></div>
                 <ul class="sitemap_list">
                     @{
@@ -130,7 +141,7 @@
 
                 <br />
                 <!--主要選單 start-->
-                @*<div class="title_01">@Common.GetLangText("Main menu")</div>*@
+                <h3>主要選單</h3>
 
                 <ul class="sitemap_list">
                     @{
@@ -196,7 +207,7 @@
 
                 <br />
                 <!--下方選單 start-->
-                @*<div class="title_01">@Common.GetLangText("Footer Menu")</div>*@
+                <h3>下方選單</h3>
 
                 <ul class="sitemap_list">
                     @{

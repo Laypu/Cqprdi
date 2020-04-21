@@ -294,6 +294,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Areas\webadmin\Views\ExclusiveLayout\Index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -585,7 +590,10 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>MessageEdit.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\webadmin\Views\EPaper\Index.cshtml" />
+    <Content Include="Areas\webadmin\Views\EPaper\Index.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
     <None Include="Areas\webadmin\Views\Form\AddSelItem.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>AddSelItem.generated.cs</LastGenOutput>

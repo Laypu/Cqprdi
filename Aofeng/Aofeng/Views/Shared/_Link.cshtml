@@ -1,4 +1,4 @@
-﻿@using Oaww.Entity;
+﻿
 @using Oaww.HtmlHelp;
 @using Oaww.Entity;
 
@@ -70,17 +70,20 @@
     }
 }
 
+<a href="javascript:void(0);" title="主要內容區" accesskey="C" id="main-content">:::</a>
 <a href="@Url.Action("Index","Home")"><i class="fa fa-home" aria-hidden="true"></i> </a>
 <i class="fa fa-angle-right" aria-hidden="true"></i>
-@Menu1st.MenuName<i class="fa fa-angle-right" aria-hidden="true"></i>
+@Menu1st.MenuName
 @if (menuLevel == 2)
 {
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
     <span class="active">
         @menu.MenuName
     </span>
 }
 @if (menuLevel == 3)
 {
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
     <span class="active">
         @menu2nd.MenuName
     </span>
