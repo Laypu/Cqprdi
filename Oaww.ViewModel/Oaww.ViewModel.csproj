@@ -58,6 +58,8 @@
     <Compile Include="AdminMemberModel.cs" />
     <Compile Include="CommonUnitSettingModel.cs" />
     <Compile Include="Config\MailServerEdit.cs" />
+    <Compile Include="EPaperEditModel.cs" />
+    <Compile Include="EPaperItemResult.cs" />
     <Compile Include="ExclusiveLayoutViewModel.cs" />
     <Compile Include="ForwardViewModel.cs" />
     <Compile Include="HomeViewModel.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Search\AdvanceSearchModel.cs" />
     <Compile Include="Search\AuthoritySearchModel.cs" />
     <Compile Include="Search\DictionarySearchModel.cs" />
+    <Compile Include="Search\EPaperSearchModel.cs" />
     <Compile Include="Search\FileDownloadSearchModel.cs" />
     <Compile Include="FormInputResult.cs" />
     <Compile Include="FormItemSettingModel.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="Search\ConfigSearchModel.cs" />
     <Compile Include="Search\MessageSearchModel.cs" />
     <Compile Include="Search\SearchViewModel.cs" />
+    <Compile Include="Search\SubscriberSearchModel.cs" />
     <Compile Include="SEOViewModel.cs" />
     <Compile Include="SiteLayoutModel.cs" />
     <Compile Include="SiteMap\SiteMapEditModel.cs" />

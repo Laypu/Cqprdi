@@ -184,11 +184,11 @@
                                                             <ul class="dropdown-menu">
                                                                 @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
                                                                 {
-                                                                    if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                                                    if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
                                                                     {
                                                                         <li class="dropdown-submenu">
 
-                                                                            @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                                                            @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
                                                                             {
                                                                                 @Html.aira_Top_HyperLink_Menu(Menu2nd, null)
                                                                                 <ul class="dropdown-menu">
@@ -225,39 +225,65 @@
                                             </ul>
                                             
                                             <ul class="nav nav-top visible-xs">
-                                            	<li style="display:none;">
-                                                    <a href="sitemap.html" title="網站導覽"><i class="fa fa-sitemap"></i> 網站導覽</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index.html" title="回首頁">回首頁</a>
-                                                </li>
-                                                <li style="display:none;">
-                                                    <a href="vocabulary.html" title="雙語詞彙"><i class="fa fa-file-signature"></i>雙語詞彙</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="English">EN</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank" title="facbook(另開新視窗)"><!--英文 facebook(new window)-->
-                                                        <i class="fab fa-facebook-f"></i> facebook
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank" title="twitter(另開新視窗)"><!--英文 twitter(new window)-->
-                                                        <i class="fab fa-twitter"></i> twitter
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank" title="youtube(另開新視窗)"><!--英文 youtube(new window)-->
-                                                        <i class="fab fa-youtube"></i> youtube
-                                                    </a>
-                                                </li>
-                                                
-                                                <li style="display:none;">
-                                                    <a href="#" target="_blank" title="RSS">
-                                                        <i class="fas fa-rss"></i> RSS
-                                                    </a>
-                                                </li>
+                                                @foreach (var menu in UpMenu.OrderBy(t => t.Sort))
+                                                {
+                                                    <li>@Html.aira_Icon_HyperLink_Menu(menu, menu.Icon)</li>
+                                                }
+                                                @if (ListLang.Count > 1)
+                                                {
+                                                    foreach (var m in ListLang.Where(t => t.ID.ToString() != Session["LangID"].ToString()))
+                                                    {
+                                                        <li><a href="@Url.Action("ChangeLang","Home",new { lang=m.ID})" langid='@m.ID' title="@m.Disp_Name">@m.Disp_Name</a></li>
+                                                    }
+                                                }
+                                                @if (ViewBag.langID ==1 )
+                                                {
+                                                    <li>
+                                                        <a href="#" target="_blank" title="facbook(另開新視窗)">
+                                                            <!--英文 facebook(new window)-->
+                                                            <i class="fab fa-facebook-f"></i> facebook
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank" title="twitter(另開新視窗)">
+                                                            <!--英文 twitter(new window)-->
+                                                            <i class="fab fa-twitter"></i> twitter
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank" title="youtube(另開新視窗)">
+                                                            <!--英文 youtube(new window)-->
+                                                            <i class="fab fa-youtube"></i> youtube
+                                                        </a>
+                                                    </li>
+
+                                                    <li style="display:none;">
+                                                        <a href="#" target="_blank" title="RSS">
+                                                            <i class="fas fa-rss"></i> RSS
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="#" target="_blank" title="youtube(new window)">
+                                                            <!--英文 facebook(new window)-->
+                                                            <i class="fab fa-facebook-f"></i> facebook
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank" title="twitter(new window)">
+                                                            <!--英文 twitter(new window)-->
+                                                            <i class="fab fa-twitter"></i> twitter
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank" title="youtube(new window)">
+                                                            <!--英文 youtube(new window)-->
+                                                            <i class="fab fa-youtube"></i> youtube
+                                                        </a>
+                                                    </li>
+                                                }
                                             </ul>
                                             
                                         </nav>

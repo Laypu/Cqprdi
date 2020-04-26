@@ -1622,16 +1622,16 @@ nav.sidebar .navbar-nav .open .dropdown-menu {
     vertical-align: middle;
 	padding: 10px;
 }
-.table-scrollable>.table{
+.table-scrollable>table{
 	width:100%!important;
 	margin:0!important;
 	min-width:650px;
 	/*font-weight:bold; */
 }
-.table-scrollable>.table>thead{
+.table-scrollable>table>thead{
 	/*border-top: solid 1px #ddd;*/
 }
-.table-scrollable>.table>thead>tr>th , .table-scrollable th ,table>thead>tr>th{
+.table-scrollable>table>thead>tr>th , .table-scrollable th ,table>thead>tr>th{
 	white-space:nowrap; 
 	padding: 12px 20px; 
 	background:#eee; 
@@ -2552,7 +2552,7 @@ footer .line{
 }
 
 
-/*table scroll*/
+/*table scroll
 .table-scrollable {
     width: 100%;
     overflow-x: auto;
@@ -2597,7 +2597,7 @@ footer .line{
 }
 .delete_th {
     padding: 10px 0 !important;
-}
+}*/
 
 
 /*table*/
@@ -2678,5 +2678,8 @@ footer .line{
 	color:#fff;
 	box-shadow:none;
 	border: solid #98672d 1px;
+}
+h3 a{
+	color:#fff;
 }
 

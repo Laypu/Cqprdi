@@ -33,7 +33,9 @@ namespace ASP
     using Oaww.Utility;
     using Oaww.ViewModel;
     using Oaww.ViewModel.Config;
+    using Oaww.ViewModel.Lang;
     using Oaww.ViewModel.Search;
+    using Oaww.ViewModel.SiteMap;
     using Template;
     using webadmin;
     

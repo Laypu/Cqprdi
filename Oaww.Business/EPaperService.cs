@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using Oaww.ViewModel;
 using Oaww.ViewModel.Search;
 using Oaww.Utility;
+using System.Web;
 
 namespace Oaww.Business
 {
@@ -21,58 +22,58 @@ namespace Oaww.Business
         {
             _ModelID = ModelID;
         }
-        public List<GroupMessage> GetVaildGroupMessages(string Main_ID)
+        public List<GroupEPaper> GetVaildGroupEPapers(string Main_ID)
         {
             string sql = @"with cte as
                             (
-                            select distinct GroupID from MessageItem s where ModelID = @Main_ID
+                            select distinct GroupID from EPaperItem s where ModelID = @Main_ID
                             and s.IsVerift = 1 and s.Enabled = 1
                             and isnull(s.StDate,'1999/1/1') <= convert(date, GetDate())
                             and isnull(s.EdDate,'9999/12/31') >= convert(date, GetDate())
                             )
                             select t.GroupID as ID,isnull(s.Group_Name,'無分類') as Group_Name from cte  t
-                            left join GroupMessage s on t.GroupID = s.ID";
+                            left join GroupEPaper s on t.GroupID = s.ID";
 
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@Main_ID", Main_ID));
 
-            return base.SearchList<GroupMessage>(sql);
+            return base.SearchList<GroupEPaper>(sql);
         }
 
-        public List<MessageItem> GetMessageItemsByModelID(string[] idlist)
+        public List<EPaperItem> GetEPaperItemsByModelID(string[] idlist)
         {
-            string sql = @"select * from MessageItem where ModelID in (select ListItem from dbo.SplitList(',',@idlist))";
+            string sql = @"select * from EPaperItem where ModelID in (select ListItem from dbo.SplitList(',',@idlist))";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@idlist", string.Join(",", idlist)));
-            return base.SearchList<MessageItem>(sql);
+            return base.SearchList<EPaperItem>(sql);
         }
 
-        public List<MessageItem> GetMessageItems(string[] idlist)
+        public List<EPaperItem> GetEPaperItems(string[] idlist)
         {
-            string sql = @"select * from MessageItem where ItemID in (select ListItem from dbo.SplitList(',',@idlist))";
+            string sql = @"select * from EPaperItem where ItemID in (select ListItem from dbo.SplitList(',',@idlist))";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@idlist", string.Join(",", idlist)));
-            return base.SearchList<MessageItem>(sql);
+            return base.SearchList<EPaperItem>(sql);
         }
 
-        public MessageItem GetMessageItemByID(string ItemID)
+        public EPaperItem GetEPaperItemByID(string ItemID)
         {
-            return _commonService.GetHisEntity<MessageItem>("ItemID", ItemID);
+            return _commonService.GetHisEntity<EPaperItem>("ItemID", ItemID);
         }
 
-        public GroupMessage GetGroupMessageByID(string ID)
+        public GroupEPaper GetGroupEPaperByID(string ID)
         {
-            return _commonService.GetHisEntity<GroupMessage>("ID", ID); ;
+            return _commonService.GetHisEntity<GroupEPaper>("ID", ID); ;
         }
 
-        public ModelMessageMain GetModelMessageMain(string ID, string lang)
+        public ModelEPaperMain GetModelEPaperMain(string ID, string lang)
         {
-            string sql = @"select * from ModelMessageMain where ID=@ID and Lang_ID=@Lang_ID";
+            string sql = @"select * from ModelEPaperMain where ID=@ID and Lang_ID=@Lang_ID";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@ID", ID));
             base.Parameter.Add(new SqlParameter("@Lang_ID", lang));
 
-            return base.GetObject<ModelMessageMain>(sql);
+            return base.GetObject<ModelEPaperMain>(sql);
         }
 
         /// <summary>
@@ -80,19 +81,19 @@ namespace Oaww.Business
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public Paging<ModelMessageMain> Paging(SearchModelBase model, int ModelID)
+        public Paging<ModelEPaperMain> Paging(SearchModelBase model, int ModelID)
         {
             string sql = string.Empty;
 
-            var Paging = new Paging<ModelMessageMain>();
+            var Paging = new Paging<ModelEPaperMain>();
             var onepagecnt = model.Limit;
 
-            sql = "select * from ModelMessageMain where Lang_ID=@Lang_ID and ModelID=@ModelID";
+            sql = "select * from ModelEPaperMain where Lang_ID=@Lang_ID and ModelID=@ModelID";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@Lang_ID", model.LangId));
             base.Parameter.Add(new SqlParameter("@ModelID", ModelID));
 
-            Paging.rows = base.SearchListPage<ModelMessageMain>(sql, model.Offset, model.Limit, " order by " + model.Sort);
+            Paging.rows = base.SearchListPage<ModelEPaperMain>(sql, model.Offset, model.Limit, " order by " + model.Sort);
             Paging.total = base.SearchCount(sql);
 
             return Paging;
@@ -130,8 +131,8 @@ namespace Oaww.Business
                 {
                     try
                     {
-                        //delete  ModelMessageMain _OK
-                        sql = @"delete ModelMessageMain where ID in (select ListItem from dbo.SplitList(',',@idlist))";
+                        //delete  ModelEPaperMain _OK
+                        sql = @"delete ModelEPaperMain where ID in (select ListItem from dbo.SplitList(',',@idlist))";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@idlist", string.Join(",", idlist)));
                         base.ExeNonQuery(sql, tran);
@@ -144,13 +145,13 @@ namespace Oaww.Business
                         base.ExeNonQuery(sql, tran);
 
                         //刪除PageUnitSetting
-                        sql = @"delete MessageUnitSetting where MainID in (select ListItem from dbo.SplitList(',',@idlist))";
+                        sql = @"delete EPaperUnitSetting where MainID in (select ListItem from dbo.SplitList(',',@idlist))";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@idlist", string.Join(",", idlist)));
                         base.ExeNonQuery(sql, tran);
 
                         //刪除SEO
-                        sql = @"delete SEO where TypeName='MessageItem' and TypeID in (select ListItem from dbo.SplitList(',',@idlist))";
+                        sql = @"delete SEO where TypeName='EPaperItem' and TypeID in (select ListItem from dbo.SplitList(',',@idlist))";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@idlist", string.Join(",", idlist)));
                         base.ExeNonQuery(sql, tran);
@@ -159,27 +160,27 @@ namespace Oaww.Business
                         for (var idx = 0; idx < idlist.Length; idx++)
                         {
                             //刪除PageIndexItem
-                            List<MessageItem> olditem = _commonService.GetGeneralList<MessageItem>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", idlist[idx] } }, tran)
+                            List<EPaperItem> olditem = _commonService.GetGeneralList<EPaperItem>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", idlist[idx] } }, tran)
                                                            .ToList();
 
-                            sql = @"delete MessageItem where ModelID=@ModelID";
+                            sql = @"delete EPaperItem where ModelID=@ModelID";
                             base.Parameter.Clear();
                             base.Parameter.Add(new SqlParameter("@ModelID", idlist[idx]));
                             base.ExeNonQuery(sql, tran);
 
 
 
-                            foreach (var items in olditem)
-                            {
+                            //foreach (var items in olditem)
+                            //{
 
-                                //刪除SEO
-                                sql = @"delete SEO where TypeName='MessageItem' and TypeID=@TypeID";
-                                base.Parameter.Clear();
-                                base.Parameter.Add(new SqlParameter("@TypeID", items.ItemID));
-                                base.ExeNonQuery(sql, tran);
+                            //    //刪除SEO
+                            //    sql = @"delete SEO where TypeName='EPaperItem' and TypeID=@TypeID";
+                            //    base.Parameter.Clear();
+                            //    base.Parameter.Add(new SqlParameter("@TypeID",items.ItemID));
+                            //    base.ExeNonQuery(sql, tran);
 
 
-                            }
+                            //}
 
                         }
 
@@ -188,10 +189,10 @@ namespace Oaww.Business
                                     (
                                     select 
                                      ROW_NUMBER()OVER(order by sort) as ROW,t.ID
-                                     from ModelMessageMain t where t.Lang_ID=@Lang and t.ModelID=@ModelID
+                                     from ModelEPaperMain t where t.Lang_ID=@Lang and t.ModelID=@ModelID
                                     )
                                     update s set s.Sort = t.ROW from cte  t
-                                    left join ModelMessageMain s on t.ID = s.ID and s.ModelID=@ModelID";
+                                    left join ModelEPaperMain s on t.ID = s.ID and s.ModelID=@ModelID";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@ModelID", _ModelID));
                         base.Parameter.Add(new SqlParameter("@Lang", langid));
@@ -214,217 +215,98 @@ namespace Oaww.Business
             }
         }
 
-        public Paging<MessageItemResult> PagingItem(string modelid, MessageSearchModel model, string lang)
+
+
+        public Paging<EPaperItemResult> PagingItem(EPaperSearchModel model, string modelid)
         {
-            var Paging = new Paging<MessageItemResult>();
-            Paging.rows = new List<MessageItemResult>();
-            var data = new List<MessageItem>();
+            string sql = string.Empty;
 
-
-            string sql = @"select * from MessageItem t where ModelID=@ModelID  and Lang_ID =@Lang_ID";
-
-            base.Parameter.Clear();
-            base.Parameter.Add(new SqlParameter("@ModelID", modelid));
-            base.Parameter.Add(new SqlParameter("@Lang_ID", lang));
+            var Paging = new Paging<EPaperItemResult>();
+            Paging.rows = new List<EPaperItemResult>();
+            var datas = new List<EPaperItem>();
+            var onepagecnt = model.Limit;
             if (model.GroupId != null)
             {
                 sql += " and GroupID=@GroupID";
                 base.Parameter.Add(new SqlParameter("@GroupID", model.GroupId.Value));
             }
-            if (!string.IsNullOrEmpty(model.Title))
-            {
-                sql += " and (Title like @Title or HtmlContent like @Title)";
-                base.Parameter.Add(new SqlParameter("@Title", "%" + model.Title + "%"));
-            }
+            sql = "select * from EPaperItem where LangID=@Lang_ID and ModelID=@ModelID";
+            base.Parameter.Clear();
+            base.Parameter.Add(new SqlParameter("@Lang_ID", model.LangId));
+            base.Parameter.Add(new SqlParameter("@ModelID", modelid));
 
-            if (model.Enabled != null)
-            {
-                sql += " and Enabled=@Enabled";
-                base.Parameter.Add(new SqlParameter("@Enabled", model.Enabled));
-            }
+            var ALLGroup = _commonService.GetGeneralList<GroupEPaper>();
+            datas = base.SearchListPage<EPaperItem>(sql, model.Offset, model.Limit, " order by " + model.Sort).ToList();
+            //Paging.rows = base.SearchListPage<EPaperItemResult>(sql, model.Offset, model.Limit, " order by " + model.Sort).ToList();
 
-            if (!model.PublicshDateFrom.IsNullOrEmpty())
+            foreach (var data in datas)
             {
-                sql += " and (PublicshDate >=@PublicshDateFrom or PublicshDate is Null)";
-                base.Parameter.Add(new SqlParameter("@PublicshDateFrom", model.PublicshDateFrom));
-            }
-
-            if (!model.PublicshDateTo.IsNullOrEmpty())
-            {
-                sql += " and (PublicshDate <=@PublicshDateTo or PublicshDate is Null)";
-                base.Parameter.Add(new SqlParameter("@PublicshDateTo", model.PublicshDateTo));
-            }
-
-            if (!model.DisplayFrom.IsNullOrEmpty())
-            {
-                sql += " and (EdDate >=@DisplayFrom or EdDate is Null)";
-                base.Parameter.Add(new SqlParameter("@DisplayFrom", model.DisplayFrom));
-            }
-
-            if (!model.DisplayTo.IsNullOrEmpty())
-            {
-                sql += " and (StDate <=@DisplayTo or StDate is Null)";
-                base.Parameter.Add(new SqlParameter("@DisplayTo", model.DisplayTo));
-            }
-            if (!string.IsNullOrEmpty(model.IsRange))
-            {
-                if (model.IsRange == "1")
+                var GroupName = ALLGroup.Where(v => v.ID == data.GroupID);
+                Paging.rows.Add(new EPaperItemResult()
                 {
-                    sql += " and (StDate <=@IsRange or StDate is null or StDate='') and (EdDate >=@IsRange or EdDate is null or EdDate='')";
-                    base.Parameter.Add(new SqlParameter("@IsRange", DateTime.Now.Date));
-                }
-                else
-                {
-                    sql += " and (StDate >@IsRange ) or (EdDate <@IsRange )";
-                    base.Parameter.Add(new SqlParameter("@IsRange", DateTime.Now.Date));
-                }
+                    ItemID =data.ItemID,
+                    GroupName = GroupName.Count() > 0 ? GroupName.First().Group_Name : "無分類",
+                    Title = data.Title,
+                    IsPublishStr = data.IsPublished == true ? "已發佈" : ("<button class='btn blue isedit' id='editbtn_" + data.ItemID + "' value='" + data.ItemID + "'>發佈</button>"),
+                    FormatStr = data.PaperMode == 1 ? "手動" : "自動",
+                    Enabled = data.Enabled,
+                    Sort = data.Sort.Value,
+                    Introduction = data.Introduction,
+                    IsPublished = data.IsPublished,
+                    PublishStr = data.PublishStr
+                });
             }
+            
+            
 
-            data = base.SearchListPage<MessageItem>(sql, model.Offset, model.Limit, " order by " + model.Sort).ToList();
-
+            
             Paging.total = base.SearchCount(sql);
 
-
-            var ALLGroup = _commonService.GetGeneralList<GroupMessage>();
-            var modelverifydata = _commonService.GetGeneralList<VerifyData>("ModelID = @ModelID and ModelMainID =@ModelMainID"
-                                                                , new Dictionary<string, string>() { { "ModelID", _ModelID.ToString() }, { "ModelMainID", modelid } });
-            foreach (var d in data)
-            {
-                var isrange = false;
-                if (d.StDate == null && d.EdDate == null) { isrange = true; }
-                else if (d.StDate != null && d.EdDate == null)
-                {
-                    if (DateTime.Now >= d.StDate.Value)
-                    {
-                        isrange = true;
-                    }
-                }
-                else if (d.StDate == null && d.EdDate != null)
-                {
-                    if (DateTime.Now <= d.EdDate.Value.AddDays(1))
-                    {
-                        isrange = true;
-                    }
-                }
-                else if (d.StDate != null && d.EdDate != null)
-                {
-                    if (DateTime.Now >= d.StDate.Value && DateTime.Now <= d.EdDate.Value.AddDays(1))
-                    {
-                        isrange = true;
-                    }
-                }
-                var gname = ALLGroup.Where(v => v.ID == d.GroupID);
-                var vdata = modelverifydata.Where(v => v.ModelItemID == d.ItemID);
-                Paging.rows.Add(new MessageItemResult()
-                {
-                    ItemID = d.ItemID,
-                    Title = d.Title,
-                    ClickCount = d.ClickCnt == null ? "0" : d.ClickCnt.Value.ToString(),
-                    Enabled = d.Enabled,
-                    IsRange = isrange == true ? "是" : "否",
-                    GroupName = gname.Count() > 0 ? gname.First().Group_Name : "無分類",
-                    PublicshDate = d.PublicshDate == null ? "" : d.PublicshDate.Value.ToString("yyyy/MM/dd"),
-                    Sort = d.Sort.Value,
-                    Home = d.Home,
-                    VerifyStr = vdata.Count() == 0 ? "審核中" : vdata.First().VerifyStatus == 0 ? "審核中" : (vdata.First().VerifyStatus == 1 ? "已通過" : "未通過"),
-                });
-
-            }
             return Paging;
         }
 
-        public MessageEditModel GetModelByID(string modelid, string itemid, string folder)
+        public EPaperEditModel GetModelByID(string modelid, string itemid, string folder)
         {
-            var maindata = _commonService.GetGeneral<ModelMessageMain>("ID=@ID", new Dictionary<string, string>() { { "ID", modelid } });
-            var data = _commonService.GetGeneral<MessageItem>("ItemID=@ItemID", new Dictionary<string, string>() { { "ItemID", itemid } });
-            if (data.ItemID > 0)
+            var maindata = _commonService.GetGeneral<ModelEPaperMain>("ID=@ID", new Dictionary<string, string>() { { "ID", modelid } });
+            var data = _commonService.GetGeneral<EPaperItem>("ItemID=@ItemID", new Dictionary<string, string>() { { "ItemID", itemid } });
+            if (itemid != "-1")
             {
-                var fdata = data;
-                var seodata = _commonService.GetGeneral<SEO>("TypeName='MessageItem' and TypeID=@TypeID", new Dictionary<string, string>() { { "TypeID", itemid } });
-                var model = new MessageEditModel()
-                {
-                    ItemID = fdata.ItemID,
-                    Description = seodata.ID > 0 ? seodata.Description : "",
-                    ImageFileName = fdata.ImageFileName,
-                    ImageFileOrgName = fdata.ImageFileOrgName,
-                    UploadFileDesc = fdata.UploadFileDesc,
-                    UploadFileName = fdata.UploadFileName,
-                    UploadFilePath = fdata.UploadFilePath,
-                    UploadFileSize = fdata.UploadFileSize,
-                    UploadFileType = fdata.UploadFileType,
-                    WebsiteTitle = seodata.ID > 0 ? seodata.Title : "",
-                    Keywords = seodata.ID == 0 ? new string[10] : new string[] {
-                        seodata.Keywords1, seodata.Keywords2, seodata.Keywords3, seodata.Keywords4, seodata.Keywords5
-                    , seodata.Keywords6, seodata.Keywords7, seodata.Keywords8, seodata.Keywords9, seodata.Keywords10 },
-                    HtmlContent = fdata.HtmlContent,
-                    ImageFileDesc = fdata.ImageFileDesc,
-                    ImageFileLocation = fdata.ImageFileLocation,
-                    LinkUrl = fdata.LinkUrl,
-                    ModelID = fdata.ModelID.Value,
-                    ImageUrl = $"~/UploadImage/{folder}/" + fdata.ImageFileName,
-                    ActiveID = fdata.ActiveID == null ? "" : fdata.ActiveID.ToString(),
-                    ActiveItemID = fdata.ActiveItemID == null ? "" : fdata.ActiveItemID.ToString(),
-                    EdDate = fdata.EdDate,
-                    EdDateStr = fdata.EdDate == null ? "" : fdata.EdDate.Value.ToString("yyyy/MM/dd"),
-                    Group_ID = fdata.GroupID == null ? -1 : fdata.GroupID.Value,
-                    Link_Mode = fdata.Link_Mode,
-                    PublicshStr = fdata.PublicshDate == null ? "" : fdata.PublicshDate.Value.ToString("yyyy/MM/dd"),
-                    UnPublicshStr = fdata.UnPublishDate.HasValue ? fdata.UnPublishDate.Value.ToString("yyyy/MM/dd") : "",
-                    StDate = fdata.StDate,
-                    StDateStr = fdata.StDate == null ? "" : fdata.StDate.Value.ToString("yyyy/MM/dd"),
-                    Title = fdata.Title,
-                    RelateImageFileOrgName = fdata.RelateImageFileOrgName,
-                    RelateImageName = fdata.RelateImageFileName,
-                    RelateImagelUrl = $"~/UploadImage/{folder}/" + fdata.RelateImageFileName,
-                    Introduction = fdata.Introduction,
-                    CreateDatetime = fdata.CreateDatetime == null ? "" : fdata.CreateDatetime.Value.ToString("yyyy/MM/dd HH:mm:ss"),
-                    CreateUser = fdata.CreateName,
-                    OpenMode = fdata.OpenMode,
-                    UpdateDatetime = fdata.UpdateDatetime == null ? "" : fdata.UpdateDatetime.Value.ToString("yyyy/MM/dd HH:mm:ss"),
-                    UpdateUser = fdata.UpdateName,
-                    LinkUrlDesc = fdata.LinkUrlDesc,
-                    Home = fdata.Home,
-                    ComnonHtml1 = fdata.ComnonHtml1,
-                    ComnonHtml2 = fdata.ComnonHtml2
-                };
-
-
-                model.fileDownloadFiles = _commonService.GetGeneralList<MessageFile>("ItemID=@ItemID and ModelID=@ModelID",
-                                                                                         new Dictionary<string, string>() { { "ItemID", itemid }, { "ModelID", modelid } }).ToList();
-
-                model.messageImages = _commonService.GetGeneralList<MessageImage>("ItemID=@ItemID and ModelID=@ModelID",
-                                                                                         new Dictionary<string, string>() { { "ItemID", itemid }, { "ModelID", modelid } }).ToList();
-                model.messageDateRange = _commonService.GetGeneralList<ActiveDateRange>("ItemID=@ItemID and ModelID=@ModelID",
-                                                                                         new Dictionary<string, string>() { { "ItemID", itemid }, { "ModelID", modelid } }).ToList();
-
-                var hasvdata = _commonService.GetGeneralList<VerifyData>("ModelID=@ModelID and ModelMainID=@ModelMainID and ModelItemID=@ModelItemID",
-                                                                new Dictionary<string, string>() { { "ModelID", _ModelID.ToString() },
-                                                                                                   { "ModelMainID", fdata.ModelID.Value.ToString() },
-                                                                                                   { "ModelItemID", fdata.ItemID.ToString() } })
-                                            .ToList();
-
-                if (hasvdata.Count() > 0)
-                {
-                    model.VerifyStatus = hasvdata.First().VerifyStatus == 0 ? "審核中" : (hasvdata.First().VerifyStatus == 1 ? "已通過" : "未通過");
-                    model.VerifyDateTime = hasvdata.First().VerifyDateTime == null ? "" : hasvdata.First().VerifyDateTime.Value.ToString("yyyy/MM/dd HH:mm:ss");
-                    model.VerifyUser = hasvdata.First().VerifyName;
-
-                }
-                model.ModelName = maindata.ID == 0 ? "" : maindata.Name;
+                var olddata = data;
+                var seodata = _commonService.GetGeneral<SEO>("TypeName='EPaperItem' and TypeID=@TypeID", new Dictionary<string, string>() { { "TypeID", itemid } });
+                EPaperEditModel model = new EPaperEditModel();
+                model.ItemID = olddata.ItemID;
+                model.Lang_ID = olddata.LangID;
+                model.PaperMode = olddata.PaperMode.Value;
+                model.PaperStyle = olddata.PaperStyle.Value;
+                model.PublishStr = olddata.PublishStr;
+                model.Title = olddata.Title;
+                model.Introduction = olddata.Introduction;
+                model.TopBannerImgUrl = VirtualPathUtility.ToAbsolute("~/UploadImage/EPaper/" + olddata.TopBannerImgName);
+                model.TopBannerImgPath = olddata.TopBannerImgPath;
+                model.TopBannerImgOrgName = olddata.TopBannerImgOrgName;
+                model.TopBannerImgName = olddata.TopBannerImgName;
+                model.PageEndHtmlContent = olddata.PageEndHtmlContent;
+                model.Enabled = olddata.Enabled.Value;
+                model.TopHtmlContent = olddata.TopHtmlContent;
+                model.LeftHtmlContent = olddata.LeftHtmlContent;
+                model.CenterHtmlContent = olddata.CenterHtmlContent;
+                model.BottomHtmlContent = olddata.BottomHtmlContent;
+                model.ModelID = maindata.ID;
+                
                 return model;
             }
             else
             {
-                MessageEditModel model = new MessageEditModel();
-                model.Home = false;
-                model.Keywords = new string[10];
-                model.ModelID = int.Parse(modelid);
-                model.ImageFileLocation = "1";
-                model.ModelName = maindata.ID == 0 ? "" : maindata.Name;
-                model.UnPublicshStr = "";
-                model.fileDownloadFiles = new List<MessageFile>();
+                EPaperEditModel model = new EPaperEditModel();
+                model.ItemID = int.Parse(itemid);
+                model.ModelID = maindata.ID;
                 return model;
             }
+                
+
+
+            
+            
 
         }
 
@@ -436,18 +318,18 @@ namespace Oaww.Business
         /// <param name="account"></param>
         /// <param name="userName"></param>
         /// <returns></returns>
-        public string CreateItem(MessageEditModel model, string LangId, string account, string userName)
+        public string CreateItem(EPaperEditModel model, string LangId, string account, string userName)
         {
             string sql = string.Empty;
 
             SET_BASE SET_BASE = _commonService.GetGeneral<SET_BASE>();
 
-            var iswriteseo = false;
-            if (model.WebsiteTitle.IsNullOrEmpty() == false || model.Description.IsNullOrEmpty() == false
-                 || (model.Keywords != null && model.Keywords.Any(v => v.IsNullOrEmpty() == false)))
-            {
-                iswriteseo = true;
-            }
+            //var iswriteseo = false;
+            //if (model.WebsiteTitle.IsNullOrEmpty() == false || model.Description.IsNullOrEmpty() == false
+            //     || (model.Keywords != null && model.Keywords.Any(v => v.IsNullOrEmpty() == false)))
+            //{
+            //    iswriteseo = true;
+            //}
 
             using (SqlConnection connection = base.OpenConnection())
             {
@@ -455,116 +337,113 @@ namespace Oaww.Business
                 {
                     try
                     {
-                        var olddata = _commonService.GetGeneralList<MessageItem>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", model.ModelID.ToString() } }, tran);
+                        var olddata = _commonService.GetGeneralList<EPaperItem>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", model.ModelID.ToString() } }, tran);
 
-                        var savemodel = new MessageItem()
+                        var savemodel = new EPaperItem()
                         {
-                            HtmlContent = model.HtmlContent,
-                            ImageFileDesc = model.ImageFileDesc,
-                            ImageFileLocation = model.ImageFileLocation,
+                            TopHtmlContent = model.TopHtmlContent == null ? "" : model.TopHtmlContent,
+                            BottomHtmlContent = model.BottomHtmlContent == null ? "" : model.BottomHtmlContent,
+                            CenterHtmlContent = model.CenterHtmlContent == null ? "" : model.CenterHtmlContent,
+                            Introduction = model.Introduction == null ? "" : model.Introduction,
+                            LeftHtmlContent = model.LeftHtmlContent == null ? "" : model.LeftHtmlContent,
+                            PageEndHtmlContent = model.PageEndHtmlContent == null ? "" : model.PageEndHtmlContent,
+                            CreateDatetime = DateTime.Now,
+                            Sort = 1,
+                            LangID = int.Parse(LangId),
                             ModelID = model.ModelID,
-                            ImageFileOrgName = model.ImageFileOrgName,
-                            LinkUrl = model.LinkUrl,
-                            UploadFileDesc = model.UploadFileDesc,
+                            GroupID = model.GroupID,
+                            PaperMode = model.PaperMode,
+                            PaperStyle = model.PaperStyle,
+                            PublishStr = model.PublishStr,
+                            Title = model.Title == null ? "" : model.Title,
+                            TopBannerImgName = model.TopBannerImgName,
+                            TopBannerImgPath = model.TopBannerImgPath,
+                            TopBannerImgOrgName = model.TopBannerImgOrgName,
+                            IsPublished = false,
+                            Enabled = true,
+                            UpdateUser = account,
+                            UpdateDatetime = DateTime.Now,
                             UploadFileName = model.UploadFileName,
                             UploadFilePath = model.UploadFilePath,
-                            UploadFileSize = model.UploadFileSize,
-                            UploadFileType = model.UploadFileType,
                             ImageFileName = model.ImageFileName,
-                            Sort = 1,
-                            ClickCnt = 0,
-                            GroupID = model.Group_ID,
-                            Lang_ID = int.Parse(LangId),
-                            Title = model.Title,
-                            CreateDatetime = DateTime.Now,
-                            CreateUser = account,
-                            Enabled = true,
-                            Link_Mode = model.Link_Mode,
-                            RelateImageFileName = model.RelateImageName,
-                            RelateImageFileOrgName = model.RelateImageFileOrgName,
-                            Introduction = model.Introduction == null ? "" : model.Introduction,
-                            CreateName = userName,
-                            IsVerift = !SET_BASE.M_Base02,
-                            LinkUrlDesc = model.LinkUrlDesc,
-                            OpenMode = model.OpenMode,
-                            Home = model.Home,
-                            ComnonHtml1 = model.ComnonHtml1,
-                            ComnonHtml2 = model.ComnonHtml2
+                            
                         };
-                        if (model.ActiveID.IsNullOrEmpty() == false)
-                        {
-                            savemodel.ActiveID = int.Parse(model.ActiveID);
-                        }
-                        if (model.ActiveItemID.IsNullOrEmpty() == false)
-                        {
-                            savemodel.ActiveItemID = int.Parse(model.ActiveItemID);
-                        }
-                        if (model.PublicshStr.IsNullOrEmpty() == false)
-                        {
-                            savemodel.PublicshDate = DateTime.Parse(model.PublicshStr);
-                        }
-                        if (model.EdDateStr.IsNullOrEmpty() == false)
-                        {
-                            savemodel.EdDate = DateTime.Parse(model.EdDateStr);
-                        }
-                        if (model.EdDateStr.IsNullOrEmpty() == false)
-                        {
-                            savemodel.EdDate = DateTime.Parse(model.EdDateStr);
-                        }
-                        if (model.StDateStr.IsNullOrEmpty() == false)
-                        {
-                            savemodel.StDate = DateTime.Parse(model.StDateStr);
-                        }
 
-                        if (model.UnPublicshStr.IsNullOrEmpty() == false)
-                        {
-                            savemodel.UnPublishDate = DateTime.Parse(model.UnPublicshStr);
-                        }
+                        
+                        //if (model.ActiveID.IsNullOrEmpty() == false)
+                        //{
+                        //    savemodel.ActiveID = int.Parse(model.ActiveID);
+                        //}
+                        //if (model.ActiveItemID.IsNullOrEmpty() == false)
+                        //{
+                        //    savemodel.ActiveItemID = int.Parse(model.ActiveItemID);
+                        //}
+                        //if (model.PublicshStr.IsNullOrEmpty() == false)
+                        //{
+                        //    savemodel.PublicshDate = DateTime.Parse(model.PublicshStr);
+                        //}
+                        //if (model.EdDateStr.IsNullOrEmpty() == false)
+                        //{
+                        //    savemodel.EdDate = DateTime.Parse(model.EdDateStr);
+                        //}
+                        //if (model.EdDateStr.IsNullOrEmpty() == false)
+                        //{
+                        //    savemodel.EdDate = DateTime.Parse(model.EdDateStr);
+                        //}
+                        //if (model.StDateStr.IsNullOrEmpty() == false)
+                        //{
+                        //    savemodel.StDate = DateTime.Parse(model.StDateStr);
+                        //}
+
+                        //if (model.UnPublicshStr.IsNullOrEmpty() == false)
+                        //{
+                        //    savemodel.UnPublishDate = DateTime.Parse(model.UnPublicshStr);
+                        //}
 
 
 
 
                         //先更新sort
-                        sql = "update MessageItem set Sort=Sort+1 where ModelID =@ModelID ";
+                        sql = "update EPaperItem set Sort=Sort+1 where ModelID =@ModelID ";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@ModelID", model.ModelID.ToString()));
                         base.ExeNonQuery(sql, tran);
 
                         var r = base.InsertObject(savemodel, tran);
 
-                        if (model.fileDownloadFiles != null)
-                        {
-                            //新增files
-                            model.fileDownloadFiles.ForEach(t =>
-                            {
-                                t.ItemID = (int)r;
-                                t.ModelID = model.ModelID;
+                        //if (model.fileDownloadFiles != null)
+                        //{
+                        //    //新增files
+                        //    model.fileDownloadFiles.ForEach(t =>
+                        //    {
+                        //        t.ItemID = (int)r;
+                        //        t.ModelID = model.ModelID;
 
-                                base.InsertObject(t, tran);
-                            });
-                        }
-                        if (model.messageDateRange != null)
-                        {
-                            //新增files
-                            model.messageDateRange.ForEach(t =>
-                            {
-                                t.ItemID = (int)r;
-                                t.ModelID = model.ModelID;
-                                base.InsertObject(t, tran);
-                            });
-                        }
+                        //        base.InsertObject(t, tran);
+                        //    });
+                        //}
+                        //if (model.EPaperDateRange != null)
+                        //{
+                        //    //新增files
+                        //    model.EPaperDateRange.ForEach(t =>
+                        //    {
+                        //        t.ItemID = (int)r;
+                        //        t.ModelID = model.ModelID;
+                        //        base.InsertObject(t, tran);
+                        //    });
+                        //}
 
-                        if (model.messageImages != null)
-                        {
-                            //新增files
-                            model.messageImages.ForEach(t =>
-                            {
-                                t.ItemID = (int)r;
-                                t.ModelID = model.ModelID;
+                        //if (model.EPaperImages != null)
+                        //{
+                        //    //新增files
+                        //    model.EPaperImages.ForEach(t =>
+                        //    {
+                        //        t.ItemID = (int)r;
+                        //        t.ModelID = model.ModelID;
 
-                                base.InsertObject(t, tran);
-                            });
-                        }
+                        //        base.InsertObject(t, tran);
+                        //    });
+                        //}
 
                         sql = "delete VerifyData where ModelID=@ModelID and ModelMainID=@ModelMainID and ModelItemID=@ModelItemID";
                         base.Parameter.Clear();
@@ -573,41 +452,41 @@ namespace Oaww.Business
                         base.Parameter.Add(new SqlParameter("@ModelItemID", savemodel.ItemID));
                         base.ExeNonQuery(sql, tran);
 
-                        base.InsertObject(new VerifyData()
-                        {
-                            ModelID = _ModelID,
-                            ModelItemID = savemodel.ItemID,
-                            ModelName = savemodel.Title,
-                            ModelMainID = savemodel.ModelID.Value,
-                            VerifyStatus = SET_BASE.M_Base02 ? 0 : 1,
-                            ModelStatus = 1,
-                            UpdateDateTime = DateTime.Now,
-                            UpdateUser = userName,
-                            UpdateAccount = account,
-                            LangID = int.Parse(LangId)
-                        }, tran);
+                        //base.InsertObject(new VerifyData()
+                        //{
+                        //    ModelID = _ModelID,
+                        //    ModelItemID = savemodel.ItemID,
+                        //    ModelName = savemodel.Title,
+                        //    ModelMainID = savemodel.ModelID.Value,
+                        //    VerifyStatus = SET_BASE.M_Base02 ? 0 : 1,
+                        //    ModelStatus = 1,
+                        //    UpdateDateTime = DateTime.Now,
+                        //    UpdateUser = userName,
+                        //    UpdateAccount = account,
+                        //    LangID = int.Parse(LangId)
+                        //}, tran);
 
-                        if (iswriteseo)
-                        {
-                            r = base.InsertObject(new SEO()
-                            {
-                                Description = model.Description == null ? "" : model.Description,
-                                Keywords1 = model.Keywords[0],
-                                Keywords2 = model.Keywords[1],
-                                Keywords3 = model.Keywords[2],
-                                Keywords4 = model.Keywords[3],
-                                Keywords5 = model.Keywords[4],
-                                Keywords6 = model.Keywords[5],
-                                Keywords7 = model.Keywords[6],
-                                Keywords8 = model.Keywords[7],
-                                Keywords9 = model.Keywords[8],
-                                Keywords10 = model.Keywords[9],
-                                Title = model.WebsiteTitle == null ? "" : model.WebsiteTitle,
-                                TypeName = "MessageItem",
-                                TypeID = savemodel.ItemID,
-                                Lang_ID = int.Parse(LangId)
-                            }, tran);
-                        }
+                        //if (iswriteseo)
+                        //{
+                        //    r = base.InsertObject(new SEO()
+                        //    {
+                        //        Description = model.Description == null ? "" : model.Description,
+                        //        Keywords1 = model.Keywords[0],
+                        //        Keywords2 = model.Keywords[1],
+                        //        Keywords3 = model.Keywords[2],
+                        //        Keywords4 = model.Keywords[3],
+                        //        Keywords5 = model.Keywords[4],
+                        //        Keywords6 = model.Keywords[5],
+                        //        Keywords7 = model.Keywords[6],
+                        //        Keywords8 = model.Keywords[7],
+                        //        Keywords9 = model.Keywords[8],
+                        //        Keywords10 = model.Keywords[9],
+                        //        Title = model.WebsiteTitle == null ? "" : model.WebsiteTitle,
+                        //        TypeName = "EPaperItem",
+                        //        TypeID = savemodel.ItemID,
+                        //        Lang_ID = int.Parse(LangId)
+                        //    }, tran);
+                        //}
 
 
 
@@ -635,17 +514,17 @@ namespace Oaww.Business
         /// <param name="account"></param>
         /// <param name="userName"></param>
         /// <returns></returns>
-        public string UpdateItem(MessageEditModel model, string LangId, string account, string userName)
+        public string UpdateItem(EPaperEditModel model, string LangId, string account, string userName)
         {
             SET_BASE SET_BASE = _commonService.GetGeneral<SET_BASE>();
-
-            var iswriteseo = false;
-            if (model.WebsiteTitle.IsNullOrEmpty() == false || model.Description.IsNullOrEmpty() == false
-                   || (model.Keywords != null && model.Keywords.Any(v => v.IsNullOrEmpty() == false)))
-            {
-                iswriteseo = true;
-            }
-            var olddata = _commonService.GetGeneral<MessageItem>("ItemID=@ItemID", new Dictionary<string, string>() { { "ItemID", model.ItemID.ToString() } });
+            string sql = string.Empty;
+            //var iswriteseo = false;
+            //if (model.WebsiteTitle.IsNullOrEmpty() == false || model.Description.IsNullOrEmpty() == false
+            //       || (model.Keywords != null && model.Keywords.Any(v => v.IsNullOrEmpty() == false)))
+            //{
+            //    iswriteseo = true;
+            //}
+            var olddata = _commonService.GetGeneral<EPaperItem>("ItemID=@ItemID", new Dictionary<string, string>() { { "ItemID", model.ItemID.ToString() } });
 
             using (SqlConnection connection = base.OpenConnection())
             {
@@ -653,118 +532,35 @@ namespace Oaww.Business
                 {
                     try
                     {
-                        string sql = @"delete SEO where TypeName='MessageItem' and TypeID=@TypeID";
-                        base.Parameter.Clear();
-                        base.Parameter.Add(new SqlParameter("@TypeID", model.ItemID));
-                        base.ExeNonQuery(sql, tran);
-
-                        olddata.HtmlContent = model.HtmlContent == null ? "" : model.HtmlContent;
-                        olddata.ImageFileDesc = model.ImageFileDesc == null ? "" : model.ImageFileDesc;
-                        olddata.ImageFileLocation = model.ImageFileLocation == null ? "" : model.ImageFileLocation;
-                        olddata.RelateImageFileName = model.RelateImageName;
-                        olddata.RelateImageFileOrgName = model.RelateImageFileOrgName;
-                        olddata.ImageFileOrgName = model.ImageFileOrgName;
-                        olddata.LinkUrl = model.LinkUrl == null ? "" : model.LinkUrl == null ? "" : model.LinkUrl;
-                        olddata.LinkUrlDesc = model.LinkUrlDesc == null ? "" : model.LinkUrlDesc == null ? "" : model.LinkUrlDesc;
-                        olddata.UploadFileDesc = model.UploadFileDesc == null ? "" : model.UploadFileDesc;
-                        olddata.UploadFileName = model.UploadFileName;
-                        olddata.UploadFilePath = model.UploadFilePath == null ? "" : model.UploadFilePath;
-                        olddata.UploadFileSize = model.UploadFileSize == null ? null : model.UploadFileSize;
-                        olddata.UploadFileType = model.UploadFileType == null ? "" : model.UploadFileType;
-                        olddata.ImageFileName = model.ImageFileName;
-                        olddata.GroupID = model.Group_ID;
-                        olddata.Title = model.Title == null ? "" : model.Title;
-                        olddata.UpdateDatetime = DateTime.Now;
-                        olddata.UpdateUser = account;
-                        olddata.Enabled = true;
-                        olddata.Link_Mode = model.Link_Mode;
+                        olddata.TopHtmlContent = model.TopHtmlContent == null ? "" : model.TopHtmlContent;
+                        olddata.BottomHtmlContent = model.BottomHtmlContent == null ? "" : model.BottomHtmlContent;
+                        olddata.CenterHtmlContent = model.CenterHtmlContent == null ? "" : model.CenterHtmlContent;
                         olddata.Introduction = model.Introduction == null ? "" : model.Introduction;
-                        olddata.UpdateName = userName;
-                        olddata.IsVerift = !SET_BASE.M_Base02;
-                        olddata.OpenMode = model.OpenMode;
-                        olddata.Home = model.Home;
-                        olddata.ComnonHtml1 = model.ComnonHtml1;
-                        olddata.ComnonHtml2 = model.ComnonHtml2;
+                        olddata.LeftHtmlContent = model.LeftHtmlContent == null ? "" : model.LeftHtmlContent;
+                        olddata.PageEndHtmlContent = model.PageEndHtmlContent == null ? "" : model.PageEndHtmlContent;
+                        olddata.CreateDatetime = DateTime.Now;
+                        olddata.GroupID = model.GroupID;
+                        olddata.LangID = int.Parse(LangId);
+                        olddata.ModelID = model.ModelID;
+                        olddata.Sort = 1;
+                        olddata.PaperMode = model.PaperMode;
+                        olddata.PaperStyle = model.PaperStyle;
+                        olddata.PublishStr = model.PublishStr;
+                        olddata.Title = model.Title == null ? "" : model.Title;
+                        olddata.TopBannerImgName = model.TopBannerImgName;
+                        olddata.TopBannerImgPath = model.TopBannerImgPath;
+                        olddata.TopBannerImgOrgName = model.TopBannerImgOrgName;
+                        olddata.IsPublished = false;
+                        olddata.Enabled = true;
+                        olddata.UpdateUser = account;
+                        olddata.UpdateDatetime = DateTime.Now;
 
-                        if (model.ActiveID.IsNullOrEmpty() == false)
-                        {
-                            olddata.ActiveID = int.Parse(model.ActiveID);
-                        }
-                        if (model.ActiveItemID.IsNullOrEmpty() == false)
-                        {
-                            olddata.ActiveItemID = int.Parse(model.ActiveItemID);
-                        }
-                        if (model.PublicshStr.IsNullOrEmpty() == false)
-                        {
-                            olddata.PublicshDate = DateTime.Parse(model.PublicshStr);
-                        }
-                        if (model.EdDateStr.IsNullOrEmpty() == false)
-                        {
-                            olddata.EdDate = DateTime.Parse(model.EdDateStr);
-                        }
-                        else
-                        {
-                            olddata.EdDate = null;
-                        }
-
-                        if (model.StDateStr.IsNullOrEmpty() == false)
-                        {
-                            olddata.StDate = DateTime.Parse(model.StDateStr);
-                        }
-                        else
-                        {
-                            olddata.StDate = null;
-                        }
-
-                        if (model.UnPublicshStr.IsNullOrEmpty() == false)
-                        {
-                            olddata.UnPublishDate = DateTime.Parse(model.UnPublicshStr);
-                        }
+                        
 
                         var r = base.UpdateObject(olddata, tran);
 
-                        sql = @"delete  MessageFile where ItemID=@ItemID and ModelID=@ModelID";
-                        base.Parameter.Clear();
-                        base.Parameter.Add(new SqlParameter("@ItemID", model.ItemID));
-                        base.Parameter.Add(new SqlParameter("@ModelID", model.ModelID));
-                        base.ExeNonQuery(sql, tran);
+                        
 
-                        if (model.fileDownloadFiles != null)
-                        {
-                            model.fileDownloadFiles.ForEach(t =>
-                            {
-                                base.InsertObject(t, tran);
-                            });
-                        }
-                        sql = @"delete  ActiveDateRange where ItemID=@ItemID and ModelID=@ModelID";
-                        base.Parameter.Clear();
-                        base.Parameter.Add(new SqlParameter("@ItemID", model.ItemID));
-                        base.Parameter.Add(new SqlParameter("@ModelID", model.ModelID));
-                        base.ExeNonQuery(sql, tran);
-
-                        if (model.messageDateRange != null)
-                        {
-                            model.messageDateRange.ForEach(t =>
-                            {
-                                t.ItemID = olddata.ItemID;
-                                t.ModelID = (int)olddata.ModelID;
-                                base.InsertObject(t, tran);
-                            });
-                        }
-                        sql = @"delete  MessageImage where ItemID=@ItemID and ModelID=@ModelID";
-                        base.Parameter.Clear();
-                        base.Parameter.Add(new SqlParameter("@ItemID", model.ItemID));
-                        base.Parameter.Add(new SqlParameter("@ModelID", model.ModelID));
-                        base.ExeNonQuery(sql, tran);
-
-                        if (model.messageImages != null)
-                        {
-                            //新增files
-                            model.messageImages.ForEach(t =>
-                            {
-                                base.InsertObject(t, tran);
-                            });
-                        }
 
                         if (r)
                         {
@@ -807,27 +603,7 @@ namespace Oaww.Business
 
                             }
 
-                            if (iswriteseo)
-                            {
-                                base.InsertObject(new SEO()
-                                {
-                                    Description = model.Description == null ? "" : model.Description,
-                                    Keywords1 = model.Keywords[0],
-                                    Keywords2 = model.Keywords[1],
-                                    Keywords3 = model.Keywords[2],
-                                    Keywords4 = model.Keywords[3],
-                                    Keywords5 = model.Keywords[4],
-                                    Keywords6 = model.Keywords[5],
-                                    Keywords7 = model.Keywords[6],
-                                    Keywords8 = model.Keywords[7],
-                                    Keywords9 = model.Keywords[8],
-                                    Keywords10 = model.Keywords[9],
-                                    Title = model.WebsiteTitle == null ? "" : model.WebsiteTitle,
-                                    TypeName = "MessageItem",
-                                    TypeID = olddata.ItemID,
-                                    Lang_ID = int.Parse(LangId)
-                                }, tran);
-                            }
+                            
 
                         }
 
@@ -845,22 +621,22 @@ namespace Oaww.Business
             }
         }
 
-        public MessageFile GetFileDownloadFile(string id)
-        {
-            return _commonService.GetGeneral<MessageFile>("FID=@FID", new Dictionary<string, string>() { { "FID", id } });
-        }
+        //public EPaperFile GetFileDownloadFile(string id)
+        //{
+        //    return _commonService.GetGeneral<EPaperFile>("FID=@FID", new Dictionary<string, string>() { { "FID", id } });
+        //}
 
-        public MessageImage GetFileDownloadImage(string id)
-        {
-            return _commonService.GetGeneral<MessageImage>("FID=@FID", new Dictionary<string, string>() { { "FID", id } });
-        }
+        //public EPaperImage GetFileDownloadImage(string id)
+        //{
+        //    return _commonService.GetGeneral<EPaperImage>("FID=@FID", new Dictionary<string, string>() { { "FID", id } });
+        //}
+
         #region 前台
-
-        public Paging<MessageItem> GetPaging(string itemid, int? group, string title, int nowpage, int showCount)
+        public Paging<EPaperItem> GetPaging(string itemid, int? group, string title, int nowpage, int showCount)
         {
             string sql = @"select  ROW_NUMBER() OVER(ORDER BY t.Sort) AS No,t.*,isnull(s.Group_Name,'無分類') as GroupName 
-                           from MessageItem t
-                           left join GroupMessage s on t.GroupID = s.ID where ModelID=@itemid";
+                           from EPaperItem t
+                           left join GroupEPaper s on t.GroupID = s.ID where ModelID=@itemid";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@itemid", itemid));
 
@@ -881,29 +657,29 @@ namespace Oaww.Business
                              and isnull(t.EdDate,'9999/12/31') >= convert(date,GetDate()) 
                             ";
 
-            var Paging = new Paging<MessageItem>();
+            var Paging = new Paging<EPaperItem>();
 
             Paging.total = base.SearchCount(sql);
 
-            Paging.rows = base.SearchListPage<MessageItem>(sql, (nowpage - 1) * showCount, showCount, " order by t.Sort");
+            Paging.rows = base.SearchListPage<EPaperItem>(sql, (nowpage - 1) * showCount, showCount, " order by t.Sort");
 
             return Paging;
         }
-        public Paging<MessageItem> GetPaging(string itemid, string fromDate, string toDate, string title, int nowpage, int showCount)
+        public Paging<EPaperItem> GetPaging(string itemid, string fromDate, string toDate, string title, int nowpage, int showCount)
         {
-            string sql = "select  ROW_NUMBER() OVER(ORDER BY Sort) AS No,t.* from MessageItem t where ModelID=@itemid";
+            string sql = "select  ROW_NUMBER() OVER(ORDER BY Sort) AS No,t.* from EPaperItem t where ModelID=@itemid";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@itemid", itemid));
 
             if (fromDate.IsNullOrEmpty() == false)
             {
-                sql += " and PublicshDate >= @fromDate";
+                sql += " and PublishDate >= @fromDate";
                 base.Parameter.Add(new SqlParameter("@fromDate", fromDate));
             }
 
             if (toDate.IsNullOrEmpty() == false)
             {
-                sql += " and PublicshDate <= @toDate";
+                sql += " and PublishDate <= @toDate";
                 base.Parameter.Add(new SqlParameter("@toDate", toDate));
             }
 
@@ -918,11 +694,11 @@ namespace Oaww.Business
                              and isnull(t.EdDate,'9999/12/31') >= convert(date,GetDate()) 
                             ";
 
-            var Paging = new Paging<MessageItem>();
+            var Paging = new Paging<EPaperItem>();
 
             Paging.total = base.SearchCount(sql);
 
-            Paging.rows = base.SearchListPage<MessageItem>(sql, (nowpage - 1) * showCount, showCount, " order by t.Sort");
+            Paging.rows = base.SearchListPage<EPaperItem>(sql, (nowpage - 1) * showCount, showCount, " order by t.Sort");
 
             return Paging;
         }
@@ -938,49 +714,49 @@ namespace Oaww.Business
                 return "無分類";
             }
 
-            string sql = @"select t.Group_Name from GroupMessage t where t.ID=@ID ";
+            string sql = @"select t.Group_Name from GroupEPaper t where t.ID=@ID ";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@ID", GroupID));
 
             return base.ExecuteScalar(sql, "").ToString();
         }
 
-        public List<MessageFile> GetFileDownloadFiles(string ItemID)
-        {
-            //舊的資料
-            return _commonService.GetGeneralList<MessageFile>("ItemID=@ItemID "
-                                                                    , new Dictionary<string, string>() { { "ItemID", ItemID }
-                                                                                                        }).ToList();
+        //public List<EPaperFile> GetFileDownloadFiles(string ItemID)
+        //{
+        //    //舊的資料
+        //    return _commonService.GetGeneralList<EPaperFile>("ItemID=@ItemID "
+        //                                                            , new Dictionary<string, string>() { { "ItemID", ItemID }
+        //                                                                                                }).ToList();
 
-        }
+        //}
 
-        public List<MessageImage> GetFileDownloadImages(string ItemID)
-        {
-            //舊的資料
-            return _commonService.GetGeneralList<MessageImage>("ItemID=@ItemID "
-                                                                    , new Dictionary<string, string>() { { "ItemID", ItemID }
-                                                                                                        }).ToList();
-        }
-        public List<ActiveDateRange> GetActiveDateRangeALL(string ItemID)
-        {
-            //新增
-            return _commonService.GetGeneralList<ActiveDateRange>("ModelID=@ModelID "
-                                                          , new Dictionary<string, string>() { { "ModelID", ItemID } }).ToList();
-        }
+        //public List<EPaperImage> GetFileDownloadImages(string ItemID)
+        //{
+        //    //舊的資料
+        //    return _commonService.GetGeneralList<EPaperImage>("ItemID=@ItemID "
+        //                                                            , new Dictionary<string, string>() { { "ItemID", ItemID }
+        //                                                                                                }).ToList();
+        //}
+        //public List<ActiveDateRange> GetActiveDateRangeALL(string ItemID)
+        //{
+        //    //新增
+        //    return _commonService.GetGeneralList<ActiveDateRange>("ModelID=@ModelID "
+        //                                                  , new Dictionary<string, string>() { { "ModelID", ItemID } }).ToList();
+        //}
 
-        public List<ActiveDateRange> GetActiveDateRange(string ItemID)
-        {
-            //新增
-            return _commonService.GetGeneralList<ActiveDateRange>("ItemID=@ItemID "
-                                                                    , new Dictionary<string, string>() { { "ItemID", ItemID } }).ToList();
-        }
+        //public List<ActiveDateRange> GetActiveDateRange(string ItemID)
+        //{
+        //    //新增
+        //    return _commonService.GetGeneralList<ActiveDateRange>("ItemID=@ItemID "
+        //                                                            , new Dictionary<string, string>() { { "ItemID", ItemID } }).ToList();
+        //}
 
         #endregion
 
 
         public void UpdateClickcnt(string ItemID)
         {
-            string sql = "update MessageItem set ClickCnt= ClickCnt+1 where ItemID=@ItemID";
+            string sql = "update EPaperItem set ClickCnt= ClickCnt+1 where ItemID=@ItemID";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@ItemID", ItemID));
             base.ExeNonQuery(sql);

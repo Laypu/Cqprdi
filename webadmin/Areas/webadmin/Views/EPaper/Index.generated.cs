@@ -100,7 +100,7 @@ WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
 WriteLiteral(" href=\"#\"");
 
-WriteLiteral(">電子報管理</a>\r\n        </li>\r\n    </ul>\r\n</div>\r\n<!--page bar end-->\r\n<div");
+WriteLiteral(">訊息管理</a>\r\n        </li>\r\n    </ul>\r\n</div>\r\n<!--page bar end-->\r\n<div");
 
 WriteLiteral(" class=\"title_01\"");
 
@@ -125,95 +125,7 @@ WriteLiteral(">\r\n        <div");
 
 WriteLiteral(" class=\"col-md-6 col-sm-12 col-xs-12\"");
 
-WriteLiteral(">\r\n            <div");
-
-WriteLiteral(" class=\"display_inline\"");
-
-WriteLiteral(">\r\n                <p");
-
-WriteLiteral(" class=\"class_title\"");
-
-WriteLiteral(">類別</p>\r\n");
-
-            
-            #line 28 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-                
-            
-            #line default
-            #line hidden
-            
-            #line 28 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-                  var grouplist = (IList<SelectListItem>)ViewBag.grouplist; 
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                <select");
-
-WriteLiteral(" class=\"form-control_1\"");
-
-WriteLiteral(" id=\"GroupId\"");
-
-WriteLiteral(">\r\n");
-
-            
-            #line 30 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-                    
-            
-            #line default
-            #line hidden
-            
-            #line 30 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-                     foreach (var g in grouplist)
-                    {
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                        <option");
-
-WriteAttribute("value", Tuple.Create(" value=\"", 1056), Tuple.Create("\"", 1072)
-            
-            #line 32 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 1064), Tuple.Create<System.Object, System.Int32>(g.Value
-            
-            #line default
-            #line hidden
-, 1064), false)
-);
-
-WriteLiteral(">");
-
-            
-            #line 32 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-                                            Write(g.Text);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</option>\r\n");
-
-            
-            #line 33 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-                    }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                </select>\r\n                <p");
-
-WriteLiteral(" class=\"display_inline\"");
-
-WriteLiteral("><a");
-
-WriteLiteral(" href=\"#\"");
-
-WriteLiteral(" class=\"btn grey-mint\"");
-
-WriteLiteral(" role=\"button\"");
-
-WriteLiteral(" id=\"btn_groupmanager\"");
-
-WriteLiteral(">管理</a></p>\r\n            </div>\r\n        </div>\r\n\r\n        <div");
+WriteLiteral(">\r\n\r\n        </div>\r\n        <div");
 
 WriteLiteral(" class=\"col-md-6 col-sm-12 col-xs-12 mobile_left\"");
 
@@ -222,14 +134,6 @@ WriteLiteral(">\r\n            <p");
 WriteLiteral(" class=\"display_inline\"");
 
 WriteLiteral(">\r\n                <button");
-
-WriteLiteral(" class=\"btn blue search_icon\"");
-
-WriteLiteral(">搜尋 <i");
-
-WriteLiteral(" class=\"fa fa-search\"");
-
-WriteLiteral("></i></button>\r\n                <button");
 
 WriteLiteral(" class=\"btn green-meadow\"");
 
@@ -258,7 +162,7 @@ WriteLiteral("\r\n               id=\"eventtable\"");
 WriteLiteral("\r\n               data-url=\"");
 
             
-            #line 49 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+            #line 37 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
                     Write(Url.Action("PagingMain"));
 
             
@@ -325,60 +229,36 @@ WriteLiteral(" filed-item-class=\"sortedit\"");
 
 WriteLiteral(">排序</th>\r\n                    <th");
 
-WriteLiteral(" filed-name=\'Title\'");
+WriteLiteral(" filed-name=\'Name\'");
 
 WriteLiteral(" class=\"text-center\"");
 
 WriteLiteral(" filed-type=\'link\'");
 
-WriteLiteral(" filed-item-class=\'text-center\'");
-
-WriteLiteral(">電子報名稱</th>\r\n                    <th");
+WriteLiteral(">單元名稱</th>\r\n                    <th");
 
 WriteLiteral(" filed-name=\'customertr\'");
 
-WriteLiteral(" width=\"280px\"");
+WriteLiteral(" width=\"350px\"");
 
 WriteLiteral(" class=\"text-center\"");
-
-WriteLiteral(" filed-item-class=\"btn blue review\"");
 
 WriteLiteral(" filed-type=\'function\'");
 
-WriteLiteral(">內容</th>\r\n                    <th");
+WriteLiteral(">單元路徑</th>\r\n                    <th");
 
-WriteLiteral(" filed-name=\'FormatStr\'");
-
-WriteLiteral(" width=\"80px\"");
-
-WriteLiteral(" class=\"text-center\"");
-
-WriteLiteral(" filed-item-class=\'text-center\'");
-
-WriteLiteral(">編輯模式</th>\r\n                    <th");
-
-WriteLiteral(" filed-name=\'IsPublicshStr\'");
+WriteLiteral(" filed-name=\'管理\'");
 
 WriteLiteral(" width=\"80px\"");
 
 WriteLiteral(" class=\"text-center\"");
 
-WriteLiteral(" filed-item-class=\"text-center\"");
+WriteLiteral(" filed-type=\'button\'");
 
-WriteLiteral(">發佈狀態</th>\r\n                    <th");
+WriteLiteral(" filed-item-class=\"btn grey-mint manage\"");
 
-WriteLiteral(" filed-name=\'Enabled\'");
-
-WriteLiteral(" width=\"80px\"");
-
-WriteLiteral(" class=\"text-center\"");
-
-WriteLiteral(" filed-type=\'checkbox\'");
-
-WriteLiteral(" filed-item-class=\"checkboxes chkstatus\"");
-
-WriteLiteral(">前台顯示</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody></tbo" +
-"dy>\r\n        </table>\r\n    </div>\r\n\r\n    <div");
+WriteLiteral(">管理</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody></tbody" +
+">\r\n        </table>\r\n    </div>\r\n\r\n    <div");
 
 WriteLiteral(" id=\"page_number\"");
 
@@ -407,45 +287,45 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3878), Tuple.Create("\"", 3922)
+WriteAttribute("src", Tuple.Create(" src=\"", 2894), Tuple.Create("\"", 2938)
             
-            #line 86 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3884), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+            #line 72 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 2900), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 3884), false)
+, 2900), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3946), Tuple.Create("\"", 3987)
+WriteAttribute("src", Tuple.Create(" src=\"", 2962), Tuple.Create("\"", 3003)
             
-            #line 87 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3952), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+            #line 73 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 2968), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 3952), false)
+, 2968), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4011), Tuple.Create("\"", 4057)
+WriteAttribute("src", Tuple.Create(" src=\"", 3027), Tuple.Create("\"", 3073)
             
-            #line 88 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 4017), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+            #line 74 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 3033), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 4017), false)
+, 3033), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4081), Tuple.Create("\"", 4113)
-, Tuple.Create(Tuple.Create("", 4087), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
-, 4087), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 3097), Tuple.Create("\"", 3129)
+, Tuple.Create(Tuple.Create("", 3103), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
+, 3103), false)
 );
 
 WriteLiteral(@"></script>
@@ -465,7 +345,7 @@ WriteLiteral(@"></script>
             RegisterOrder(""#eventtable"", "".sortedit"", '");
 
             
-            #line 103 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+            #line 89 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
                                                   Write(Url.Action("EditSeq"));
 
             
@@ -476,7 +356,7 @@ WriteLiteral("\', obj);\r\n            RegisterClickAll(\"#chk_all\", \'#eventta
 "d\', \'");
 
             
-            #line 105 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+            #line 91 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
                                                                   Write(Url.Action("SetMainDelete"));
 
             
@@ -485,7 +365,7 @@ WriteLiteral("\', obj);\r\n            RegisterClickAll(\"#chk_all\", \'#eventta
 WriteLiteral("\', obj);\r\n            RegisterClicklink(\"#eventtable\", \".edit\", \'");
 
             
-            #line 106 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+            #line 92 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
                                                   Write(Url.Action("EditUnit"));
 
             
@@ -495,7 +375,7 @@ WriteLiteral("\', obj, \'UpdateItem\');\r\n            RegisterClicklink(\"#even
 "");
 
             
-            #line 107 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+            #line 93 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
                                                     Write(Url.Action("ModelItem"));
 
             
@@ -505,7 +385,7 @@ WriteLiteral("\', obj,\"mainid\");\r\n\r\n            $(\"#btn_add\").click(func
 "\'");
 
             
-            #line 109 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+            #line 95 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
                                                         Write(Url.Action("EditUnit"));
 
             
@@ -517,26 +397,12 @@ WriteLiteral(@"', { mainid: -1 ,item : ""單元名稱""}); });
                     return $(event).attr('copy');
                 }
             });
-            $(""#btn_groupmanager"").click(function () {
-                    var obj = {};
-                    obj.mainid = mainid;
-                    CreatePost('");
-
-            
-            #line 118 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-                           Write(Url.Action("GroupEdit"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral(@"', obj);
-            });
         });
         function customertr(row, columnidx, idx, filedname, tableid, type, fileditemclass) {
             return ""<td><input  type='text' readonly=readonly style='width:250px; display:inline' class='form-control' value='");
 
             
-            #line 122 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+            #line 103 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
                                                                                                                           Write(ViewBag.Link);
 
             

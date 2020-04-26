@@ -13,7 +13,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="#">電子報管理</a>
+            <a href="#">訊息管理</a>
         </li>
     </ul>
 </div>
@@ -23,22 +23,10 @@
     <!--set item start-->
     <div class="table-toolbar">
         <div class="col-md-6 col-sm-12 col-xs-12">
-            <div class="display_inline">
-                <p class="class_title">類別</p>
-                @{var grouplist = (IList<SelectListItem>)ViewBag.grouplist; }
-                <select class="form-control_1" id="GroupId">
-                    @foreach (var g in grouplist)
-                    {
-                        <option value="@g.Value">@g.Text</option>
-                    }
-                </select>
-                <p class="display_inline"><a href="#" class="btn grey-mint" role="button" id="btn_groupmanager">管理</a></p>
-            </div>
-        </div>
 
+        </div>
         <div class="col-md-6 col-sm-12 col-xs-12 mobile_left">
             <p class="display_inline">
-                <button class="btn blue search_icon">搜尋 <i class="fa fa-search"></i></button>
                 <button class="btn green-meadow" id='btn_add'>新增 <i class="fa fa-plus"></i></button>
             </p>
         </div>
@@ -60,11 +48,9 @@
                         <button class="btn red-mint btn-xs" id='btn_del'><i class="glyphicon glyphicon-trash"></i></button>
                     </th>
                     <th filed-name='Sort' width="160px" class="text-center" filed-type='numbertextcheck' filed-item-class="sortedit">排序</th>
-                    <th filed-name='Title' class="text-center" filed-type='link' filed-item-class='text-center'>電子報名稱</th>
-                    <th filed-name='customertr' width="280px" class="text-center" filed-item-class="btn blue review" filed-type='function'>內容</th>
-                    <th filed-name='FormatStr' width="80px" class="text-center" filed-item-class='text-center'>編輯模式</th>
-                    <th filed-name='IsPublicshStr' width="80px" class="text-center" filed-item-class="text-center">發佈狀態</th>
-                    <th filed-name='Enabled' width="80px" class="text-center" filed-type='checkbox' filed-item-class="checkboxes chkstatus">前台顯示</th>
+                    <th filed-name='Name' class="text-center" filed-type='link'>單元名稱</th>
+                    <th filed-name='customertr' width="350px" class="text-center" filed-type='function'>單元路徑</th>
+                    <th filed-name='管理' width="80px" class="text-center" filed-type='button' filed-item-class="btn grey-mint manage">管理</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -111,11 +97,6 @@
                 text: function (event) {
                     return $(event).attr('copy');
                 }
-            });
-            $("#btn_groupmanager").click(function () {
-                    var obj = {};
-                    obj.mainid = mainid;
-                    CreatePost('@Url.Action("GroupEdit")', obj);
             });
         });
         function customertr(row, columnidx, idx, filedname, tableid, type, fileditemclass) {

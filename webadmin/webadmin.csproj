@@ -294,10 +294,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\EPaperEdit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPaperEdit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\GroupEdit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupEdit.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Areas\webadmin\Views\EPaper\Index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\Modelitem.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelitem.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Areas\webadmin\Views\ExclusiveLayout\Index.generated.cs">
       <AutoGen>True</AutoGen>
@@ -593,6 +608,18 @@
     <Content Include="Areas\webadmin\Views\EPaper\Index.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\GroupEdit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>GroupEdit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\EPaperEdit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EPaperEdit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\Modelitem.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Modelitem.generated.cs</LastGenOutput>
     </Content>
     <None Include="Areas\webadmin\Views\Form\AddSelItem.cshtml">
       <Generator>RazorGenerator</Generator>
