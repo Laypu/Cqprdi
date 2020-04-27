@@ -1,6 +1,8 @@
-﻿@{ 
-    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+﻿@using Oaww.ViewModel;
 
+@{ 
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+    SET_EPAPER SET_EPAPER = (SET_EPAPER)ViewBag.SET_EPAPER;
 }
 
 @model EPaperUnitSettingModel
@@ -57,7 +59,8 @@
             <div class="portlet-body form">
                 <div class="form-horizontal form-bordered">
                     <div class="form-body">
-
+                        @Html.HiddenFor(Model => Model.MainID)
+                        @Html.HiddenFor(Model => Model.ID)
                         <div class="form-group">
                             <div class="col-md-2 col-sm-12 search_item">列表顯示設定列表</div>
                             <div class="col-md-10 col-sm-12 bg-white mobile_white">
@@ -74,7 +77,7 @@
                                         @{
                                             for (var idx = 0; idx < Model.columnSettings.Count(); idx++)
                                             {
-                                                <tr class="odd gradeX" id="tr_@idx" seqidx="@(idx+1)">
+                                                <tr class="odd gradeX tr_col" id="tr_@idx" seqidx="@(idx+1)">
                                                     <td class="text-center delete_th">
                                                         <button type="button" class="btn btn-default btn-xs seq_list" value="0"><i class="fa fa-angle-double-up"></i></button>
                                                         <button type="button" class="btn btn-default btn-xs seq_list" value="-1"><i class="fa fa-angle-up"></i></button>
@@ -104,14 +107,20 @@
                             <div class="col-md-2 col-sm-12 search_item"><span class="red">*</span> 每頁顯示筆數</div>
                             <div class="col-md-10 col-sm-12 bg-white mobile_white">
                                 <select class="form_02" id="ShowCount" name="ShowCount">
-                                    <option value="12">12</option>
-                                    <option value="24">24</option>
-                                    <option value="36">36</option>
-                                    <option>全部</option>
+
+                                    @foreach (var m in SET_EPAPER.M_EPAPER13.Split(','))
+                                    {
+                                        <option value="@m">@m</option>
+                                    }
                                 </select>
                             </div>
                         </div>
-
+                        <div class="form-group @(SET_EPAPER.M_EPAPER17==false?"hide":"")">
+                            <div class="col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item">簡介</div>
+                            <div class="col-md-10 col-sm-10 col-xs-12 bg-white mobile_white">
+                                <textarea cols="80" id="IntroductionHtml" rows="20">@HttpUtility.HtmlDecode(Model.IntroductionHtml)</textarea>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-2 col-sm-12 search_item"><span class="red">*</span> 表格摘要</div>
                             <div class="col-md-10 col-sm-12 bg-white mobile_white">
@@ -221,6 +230,7 @@
                                     </div>
                                 </div>
 
+
                             </div>
                         </div>
 
@@ -291,14 +301,20 @@
                 $.each(array, function () {
                     formData.append(this.name, this.value);
                 });
-                var alltr = $("#table_Column tbody tr");
-                for (var idx = 0; idx < alltr.length; idx++) {
-                    var columnname = $(alltr[idx]).find('.columnname').text();
-                    formData.append("ColumnName[" + idx + "]", columnname);
-                    var click = $(alltr[idx]).find('.chkstatus')[0].checked;
-                    formData.append("ColumnUse[" + idx + "]", click == true ? 1 : 0);
-                }
+
+                var i = 0;
+                $('.tr_col').each(function () {
+                    formData.append("columnSettings[" + i + "].Type", $(this).find('#Type').val());
+                    formData.append("columnSettings[" + i + "].MainID", $(this).find('#MainID').val());
+                    formData.append("columnSettings[" + i + "].ColumnKey", $(this).find('#ColumnKey').val());
+                    formData.append("columnSettings[" + i + "].ColumnName", $(this).find('#ColumnName').val());
+                    formData.append("columnSettings[" + i + "].Used", $(this).find('#Used').prop('checked') ? true : false);
+                    formData.append("columnSettings[" + i + "].Sort", i + 1);
+
+                    i++;
+                })
                 formData.append("Summary", encodeURIComponent($('#Summary').val()));
+                formData.append("IntroductionHtml", _html.encode(CKEDITOR.instances.IntroductionHtml.getData()));
                 $.ajax({
                     url: this.action,
                     data: formData,
@@ -311,7 +327,9 @@
                             alert("儲存成功");
                         } else {
                             alert(data);
-                            CreatePost('@Url.Action("UnitSetting")', {});
+                            var obj = {};
+                                obj.mainid = '@Model.MainID'
+                            CreatePost('@Url.Action("UnitSetting")', obj);
                         }
                     }, error: function () {
                         // handle error
