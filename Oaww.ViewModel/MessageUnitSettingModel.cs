@@ -14,6 +14,9 @@ namespace Oaww.ViewModel
             ShowCount = 10;
             UnitSettingColumnList = new List<UnitSettingColumn>();
         }
+        
+
+
 
     }
 }

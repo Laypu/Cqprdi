@@ -32,7 +32,9 @@
     SiteLayout siteLayout = CommonRazorFunctions.GetSiteLayout();
 
 }
-
+@{ 
+   
+}
 
 <!doctype html>
 <html lang="zh-tw">
@@ -79,10 +81,19 @@
 
 <body style="max-width:806px; margin:0 auto; background: url(@Url.Content("~/Content/img/bg_05.jpg"));">
     <div class="con_box">
-        <div class="con_banner"><img src="@Url.Content("~/Content/img/print_banner.jpg")" alt="" /></div><!--建議尺寸740*185px-->
+        @if (siteLayout.FowardImgNameOri.IsNullOrEmpty())
+        {
+            <div class="con_banner"><img src="@Url.Content("~/UploadImage/SiteLayout/")print_banner.jpg" alt="" /></div>
+        }
+        else
+        {
+            <div class="con_banner"><img src="@Url.Content("~/UploadImage/SiteLayout/")@siteLayout.FowardImgNameOri" alt="" /></div><!--建議尺寸740*185px-->
+
+        }
+
         <div class="title">
             <h2>
-                <span>@("mail分享".GetLang())</span>
+                @*<span>@("mail分享".GetLang())</span>*@
                 @Model.Name
             </h2>
         </div>
@@ -99,7 +110,7 @@
                                 <input type="text" class="form-control checkitem" name="sender" id="sender" value="@Model.sender">
                                 @if (Model.btn == "sender")
                                 {
-                                    <span class="required" id="sender-Error" >@("請輸入寄件者".GetLang())！</span>
+                                    <span class="required" id="sender-Error">@("請輸入寄件者".GetLang())！</span>
                                 }
                             </div>
                         </div>
@@ -110,7 +121,7 @@
                                 <input type="text" class="form-control checkitem" name="sender_mail" id="sender_mail" value="@Model.sender_mail">
                                 @if (Model.btn == "sender_mail")
                                 {
-                            <span class="required" id="sender_mail-Error">@("請輸入寄件者Email".GetLang())！</span>
+                                    <span class="required" id="sender_mail-Error">@("請輸入寄件者Email".GetLang())！</span>
                                 }
                                 @if (Model.btn == "sender_mail_E")
                                 {
@@ -162,7 +173,7 @@
                 </div>
             </form>
         </div>
-        <div class="con_footer">Copyright &copy; 2020 中華穀類食品工業技術研究所 All rights reserved &nbsp;<span class="visible-xs"></span> 新北市八里區中山路三段223號  &nbsp; tel. 02-2610-1010#9<span class="visible-xs"></span></div>
+        <div class="con_footer">@Html.Raw(HttpUtility.HtmlDecode(siteLayout.FowardHtmlContent))</div>
     </div>
 </body>
 </html>

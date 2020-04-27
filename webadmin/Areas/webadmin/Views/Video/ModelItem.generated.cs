@@ -33,6 +33,7 @@ namespace ASP
     using Oaww.Utility;
     using Oaww.ViewModel;
     using Oaww.ViewModel.Config;
+    using Oaww.ViewModel.Lang;
     using Oaww.ViewModel.Search;
     using Oaww.ViewModel.SiteMap;
     using Template;
@@ -639,7 +640,7 @@ WriteLiteral("\r\n               data-sort-name=\'Sort\'");
 
 WriteLiteral("\r\n               data-page-size=\'10\'");
 
-WriteLiteral("\r\n               data-filed-id=\'ItemID\'");
+WriteLiteral("\r\n               data-filed-id=\'ID\'");
 
 WriteLiteral("\r\n               data-max-pagination=\'10\'");
 
@@ -800,59 +801,59 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 9640), Tuple.Create("\"", 9684)
+WriteAttribute("src", Tuple.Create(" src=\"", 9636), Tuple.Create("\"", 9680)
             
             #line 195 "..\..\Areas\webadmin\Views\Video\ModelItem.cshtml"
-, Tuple.Create(Tuple.Create("", 9646), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+, Tuple.Create(Tuple.Create("", 9642), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 9646), false)
+, 9642), false)
 );
 
 WriteLiteral("></script>\r\n    ");
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 9777), Tuple.Create("\"", 9844)
+WriteAttribute("src", Tuple.Create(" src=\"", 9773), Tuple.Create("\"", 9840)
             
             #line 197 "..\..\Areas\webadmin\Views\Video\ModelItem.cshtml"
-, Tuple.Create(Tuple.Create("", 9783), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
+, Tuple.Create(Tuple.Create("", 9779), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
             
             #line default
             #line hidden
-, 9783), false)
+, 9779), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 9868), Tuple.Create("\"", 9923)
+WriteAttribute("src", Tuple.Create(" src=\"", 9864), Tuple.Create("\"", 9919)
             
             #line 198 "..\..\Areas\webadmin\Views\Video\ModelItem.cshtml"
-, Tuple.Create(Tuple.Create("", 9874), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
+, Tuple.Create(Tuple.Create("", 9870), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
             
             #line default
             #line hidden
-, 9874), false)
+, 9870), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 9947), Tuple.Create("\"", 9993)
+WriteAttribute("src", Tuple.Create(" src=\"", 9943), Tuple.Create("\"", 9989)
             
             #line 199 "..\..\Areas\webadmin\Views\Video\ModelItem.cshtml"
-, Tuple.Create(Tuple.Create("", 9953), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 9949), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 9953), false)
+, 9949), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 10017), Tuple.Create("\"", 10042)
-, Tuple.Create(Tuple.Create("", 10023), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
-, 10023), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 10013), Tuple.Create("\"", 10038)
+, Tuple.Create(Tuple.Create("", 10019), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
+, 10019), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(document).ready(function () {\r\n            $(" +

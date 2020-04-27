@@ -17,6 +17,7 @@ namespace Aofeng.Controllers
         {
             HomeViewModel model = new HomeViewModel();
             model.ListMainRoller = _commonService.GetAdMainByID("1", this.LanguageID);
+            model.ListMainMobileRoller = _commonService.GetAdMainByID("7", this.LanguageID);
             model.ListThemeAD = _commonService.GetAdMainByID("2", this.LanguageID);
             model.DynamicNews = _commonService.GetKanbanByID("3", this.LanguageID.ToString());
             var LisNewId = model.DynamicNews.Link_Href.Split('=')[1].Split('&')[0];

@@ -60,6 +60,9 @@
     <Compile Include="CommonUnitSetting.cs" />
     <Compile Include="Dictionary.cs" />
     <Compile Include="DictionaryPara.cs" />
+    <Compile Include="EPaperItem.cs" />
+    <Compile Include="EPaperSubscriber.cs" />
+    <Compile Include="EPaperUnitSetting.cs" />
     <Compile Include="ExclusiveLayout.cs" />
     <Compile Include="FileBase.cs" />
     <Compile Include="FormInput.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="FormSelItem.cs" />
     <Compile Include="FormSetting.cs" />
     <Compile Include="GroupBase.cs" />
+    <Compile Include="GroupEPaper.cs" />
     <Compile Include="GroupFileDownload.cs" />
     <Compile Include="GroupMessage.cs" />
     <Compile Include="GroupUser.cs" />
@@ -78,6 +82,7 @@
     <Compile Include="Menu.cs" />
     <Compile Include="MessageFile.cs" />
     <Compile Include="ModelCommonMain.cs" />
+    <Compile Include="ModelEPaperMain.cs" />
     <Compile Include="PageImage.cs" />
     <Compile Include="MessageImage.cs" />
     <Compile Include="MessageItem.cs" />
@@ -95,6 +100,7 @@
     <Compile Include="SEO.cs" />
     <Compile Include="SET\SET_AD.cs" />
     <Compile Include="SET\SET_BASE.cs" />
+    <Compile Include="SET\SET_EPAPER.cs" />
     <Compile Include="SET\SET_LAYOUT_GROUP.cs" />
     <Compile Include="SET\SET_LOGIN.cs" />
     <Compile Include="SET\SET_MENU.cs" />

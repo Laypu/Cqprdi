@@ -411,6 +411,10 @@ namespace Oaww.Business
                             {
                                 model.ModelItemID = AddUnit<ModelCommonMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
                             }
+                            else if (SET_MENU.M_Menu11 == "ModelSiteMapMain")
+                            {
+                                model.ModelItemID = AddUnit<ModelSiteMapMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
+                            }
 
                         }
                         var ad = new Menu()

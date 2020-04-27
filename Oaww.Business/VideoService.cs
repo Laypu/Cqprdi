@@ -441,7 +441,7 @@ namespace Oaww.Business
                             IsVerift = !SET_BASE.M_Base02,
                             LinkUrlDesc = model.LinkUrlDesc,
                             VideoLink = model.VideoLink == null ? "" : model.VideoLink,
-
+                            
                         };
 
                         if (model.PublicshStr.IsNullOrEmpty() == false)

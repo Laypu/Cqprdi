@@ -467,12 +467,73 @@ namespace Oaww.Business
             return item;
         }
 
+        public IList<SelectListItem> GetAllGroupSelectList<T>(string mainid,int Lang_ID) where T : GroupBase
+        {
+            string sql = string.Empty;
+            base.Parameter.Clear();
+            sql = $@"select * from { typeof(T).Name} where Main_ID=@Main_ID";
+            if (Lang_ID == 0)
+            {
+                sql += " and Lang_ID is null Order By Sort";
+            }
+            else
+            {
+                sql += " and Lang_ID=@Lang_ID Order By Sort";
+                base.Parameter.Add(new SqlParameter("@Lang_ID", Lang_ID));
+            }
+            
+            
+            base.Parameter.Add(new SqlParameter("@Main_ID", mainid));
+            var list = base.SearchList<T>(sql);
+
+            IList<SelectListItem> item = new List<SelectListItem>();
+            item.Add(new SelectListItem() { Text = "無分類", Value = "0" });
+
+            foreach (var l in list)
+            {
+                item.Add(new SelectListItem() { Text = l.Group_Name, Value = l.ID.ToString() });
+            }
+            return item;
+        }
+
         public Paging<T> PagingGroup<T>(SearchModelBase model) where T : class
         {
             var Paging = new Paging<T>();
 
             string sql = $@"select * from { typeof(T).Name} where Main_ID=@Main_ID";
             base.Parameter.Clear();
+            base.Parameter.Add(new SqlParameter("@Main_ID", model.ModelID));
+
+            if (model.Search != "")
+            {
+                sql += " and Group_Name like @Group_Name";
+                base.Parameter.Add(new SqlParameter("@Group_Name", "%" + model.Search + "%"));
+            }
+
+            Paging.rows = base.SearchListPage<T>(sql, model.Offset, model.Limit, " order by " + model.Sort);
+
+            Paging.total = base.SearchCount(sql);
+            return Paging;
+        }
+
+        public Paging<T> PagingGroup<T>(SearchModelBase model,int Lang_ID) where T : class
+        {
+            var Paging = new Paging<T>();
+
+            string sql = $@"select * from { typeof(T).Name} where Main_ID=@Main_ID";
+
+            base.Parameter.Clear();
+
+              if (Lang_ID == 0)
+            {
+                sql += " and Lang_ID is null";
+            }
+            else
+            {
+                sql += " and Lang_ID=@Lang_ID";
+                base.Parameter.Add(new SqlParameter("@Lang_ID", Lang_ID));
+            }
+
             base.Parameter.Add(new SqlParameter("@Main_ID", model.ModelID));
 
             if (model.Search != "")
@@ -891,6 +952,97 @@ namespace Oaww.Business
                     if (parent != 0)
                     {
                         group.ParentID = parent;
+                    }
+
+                    r = (int)base.InsertObject(group);
+                    if (r > 0)
+                    {
+                        return "新增成功";
+                    }
+                    else
+                    {
+                        return "新增失敗";
+                    }
+                }
+                else
+                {
+                    var checkdata = GetGeneralList<T>("Group_Name=@Group_Name and ID!=@ID AND Main_ID=@Main_ID",
+                                                      new Dictionary<string, string>() { { "Group_Name", name }, { "ID", id }, { "Main_ID", mainid } });
+                    if (checkdata.Count() > 0)
+                    {
+                        return "類別名稱已經存在";
+                    }
+
+                    sql = $@"update {typeof(T).Name} set Group_Name=@Group_Name,UpdateDatetime=GetDate(),UpdateUser=@UpdateUser
+                        where ID=@ID";
+                    base.Parameter.Clear();
+                    base.Parameter.Add(new SqlParameter("@Group_Name", name));
+                    base.Parameter.Add(new SqlParameter("@UpdateUser", account));
+                    base.Parameter.Add(new SqlParameter("@ID", id));
+
+                    r = base.ExeNonQuery(sql);
+                    if (r > 0)
+                    {
+                        return "修改成功";
+                    }
+                    else
+                    {
+                        return "修改失敗";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "修改群組異常,error:" + ex.ToString().NewLineReplace());
+
+                return "系統異常，請通知資訊人員！";
+            }
+        }
+
+        public string EditGroupEPaper<T>(string name, string id, string mainid, string account, int Lang_ID) where T : GroupEPaper, new()
+        {
+            string sql = string.Empty;
+            var r = 0;
+
+            try
+            {
+                if (id == "-1" || id.IsNullOrEmpty())
+                {
+                    var alldata = GetGeneralList<T>("Main_ID=@Main_ID", new Dictionary<string, string>() { { "Main_ID", mainid } });
+                    if (alldata.Any(v => v.Group_Name == name))
+                    {
+                        return "類別名稱已經存在";
+                    }
+
+                    sql = $"select isnull(Max(Sort),0) from  { typeof(T).Name} where Main_ID=@Main_ID";
+                    base.Parameter.Clear();
+                    base.Parameter.Add(new SqlParameter("@Main_ID", mainid));
+
+                    if (Lang_ID == 0)
+                    {
+                        sql += " and ParentID is null";
+                    }
+                    else
+                    {
+                        sql += " and Lang_ID =@Lang_ID";
+                        base.Parameter.Add(new SqlParameter("@Lang_ID", Lang_ID));
+                    }
+
+                    int maxsort = int.Parse(base.ExecuteScalar(sql, "0").ToString());
+                    var group = new T();
+                    group.Group_Name = name;
+                    group.Enabled = true;
+                    group.Readonly = false;
+                    group.Seo_Manage = false;
+                    group.Main_ID = int.Parse(mainid);
+                    group.Sort = maxsort + 1;
+                    group.UpdateDatetime = DateTime.Now;
+                    group.UpdateUser = account;
+
+                    if (Lang_ID != 0)
+                    {
+                        group.Lang_ID = Lang_ID;
                     }
 
                     r = (int)base.InsertObject(group);

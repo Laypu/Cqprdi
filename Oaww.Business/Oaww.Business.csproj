@@ -80,6 +80,7 @@
     <Compile Include="CommonService.cs" />
     <Compile Include="ConfigService.cs" />
     <Compile Include="DictionaryService.cs" />
+    <Compile Include="EPaperService.cs" />
     <Compile Include="ExclusiveLayoutService.cs" />
     <Compile Include="FormService.cs" />
     <Compile Include="HomeService.cs" />

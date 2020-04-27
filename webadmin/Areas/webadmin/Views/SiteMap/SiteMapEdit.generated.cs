@@ -33,6 +33,7 @@ namespace ASP
     using Oaww.Utility;
     using Oaww.ViewModel;
     using Oaww.ViewModel.Config;
+    using Oaww.ViewModel.Lang;
     using Oaww.ViewModel.Search;
     using Oaww.ViewModel.SiteMap;
     using Template;
@@ -235,7 +236,7 @@ WriteLiteral(">\r\n                            <div");
 
 WriteLiteral(" class=\"col-md-2 col-sm-12 col-xs-12 search_item\"");
 
-WriteLiteral(">無障礙說明</div>\r\n                            <div");
+WriteLiteral(">網站導覽說明</div>\r\n                            <div");
 
 WriteLiteral(" class=\"col-md-10 col-sm-12 col-xs-12 bg-white mobile_white\"");
 
@@ -259,15 +260,15 @@ WriteLiteral(">");
 WriteLiteral("</textarea>\r\n                            </div>\r\n                        </div>\r\n" +
 "                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 2079), Tuple.Create("\"", 2134)
-, Tuple.Create(Tuple.Create("", 2087), Tuple.Create("form-group", 2087), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 2080), Tuple.Create("\"", 2135)
+, Tuple.Create(Tuple.Create("", 2088), Tuple.Create("form-group", 2088), true)
             
             #line 52 "..\..\Areas\webadmin\Views\SiteMap\SiteMapEdit.cshtml"
-, Tuple.Create(Tuple.Create(" ", 2097), Tuple.Create<System.Object, System.Int32>(Model.SET_BASE.M_Base03?"":"hide"
+, Tuple.Create(Tuple.Create(" ", 2098), Tuple.Create<System.Object, System.Int32>(Model.SET_BASE.M_Base03?"":"hide"
             
             #line default
             #line hidden
-, 2098), false)
+, 2099), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -409,14 +410,14 @@ WriteLiteral(" maxlength=\"30\"");
 
 WriteLiteral(" class=\"form-control\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 4618), Tuple.Create("\"", 4639)
+WriteAttribute("value", Tuple.Create(" value=\"", 4619), Tuple.Create("\"", 4640)
             
             #line 84 "..\..\Areas\webadmin\Views\SiteMap\SiteMapEdit.cshtml"
-                                                                , Tuple.Create(Tuple.Create("", 4626), Tuple.Create<System.Object, System.Int32>(key.AreaName
+                                                                , Tuple.Create(Tuple.Create("", 4627), Tuple.Create<System.Object, System.Int32>(key.AreaName
             
             #line default
             #line hidden
-, 4626), false)
+, 4627), false)
 );
 
 WriteLiteral(" />\r\n                                                </td>\r\n                     " +
@@ -436,14 +437,14 @@ WriteLiteral(" maxlength=\"10\"");
 
 WriteLiteral(" class=\"form-control\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 4910), Tuple.Create("\"", 4931)
+WriteAttribute("value", Tuple.Create(" value=\"", 4911), Tuple.Create("\"", 4932)
             
             #line 87 "..\..\Areas\webadmin\Views\SiteMap\SiteMapEdit.cshtml"
-                                                                , Tuple.Create(Tuple.Create("", 4918), Tuple.Create<System.Object, System.Int32>(key.QuickKey
+                                                                , Tuple.Create(Tuple.Create("", 4919), Tuple.Create<System.Object, System.Int32>(key.QuickKey
             
             #line default
             #line hidden
-, 4918), false)
+, 4919), false)
 );
 
 WriteLiteral(" />\r\n                                                </td>\r\n                     " +
@@ -463,14 +464,14 @@ WriteLiteral(" maxlength=\"100\"");
 
 WriteLiteral(" class=\"form-control\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 5211), Tuple.Create("\"", 5232)
+WriteAttribute("value", Tuple.Create(" value=\"", 5212), Tuple.Create("\"", 5233)
             
             #line 90 "..\..\Areas\webadmin\Views\SiteMap\SiteMapEdit.cshtml"
-                                                                         , Tuple.Create(Tuple.Create("", 5219), Tuple.Create<System.Object, System.Int32>(key.QuickKey
+                                                                         , Tuple.Create(Tuple.Create("", 5220), Tuple.Create<System.Object, System.Int32>(key.QuickKey
             
             #line default
             #line hidden
-, 5219), false)
+, 5220), false)
 );
 
 WriteLiteral(" />\r\n                                                </td>\r\n                     " +
@@ -521,69 +522,69 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 5990), Tuple.Create("\"", 6057)
+WriteAttribute("src", Tuple.Create(" src=\"", 5991), Tuple.Create("\"", 6058)
             
             #line 115 "..\..\Areas\webadmin\Views\SiteMap\SiteMapEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 5996), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
+, Tuple.Create(Tuple.Create("", 5997), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
             
             #line default
             #line hidden
-, 5996), false)
+, 5997), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 6081), Tuple.Create("\"", 6136)
+WriteAttribute("src", Tuple.Create(" src=\"", 6082), Tuple.Create("\"", 6137)
             
             #line 116 "..\..\Areas\webadmin\Views\SiteMap\SiteMapEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 6087), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
+, Tuple.Create(Tuple.Create("", 6088), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
             
             #line default
             #line hidden
-, 6087), false)
+, 6088), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 6160), Tuple.Create("\"", 6201)
+WriteAttribute("src", Tuple.Create(" src=\"", 6161), Tuple.Create("\"", 6202)
             
             #line 117 "..\..\Areas\webadmin\Views\SiteMap\SiteMapEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 6166), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 6167), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 6166), false)
+, 6167), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 6225), Tuple.Create("\"", 6277)
+WriteAttribute("src", Tuple.Create(" src=\"", 6226), Tuple.Create("\"", 6278)
             
             #line 118 "..\..\Areas\webadmin\Views\SiteMap\SiteMapEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 6231), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
+, Tuple.Create(Tuple.Create("", 6232), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
             
             #line default
             #line hidden
-, 6231), false)
+, 6232), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 6301), Tuple.Create("\"", 6347)
+WriteAttribute("src", Tuple.Create(" src=\"", 6302), Tuple.Create("\"", 6348)
             
             #line 119 "..\..\Areas\webadmin\Views\SiteMap\SiteMapEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 6307), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 6308), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 6307), false)
+, 6308), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 6371), Tuple.Create("\"", 6395)
-, Tuple.Create(Tuple.Create("", 6377), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 6377), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 6372), Tuple.Create("\"", 6396)
+, Tuple.Create(Tuple.Create("", 6378), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 6378), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n\r\n            $(\'#btn_add\').cl" +

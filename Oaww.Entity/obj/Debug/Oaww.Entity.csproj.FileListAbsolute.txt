@@ -4,3 +4,10 @@ D:\穀物\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.csprojAssemblyReference.cache
 D:\穀物\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.csproj.CopyComplete
 D:\穀物\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.dll
 D:\穀物\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\bin\Debug\Oaww.Entity.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\bin\Debug\Oaww.Entity.pdb
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.csprojAssemblyReference.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.csproj.CoreCompileInputs.cache
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.csproj.CopyComplete
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Entity\obj\Debug\Oaww.Entity.pdb

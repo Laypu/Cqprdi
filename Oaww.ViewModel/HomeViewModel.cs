@@ -39,5 +39,7 @@ namespace Oaww.ViewModel
         public List<MessageItem> ListNews { get; set; }
         public List<MessageItem> ListImage { get; set; }
         public List<MessageItem> ListDownload { get; set; }
+
+        public List<ADMain> ListMainMobileRoller { get; set; }
     }
 }

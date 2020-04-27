@@ -14,6 +14,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 {
     public class BaseController : Controller
     {
+        
         public static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         private readonly object _siteMapLock = new object();
         private const string SITEMAP_CONTEXT = "_SiteMapContext_";

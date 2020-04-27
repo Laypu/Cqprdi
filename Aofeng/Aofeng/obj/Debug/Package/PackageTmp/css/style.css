@@ -51,6 +51,11 @@ h3{
 	margin-bottom: 15px;
 	background: linear-gradient(60deg, transparent 140px, #fff 0), linear-gradient(-120deg, transparent 150px, #90730f 0);
 	border-bottom: solid #90730f 1px;
+	text-shadow: 2px 2px 2px #90730f;
+}
+h4{
+	font-weight:bold;
+	color:#000;
 }
 p {
     margin: 0 0 5px;
@@ -1135,7 +1140,7 @@ nav.sidebar .navbar-nav .open .dropdown-menu {
 	list-style:none;
 }
 .page_search ul li:nth-child(1){
-	float:left;
+	/*float:left;*/
 }
 .page_search ul li{
 	display: inline-block;
@@ -1883,7 +1888,6 @@ nav.sidebar .navbar-nav .open .dropdown-menu {
 
 
 
-
 /*--------------------------------------for 電腦、平版、手機------------------------------------------------*/
 /* 大螢幕 */
 @media (min-width: 1200px) {
@@ -2505,4 +2509,174 @@ footer .line{
 }
 
 
+
+/*-----------------------------------------for編輯器--------------------------------------------*/
+.w-100{
+	width:100%;
+}
+.w-800{
+	width:800px;
+}
+.w-auto{
+	width:auto;
+}
+.float_left {
+    float: left;
+}
+.float_right {
+    float: right;
+}
+.text_center ,.text-center {
+    text-align: center;
+}
+.text_right {
+    text-align: right;
+}
+.text_left {
+    text-align: left;
+}
+.red {
+    color: #c00;
+}
+.white{
+	color:#fff;
+}
+.required {
+    color: #c00;
+    font-size: 0.9em;
+    line-height: 140%;
+    padding: 3px 0;
+}
+.img_padding {
+    padding: 10px;
+}
+
+
+/*table scroll*/
+.table-scrollable {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: none;
+}
+.table-scrollable > .table-bordered > thead > tr:last-child > th, .table.table-bordered thead > tr > th {
+	border-bottom: 0;
+	border: 1px solid #ddd;
+	line-height: 130%;
+	vertical-align: middle;
+	padding: 10px;
+}
+.table-scrollable > .table {
+	width: 100% !important;
+	margin: 0 !important;
+	min-width: 650px;
+}
+.table{
+	margin-bottom:5px;
+}
+.table > tbody > tr > td {
+    line-height: 190%;
+	border: 1px solid #ddd;
+	padding: 5px 10px;
+}
+.table-scrollable > .table > thead {
+    border-top: solid 1px #ddd;
+}
+.table-scrollable > .table > thead > tr > th, .table-scrollable th, .table > thead > tr > th {
+	white-space: nowrap;
+	padding: 8px;
+	background: #666;
+	color: #fff;
+	font-weight: 500;
+}
+.table-hover > tbody > tr:hover {
+    background: rgba(0,105,62,0.05);
+}
+.table-even > tbody > tr:nth-child(even) {
+    background: rgba(0,105,62,0.05);
+}
+.delete_th {
+    padding: 10px 0 !important;
+}
+
+
+/*table*/
+.table {
+    display: table;
+	border-color:#ddd;
+	width:100%;
+}
+.table_01 {
+    display: table;
+	border:none;
+	text-align:left;
+}
+.table-row {
+    display: table-row;
+}
+.table-cell {
+    display: table-cell;
+}
+
+
+/*縮排*/
+.paddingleft22{
+	padding-left:22px;
+}
+.textindent22{
+	text-indent: -22px;
+}
+.text_indent{
+	text-indent: 2em;
+}
+
+
+/*清單*/
+.ol_01{
+	list-style-type:cjk-ideographic; /*一, 二, 三*/
+}
+.ol_02{
+	list-style-type:upper-latin; /*A, B, C*/
+}
+.ol_03{
+	list-style-type:lower-alpha; /*a, b, c*/
+}
+.ul_01{
+	list-style-type:square; /*實心方塊*/
+}
+.ul_02{
+	list-style-type: disc; /*實心圓*/
+}
+.ul_none ,.ol_none{
+	list-style:none;
+	padding-left: 0;
+}
+
+
+/*錨點*/
+.anchor_list{
+	float:left;
+	width:100%;
+	list-style:none;
+	margin-bottom:20px;
+	padding-left:0 !important;
+}
+.anchor_list a{
+	float:left;
+	padding:5px 15px;
+	border-radius:5px;
+	color:#333;
+	margin:5px;
+	border: solid #ccc 1px;
+	text-decoration:none;
+}
+.anchor_list li{
+	float:left;
+}
+.anchor_list a:hover ,.anchor_list a:focus{
+	background:#98672d;
+	color:#fff;
+	box-shadow:none;
+	border: solid #98672d 1px;
+}
 
