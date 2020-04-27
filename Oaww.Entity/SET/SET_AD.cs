@@ -24,5 +24,18 @@ namespace Oaww.Entity.SET
         public bool M_AD09 { get; set; }
         public string M_AD10 { get; set; }
         public string Lang_ID { get; set; }
+        public bool M_AD011 { get; set; }
+        /// <summary>
+        /// Index 新增
+        /// </summary>
+        public bool M_AD12 { get; set; }
+        /// <summary>
+        /// Index 刪除
+        /// </summary>
+        public bool M_AD13 { get; set; }
+        /// <summary>
+        /// Index 顯示區間
+        /// </summary>
+        public bool M_AD14 { get; set; }
     }
 }

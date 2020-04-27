@@ -185,6 +185,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\PublicController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SiteMapController.cs" />
     <Compile Include="Controllers\VideoController.cs" />
@@ -1175,6 +1176,7 @@
     <Content Include="Views\Shared\_LayoutSearch.cshtml" />
     <Content Include="Views\Form\ConfirmContent.cshtml" />
     <Content Include="Views\SiteMap\Index.cshtml" />
+    <Content Include="Views\Public\FileNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

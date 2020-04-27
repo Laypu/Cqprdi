@@ -30,14 +30,13 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             Session["menuNowID"] = 0;
 
             Session["type"] = type;
-
+            ViewBag.Type = type;
             if (type == null) { return RedirectToAction("Index", "Home"); }
 
-            ViewBag.Type = type;
             ViewBag.Language = this.LanguageID;
 
             SET_AD SET_AD = _commonService.GetHisEntity<SET_AD>("ID", type);
-
+            ViewBag.SET_AD = SET_AD;
             ViewBag.Title = SET_AD.M_AD01.safeHtmlFragment();
             SET_ADKanban SET_ADKanban = _commonService.GetHisEntity<SET_ADKanban>("ID", type);
             ViewBag.Kanban = SET_ADKanban != null && SET_ADKanban.M_KANBAN01.IsNullOrEmpty() == false ? true : false;

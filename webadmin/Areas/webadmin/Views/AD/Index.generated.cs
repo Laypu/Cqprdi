@@ -52,6 +52,7 @@ namespace ASP
             #line 1 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
   
     Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+    SET_AD SET_AD = (SET_AD)ViewBag.SET_AD;
 
             
             #line default
@@ -66,14 +67,14 @@ WriteLiteral(" class=\"page-breadcrumb\"");
 
 WriteLiteral(">\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 188), Tuple.Create("\"", 222)
+WriteAttribute("href", Tuple.Create(" href=\"", 233), Tuple.Create("\"", 267)
             
-            #line 8 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 195), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home")
+            #line 9 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 240), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home")
             
             #line default
             #line hidden
-, 195), false)
+, 240), false)
 );
 
 WriteLiteral(">Home</a>\r\n            <i");
@@ -82,14 +83,14 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 290), Tuple.Create("\"", 325)
+WriteAttribute("href", Tuple.Create(" href=\"", 335), Tuple.Create("\"", 370)
             
-            #line 10 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 297), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
+            #line 11 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 342), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
             
             #line default
             #line hidden
-, 297), false)
+, 342), false)
 );
 
 WriteLiteral(">模組元件</a>\r\n            <i");
@@ -103,7 +104,7 @@ WriteLiteral(" href=\"#\"");
 WriteLiteral(">");
 
             
-            #line 12 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 13 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                       Write(ViewBag.Title);
 
             
@@ -116,7 +117,7 @@ WriteLiteral(" class=\"title_01\"");
 WriteLiteral(">");
 
             
-            #line 17 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 18 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                  Write(ViewBag.Title);
 
             
@@ -141,13 +142,13 @@ WriteLiteral(" class=\"display_inline\"");
 WriteLiteral(">\r\n");
 
             
-            #line 23 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 24 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 23 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 24 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                  if ((bool)ViewBag.Kanban)
                 {
 
@@ -167,7 +168,7 @@ WriteLiteral(" class=\"fa fa-plus\"");
 WriteLiteral("></i></button>\r\n");
 
             
-            #line 26 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 27 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                 }
 
             
@@ -176,8 +177,8 @@ WriteLiteral("></i></button>\r\n");
 WriteLiteral("                ");
 
             
-            #line 27 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
-                 if (ViewBag.Type != "6")
+            #line 28 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+                 if (SET_AD.M_AD12)
                 {
 
             
@@ -196,13 +197,13 @@ WriteLiteral(" class=\"fa fa-plus\"");
 WriteLiteral("></i></button>\r\n");
 
             
-            #line 30 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 31 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                 }
 
             
             #line default
             #line hidden
-WriteLiteral("                </p>\r\n        </div>\r\n    </div>\r\n    <div");
+WriteLiteral("            </p>\r\n        </div>\r\n    </div>\r\n    <div");
 
 WriteLiteral(" class=\"table-scrollable\"");
 
@@ -221,7 +222,7 @@ WriteLiteral("\r\n               id=\"eventtable\"");
 WriteLiteral("\r\n               data-url=\"");
 
             
-            #line 37 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 38 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                     Write(Url.Action("Paging"));
 
             
@@ -246,14 +247,14 @@ WriteLiteral(" filed-class=\'odd gradeX\'");
 WriteLiteral(">\r\n");
 
             
-            #line 44 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 45 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                     
             
             #line default
             #line hidden
             
-            #line 44 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
-                     if (ViewBag.Type != "6")
+            #line 45 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+                     if (SET_AD.M_AD13)
                     {
 
             
@@ -293,7 +294,7 @@ WriteLiteral(" class=\"glyphicon glyphicon-trash\"");
 WriteLiteral("></i></button>\r\n                        </th>\r\n");
 
             
-            #line 52 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 53 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                     }
 
             
@@ -319,7 +320,23 @@ WriteLiteral(" class=\"text-center\"");
 
 WriteLiteral(" filed-type=\'link\'");
 
-WriteLiteral(">標題</th>\r\n                    <th");
+WriteLiteral(">標題</th>\r\n");
+
+            
+            #line 56 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 56 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+                     if (SET_AD.M_AD14)
+                    {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                        <th");
 
 WriteLiteral(" filed-name=\'IsRange\'");
 
@@ -332,15 +349,8 @@ WriteLiteral(" filed-item-class=\'text-center\'");
 WriteLiteral(">是否在顯示區間</th>\r\n");
 
             
-            #line 56 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
-                    
-            
-            #line default
-            #line hidden
-            
-            #line 56 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
-                     if (ViewBag.Type != "6")
-                    {
+            #line 59 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+
 
             
             #line default
@@ -360,14 +370,14 @@ WriteLiteral(" filed-item-class=\"checkboxes chkstatus\"");
 WriteLiteral(">顯示</th>\r\n");
 
             
-            #line 59 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 61 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                     }
 
             
             #line default
             #line hidden
-WriteLiteral("                    </tr>\r\n            </thead>\r\n            <tbody></tbody>\r\n   " +
-"     </table>\r\n    </div>\r\n\r\n    <div");
+WriteLiteral("                </tr>\r\n            </thead>\r\n            <tbody></tbody>\r\n       " +
+" </table>\r\n    </div>\r\n\r\n    <div");
 
 WriteLiteral(" id=\"page_number\"");
 
@@ -396,51 +406,51 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3282), Tuple.Create("\"", 3326)
-            
-            #line 79 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3288), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
-            
-            #line default
-            #line hidden
-, 3288), false)
-);
-
-WriteLiteral("></script>\r\n    <script");
-
-WriteAttribute("src", Tuple.Create(" src=\"", 3350), Tuple.Create("\"", 3391)
-            
-            #line 80 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3356), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
-            
-            #line default
-            #line hidden
-, 3356), false)
-);
-
-WriteLiteral("></script>\r\n    <script");
-
-WriteAttribute("src", Tuple.Create(" src=\"", 3415), Tuple.Create("\"", 3461)
+WriteAttribute("src", Tuple.Create(" src=\"", 3307), Tuple.Create("\"", 3351)
             
             #line 81 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3421), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 3313), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 3421), false)
+, 3313), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3485), Tuple.Create("\"", 3510)
-, Tuple.Create(Tuple.Create("", 3491), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/custom.js")
-, 3491), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 3375), Tuple.Create("\"", 3416)
+            
+            #line 82 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 3381), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+            
+            #line default
+            #line hidden
+, 3381), false)
+);
+
+WriteLiteral("></script>\r\n    <script");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 3440), Tuple.Create("\"", 3486)
+            
+            #line 83 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 3446), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+            
+            #line default
+            #line hidden
+, 3446), false)
+);
+
+WriteLiteral("></script>\r\n    <script");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 3510), Tuple.Create("\"", 3535)
+, Tuple.Create(Tuple.Create("", 3516), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/custom.js")
+, 3516), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n\r\n         var langtype = \'");
 
             
-            #line 85 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 87 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                     Write(ViewBag.Language);
 
             
@@ -458,7 +468,7 @@ WriteLiteral(@"'
             SearchModelBase.ADType = '");
 
             
-            #line 94 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 96 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                                  Write(ViewBag.Type);
 
             
@@ -468,7 +478,7 @@ WriteLiteral("\';\r\n            mytable.GetData(1);\r\n            var obj = {}
 ".type = \'");
 
             
-            #line 98 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 100 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                    Write(ViewBag.Type);
 
             
@@ -477,7 +487,7 @@ WriteLiteral("\';\r\n            mytable.GetData(1);\r\n            var obj = {}
 WriteLiteral("\';\r\n            RegisterOrder(\"#eventtable\", \".sortedit\", \'");
 
             
-            #line 99 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 101 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                                                   Write(Url.Action("EditADSeq"));
 
             
@@ -488,7 +498,7 @@ WriteLiteral("\', obj);\r\n            RegisterClickAll(\"#chk_all\", \'#eventta
 "d\', \'");
 
             
-            #line 101 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 103 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                                                                   Write(Url.Action("SetADDelete"));
 
             
@@ -497,7 +507,7 @@ WriteLiteral("\', obj);\r\n            RegisterClickAll(\"#chk_all\", \'#eventta
 WriteLiteral("\', obj);\r\n            RegisterClicklink(\"#eventtable\", \".edit\", \'");
 
             
-            #line 102 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 104 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                                                   Write(Url.Action("ADEdit"));
 
             
@@ -506,7 +516,7 @@ WriteLiteral("\', obj);\r\n            RegisterClicklink(\"#eventtable\", \".edi
 WriteLiteral("\', obj);\r\n\r\n            RegisterClick(\"#eventtable\", \".chkstatus\", \'");
 
             
-            #line 104 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 106 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                                                    Write(Url.Action("SetStatus"));
 
             
@@ -516,7 +526,7 @@ WriteLiteral("\', obj);\r\n\r\n            $(\"#btn_add\").click(function () {\r
 "Post(\'");
 
             
-            #line 107 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 109 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                        Write(Url.Action("ADEdit"));
 
             
@@ -526,7 +536,7 @@ WriteLiteral("\', obj);\r\n            });\r\n\r\n            $(\'#btn_Kanban\')
 "              CreatePost(\'");
 
             
-            #line 111 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
+            #line 113 "..\..\Areas\webadmin\Views\AD\Index.cshtml"
                        Write(Url.Action("ADKanbanEdit"));
 
             

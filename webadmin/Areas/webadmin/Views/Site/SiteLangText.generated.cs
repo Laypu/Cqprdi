@@ -312,7 +312,7 @@ WriteLiteral("\r\n                                                </div>\r\n    
 WriteLiteral("\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n       " +
 "                 <div");
 
-WriteLiteral(" class=\"form-group bg-grey_1\"");
+WriteLiteral(" class=\"form-group bg-grey_1 hide\"");
 
 WriteLiteral(">\r\n                            <div");
 
@@ -396,7 +396,7 @@ WriteLiteral("\r\n                                                </div>\r\n    
 WriteLiteral("\r\n\r\n                            </div>\r\n                        </div>\r\n         " +
 "               <div");
 
-WriteLiteral(" class=\"form-group bg-grey_1\"");
+WriteLiteral(" class=\"form-group bg-grey_1 hide\"");
 
 WriteLiteral(">\r\n                            <div");
 
@@ -497,14 +497,14 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 6714), Tuple.Create("\"", 6758)
+WriteAttribute("src", Tuple.Create(" src=\"", 6724), Tuple.Create("\"", 6768)
             
             #line 128 "..\..\Areas\webadmin\Views\Site\SiteLangText.cshtml"
-, Tuple.Create(Tuple.Create("", 6720), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+, Tuple.Create(Tuple.Create("", 6730), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 6720), false)
+, 6730), false)
 );
 
 WriteLiteral(@"></script>
