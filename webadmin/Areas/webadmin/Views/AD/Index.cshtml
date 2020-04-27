@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+    SET_AD SET_AD = (SET_AD)ViewBag.SET_AD;
 }
 <!--page bar start-->
 <div class="page-bar all_width">
@@ -24,11 +25,11 @@
                 {
                     <button class="btn red-mint" id='btn_Kanban'>頁面維護<i class="fa fa-plus"></i></button>
                 }
-                @if (ViewBag.Type != "6")
+                @if (SET_AD.M_AD12)
                 {
                     <button class="btn green-meadow" id='btn_add'>新增 <i class="fa fa-plus"></i></button>
                 }
-                </p>
+            </p>
         </div>
     </div>
     <div class="table-scrollable">
@@ -41,7 +42,7 @@
                data-max-pagination='10'>
             <thead>
                 <tr class="bg-grey_1" filed-class='odd gradeX'>
-                    @if (ViewBag.Type != "6")
+                    @if (SET_AD.M_AD13)
                     {
                         <th width="80" class="text-center" filed-type='delcheckbox'>
                             <label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'>
@@ -52,12 +53,13 @@
                     }
                     <th filed-name='Sort' width="160px" class="text-center" filed-type='numbertextcheck' filed-item-class="sortedit">排序</th>
                     <th filed-name='AD_Name' class="text-center" filed-type='link'>標題</th>
-                    <th filed-name='IsRange' width="80px" class="text-center" filed-item-class='text-center'>是否在顯示區間</th>
-                    @if (ViewBag.Type != "6")
+                    @if (SET_AD.M_AD14)
                     {
+                        <th filed-name='IsRange' width="80px" class="text-center" filed-item-class='text-center'>是否在顯示區間</th>
+
                         <th filed-name='Enabled' width="80px" class="text-center" filed-type='checkbox' filed-item-class="checkboxes chkstatus">顯示</th>
                     }
-                    </tr>
+                </tr>
             </thead>
             <tbody></tbody>
         </table>

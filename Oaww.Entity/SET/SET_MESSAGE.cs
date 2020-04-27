@@ -66,5 +66,10 @@ namespace Oaww.Entity.SET
         /// 活動區間
         /// </summary>
         public bool M_MESSAGE19 { get; set; }
+
+        /// <summary>
+        /// 每頁顯示筆數
+        /// </summary>
+        public bool M_MESSAGE20 { get; set; }
     }
 }

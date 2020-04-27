@@ -655,25 +655,22 @@ WriteLiteral("\r\n                                    </tbody>\r\n              
 "/table>\r\n                            </div>\r\n                        </div>\r\n   " +
 "                     <div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteAttribute("class", Tuple.Create(" class=\"", 7084), Tuple.Create("\"", 7146)
+, Tuple.Create(Tuple.Create("", 7092), Tuple.Create("form-group", 7092), true)
+            
+            #line 123 "..\..\Areas\webadmin\Views\Message\UnitSetting.cshtml"
+, Tuple.Create(Tuple.Create(" ", 7102), Tuple.Create<System.Object, System.Int32>(SET_MESSAGE.M_MESSAGE20==false?"hide":""
+            
+            #line default
+            #line hidden
+, 7103), false)
+);
 
-WriteLiteral(">\r\n                            <div");
-
-WriteLiteral(" class=\"col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item\"");
-
-WriteLiteral(">每頁顯示筆數</div>\r\n                            <div");
-
-WriteLiteral(" class=\"col-md-4 col-sm-4 col-xs-12 bg-white mobile_white\"");
-
-WriteLiteral(">\r\n                                <select");
-
-WriteLiteral(" class=\"form_02\"");
-
-WriteLiteral(" id=\"ShowCount\"");
-
-WriteLiteral(" name=\"ShowCount\"");
-
-WriteLiteral(">\r\n");
+WriteLiteral(@""">
+                            <div class=""col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item"">每頁顯示筆數</div>
+                            <div class=""col-md-4 col-sm-4 col-xs-12 bg-white mobile_white"">
+                                <select class=""form_02"" id=""ShowCount"" name=""ShowCount"">
+");
 
             
             #line 127 "..\..\Areas\webadmin\Views\Message\UnitSetting.cshtml"
@@ -691,14 +688,14 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                                        <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 7572), Tuple.Create("\"", 7582)
+WriteAttribute("value", Tuple.Create(" value=\"", 7617), Tuple.Create("\"", 7627)
             
             #line 129 "..\..\Areas\webadmin\Views\Message\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 7580), Tuple.Create<System.Object, System.Int32>(m
+, Tuple.Create(Tuple.Create("", 7625), Tuple.Create<System.Object, System.Int32>(m
             
             #line default
             #line hidden
-, 7580), false)
+, 7625), false)
 );
 
 WriteLiteral(">");
@@ -720,40 +717,21 @@ WriteLiteral("</option>\r\n");
             #line default
             #line hidden
 WriteLiteral("                                </select>\r\n                            </div>\r\n  " +
-"                          <div");
+"                          <div class=\"col-md-6 col-sm-6 hidden-xs bg-white\">&nbs" +
+"p;</div>\r\n                        </div>\r\n                        <div class=\"fo" +
+"rm-group ");
 
-WriteLiteral(" class=\"col-md-6 col-sm-6 hidden-xs bg-white\"");
-
-WriteLiteral(">&nbsp;</div>\r\n                        </div>\r\n                        <div");
-
-WriteAttribute("class", Tuple.Create(" class=\"", 7867), Tuple.Create("\"", 7929)
-, Tuple.Create(Tuple.Create("", 7875), Tuple.Create("form-group", 7875), true)
             
             #line 135 "..\..\Areas\webadmin\Views\Message\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create(" ", 7885), Tuple.Create<System.Object, System.Int32>(SET_MESSAGE.M_MESSAGE17==false?"hide":""
+                                           Write(SET_MESSAGE.M_MESSAGE17==false?"hide":"");
+
             
             #line default
             #line hidden
-, 7886), false)
-);
-
-WriteLiteral(">\r\n                            <div");
-
-WriteLiteral(" class=\"col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item\"");
-
-WriteLiteral(">簡介</div>\r\n                            <div");
-
-WriteLiteral(" class=\"col-md-10 col-sm-10 col-xs-12 bg-white mobile_white\"");
-
-WriteLiteral(">\r\n                                <textarea");
-
-WriteLiteral(" cols=\"80\"");
-
-WriteLiteral(" id=\"IntroductionHtml\"");
-
-WriteLiteral(" rows=\"20\"");
-
-WriteLiteral(">");
+WriteLiteral(@""">
+                            <div class=""col-md-2 col-sm-2 col-xs-12 bg-grey_1 search_item"">簡介</div>
+                            <div class=""col-md-10 col-sm-10 col-xs-12 bg-white mobile_white"">
+                                <textarea cols=""80"" id=""IntroductionHtml"" rows=""20"">");
 
             
             #line 138 "..\..\Areas\webadmin\Views\Message\UnitSetting.cshtml"
@@ -762,72 +740,73 @@ WriteLiteral(">");
             
             #line default
             #line hidden
-WriteLiteral("</textarea>\r\n                            </div>\r\n                        </div>\r\n" +
-"\r\n                       \r\n                    </div>\r\n                </div>\r\n " +
-"           </div>\r\n        </div>\r\n\r\n        <div");
+WriteLiteral(@"</textarea>
+                            </div>
+                        </div>
 
-WriteLiteral(" class=\"text-center search_padding\"");
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
 
-WriteLiteral(">\r\n            <button");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteLiteral(" class=\"btn blue\"");
-
-WriteLiteral(" id=\"btn_submit\"");
-
-WriteLiteral(">確認送出</button>\r\n        </div>\r\n    </form>\r\n</div>\r\n");
+        <div class=""text-center search_padding"">
+            <button type=""submit"" class=""btn blue"" id=""btn_submit"">確認送出</button>
+        </div>
+    </form>
+</div>
+");
 
 DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 8658), Tuple.Create("\"", 8710)
+WriteAttribute("src", Tuple.Create(" src=\"", 8703), Tuple.Create("\"", 8755)
             
             #line 154 "..\..\Areas\webadmin\Views\Message\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 8664), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
+, Tuple.Create(Tuple.Create("", 8709), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
             
             #line default
             #line hidden
-, 8664), false)
+, 8709), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 8734), Tuple.Create("\"", 8778)
+WriteAttribute("src", Tuple.Create(" src=\"", 8779), Tuple.Create("\"", 8823)
             
             #line 155 "..\..\Areas\webadmin\Views\Message\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 8740), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+, Tuple.Create(Tuple.Create("", 8785), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 8740), false)
+, 8785), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 8802), Tuple.Create("\"", 8843)
+WriteAttribute("src", Tuple.Create(" src=\"", 8847), Tuple.Create("\"", 8888)
             
             #line 156 "..\..\Areas\webadmin\Views\Message\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 8808), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 8853), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 8808), false)
+, 8853), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 8867), Tuple.Create("\"", 8891)
-, Tuple.Create(Tuple.Create("", 8873), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 8873), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 8912), Tuple.Create("\"", 8936)
+, Tuple.Create(Tuple.Create("", 8918), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 8918), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 8915), Tuple.Create("\"", 8940)
-, Tuple.Create(Tuple.Create("", 8921), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
-, 8921), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 8960), Tuple.Create("\"", 8985)
+, Tuple.Create(Tuple.Create("", 8966), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
+, 8966), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(function () {\r\n\r\n            $(\"#table_Column" +
