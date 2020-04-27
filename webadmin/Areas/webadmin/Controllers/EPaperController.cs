@@ -310,7 +310,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         public ActionResult UnitSetting(string mainid)
         {
             mainid = mainid.AntiXss();
-
+            ViewBag.SET_EPAPER = SET_EPAPER;
             if (mainid.IsNullOrEmpty()) { return RedirectToAction("Index"); }
             ViewBag.mainid = mainid;
             ViewBag.modelid = mainid;
@@ -325,12 +325,21 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                 model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "PublicshDate", ColumnName = "發佈日期", Used = true, Sort = 2 });
                 model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "Title", ColumnName = "標題", Used = true, Sort = 3 });
                 model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "GroupName", ColumnName = "類別", Used = true, Sort = 4 });
-                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "LinkUrl", ColumnName = "相關連結", Used = true, Sort = 5 });
-                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "UploadFileDesc", ColumnName = "檔案下載", Used = true, Sort = 6 });
-                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "UnPublishDate", ColumnName = "下架時間", Used = true, Sort = 7 });
+                //model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "LinkUrl", ColumnName = "相關連結", Used = true, Sort = 5 });
+                //model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "UploadFileDesc", ColumnName = "檔案下載", Used = true, Sort = 6 });
+                //model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "UnPublishDate", ColumnName = "下架時間", Used = true, Sort = 7 });
             }
 
             return View("~/Areas/webadmin/Views/EPaper/UnitSetting.cshtml", model);
+        }
+
+        public ActionResult SaveUnit(EPaperUnitSettingModel model)
+        {
+            //var Premodel = _commonService.GetUnitModel<EPaperUnitSettingModel, EPaperUnitSetting>(model.MainID.ToString());
+            model.IntroductionHtml = HttpUtility.UrlDecode(model.IntroductionHtml);
+            string result = _commonService.SetUnitModel<EPaperUnitSettingModel, EPaperUnitSetting>(model, this.Account, "EPaper", model.MainID.Value.ToString());
+
+            return Content(result);
         }
 
 
