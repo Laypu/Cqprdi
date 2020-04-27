@@ -314,6 +314,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelitem.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\UnitSetting.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitSetting.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Areas\webadmin\Views\ExclusiveLayout\Index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -620,6 +625,10 @@
     <Content Include="Areas\webadmin\Views\EPaper\Modelitem.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Modelitem.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\UnitSetting.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>UnitSetting.generated.cs</LastGenOutput>
     </Content>
     <None Include="Areas\webadmin\Views\Form\AddSelItem.cshtml">
       <Generator>RazorGenerator</Generator>

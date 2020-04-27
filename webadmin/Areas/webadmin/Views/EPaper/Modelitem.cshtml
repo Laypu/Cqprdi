@@ -27,7 +27,7 @@
                 <p class="class_title">管理項目</p>
                 <select class="form-control_1" id="sel_unit" onChange="window.location.href=this.value">
                     <option value="#" selected>編輯管理</option>
-                    <option value="@Url.Action("UnitSetting")">模組管理</option>
+                    <option value="@Url.Action("UnitSetting",new { mainid = ViewBag.mainid })">模組管理</option>
                     <option value="@Url.Action("Subscriber")">訂閱者管理</option>
                 </select>
             </div>

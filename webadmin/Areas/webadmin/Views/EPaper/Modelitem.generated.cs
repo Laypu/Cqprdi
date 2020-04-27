@@ -147,10 +147,10 @@ WriteLiteral(" value=\"#\"");
 
 WriteLiteral(" selected>編輯管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 983), Tuple.Create("\"", 1017)
+WriteAttribute("value", Tuple.Create(" value=\"", 983), Tuple.Create("\"", 1049)
             
             #line 30 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 991), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting")
+, Tuple.Create(Tuple.Create("", 991), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
@@ -159,14 +159,14 @@ WriteAttribute("value", Tuple.Create(" value=\"", 983), Tuple.Create("\"", 1017)
 
 WriteLiteral(">模組管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1061), Tuple.Create("\"", 1094)
+WriteAttribute("value", Tuple.Create(" value=\"", 1093), Tuple.Create("\"", 1126)
             
             #line 31 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 1069), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber")
+, Tuple.Create(Tuple.Create("", 1101), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber")
             
             #line default
             #line hidden
-, 1069), false)
+, 1101), false)
 );
 
 WriteLiteral(">訂閱者管理</option>\r\n                </select>\r\n            </div>\r\n        </div>\r\n " +
@@ -224,14 +224,14 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                        <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1646), Tuple.Create("\"", 1662)
+WriteAttribute("value", Tuple.Create(" value=\"", 1678), Tuple.Create("\"", 1694)
             
             #line 47 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 1654), Tuple.Create<System.Object, System.Int32>(g.Value
+, Tuple.Create(Tuple.Create("", 1686), Tuple.Create<System.Object, System.Int32>(g.Value
             
             #line default
             #line hidden
-, 1654), false)
+, 1686), false)
 );
 
 WriteLiteral(">");
@@ -452,45 +452,45 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4378), Tuple.Create("\"", 4422)
+WriteAttribute("src", Tuple.Create(" src=\"", 4410), Tuple.Create("\"", 4454)
             
             #line 101 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4384), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+, Tuple.Create(Tuple.Create("", 4416), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 4384), false)
+, 4416), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4446), Tuple.Create("\"", 4487)
+WriteAttribute("src", Tuple.Create(" src=\"", 4478), Tuple.Create("\"", 4519)
             
             #line 102 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4452), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 4484), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 4452), false)
+, 4484), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4511), Tuple.Create("\"", 4557)
+WriteAttribute("src", Tuple.Create(" src=\"", 4543), Tuple.Create("\"", 4589)
             
             #line 103 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4517), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 4549), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 4517), false)
+, 4549), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4581), Tuple.Create("\"", 4613)
-, Tuple.Create(Tuple.Create("", 4587), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
-, 4587), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 4613), Tuple.Create("\"", 4645)
+, Tuple.Create(Tuple.Create("", 4619), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
+, 4619), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(document).ready(function () {\r\n\r\n            " +

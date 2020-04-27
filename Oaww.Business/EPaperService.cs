@@ -761,5 +761,89 @@ namespace Oaww.Business
             base.Parameter.Add(new SqlParameter("@ItemID", ItemID));
             base.ExeNonQuery(sql);
         }
+
+        //#region GetUnitModel
+        //public EPaperUnitSettingModel GetUnitModel(string langid)
+        //{
+        //    var data = .GetByWhere("LangID=@1", new object[] { langid });
+        //    var model = new EPaperUnitSettingModel();
+        //    model.ID = -1;
+        //    if (data.Count() > 0)
+        //    {
+        //        model = new EPaperUnitSettingModel()
+        //        {
+        //            FrontPagePath = data.First().FrontPagePath,
+        //            Column1 = data.First().Column1,
+        //            Column2 = data.First().Column2,
+        //            Column3 = data.First().Column3,
+        //            Column4 = data.First().Column4,
+        //            Column5 = data.First().Column5,
+        //            Column6 = data.First().Column6,
+        //            Column7 = data.First().Column7,
+        //            Column8 = data.First().Column8,
+        //            Column9 = data.First().Column9,
+        //            Column10 = data.First().Column10,
+        //            Column11 = data.First().Column11,
+        //            Column12 = data.First().Column12,
+        //            Column13 = data.First().Column13,
+        //            Column14 = data.First().Column14,
+        //            Column15 = data.First().Column15,
+        //            Column16 = data.First().Column16,
+        //            Column17 = data.First().Column17,
+        //            Column18 = data.First().Column18,
+        //            Column19 = data.First().Column19,
+        //            Column20 = data.First().Column20,
+        //            IsRSS = data.First().IsRSS,
+        //            ShowCount = data.First().ShowCount,
+        //            ID = data.First().ID,
+        //            Summary = data.First().Summary
+        //        };
+        //        var cs = data.First().ColumnSetting;
+        //        if (cs.IsNullorEmpty() == false)
+        //        {
+        //            var csarr = cs.Split('@');
+        //            var cname = csarr[0].Split(',');
+        //            var cuse = csarr[1].Split(',');
+        //            for (var v = 0; v < cname.Length; v++)
+        //            {
+        //                model.UnitSettingColumnList.Add(new UnitSettingColumn()
+        //                {
+        //                    Name = cname[v],
+        //                    Sellected = int.Parse(cuse[v])
+        //                });
+        //            }
+        //        }
+        //    }
+        //    if (model.UnitSettingColumnList.Count() == 0)
+        //    {
+        //        var columnlist = _columnsqlrepository.GetByWhere("Type='EPaper'", null).OrderBy(v => v.Sort);
+        //        foreach (var c in columnlist)
+        //        {
+        //            model.UnitSettingColumnList.Add(new UnitSettingColumn()
+        //            {
+        //                Name = c.ColumnName,
+        //                Sellected = 1
+        //            });
+        //        }
+        //    }
+        //    model.ColumnNameMapping = new Dictionary<string, string>();
+        //    model.ColumnNameMapping.Add("序號", model.Column1.IsNullorEmpty() ? "序號" : model.Column1);
+        //    model.ColumnNameMapping.Add("發佈日期", model.Column2.IsNullorEmpty() ? "發佈日期" : model.Column2);
+        //    model.ColumnNameMapping.Add("電子報名稱", model.Column3.IsNullorEmpty() ? "電子報名稱" : model.Column3);
+        //    model.ColumnNameMapping.Add("年份", model.Column4.IsNullorEmpty() ? "年份" : model.Column4);
+        //    model.ColumnNameMapping.Add("電子報訂閱", model.Column5.IsNullorEmpty() ? "電子報訂閱" : model.Column5);
+        //    model.ColumnNameMapping.Add("訂閱", model.Column6.IsNullorEmpty() ? "訂閱" : model.Column6);
+        //    model.ColumnNameMapping.Add("取消訂閱", model.Column7.IsNullorEmpty() ? "取消訂閱" : model.Column7);
+        //    model.ColumnNameMapping.Add("查閱電子報", model.Column8.IsNullorEmpty() ? "查閱電子報" : model.Column8);
+        //    model.ColumnNameMapping.Add("Email", model.Column9.IsNullorEmpty() ? "Email" : model.Column9);
+        //    model.ColumnNameMapping.Add("Email 格式有誤", model.Column10.IsNullorEmpty() ? "Email 格式有誤" : model.Column10);
+        //    model.ColumnNameMapping.Add("此 Email 已有訂閱電子報!", model.Column11.IsNullorEmpty() ? "此 Email 已有訂閱電子報!" : model.Column11);
+        //    model.ColumnNameMapping.Add("電子報訂閱成功!", model.Column12.IsNullorEmpty() ? "電子報訂閱成功!" : model.Column12);
+        //    model.ColumnNameMapping.Add("此 Email 無訂閱電子報!", model.Column13.IsNullorEmpty() ? "此 Email 無訂閱電子報!" : model.Column13);
+        //    model.ColumnNameMapping.Add("電子報取消訂閱成功!", model.Column14.IsNullorEmpty() ? "電子報取消訂閱成功!" : model.Column14);
+        //    return model;
+        //}
+        //#endregion
+
     }
-}
+} 

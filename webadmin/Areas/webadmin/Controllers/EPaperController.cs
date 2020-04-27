@@ -35,7 +35,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             _service = new EPaperService(_ModelID);
             SET_BASE = _commonService.GetGeneral<SET_BASE>();
             SET_MENU = _commonService.GetGeneral<SET_MENU>("M_Menu01=@ID", new Dictionary<string, string>() { { "ID", _ModelID.ToString() } });
-            
+
         }
         public EPaperController(int ModelID = 12)
         {
@@ -44,7 +44,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             _ModelID = ModelID;
             SET_BASE = _commonService.GetGeneral<SET_BASE>();
             SET_MENU = _commonService.GetGeneral<SET_MENU>("M_Menu01=@ID", new Dictionary<string, string>() { { "ID", _ModelID.ToString() } });
-           
+
         }
 
         [AuthFilter(_FuncionID = "Model/Index")]
@@ -52,7 +52,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         {
             ViewBag.Title = SET_EPAPER.M_EPAPER05;
             ViewBag.Link = SET_EPAPER.M_EPAPER06;
-            
+
             return View();
         }
 
@@ -90,7 +90,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
         }
 
-        public ActionResult ModelItem(string menuindex, string mainid , bool admin = false  )
+        public ActionResult ModelItem(string menuindex, string mainid, bool admin = false)
         {
             mainid = mainid.AntiXss();
 
@@ -109,7 +109,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             ViewBag.SET_BASE = SET_BASE;
             ViewBag.SET_MENU = SET_MENU;
             ViewBag.SET_EPAPER = SET_EPAPER;
-            
+
 
             return View("~/Areas/webadmin/Views/EPaper/ModelItem.cshtml");
         }
@@ -190,8 +190,8 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             model.SET_EPAPER = SET_EPAPER;
             model.SET_BASE = SET_BASE;
             //model = _service.GetEPaperItemByID(itemid);
-            return View("~/Areas/webadmin/Views/EPaper/EpaperEdit.cshtml",model);
-            
+            return View("~/Areas/webadmin/Views/EPaper/EpaperEdit.cshtml", model);
+
 
         }
 
@@ -273,7 +273,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                         }
                     }
 
-                    
+
                 }
 
 
@@ -305,7 +305,37 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return Content(result);
         }
 
+        #region UnitSetting
+        
+        public ActionResult UnitSetting(string mainid)
+        {
+            mainid = mainid.AntiXss();
 
-        //#endregion
+            if (mainid.IsNullOrEmpty()) { return RedirectToAction("Index"); }
+            ViewBag.mainid = mainid;
+            ViewBag.modelid = mainid;
+            var model = _commonService.GetUnitModel<EPaperUnitSettingModel, EPaperUnitSetting>(mainid);
+            var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
+
+            if (maindata.ID > 0) { ViewBag.Title = maindata.Name; }
+
+            if (model.columnSettings.Count == 0)
+            {
+                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "No", ColumnName = "序號", Used = true, Sort = 1 });
+                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "PublicshDate", ColumnName = "發佈日期", Used = true, Sort = 2 });
+                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "Title", ColumnName = "標題", Used = true, Sort = 3 });
+                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "GroupName", ColumnName = "類別", Used = true, Sort = 4 });
+                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "LinkUrl", ColumnName = "相關連結", Used = true, Sort = 5 });
+                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "UploadFileDesc", ColumnName = "檔案下載", Used = true, Sort = 6 });
+                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "UnPublishDate", ColumnName = "下架時間", Used = true, Sort = 7 });
+            }
+
+            return View("~/Areas/webadmin/Views/EPaper/UnitSetting.cshtml", model);
+        }
+
+
+        #endregion
     }
+
+
 }

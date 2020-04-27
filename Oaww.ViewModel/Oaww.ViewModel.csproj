@@ -60,6 +60,7 @@
     <Compile Include="Config\MailServerEdit.cs" />
     <Compile Include="EPaperEditModel.cs" />
     <Compile Include="EPaperItemResult.cs" />
+    <Compile Include="EPaperUnitSettingModel.cs" />
     <Compile Include="ExclusiveLayoutViewModel.cs" />
     <Compile Include="ForwardViewModel.cs" />
     <Compile Include="HomeViewModel.cs" />
