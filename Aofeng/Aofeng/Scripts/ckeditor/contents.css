@@ -403,3 +403,116 @@ a > img {
 	box-shadow:none;
 	border: solid #98672d 1px;
 }
+
+
+
+/*併排4*/
+.list_04{
+	float:left;
+	width:100%;
+}
+.list_04 .item {
+	float: left;
+	width: 22%;
+	margin: 1.5%;
+}
+.list_04 .item img{
+	margin-bottom:10px;
+}
+.list_04 .item:nth-child(4n+1) {
+	clear: both;
+}
+
+@media (max-width: 767px) {
+.list_04 .item  {
+	width: 29.3%;
+	margin:2%;
+}
+.list_04 .item:nth-child(4n+1) {
+	clear: none;
+}
+.list_04 .item:nth-child(3n+1) {
+	clear: both;
+}
+}
+
+@media (max-width: 480px) {
+.list_04 .item{
+	width: 44%;
+	margin: 3%;
+}
+.list_04 .item:nth-child(4n+1) ,.list_04 .item:nth-child(3n+1) {
+	clear: none;
+}
+.list_04 .item:nth-child(2n+1) {
+	clear: both;
+}
+.list_04 .item img {
+	width: 100%;
+}
+}
+
+
+/*併排3*/
+.list_03{
+	float:left;
+	width:100%;
+}
+.list_03 .item {
+	float: left;
+	width: 29.3%;
+	margin: 2%;
+}
+.list_03 .item img{
+	margin-bottom:10px;
+}
+.list_03 .item:nth-child(3n+1) {
+	clear: both;
+}
+
+@media (max-width: 767px) {
+.list_03 .item  {
+	width: 46%;
+}
+.list_03 .item:nth-child(3n+1) {
+	clear: none;
+}
+.list_03 .item:nth-child(2n+1) {
+	clear: both;
+}
+}
+
+@media (max-width: 480px) {
+.list_03 .item{
+	width: 90%;
+	margin: 5%;
+}
+.list_03 .item img {
+	width: 100%;
+}
+}
+
+
+/*併排2*/
+.list_02{
+	float:left;
+	width:100%;
+}
+.list_02 .item {
+	float: left;
+	width: 44%;
+	margin: 3%;
+}
+.list_02 .item img{
+	margin-bottom:10px;
+}
+.x_list_02 .item:nth-child(2n+1) {
+	clear: both;
+}
+
+@media (max-width: 767px) {
+.list_02 .item{
+	width: 90%;
+	margin: 5%;
+}
+}
