@@ -1629,6 +1629,7 @@ namespace Oaww.Business
                     Column5 = data.First().Column5,
                     Column6 = data.First().Column6,
                     Column7 = data.First().Column7,
+                    Summary = data.First().Summary,
                     IsForward = data.First().IsForward,
                     IsPrint = data.First().IsPrint,
                     IsRSS = data.First().IsRSS,

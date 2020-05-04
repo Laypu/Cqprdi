@@ -28,7 +28,7 @@
                 <select class="form-control_1" id="sel_unit" onChange="window.location.href=this.value">
                     <option value="#" selected>編輯管理</option>
                     <option value="@Url.Action("UnitSetting",new { mainid = ViewBag.mainid })">模組管理</option>
-                    <option value="@Url.Action("Subscriber")">訂閱者管理</option>
+                    <option value="@Url.Action("Subscriber",new { mainid = ViewBag.mainid })">訂閱者管理</option>
                 </select>
             </div>
         </div>
@@ -105,8 +105,7 @@
     <script>
         $(document).ready(function () {
 
-            var va = $(".chksel [index='1']").val();
-            console.log(va);
+
             var mainid = '@ViewBag.mainid';
 
             mytable = $("#eventtable").myDataTable().TableList[0];
@@ -133,10 +132,18 @@
             RegisterOrder("#eventtable", ".sortedit", '@Url.Action("UpdateItemSeq")', obj);
             RegisterClickAll("#chk_all", '#eventtable tbody .chksel', "#selvalue");
             RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("SetItemDelete")', {keyindex:"3"});
-            RegisterClicklink("#eventtable", ".edit", '@Url.Action("EPaperEdit")', { idkey: "itemid", mainid: mainid},"itemid");
+            //RegisterClicklink("#eventtable", ".edit", '@Url.Action("EPaperEdit")', { idkey: "itemid", mainid: mainid},"itemid");
             RegisterClick("#eventtable", ".chkstatus", '@Url.Action("SetItemStatus")', obj);
             RegisterClick("#eventtable", ".chkhome", '@Url.Action("SetHomeStatus")', obj);
-
+            RegisterClick("#eventtable", ".review", '@Url.Action("EPaperReview")', { }, "itemid");
+            $("#eventtable").delegate(".epaperedit", "click", function () {
+                var etype = $(this).attr('etype');
+                if (etype == "1") {
+                    CreatePost('@Url.Action("EPaperManuallyContent")', { id: $(this).attr('index') });
+                } else {
+                     CreatePost('@Url.Action("EPaperContentMenu")', { id: $(this).attr('index') });
+                }
+            });
 
 
             @*$("#eventtable").delegate(".isedit", "click", function () {
@@ -167,7 +174,12 @@
                 obj.id = -1;
                 CreatePost('@Url.Action("EPaperEdit")', obj);
             });
-
+            $("#GroupID").change(function () {
+                var SearchModelBase = mytable.SearchModelBase;
+                SearchModelBase.Key = $("#GroupID").val();
+                SearchModelBase.Search = "Y";
+                mytable.GetData(1);
+            });
 
          });
         function customertr(row, columnidx, idx, filedname, tableid, type, fileditemclass) {

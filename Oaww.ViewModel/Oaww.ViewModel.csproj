@@ -58,6 +58,7 @@
     <Compile Include="AdminMemberModel.cs" />
     <Compile Include="CommonUnitSettingModel.cs" />
     <Compile Include="Config\MailServerEdit.cs" />
+    <Compile Include="EPaperContentItem.cs" />
     <Compile Include="EPaperEditModel.cs" />
     <Compile Include="EPaperItemResult.cs" />
     <Compile Include="EPaperUnitSettingModel.cs" />

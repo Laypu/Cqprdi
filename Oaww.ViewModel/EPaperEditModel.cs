@@ -64,9 +64,15 @@ namespace Oaww.ViewModel
     }
     public class EPaperItemEdit
     {
+
         public string Name { get; set; }
+        public string MenuID { get; set; }
+        public string MainID { get; set; }
+        public int SortID { get; set; }
         public List<string> ItemName { get; set; }
         public List<string> ItemUrl { get; set; }
+        public List<string> ItemKey { get; set; }
+        
     }
  }
 

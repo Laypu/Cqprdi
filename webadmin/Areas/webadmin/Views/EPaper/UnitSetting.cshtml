@@ -42,9 +42,9 @@
             <div class="display_inline">
                 <p class="class_title">管理項目</p>
                 <select class="form-control_1" onChange="window.location.href=this.value">
-                    <option value="@Url.Action("Index")">編輯管理</option>
+                    <option value="@Url.Action("ModelItem",new { mainid = ViewBag.mainid })">編輯管理</option>
                     <option value="#" selected>模組設定</option>
-                    <option value="@Url.Action("Subscriber")">訂閱者管理</option>
+                    <option value="@Url.Action("Subscriber",new { mainid = ViewBag.mainid })">訂閱者管理</option>
                 </select>
             </div>
         </div>
@@ -83,15 +83,15 @@
                                                         <button type="button" class="btn btn-default btn-xs seq_list" value="-1"><i class="fa fa-angle-up"></i></button>
                                                         <button type="button" class="btn btn-default btn-xs seq_list" value="+1"><i class="fa fa-angle-down"></i></button>
                                                         <button type="button" class="btn btn-default btn-xs seq_list" value="max"><i class="fa fa-angle-double-down"></i></button>
-                                                        <input type="hidden" id="Type" value="@Model.columnSettings[idx].Type" />
-                                                        <input type="hidden" id="MainID" value="@Model.columnSettings[idx].MainID" />
-                                                        <input type="hidden" id="ColumnKey" value="@Model.columnSettings[idx].ColumnKey" />
-                                                        <input type="hidden" id="ColumnName" value="@Model.columnSettings[idx].ColumnName" />
+                                                        <input type="hidden" id="Type_@idx" value="@Model.columnSettings[idx].Type" />
+                                                        <input type="hidden" id="MainID_@idx" value="@Model.columnSettings[idx].MainID" />
+                                                        <input type="hidden" id="ColumnKey_@idx" value="@Model.columnSettings[idx].ColumnKey" />
+                                                        <input type="hidden" id="ColumnName_@idx" value="@Model.columnSettings[idx].ColumnName" />
                                                     </td>
                                                     <td class="text-center columnname">@Model.columnSettings[idx].ColumnName</td>
                                                     <td class="text-center">
                                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                            <input class="chkstatus" type="checkbox" @(Model.columnSettings[idx].Used == true ? "checked='checked'" : "")><span></span>
+                                                            <input class="chkstatus" type="checkbox" id="Used_@idx" @(Model.columnSettings[idx].Used == true ? "checked" : "")><span></span>
                                                         </label>
                                                     </td>
                                                 </tr>
@@ -304,17 +304,19 @@
 
                 var i = 0;
                 $('.tr_col').each(function () {
-                    formData.append("columnSettings[" + i + "].Type", $(this).find('#Type').val());
-                    formData.append("columnSettings[" + i + "].MainID", $(this).find('#MainID').val());
-                    formData.append("columnSettings[" + i + "].ColumnKey", $(this).find('#ColumnKey').val());
-                    formData.append("columnSettings[" + i + "].ColumnName", $(this).find('#ColumnName').val());
-                    formData.append("columnSettings[" + i + "].Used", $(this).find('#Used').prop('checked') ? true : false);
+                    formData.append("columnSettings[" + i + "].Type", $(this).find('#Type_'+i).val());
+                    formData.append("columnSettings[" + i + "].MainID", $(this).find('#MainID_' + i).val());
+                    formData.append("columnSettings[" + i + "].ColumnKey", $(this).find('#ColumnKey_' + i).val());
+                    formData.append("columnSettings[" + i + "].ColumnName", $(this).find('#ColumnName_' + i).val());
+                    formData.append("columnSettings[" + i + "].Used", $(this).find('#Used_' + i).prop('checked' ) ? true : false);
                     formData.append("columnSettings[" + i + "].Sort", i + 1);
-
+                    
                     i++;
+                    
                 })
                 formData.append("Summary", encodeURIComponent($('#Summary').val()));
-                formData.append("IntroductionHtml", _html.encode(CKEDITOR.instances.IntroductionHtml.getData()));
+                formData.append("IntroductionHtml", encodeURIComponent($('IntroductionHtml').val()));
+                //formData.append("IntroductionHtml", _html.encode(CKEDITOR.instances.IntroductionHtml.getData()));
                 $.ajax({
                     url: this.action,
                     data: formData,
