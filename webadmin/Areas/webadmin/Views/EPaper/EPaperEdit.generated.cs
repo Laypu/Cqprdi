@@ -142,35 +142,60 @@ WriteLiteral(">Home</a>\r\n            <i");
 
 WriteLiteral(" class=\"fa fa-circle\"");
 
-WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            模組元件\r\n            <i");
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 729), Tuple.Create("\"", 764)
+            
+            #line 20 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 736), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
+            
+            #line default
+            #line hidden
+, 736), false)
+);
+
+WriteLiteral(">模組管理</a>\r\n            <i");
 
 WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 818), Tuple.Create("\"", 845)
+WriteAttribute("href", Tuple.Create(" href=\"", 861), Tuple.Create("\"", 923)
             
             #line 24 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 825), Tuple.Create<System.Object, System.Int32>(Url.Action("Index")
+, Tuple.Create(Tuple.Create("", 868), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 825), false)
+, 868), false)
 );
 
 WriteLiteral(">電子報管理</a>\r\n            <i");
 
 WriteLiteral(" class=\"fa fa-circle\"");
 
-WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            編輯\r\n        </li>\r\n    </ul>\r\n\r\n<" +
-"/div>\r\n<!--page bar end-->\r\n<!--message start-->\r\n<div");
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
+
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral(">");
+
+            
+            #line 28 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+                   Write(ViewBag.Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" 管理</a>\r\n            \r\n        </li>\r\n    </ul>\r\n\r\n</div>\r\n<!--page bar end-->\r\n<" +
+"!--message start-->\r\n<div");
 
 WriteLiteral(" class=\"title_01\"");
 
 WriteLiteral(">");
 
             
-            #line 35 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 36 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                  Write(ViewBag.Title);
 
             
@@ -188,14 +213,14 @@ WriteLiteral(" method=\"Post\"");
 
 WriteLiteral(" id=\"editform\"");
 
-WriteAttribute("action", Tuple.Create(" action=\'", 1185), Tuple.Create("\'", 1217)
+WriteAttribute("action", Tuple.Create(" action=\'", 1308), Tuple.Create("\'", 1340)
             
-            #line 39 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
-    , Tuple.Create(Tuple.Create("", 1194), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveItem")
+            #line 40 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+    , Tuple.Create(Tuple.Create("", 1317), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveItem")
             
             #line default
             #line hidden
-, 1194), false)
+, 1317), false)
 );
 
 WriteLiteral(" enctype=\"multipart/form-data\"");
@@ -206,7 +231,7 @@ WriteLiteral(">\r\n        <!--<div class=\"search_padding\">\r\n        <button
 WriteLiteral("        ");
 
             
-            #line 43 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 44 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.AntiForgeryToken());
 
             
@@ -217,7 +242,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 44 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 45 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.ItemID));
 
             
@@ -228,7 +253,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 45 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 46 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.BottomHtmlContent));
 
             
@@ -239,7 +264,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 46 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 47 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.CenterHtmlContent));
 
             
@@ -250,7 +275,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 47 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 48 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.ModelID));
 
             
@@ -261,7 +286,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 48 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 49 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.LeftHtmlContent));
 
             
@@ -272,7 +297,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 49 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 50 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.Lang_ID));
 
             
@@ -283,7 +308,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 50 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 51 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.TopBannerImg));
 
             
@@ -294,7 +319,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 51 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 52 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.TopBannerImgName));
 
             
@@ -305,7 +330,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 52 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 53 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.TopBannerImgOrgName));
 
             
@@ -316,7 +341,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 53 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 54 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.TopBannerImgPath));
 
             
@@ -327,7 +352,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 54 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 55 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
    Write(Html.HiddenFor(Model => Model.TopBannerImgUrl));
 
             
@@ -362,7 +387,7 @@ WriteLiteral(" class=\"col-md-2 col-sm-12 col-xs-12 search_item\"");
 WriteLiteral(">");
 
             
-            #line 61 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 62 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                                                              Write(Html.Require());
 
             
@@ -381,13 +406,13 @@ WriteLiteral(" data-date-format=\"yyyy/mm/dd\"");
 WriteLiteral(">\r\n");
 
             
-            #line 64 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 65 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                     
             
             #line default
             #line hidden
             
-            #line 64 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 65 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                       
                                         var grouplist = (IList<SelectListItem>)ViewBag.grouplist;
                                     
@@ -405,13 +430,13 @@ WriteLiteral(" name=\"GroupId\"");
 WriteLiteral(">\r\n");
 
             
-            #line 68 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 69 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                         
             
             #line default
             #line hidden
             
-            #line 68 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 69 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                          foreach (var g in grouplist)
                                         {
 
@@ -420,20 +445,20 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                                            <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 3059), Tuple.Create("\"", 3075)
+WriteAttribute("value", Tuple.Create(" value=\"", 3182), Tuple.Create("\"", 3198)
             
-            #line 70 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
-, Tuple.Create(Tuple.Create("", 3067), Tuple.Create<System.Object, System.Int32>(g.Value
+            #line 71 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 3190), Tuple.Create<System.Object, System.Int32>(g.Value
             
             #line default
             #line hidden
-, 3067), false)
+, 3190), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 70 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 71 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                                                 Write(g.Text);
 
             
@@ -442,7 +467,7 @@ WriteLiteral(">");
 WriteLiteral("</option>\r\n");
 
             
-            #line 71 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 72 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                         }
 
             
@@ -477,7 +502,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                    ");
 
             
-            #line 80 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 81 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                Write(Html.EditorFor(model => model.PublishStr, new { htmlAttributes = new { @class = "form-control checkitem input-small", placeholder = "發佈日期" } }));
 
             
@@ -513,7 +538,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                ");
 
             
-            #line 88 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 89 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                            Write(Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control checkitem" } }));
 
             
@@ -549,7 +574,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                ");
 
             
-            #line 96 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 97 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                            Write(Html.RadioButtonFor(model => model.PaperMode, 1, new { style = "margin-left :0px", @checked = "checked" }));
 
             
@@ -560,7 +585,7 @@ WriteLiteral(" 手動\r\n");
 WriteLiteral("                                ");
 
             
-            #line 97 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 98 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                            Write(Html.RadioButtonFor(model => model.PaperMode, 2, new { style = "margin-left :40px" }));
 
             
@@ -592,14 +617,14 @@ WriteLiteral(" style=\"display:none\"");
 
 WriteLiteral("><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 5699), Tuple.Create("\"", 5728)
+WriteAttribute("href", Tuple.Create(" href=\"", 5822), Tuple.Create("\"", 5851)
             
-            #line 107 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
-             , Tuple.Create(Tuple.Create("", 5706), Tuple.Create<System.Object, System.Int32>(Model.TopBannerImgUrl
+            #line 108 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+             , Tuple.Create(Tuple.Create("", 5829), Tuple.Create<System.Object, System.Int32>(Model.TopBannerImgUrl
             
             #line default
             #line hidden
-, 5706), false)
+, 5829), false)
 );
 
 WriteLiteral(" target=\"preview\"");
@@ -607,7 +632,7 @@ WriteLiteral(" target=\"preview\"");
 WriteLiteral(">");
 
             
-            #line 107 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 108 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                                                                                                                  Write(Html.Raw(Model.TopBannerImgOrgName));
 
             
@@ -664,7 +689,7 @@ WriteLiteral(" rows=\"20\"");
 WriteLiteral(">");
 
             
-            #line 118 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 119 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                                                                  Write(Model.PageEndHtmlContent);
 
             
@@ -701,7 +726,7 @@ DefineSection("scripts", () => {
 WriteLiteral("\r\n    <script>\r\n        $(function () {\r\n            if (\'");
 
             
-            #line 136 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 137 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
             Write(Model.ItemID);
 
             
@@ -710,7 +735,7 @@ WriteLiteral("\r\n    <script>\r\n        $(function () {\r\n            if (\'"
 WriteLiteral("\'>0 && \'");
 
             
-            #line 136 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 137 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                  Write(Model.TopBannerImgName);
 
             
@@ -733,7 +758,7 @@ WriteLiteral(@"'!='') {
                 filebrowserImageUploadUrl: '");
 
             
-            #line 150 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 151 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                        Write(Url.Action("Upload"));
 
             
@@ -742,7 +767,7 @@ WriteLiteral(@"'!='') {
 WriteLiteral("?command=QuickUpload&type=Images\',\r\n               filebrowserUploadUrl: \'");
 
             
-            #line 151 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 152 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                  Write(Url.Action("UploadFile"));
 
             
@@ -770,7 +795,7 @@ WriteLiteral("?command=QuickUpload&type=Files\',\r\n            });\r\n         
 "          formData.append(\"ItemID\", \'");
 
             
-            #line 185 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 186 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                       Write(Model.ItemID);
 
             
@@ -803,7 +828,7 @@ WriteLiteral(@"');
                         CreatePost('");
 
             
-            #line 209 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 210 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                Write(Url.Action("ModelItem"));
 
             
@@ -812,7 +837,7 @@ WriteLiteral(@"');
 WriteLiteral("\', {mainid: \'");
 
             
-            #line 209 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 210 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                                                     Write(Model.ModelID);
 
             

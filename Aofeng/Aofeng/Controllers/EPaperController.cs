@@ -86,20 +86,40 @@ namespace Aofeng.Controllers
 
             EPaperUnitSettingModel unitmodel = new EPaperUnitSettingModel();
             EPaperViewModel model = new EPaperViewModel() { mid = mid, itemid = itemid, group = group, classType = classType };
+
+            var EPaperItem = _service.GetEPaperItemsByModelID(itemid);
+
             if (group == -1)
             {
                 group = null;
-                model.ListEPaperItem = _service.GetEPaperItemsByModelID(itemid).OrderBy(t => t.Sort).ToList();
+                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).ToList();
             }
             else
             {
-                model.ListEPaperItem = _service.GetEPaperItemsByModelID(itemid).OrderBy(t => t.Sort).Where(t => t.GroupID == group).ToList();
+                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t => t.GroupID == group).ToList();
             }
+            List<int> groupidlist = new List<int>();
+            foreach (var i in EPaperItem)
+            {
+                if (groupidlist.Contains((int)i.GroupID))
+                {
+                    
 
-            
+                }
+                else
+                {
+                    groupidlist.Add((int)i.GroupID);
+                }
+                
+            }    
             
             model.ListGroupEPaper = _service.GetVaildGroupEPapers(itemid,this.LanguageID.ToString());
             model.ListGroupEPaper.Insert(0, new GroupEPaper() { ID = -1, Group_Name = "全部" });
+            if (groupidlist.Contains(0))
+            {
+                model.ListGroupEPaper.Insert(1, new GroupEPaper() { ID = 0, Group_Name = "無分類" });
+
+            }
             model.columnSettings = _commonService.GetColumnSettings("EPaper", itemid);
             ViewBag.UnitSetting = new EPaperUnitSetting();
             EPaperUnitSetting EPaperUnitSetting = (EPaperUnitSetting)ViewBag.UnitSetting;

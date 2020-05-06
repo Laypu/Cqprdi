@@ -40,6 +40,10 @@
                                 <i class="fa fa-bars"></i>
                             </button>
 
+                            <button class="btn btn_search sidetitle float-right visible-xs">
+                                <i class="fa fa-search"></i>
+                            </button> 
+
                         </div>
                         
                         <div class="header-column">
@@ -74,21 +78,21 @@
                                         @if (ViewBag.langID == 2)
                                         {
                                             <li class="share_icon">
-                                                <a href="#" target="_blank" title="facbook(new window)">
+                                                <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="facbook(new window)">
                                                     <!--英文 facebook(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #345db7;"></i>
                                                         <i class="fab fa-facebook-f fa-stack-1x" style="color: #fff;"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#" target="_blank" title="twitter(new window)">
+                                                <a href="#" target="_blank" title="twitter(new window)" style="display:none;">
                                                     <!--英文 twitter(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #5da9dd;"></i>
                                                         <i class="fab fa-twitter fa-stack-1x" style="color: #fff;"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#" target="_blank" title="youtube(new window)">
+                                                <a href="https://www.youtube.com/channel/UCXOjYwVme7Uo2sG4r0l7N6w/" target="_blank" title="youtube(new window)">
                                                     <!--英文 youtube(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #e50012;"></i>
@@ -106,23 +110,24 @@
 
                                         }
                                         else
-                                        { 
+                                        {
+                                            
                                             <li class="share_icon">
-                                                <a href="#" target="_blank" title="facbook(另開新視窗)">
+                                                <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="facbook(另開新視窗)">
                                                     <!--英文 facebook(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #345db7;"></i>
                                                         <i class="fab fa-facebook-f fa-stack-1x" style="color: #fff;"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#" target="_blank" title="twitter(另開新視窗)">
+                                                <a href="#" target="_blank" title="twitter(另開新視窗)" style="display:none;">
                                                     <!--英文 twitter(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #5da9dd;"></i>
                                                         <i class="fab fa-twitter fa-stack-1x" style="color: #fff;"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#" target="_blank" title="youtube(另開新視窗)">
+                                                <a href="https://www.youtube.com/channel/UCXOjYwVme7Uo2sG4r0l7N6w/" target="_blank" title="youtube(另開新視窗)">
                                                     <!--英文 youtube(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #e50012;"></i>
@@ -138,6 +143,11 @@
                                                 </a>
                                             </li>
                                         }
+                                        <li>
+                                            <button class="btn btn_search sidetitle">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -151,107 +161,102 @@
                 <div class="header-container header-nav header-nav-bar">
                 	<div class="container">
                     	<div class="header-row">
-                                <div class="header-nav">
-                                    <!--<button class="btn header-btn-collapse-nav-search" data-toggle="collapse" data-target=".header-nav-search">
-                                        <i class="fa fa-bars"></i>
-                                    </button>-->
+                            <div class="header-nav">
 
-                                    <div class="header-nav-search header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
-                                        <nav>
-                                            <ul class="nav nav-pills">
+                                <!--search start-->
+<form method="post" action="@Url.Action("Search","Search")">
+                                <div class="sidemenu search_box" style="display: none;">
+                                    <label for="search_input">
+                                        <input type="text" id="footer_search" name="key" title="@("全站搜尋".GetLang())" placeholder="@("請輸入欲搜尋關鍵字".GetLang())">
+                                    </label>
+                                    <button type="submit" class="search_icon"><i class="fa fa-search"></i></button>
+                                </div>
+</form>
+                                <!--search end-->
 
-                                                <li class="search_box">
-                                                    <input id="" type="text" class="search_input" placeholder="Search...">
-                                                    <button type="submit" class="search_icon" onClick="location.href='search.html'" onkeypress="location.href='search.html'"><i class="fa fa-search"></i></button><!--無障礙需求：使用onClick, 需同時使用onkeypress-->
-                                                </li>
+                                <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
+                                    <nav>
+                                        <ul class="nav nav-pills" id="mainNav">
+                                            @foreach (Menu Menu1st in TopMenu.Where(t => t.MenuLevel == 1).OrderBy(t => t.Sort))
+                                            {
 
-                                            </ul>
-                                        </nav>
-                                    </div>
 
-                                    <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
-                                        <nav>
-                                            <ul class="nav nav-pills" id="mainNav">
-                                                @foreach (Menu Menu1st in TopMenu.Where(t => t.MenuLevel == 1).OrderBy(t => t.Sort))
+                                                if (TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
                                                 {
+                                                    <li class="dropdown">
+                                                        @Html.aira_HyperLink_Menu(Menu1st, new { @class = "dropdown-toggle" })
 
-
-                                                    if (TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
-                                                    {
-                                                        <li class="dropdown">
-                                                            @Html.aira_HyperLink_Menu(Menu1st,new { @class = "dropdown-toggle" })
-
-                                                            <ul class="dropdown-menu">
-                                                                @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
+                                                        <ul class="dropdown-menu">
+                                                            @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
+                                                            {
+                                                                if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
                                                                 {
-                                                                    if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
-                                                                    {
-                                                                        <li class="dropdown-submenu">
+                                                                    <li class="dropdown-submenu">
 
-                                                                            @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
-                                                                            {
-                                                                                @Html.aira_Top_HyperLink_Menu(Menu2nd, null)
-                                                                                <ul class="dropdown-menu">
-                                                                                    @foreach (Menu Menu3rd in TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
-                                                                                    {
-                                                                                        <li>
-                                                                                            @Html.aira_HyperLink_Menu(Menu3rd, null)
-                                                                                        </li>
-                                                                                    }
-                                                                                </ul>
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                @Html.aira_HyperLink_Menu(Menu2nd, null)
-                                                                            }
-                                                                        </li>
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        <li>@Html.aira_HyperLink_Menu(Menu2nd, null)</li>
-                                                                    }
+                                                                        @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
+                                                                        {
+                                                                            @Html.aira_Top_HyperLink_Menu(Menu2nd, null)
+                                                                            <ul class="dropdown-menu">
+                                                                                @foreach (Menu Menu3rd in TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
+                                                                                {
+                                                                                    <li>
+                                                                                        @Html.aira_HyperLink_Menu(Menu3rd, null)
+                                                                                    </li>
+                                                                                }
+                                                                            </ul>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            @Html.aira_HyperLink_Menu(Menu2nd, null)
+                                                                        }
+                                                                    </li>
                                                                 }
-                                                            </ul>
-                                                        </li>
-                                                    }
-                                                    else
-                                                    {
-                                                        <li>
-                                                            @Html.aira_HyperLink_Menu(Menu1st, null)
-                                                        </li>
-                                                    }
-
-                                                } 
-                                            </ul>
-                                            
-                                            <ul class="nav nav-top visible-xs">
-                                                @foreach (var menu in UpMenu.OrderBy(t => t.Sort))
-                                                {
-                                                    <li>@Html.aira_Icon_HyperLink_Menu(menu, menu.Icon)</li>
+                                                                else
+                                                                {
+                                                                    <li>@Html.aira_HyperLink_Menu(Menu2nd, null)</li>
+                                                                }
+                                                            }
+                                                        </ul>
+                                                    </li>
                                                 }
-                                                @if (ListLang.Count > 1)
-                                                {
-                                                    foreach (var m in ListLang.Where(t => t.ID.ToString() != Session["LangID"].ToString()))
-                                                    {
-                                                        <li><a href="@Url.Action("ChangeLang","Home",new { lang=m.ID})" langid='@m.ID' title="@m.Disp_Name">@m.Disp_Name</a></li>
-                                                    }
-                                                }
-                                                @if (ViewBag.langID ==1 )
+                                                else
                                                 {
                                                     <li>
-                                                        <a href="#" target="_blank" title="facbook(另開新視窗)">
+                                                        @Html.aira_HyperLink_Menu(Menu1st, null)
+                                                    </li>
+                                                }
+
+                                            }
+                                        </ul>
+
+                                        <ul class="nav nav-top visible-xs">
+                                            @foreach (var menu in UpMenu.OrderBy(t => t.Sort))
+                                            {
+                                                <li>@Html.aira_Icon_HyperLink_Menu(menu, menu.Icon)</li>
+                                            }
+                                            @if (ListLang.Count > 1)
+                                            {
+                                                foreach (var m in ListLang.Where(t => t.ID.ToString() != Session["LangID"].ToString()))
+                                                {
+                                                    <li><a href="@Url.Action("ChangeLang","Home",new { lang=m.ID})" langid='@m.ID' title="@m.Disp_Name">@m.Disp_Name</a></li>
+                                                }
+                                            }
+                                            @if (ViewBag.langID == 1)
+                                            {
+                                                   <li>
+                                                        <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="facbook(另開新視窗)">
                                                             <!--英文 facebook(new window)-->
                                                             <i class="fab fa-facebook-f"></i> facebook
                                                         </a>
                                                     </li>
-                                                    <li>
+                                                    <li style="display:none;">
                                                         <a href="#" target="_blank" title="twitter(另開新視窗)">
                                                             <!--英文 twitter(new window)-->
                                                             <i class="fab fa-twitter"></i> twitter
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#" target="_blank" title="youtube(另開新視窗)">
+                                                        <a href="https://www.youtube.com/channel/UCXOjYwVme7Uo2sG4r0l7N6w/" target="_blank" title="youtube(另開新視窗)">
                                                             <!--英文 youtube(new window)-->
                                                             <i class="fab fa-youtube"></i> youtube
                                                         </a>
@@ -262,33 +267,32 @@
                                                             <i class="fas fa-rss"></i> RSS
                                                         </a>
                                                     </li>
-                                                }
-                                                else
-                                                {
-                                                    <li>
-                                                        <a href="#" target="_blank" title="youtube(new window)">
+                                            }
+                                            else
+                                            { <li>
+                                                        <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="youtube(new window)">
                                                             <!--英文 facebook(new window)-->
                                                             <i class="fab fa-facebook-f"></i> facebook
                                                         </a>
                                                     </li>
-                                                    <li>
+                                                    <li style="display:none;">
                                                         <a href="#" target="_blank" title="twitter(new window)">
                                                             <!--英文 twitter(new window)-->
                                                             <i class="fab fa-twitter"></i> twitter
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#" target="_blank" title="youtube(new window)">
+                                                        <a href="https://www.youtube.com/channel/UCXOjYwVme7Uo2sG4r0l7N6w/" target="_blank" title="youtube(new window)">
                                                             <!--英文 youtube(new window)-->
                                                             <i class="fab fa-youtube"></i> youtube
                                                         </a>
                                                     </li>
-                                                }
-                                            </ul>
-                                            
-                                        </nav>
-                                    </div>
+                                            }
+                                        </ul>
+
+                                    </nav>
                                 </div>
+                            </div>
                             </div>
                     </div>
                 </div>

@@ -98,16 +98,41 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
+WriteAttribute("href", Tuple.Create(" href=\"", 451), Tuple.Create("\"", 513)
+            
+            #line 16 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+, Tuple.Create(Tuple.Create("", 458), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            
+            #line default
+            #line hidden
+, 458), false)
+);
+
+WriteLiteral(">電子報管理</a>\r\n            <i");
+
+WriteLiteral(" class=\"fa fa-circle\"");
+
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
+
 WriteLiteral(" href=\"#\"");
 
-WriteLiteral(">電子報管理</a>\r\n        </li>\r\n    </ul>\r\n</div>\r\n<!--page bar end-->\r\n<div");
+WriteLiteral(">");
+
+            
+            #line 20 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+                   Write(ViewBag.Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" 管理</a>\r\n\r\n        </li>\r\n    </ul>\r\n</div>\r\n<!--page bar end-->\r\n<div");
 
 WriteLiteral(" class=\"title_01\"");
 
 WriteLiteral(">");
 
             
-            #line 21 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 26 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                  Write(ViewBag.Title);
 
             
@@ -147,26 +172,26 @@ WriteLiteral(" value=\"#\"");
 
 WriteLiteral(" selected>編輯管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 983), Tuple.Create("\"", 1049)
+WriteAttribute("value", Tuple.Create(" value=\"", 1157), Tuple.Create("\"", 1223)
             
-            #line 30 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 991), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
+            #line 35 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+, Tuple.Create(Tuple.Create("", 1165), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 991), false)
+, 1165), false)
 );
 
 WriteLiteral(">模組管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1093), Tuple.Create("\"", 1158)
+WriteAttribute("value", Tuple.Create(" value=\"", 1267), Tuple.Create("\"", 1332)
             
-            #line 31 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 1101), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber",new { mainid = ViewBag.mainid })
+            #line 36 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+, Tuple.Create(Tuple.Create("", 1275), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1101), false)
+, 1275), false)
 );
 
 WriteLiteral(">訂閱者管理</option>\r\n                </select>\r\n            </div>\r\n        </div>\r\n " +
@@ -189,13 +214,13 @@ WriteLiteral(" class=\"class_title\"");
 WriteLiteral(">類別</p>\r\n");
 
             
-            #line 43 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 48 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 43 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 48 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                   var grouplist = (IList<SelectListItem>)ViewBag.grouplist; 
             
             #line default
@@ -209,13 +234,13 @@ WriteLiteral(" id=\"GroupId\"");
 WriteLiteral(">\r\n");
 
             
-            #line 45 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 50 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                     
             
             #line default
             #line hidden
             
-            #line 45 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 50 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                      foreach (var g in grouplist)
                     {
 
@@ -224,20 +249,20 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                        <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1710), Tuple.Create("\"", 1726)
+WriteAttribute("value", Tuple.Create(" value=\"", 1884), Tuple.Create("\"", 1900)
             
-            #line 47 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 1718), Tuple.Create<System.Object, System.Int32>(g.Value
+            #line 52 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+, Tuple.Create(Tuple.Create("", 1892), Tuple.Create<System.Object, System.Int32>(g.Value
             
             #line default
             #line hidden
-, 1718), false)
+, 1892), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 47 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 52 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                             Write(g.Text);
 
             
@@ -246,7 +271,7 @@ WriteLiteral(">");
 WriteLiteral("</option>\r\n");
 
             
-            #line 48 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 53 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                     }
 
             
@@ -303,7 +328,7 @@ WriteLiteral("\r\n               id=\"eventtable\"");
 WriteLiteral("\r\n               data-url=\"");
 
             
-            #line 64 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 69 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                     Write(Url.Action("PagingItem"));
 
             
@@ -412,6 +437,16 @@ WriteLiteral(" filed-item-class=\"text-center\"");
 
 WriteLiteral(">發佈狀態</th>\r\n                    <th");
 
+WriteLiteral(" filed-name=\'IsPublishStr\'");
+
+WriteLiteral(" width=\"80px\"");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(" filed-item-class=\"text-center\"");
+
+WriteLiteral(">發佈狀態</th>\r\n                    <th");
+
 WriteLiteral(" filed-name=\'Enabled\'");
 
 WriteLiteral(" width=\"80px\"");
@@ -452,52 +487,52 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4443), Tuple.Create("\"", 4487)
+WriteAttribute("src", Tuple.Create(" src=\"", 4742), Tuple.Create("\"", 4786)
             
-            #line 101 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4449), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+            #line 107 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+, Tuple.Create(Tuple.Create("", 4748), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 4449), false)
+, 4748), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4511), Tuple.Create("\"", 4552)
+WriteAttribute("src", Tuple.Create(" src=\"", 4810), Tuple.Create("\"", 4851)
             
-            #line 102 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4517), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+            #line 108 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+, Tuple.Create(Tuple.Create("", 4816), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 4517), false)
+, 4816), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4576), Tuple.Create("\"", 4622)
+WriteAttribute("src", Tuple.Create(" src=\"", 4875), Tuple.Create("\"", 4921)
             
-            #line 103 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4582), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+            #line 109 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+, Tuple.Create(Tuple.Create("", 4881), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 4582), false)
+, 4881), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4646), Tuple.Create("\"", 4678)
-, Tuple.Create(Tuple.Create("", 4652), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
-, 4652), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 4945), Tuple.Create("\"", 4977)
+, Tuple.Create(Tuple.Create("", 4951), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
+, 4951), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(document).ready(function () {\r\n\r\n\r\n          " +
 "  var mainid = \'");
 
             
-            #line 109 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 115 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                      Write(ViewBag.mainid);
 
             
@@ -529,7 +564,7 @@ WriteLiteral(@"';
             RegisterOrder(""#eventtable"", "".sortedit"", '");
 
             
-            #line 132 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 138 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                   Write(Url.Action("UpdateItemSeq"));
 
             
@@ -540,7 +575,7 @@ WriteLiteral("\', obj);\r\n            RegisterClickAll(\"#chk_all\", \'#eventta
 "d\', \'");
 
             
-            #line 134 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 140 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                                   Write(Url.Action("SetItemDelete"));
 
             
@@ -549,7 +584,7 @@ WriteLiteral("\', obj);\r\n            RegisterClickAll(\"#chk_all\", \'#eventta
 WriteLiteral("\', {keyindex:\"3\"});\r\n            RegisterClicklink(\"#eventtable\", \".edit\", \'");
 
             
-            #line 135 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 141 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                   Write(Url.Action("EPaperEdit"));
 
             
@@ -559,7 +594,7 @@ WriteLiteral("\', { idkey: \"itemid\", mainid: mainid},\"itemid\");\r\n         
 "nttable\", \".chkstatus\", \'");
 
             
-            #line 136 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 142 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                    Write(Url.Action("SetItemStatus"));
 
             
@@ -568,7 +603,7 @@ WriteLiteral("\', { idkey: \"itemid\", mainid: mainid},\"itemid\");\r\n         
 WriteLiteral("\', obj);\r\n            RegisterClick(\"#eventtable\", \".chkhome\", \'");
 
             
-            #line 137 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 143 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                  Write(Url.Action("SetHomeStatus"));
 
             
@@ -577,7 +612,7 @@ WriteLiteral("\', obj);\r\n            RegisterClick(\"#eventtable\", \".chkhome
 WriteLiteral("\', obj);\r\n            //RegisterClick(\"#eventtable\", \".review\", \'");
 
             
-            #line 138 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 144 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                   Write(Url.Action("EPaperReview"));
 
             
@@ -588,7 +623,7 @@ WriteLiteral("\', { }, \"itemid\");\r\n            $(\"#eventtable\").delegate(\
 "    if (etype == \"1\") {\r\n                    CreatePost(\'");
 
             
-            #line 142 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 148 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                            Write(Url.Action("EPaperManuallyContent"));
 
             
@@ -598,7 +633,7 @@ WriteLiteral("\', { id: $(this).attr(\'index\'), mainid: mainid });\r\n         
 "                 CreatePost(\'");
 
             
-            #line 144 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 150 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                            Write(Url.Action("EPaperContentMenu"));
 
             
@@ -609,7 +644,7 @@ WriteLiteral("\', { id: $(this).attr(\'index\'), mainid: mainid });\r\n         
 " {\r\n                $.post(\'");
 
             
-            #line 150 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 156 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                    Write(Url.Action("SetIsEdit"));
 
             
@@ -633,7 +668,7 @@ WriteLiteral("\r\n\r\n            $(\"#eventtable\").delegate(\".review\", \"cli
 "            window.open(\'");
 
             
-            #line 168 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 174 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                         Write(Url.Action("EPaperReview"));
 
             
@@ -644,7 +679,7 @@ WriteLiteral("?id=\' + $(this).attr(\'index\'), \'_blank\');\r\n            });\
 "Post(\'");
 
             
-            #line 172 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 178 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                        Write(Url.Action("EPaperItemSort"));
 
             
@@ -655,7 +690,7 @@ WriteLiteral("\', { id: $(this).attr(\'index\')});\r\n            });\r\n\r\n   
 "    obj.mainid = mainid;\r\n                    CreatePost(\'");
 
             
-            #line 178 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 184 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                            Write(Url.Action("GroupEdit"));
 
             
@@ -666,7 +701,7 @@ WriteLiteral("\', obj);\r\n            });\r\n\r\n            $(\"#btn_add\").cl
 "obj.id = -1;\r\n                CreatePost(\'");
 
             
-            #line 185 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 191 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                        Write(Url.Action("EPaperEdit"));
 
             

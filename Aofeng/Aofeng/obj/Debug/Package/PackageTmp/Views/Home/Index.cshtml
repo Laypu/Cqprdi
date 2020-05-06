@@ -106,65 +106,125 @@
                                 if (m.UploadVideoFilePath.IsNullOrEmpty() == false) //影片
                                 {
 
-                            <li class="slide-overlay" data-transition="fade">
-                                @if (!m.Link_Href.IsNullOrEmpty())
-                                {
-                                    if (m.Link_Mode == "1")
-                                    {
-                                        <a href="@m.Link_Href" title="@m.AD_Name"></a>
-                                    }
-                                    else if (m.Link_Mode == "2")
-                                    {
-                                        <a href="@m.Link_Href" title="@m.AD_Name (另開新視窗)" target="_blank"></a>
-                                    }
-                                }
-
-                                <div class="rs-background-video-layer"
-                                     data-forcerewind="on"
-                                     data-volume="mute"
-                                     data-videowidth="100%"
-                                     data-videoheight="100%"
-                                     data-videomp4="@Url.Content("~"+m.UploadVideoFilePath)"
-                                     data-videopreload="preload"
-                                     data-videoloop="loop"
-                                     data-forceCover="1"
-                                     data-aspectratio="16:9"
-                                     data-autoplay="true"
-                                     data-autoplayonlyfirsttime="false"
-                                     data-nextslideatend="true">
-                                </div>
-                            </li>
-                                }
-                                else //圖片
-                                {
-
-                                    <li data-transition="fade">
+                                    <li class="slide-overlay" data-transition="fade">
                                         @if (!m.Link_Href.IsNullOrEmpty())
                                         {
                                             if (m.Link_Mode == "1")
                                             {
-                                                <a href="@m.Link_Href" title="@m.AD_Name"></a>
+                                                <a href="@m.Link_Href" title="@m.AD_Name">
+                                                    <div class="rs-background-video-layer"
+                                                         data-forcerewind="on"
+                                                         data-volume="mute"
+                                                         data-videowidth="100%"
+                                                         data-videoheight="100%"
+                                                         data-videomp4="@Url.Content("~" + m.UploadVideoFilePath)"
+                                                         data-videopreload="preload"
+                                                         data-videoloop="loop"
+                                                         data-forceCover="1"
+                                                         data-aspectratio="16:9"
+                                                         data-autoplay="true"
+                                                         data-autoplayonlyfirsttime="false"
+                                                         data-nextslideatend="true">
+                                                    </div>
+                                                </a>
                                             }
                                             else if (m.Link_Mode == "2")
                                             {
-                                                <a href="@m.Link_Href" title="@m.AD_Name (另開新視窗)" target="_blank"></a>
+                                                <a href="@m.Link_Href" title="@m.AD_Name (另開新視窗)" target="_blank">
+                                                    <div class="rs-background-video-layer"
+                                                         data-forcerewind="on"
+                                                         data-volume="mute"
+                                                         data-videowidth="100%"
+                                                         data-videoheight="100%"
+                                                         data-videomp4="@Url.Content("~" + m.UploadVideoFilePath)"
+                                                         data-videopreload="preload"
+                                                         data-videoloop="loop"
+                                                         data-forceCover="1"
+                                                         data-aspectratio="16:9"
+                                                         data-autoplay="true"
+                                                         data-autoplayonlyfirsttime="false"
+                                                         data-nextslideatend="true">
+                                                    </div>
+                                                </a>
                                             }
                                         }
-                                        <div class="tp-caption tp-resizeme"
-                                             data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"opacity:0;x:100%;y:-100%;","to":"o:1;x:0;y:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                                             data-type="image"
-                                             data-x="center"
-                                             data-y="top"
-                                             data-width="['auto']"
-                                             data-height="['auto']"
-                                             data-basealign="slide">
-                                            <img src="@Url.Content("~/UploadImage/ADMain/"+m.Img_Name_Ori)" alt="">
-                                        </div>
+                                        else
+                                        { 
+                                            <div class="rs-background-video-layer"
+                                                 data-forcerewind="on"
+                                                 data-volume="mute"
+                                                 data-videowidth="100%"
+                                                 data-videoheight="100%"
+                                                 data-videomp4="@Url.Content("~" + m.UploadVideoFilePath)"
+                                                 data-videopreload="preload"
+                                                 data-videoloop="loop"
+                                                 data-forceCover="1"
+                                                 data-aspectratio="16:9"
+                                                 data-autoplay="true"
+                                                 data-autoplayonlyfirsttime="false"
+                                                 data-nextslideatend="true">
+                                            </div>
+                                        }
+
 
                                     </li>
+                                 }
+                                else //圖片
+                                {
+
+                                        <li data-transition="fade">
+                                            @if (!m.Link_Href.IsNullOrEmpty())
+                                            {
+                                                if (m.Link_Mode == "1")
+                                                {
+                                                    <a href="@m.Link_Href" title="@m.AD_Name">
+                                                        <div class="tp-caption tp-resizeme"
+                                                             data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"opacity:0;x:100%;y:-100%;","to":"o:1;x:0;y:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                                             data-type="image"
+                                                             data-x="center"
+                                                             data-y="top"
+                                                             data-width="['auto']"
+                                                             data-height="['auto']"
+                                                             data-basealign="slide">
+                                                            <img src="@Url.Content("~/UploadImage/ADMain/" + m.Img_Name_Ori)" alt="">
+                                                        </div>
+                                                    </a>
+                                                }
+                                                else if (m.Link_Mode == "2")
+                                                {
+                                                    <a href="@m.Link_Href" title="@m.AD_Name (另開新視窗)" target="_blank">
+                                                        <div class="tp-caption tp-resizeme"
+                                                             data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"opacity:0;x:100%;y:-100%;","to":"o:1;x:0;y:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                                             data-type="image"
+                                                             data-x="center"
+                                                             data-y="top"
+                                                             data-width="['auto']"
+                                                             data-height="['auto']"
+                                                             data-basealign="slide">
+                                                            <img src="@Url.Content("~/UploadImage/ADMain/" + m.Img_Name_Ori)" alt="">
+                                                        </div>
+                                                    </a>
+                                                }
+                                            }
+                                            else
+                                            { 
+                                                <div class="tp-caption tp-resizeme"
+                                                     data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"opacity:0;x:100%;y:-100%;","to":"o:1;x:0;y:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                                     data-type="image"
+                                                     data-x="center"
+                                                     data-y="top"
+                                                     data-width="['auto']"
+                                                     data-height="['auto']"
+                                                     data-basealign="slide">
+                                                    <img src="@Url.Content("~/UploadImage/ADMain/" + m.Img_Name_Ori)" alt="">
+                                                </div>
+                                            }
+
+
+                                        </li>
 
                                 }
-                            }
+                              }
                         </ul>
                     </div>
                 </div>
@@ -174,7 +234,7 @@
                 <div class="slider-container rev_slider_wrapper">
                     <div id="revolutionSlider" class="slider rev_slider" data-version="5.4.8" data-plugin-revolution-slider data-plugin-options="{'delay': 9000, 'gridwidth': 1170, 'gridheight': 670, 'disableProgressBar': 'on', 'responsiveLevels': [4096,1200,992,500], 'parallax': { 'type': 'scroll', 'origo': 'enterpoint', 'speed': 1000, 'levels': [2,3,4,5,6,7,8,9,12,50], 'disable_onmobile': 'on' }, 'navigation' : {'arrows': { 'enable': true }, 'bullets': {'enable': true, 'style': 'bullets-style-1', 'h_align': 'center', 'v_align': 'bottom', 'space': 7, 'v_offset': 70, 'h_offset': 0}}}">
                         <ul>
-                            @foreach (var m in Model.ListMainMobileRoller)
+                            @foreach (var m in Model.ListMainRoller)
                             {
                                 if (m.UploadVideoFilePath.IsNullOrEmpty() == false) //影片
                                 {
@@ -184,27 +244,61 @@
                                         {
                                             if (m.Link_Mode == "1")
                                             {
-                                                <a href="@m.Link_Href" title="@m.AD_Name"></a>
+                                                <a href="@m.Link_Href" title="@m.AD_Name">
+                                                    <div class="rs-background-video-layer"
+                                                         data-forcerewind="on"
+                                                         data-volume="mute"
+                                                         data-videowidth="100%"
+                                                         data-videoheight="100%"
+                                                         data-videomp4="@Url.Content("~"+m.UploadVideoFilePath)"
+                                                         data-videopreload="preload"
+                                                         data-videoloop="loop"
+                                                         data-forceCover="1"
+                                                         data-aspectratio="16:9"
+                                                         data-autoplay="true"
+                                                         data-autoplayonlyfirsttime="false"
+                                                         data-nextslideatend="true">
+                                                    </div>
+                                                </a>
                                             }
                                             else if (m.Link_Mode == "2")
                                             {
-                                                <a href="@m.Link_Href" title="@m.AD_Name (另開新視窗)" target="_blank"></a>
+                                                <a href="@m.Link_Href" title="@m.AD_Name (另開新視窗)" target="_blank">
+                                                    <div class="rs-background-video-layer"
+                                                         data-forcerewind="on"
+                                                         data-volume="mute"
+                                                         data-videowidth="100%"
+                                                         data-videoheight="100%"
+                                                         data-videomp4="@Url.Content("~"+m.UploadVideoFilePath)"
+                                                         data-videopreload="preload"
+                                                         data-videoloop="loop"
+                                                         data-forceCover="1"
+                                                         data-aspectratio="16:9"
+                                                         data-autoplay="true"
+                                                         data-autoplayonlyfirsttime="false"
+                                                         data-nextslideatend="true">
+                                                    </div>
+                                                </a>
                                             }
                                         }
-                                        <div class="rs-background-video-layer"
-                                             data-forcerewind="on"
-                                             data-volume="mute"
-                                             data-videowidth="100%"
-                                             data-videoheight="100%"
-                                             data-videomp4="@Url.Content("~"+m.UploadVideoFilePath)"
-                                             data-videopreload="preload"
-                                             data-videoloop="loop"
-                                             data-forceCover="1"
-                                             data-aspectratio="16:9"
-                                             data-autoplay="true"
-                                             data-autoplayonlyfirsttime="false"
-                                             data-nextslideatend="true">
-                                        </div>
+                                        else
+                                        { 
+                                            <div class="rs-background-video-layer"
+                                                 data-forcerewind="on"
+                                                 data-volume="mute"
+                                                 data-videowidth="100%"
+                                                 data-videoheight="100%"
+                                                 data-videomp4="@Url.Content("~" + m.UploadVideoFilePath)"
+                                                 data-videopreload="preload"
+                                                 data-videoloop="loop"
+                                                 data-forceCover="1"
+                                                 data-aspectratio="16:9"
+                                                 data-autoplay="true"
+                                                 data-autoplayonlyfirsttime="false"
+                                                 data-nextslideatend="true">
+                                            </div>
+                                        }
+                                       
                                     </li>
                                 }
                                 else //圖片
@@ -214,25 +308,52 @@
                                         {
                                             if (m.Link_Mode == "1")
                                             {
-                                                <a href="@m.Link_Href" title="@m.AD_Name"></a>
+                                                <a href="@m.Link_Href" title="@m.AD_Name">
+                                                    <div class="tp-caption tp-resizeme"
+                                                         data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"opacity:0;x:100%;y:-100%;","to":"o:1;x:0;y:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                                         data-type="image"
+                                                         data-x="center"
+                                                         data-y="top"
+                                                         data-width="['auto']"
+                                                         data-height="['auto']"
+                                                         data-basealign="slide">
+                                                        <img src="@Url.Content("~/UploadImage/ADMain/"+m.Img_Name_Ori2)" alt="">
+                                                    </div>
+                                                </a>
                                             }
                                             else if (m.Link_Mode == "2")
                                             {
-                                                <a href="@m.Link_Href" title="@m.AD_Name (另開新視窗)" target="_blank"></a>
+                                                <a href="@m.Link_Href" title="@m.AD_Name (另開新視窗)" target="_blank">
+                                                    <div class="tp-caption tp-resizeme"
+                                                         data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"opacity:0;x:100%;y:-100%;","to":"o:1;x:0;y:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                                         data-type="image"
+                                                         data-x="center"
+                                                         data-y="top"
+                                                         data-width="['auto']"
+                                                         data-height="['auto']"
+                                                         data-basealign="slide">
+                                                        <img src="@Url.Content("~/UploadImage/ADMain/"+m.Img_Name_Ori2)" alt="">
+                                                    </div>
+                                                </a>
                                             }
                                         }
-                                        <div class="tp-caption tp-resizeme"
-                                             data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"opacity:0;x:100%;y:-100%;","to":"o:1;x:0;y:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                                             data-type="image"
-                                             data-x="center"
-                                             data-y="top"
-                                             data-width="['auto']"
-                                             data-height="['auto']"
-                                             data-basealign="slide">
-                                            <img src="@Url.Content("~/UploadImage/ADMain/"+m.Img_Name_Ori)" alt="">
-                                        </div>
+                                        else
+                                            { 
+                                                <div class="tp-caption tp-resizeme"
+                                                     data-frames='[{"delay":0,"speed":2000,"frame":"0","from":"opacity:0;x:100%;y:-100%;","to":"o:1;x:0;y:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                                     data-type="image"
+                                                     data-x="center"
+                                                     data-y="top"
+                                                     data-width="['auto']"
+                                                     data-height="['auto']"
+                                                     data-basealign="slide">
+                                                    <img src="@Url.Content("~/UploadImage/ADMain/" + m.Img_Name_Ori2)" alt="">
+                                                </div>
+                                            }
+                                        
 
-                                    </li>
+
+                        </li>
 
                                 }
                             }

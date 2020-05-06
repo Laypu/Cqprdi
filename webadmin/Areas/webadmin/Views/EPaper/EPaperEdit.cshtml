@@ -17,15 +17,16 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            模組元件
+            <a href="@Url.Action("Index","Model")">模組管理</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="@Url.Action("Index")">電子報管理</a>
+            <a href="@Url.Action("ModelItem",new {mainid = ViewBag.mainid })">電子報管理</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            編輯
+            <a href="#">@ViewBag.Title 管理</a>
+            
         </li>
     </ul>
 

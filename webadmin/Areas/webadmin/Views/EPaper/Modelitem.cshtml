@@ -13,7 +13,12 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="#">電子報管理</a>
+            <a href="@Url.Action("ModelItem",new {mainid = ViewBag.mainid })">電子報管理</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">@ViewBag.Title 管理</a>
+
         </li>
     </ul>
 </div>
@@ -78,6 +83,7 @@
                     <th filed-name='Title' class="text-center" filed-type='link' filed-item-class='text-center '>電子報名稱</th>
                     <th filed-name='customertr' width="280px" class="text-center" filed-item-class="btn blue review" filed-type='function'>內容</th>
                     <th filed-name='FormatStr' width="80px" class="text-center" filed-item-class='text-center'>編輯模式</th>
+                    <th filed-name='IsPublishStr' width="80px" class="text-center" filed-item-class="text-center">發佈狀態</th>
                     <th filed-name='IsPublishStr' width="80px" class="text-center" filed-item-class="text-center">發佈狀態</th>
                     <th filed-name='Enabled' width="80px" class="text-center" filed-type='checkbox' filed-item-class="checkboxes chkstatus">前台顯示</th>
                 </tr>

@@ -31,15 +31,16 @@ namespace Oaww.Business
             string sql = @"with cte as
                             (
                             select distinct GroupID from EPaperItem s where ModelID = @Main_ID 
-                            and  s.Enabled = 1
+                            and  s.Enabled = 1 
                             
                             )
                             select * from cte  t
-                            left join GroupEPaper s on t.GroupID = s.Main_ID where Lang_ID=@Lang_ID order by sort";
+                            left join GroupEPaper s on t.GroupID = s.ID where Lang_ID=@Lang_ID order by sort";
 
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@Main_ID", Main_ID));
             base.Parameter.Add(new SqlParameter("@Lang_ID", Lang_ID));
+            
             return base.SearchList<GroupEPaper>(sql);
         }
 
@@ -264,7 +265,8 @@ namespace Oaww.Business
                     Sort = data.Sort.Value,
                     Introduction = data.Introduction,
                     IsPublished = data.IsPublished,
-                    PublishStr = data.PublishStr
+                    PublishStr = data.PublishStr,
+
                 });
             }
             

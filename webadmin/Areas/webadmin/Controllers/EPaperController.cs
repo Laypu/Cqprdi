@@ -186,6 +186,12 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             EPaperEditModel model = null;
             ViewBag.grouplist = _commonService.GetAllGroupSelectList<GroupEPaper>(mainid, int.Parse(this.LanguageID));
             ViewBag.GroupID = new SelectList(ViewBag.grouplist, "GroupID", "Group_Name");
+
+            var EPaperItemdata = _service.GetEPaperItemByID(itemid);
+
+            if (EPaperItemdata.ItemID > 0) { ViewBag.Title = EPaperItemdata.Title; }
+
+
             model = _service.GetModelByID(mainid, itemid, SET_EPAPER.M_EPAPER02);
             model.SET_EPAPER = SET_EPAPER;
             model.SET_BASE = SET_BASE;
@@ -352,6 +358,9 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         public ActionResult Subscriber(string mainid)
         {
             mainid = mainid.AntiXss();
+            var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
+
+            if (maindata.ID > 0) { ViewBag.Title = maindata.Name; }
             ViewBag.mainid = mainid;
             ViewBag.LangID = this.LanguageID;
             return View("~/Areas/webadmin/Views/EPaper/Subscriber.cshtml");

@@ -142,12 +142,66 @@ WriteLiteral(">Home</a>\r\n            <i");
 
 WriteLiteral(" class=\"fa fa-circle\"");
 
-WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            模組元件\r\n            <i");
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 789), Tuple.Create("\"", 824)
+            
+            #line 20 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 796), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
+            
+            #line default
+            #line hidden
+, 796), false)
+);
+
+WriteLiteral(">模組管理</a>\r\n            <i");
 
 WriteLiteral(" class=\"fa fa-circle\"");
 
-WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            電子報管理\r\n        </li>\r\n    </ul>\r\n" +
-"</div>\r\n<!--page bar end-->\r\n<!--message start-->\r\n<h2>電子報管理</h2>\r\n\r\n<div");
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 921), Tuple.Create("\"", 983)
+            
+            #line 24 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 928), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            
+            #line default
+            #line hidden
+, 928), false)
+);
+
+WriteLiteral(">電子報管理</a>\r\n            <i");
+
+WriteLiteral(" class=\"fa fa-circle\"");
+
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
+
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral(">");
+
+            
+            #line 28 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                   Write(ViewBag.Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" 管理</a>\r\n\r\n        </li>\r\n    </ul>\r\n</div>\r\n<!--page bar end-->\r\n<!--message sta" +
+"rt-->\r\n<div");
+
+WriteLiteral(" class=\"title_01\"");
+
+WriteLiteral(">");
+
+            
+            #line 35 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                 Write(ViewBag.Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>\r\n\r\n<div");
 
 WriteLiteral(" class=\"portlet light bordered\"");
 
@@ -175,26 +229,26 @@ WriteLiteral(" onChange=\"window.location.href=this.value\"");
 
 WriteLiteral(">\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1348), Tuple.Create("\"", 1412)
+WriteAttribute("value", Tuple.Create(" value=\"", 1609), Tuple.Create("\"", 1673)
             
-            #line 40 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 1356), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new { mainid = ViewBag.mainid })
+            #line 45 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 1617), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1356), false)
+, 1617), false)
 );
 
 WriteLiteral(">編輯管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1456), Tuple.Create("\"", 1522)
+WriteAttribute("value", Tuple.Create(" value=\"", 1717), Tuple.Create("\"", 1783)
             
-            #line 41 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 1464), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
+            #line 46 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 1725), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1464), false)
+, 1725), false)
 );
 
 WriteLiteral(">模組設定</option>\r\n                    <option");
@@ -400,7 +454,7 @@ WriteLiteral("\r\n               id=\"eventtable\"");
 WriteLiteral("\r\n               data-url=\"");
 
             
-            #line 106 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 111 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                     Write(Url.Action("PagingEpaperOrder"));
 
             
@@ -526,7 +580,7 @@ WriteLiteral(@"
         $(""#btn_add"").click(function () { CallAddDialog('");
 
             
-            #line 157 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 162 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                                                     Write(Url.Action("AddSubscriber"));
 
             
@@ -537,7 +591,7 @@ WriteLiteral("\', { sid: -1, item: \"E-Mail\", title: \"請輸入訂閱者Mail\"
 "ete(\"#btn_del\", \'#eventtable .chksel:checked\', \'");
 
             
-            #line 159 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 164 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                                                                Write(Url.Action("DelSubscriber"));
 
             
@@ -546,7 +600,7 @@ WriteLiteral("\', { sid: -1, item: \"E-Mail\", title: \"請輸入訂閱者Mail\"
 WriteLiteral("\', {});\r\n         RegisterClick(\"#eventtable\", \".chkstatus\", \'");
 
             
-            #line 160 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 165 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                                                 Write(Url.Action("SetSubscriberStatus"));
 
             
@@ -563,7 +617,7 @@ WriteLiteral(@"', {});
                 SearchModelBase.LangID = ");
 
             
-            #line 168 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 173 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                                     Write(LangID);
 
             
@@ -583,7 +637,7 @@ WriteLiteral(@";
                 SearchModelBase.LangID = ");
 
             
-            #line 179 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 184 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                                     Write(LangID);
 
             
@@ -592,7 +646,7 @@ WriteLiteral(@";
 WriteLiteral(";\r\n                CreatePost(\'");
 
             
-            #line 180 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 185 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                        Write(Url.Action("Export"));
 
             
