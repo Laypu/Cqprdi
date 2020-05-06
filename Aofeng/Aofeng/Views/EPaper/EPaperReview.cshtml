@@ -20,13 +20,13 @@
         @if (string.IsNullOrEmpty(Model.TopBannerImgName) == false)
         {
             <div style="margin-bottom: 10px;">
-                <img src="@Model.TopBannerImgUrl" alt=""  style="border-radius: 10px;box-shadow: 0px 0px 6px 2px rgba(20%,20%,20%,0.1);border: solid 1px #fff;" />
+                <img src="@Model.TopBannerImgUrl" alt="" style="border-radius: 10px;box-shadow: 0px 0px 6px 2px rgba(20%,20%,20%,0.1);border: solid 1px #fff;" />
             </div><!--建議尺寸740*185px；後台未上傳圖片時show預設圖print_banner.jpg -->
         }
         else
         {
             <div style="margin-bottom: 10px;">
-                <img src="@Url.Content("~/Content/img/print_banner.jpg")" alt=""  style="border-radius: 10px;box-shadow: 0px 0px 6px 2px rgba(20%,20%,20%,0.1);border: solid 1px #fff;width:100%" />
+                <img src="@Url.Content("~/Content/img/print_banner.jpg")" alt="" style="border-radius: 10px;box-shadow: 0px 0px 6px 2px rgba(20%,20%,20%,0.1);border: solid 1px #fff;width:100%" />
             </div><!--建議尺寸740*185px；後台未上傳圖片時show預設圖print_banner.jpg -->
         }
         <div style="color: #2b79a6;padding: 5px 0;font-size: 0.8em;">《發佈日期：@Model.PublishStr》</div>

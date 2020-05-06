@@ -135,32 +135,42 @@
             //RegisterClicklink("#eventtable", ".edit", '@Url.Action("EPaperEdit")', { idkey: "itemid", mainid: mainid},"itemid");
             RegisterClick("#eventtable", ".chkstatus", '@Url.Action("SetItemStatus")', obj);
             RegisterClick("#eventtable", ".chkhome", '@Url.Action("SetHomeStatus")', obj);
-            RegisterClick("#eventtable", ".review", '@Url.Action("EPaperReview")', { }, "itemid");
+            //RegisterClick("#eventtable", ".review", '@Url.Action("EPaperReview")', { }, "itemid");
             $("#eventtable").delegate(".epaperedit", "click", function () {
                 var etype = $(this).attr('etype');
                 if (etype == "1") {
-                    CreatePost('@Url.Action("EPaperManuallyContent")', { id: $(this).attr('index') });
+                    CreatePost('@Url.Action("EPaperManuallyContent")', { id: $(this).attr('index'), mainid: mainid });
                 } else {
-                     CreatePost('@Url.Action("EPaperContentMenu")', { id: $(this).attr('index') });
+                    CreatePost('@Url.Action("EPaperContentMenu")', { id: $(this).attr('index'), mainid: mainid });
                 }
             });
 
 
-            @*$("#eventtable").delegate(".isedit", "click", function () {
-            $.post('@Url.Action("SetIsEdit")', { "id": $(this).val(), status:true }, function (data) {alert(data); mytable.GetData(1);}); });
-            $("#sel_year").change(function () {
-                var SearchModelBase = mytable.SearchModelBase;
-                SearchModelBase.Key = $("#sel_year").val();
-                SearchModelBase.Search = "Y";
-                mytable.GetData(1);
+            $("#eventtable").delegate(".isedit", "click", function () {
+                $.post('@Url.Action("SetIsEdit")', { "id": $(this).val(), status: true }, function (data) { alert(data); mytable.GetData(1); });
             });
+
+
+
+            //$("#sel_year").change(function () {
+            //    var SearchModelBase = mytable.SearchModelBase;
+            //    SearchModelBase.Key = $("#sel_year").val();
+            //    SearchModelBase.Search = "Y";
+            //    mytable.GetData(1);
+            //});
+            
+            @*$("#eventtable").delegate(".review", "click", function () {
+
+                CreatePost('@Url.Action("EPaperReview")', { id: $(this).attr('index') });
+            });*@
 
             $("#eventtable").delegate(".review", "click", function () {
                 window.open('@Url.Action("EPaperReview")?id=' + $(this).attr('index'), '_blank');
             });
+
             $("#eventtable").delegate(".epapersort", "click", function () {
-                CreatePost('@Url.Action("EPaperItemSort")', { id: $(this).attr('index') });
-            });*@
+                CreatePost('@Url.Action("EPaperItemSort")', { id: $(this).attr('index')});
+            });
 
             $("#btn_groupmanager").click(function () {
                     var obj = {};
@@ -188,7 +198,7 @@
                 if (row['FormatStr'] == '手動') {
                     htmlstr += "<a href='#'  class='btn grey-mint epaperedit' index='" + row[tableid] + "' etype=1 role='button'>編輯</a>"
                 } else {
-                    htmlstr += "<a class='btn grey-mint epaperedit' role='button' index='" + row[tableid] + "' etype=2>編輯</a>&nbsp;<a class='btn grey-mint epapersort' role='button' index='" + row[tableid] + "'>排序</a>"
+                    htmlstr += "<a class='btn grey-mint epaperedit' role='button' index='" + row[tableid] + "' etype=2>編輯</a>&nbsp;<a class='btn grey-mint epapersort'  role='button' index='" + row[tableid] + "'>排序</a>"
                 }
             }
             htmlstr += "&nbsp;<a class='btn grey-mint review'  role='button' index='" + row[tableid] + "'>預覽</a></td>"

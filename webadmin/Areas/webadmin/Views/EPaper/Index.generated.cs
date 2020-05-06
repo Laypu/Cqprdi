@@ -323,8 +323,13 @@ WriteAttribute("src", Tuple.Create(" src=\"", 3028), Tuple.Create("\"", 3074)
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3098), Tuple.Create("\"", 3130)
-, Tuple.Create(Tuple.Create("", 3104), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
+WriteAttribute("src", Tuple.Create(" src=\"", 3098), Tuple.Create("\"", 3146)
+            
+            #line 75 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 3104), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/clipboard.min.js")
+            
+            #line default
+            #line hidden
 , 3104), false)
 );
 

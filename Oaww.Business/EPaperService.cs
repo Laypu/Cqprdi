@@ -26,21 +26,20 @@ namespace Oaww.Business
         {
             _ModelID = ModelID;
         }
-        public List<GroupEPaper> GetVaildGroupEPapers(string Main_ID)
+        public List<GroupEPaper> GetVaildGroupEPapers(string Main_ID,string Lang_ID)
         {
             string sql = @"with cte as
                             (
-                            select distinct GroupID from EPaperItem s where ModelID = @Main_ID
-                            and s.IsVerift = 1 and s.Enabled = 1
-                            and isnull(s.StDate,'1999/1/1') <= convert(date, GetDate())
-                            and isnull(s.EdDate,'9999/12/31') >= convert(date, GetDate())
+                            select distinct GroupID from EPaperItem s where ModelID = @Main_ID 
+                            and  s.Enabled = 1
+                            
                             )
-                            select t.GroupID as ID,isnull(s.Group_Name,'無分類') as Group_Name from cte  t
-                            left join GroupEPaper s on t.GroupID = s.ID";
+                            select * from cte  t
+                            left join GroupEPaper s on t.GroupID = s.Main_ID where Lang_ID=@Lang_ID order by sort";
 
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@Main_ID", Main_ID));
-
+            base.Parameter.Add(new SqlParameter("@Lang_ID", Lang_ID));
             return base.SearchList<GroupEPaper>(sql);
         }
 
@@ -49,6 +48,14 @@ namespace Oaww.Business
             string sql = @"select * from EPaperItem where ModelID in (select ListItem from dbo.SplitList(',',@idlist))";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@idlist", string.Join(",", idlist)));
+            return base.SearchList<EPaperItem>(sql);
+        }
+
+        public List<EPaperItem> GetEPaperItemsByModelID(string model_id)
+        {
+            string sql = @"select * from EPaperItem where ModelID =@model_id";
+            base.Parameter.Clear();
+            base.Parameter.Add(new SqlParameter("@model_id", model_id));
             return base.SearchList<EPaperItem>(sql);
         }
 
@@ -67,7 +74,7 @@ namespace Oaww.Business
 
         public GroupEPaper GetGroupEPaperByID(string ID)
         {
-            return _commonService.GetHisEntity<GroupEPaper>("ID", ID); ;
+            return _commonService.GetHisEntity<GroupEPaper>("ID", ID); 
         }
 
         public ModelEPaperMain GetModelEPaperMain(string ID, string lang)
@@ -853,10 +860,7 @@ namespace Oaww.Business
                 base.Parameter.Add(new SqlParameter("@Title", "%" + title + "%"));
             }
 
-            sql += @" and t.Enabled =1
-                             and  isnull(t.StDate,'1999/1/1') <= convert(date,GetDate()) 
-                             and isnull(t.EdDate,'9999/12/31') >= convert(date,GetDate()) 
-                            ";
+            sql += @" and t.Enabled =1";
 
             var Paging = new Paging<EPaperItem>();
 
@@ -984,10 +988,6 @@ namespace Oaww.Business
 
 
 
-            using (SqlConnection connection = base.OpenConnection())
-            {
-                using (SqlTransaction tran = base.GetTransaction(connection))
-                {
                     try
                     {
                         if (model.ID == -1)
@@ -1030,7 +1030,7 @@ namespace Oaww.Business
                             newmodel.ShowCount = model.ShowCount;
                             newmodel.ColumnSetting = columnsetting.ToString();
                             newmodel.Summary = model.Summary == null ? "" : model.Summary;
-                            r = (int)base.InsertObject(newmodel, tran); ;
+                            r = (int)base.InsertObject(newmodel);
                         }
                         else
                         {
@@ -1072,44 +1072,43 @@ namespace Oaww.Business
                             //newmodel.ShowCount = model.ShowCount;
                             //newmodel.ColumnSetting = columnsetting;
                             //newmodel.Summary = model.Summary == null ? "" : model.Summary;
-                            string sql2 = $@"update EPaperUnitSetting set  ClassOverview=@ClassOverview,IsRSS=@IsRSS,IsShare=@IsShare,IsPrint=@IsPrint,IsForward=@IsForward
+                            string sql2 = $@"update EPaperUnitSetting set ClassOverview=@ClassOverview,IsRSS=@IsRSS,IsShare=@IsShare,IsPrint=@IsPrint,IsForward=@IsForward
                                                                          ,ShowCount=@ShowCount,FrontPagePath = @FrontPagePath,ColumnSetting=@ColumnSetting
                                                                          ,IntroductionHtml=@IntroductionHtml,Summary=@Summary,MainID=@MainID
                                                                          ,UpdateDatetime=@UpdateDatetime,UpdateUser=@UpdateUser
                                                                          ,Column1 = @Column1,Column2 = @Column2,Column3 = @Column3,Column4 = @Column4,Column5 = @Column5
                                                                          ,Column6 = @Column6,Column7 = @Column7,Column8 = @Column8,Column9 = @Column9,Column10 = @Column10
                                                                          ,Column11 = @Column11,Column12 = @Column12,Column13 = @Column13,Column14 = @Column14,Column15 = @Column15
-                                                                         ,Column16 = @Column16,Column17 = @Column17,Column18 = @Column18,Column19 = @Column19,Column20 = @Column20
-    
-                                            where ID=@ID";
+                                                                         ,Column16 = @Column16,Column17 = @Column17,Column18 = @Column18,Column19 = @Column19,Column20 = @Column20  where ID=@ID";
                             base.Parameter.Clear();
                             base.Parameter.Add(new SqlParameter("@ID", model.ID));
-                            base.Parameter.Add(new SqlParameter("@Column1", model.Column1));
-                            base.Parameter.Add(new SqlParameter("@Column2", model.Column2));
-                            base.Parameter.Add(new SqlParameter("@Column3", model.Column3));
-                            base.Parameter.Add(new SqlParameter("@Column4", model.Column4));
-                            base.Parameter.Add(new SqlParameter("@Column5", model.Column5));
-                            base.Parameter.Add(new SqlParameter("@Column6", model.Column6));
-                            base.Parameter.Add(new SqlParameter("@Column7", model.Column7));
-                            base.Parameter.Add(new SqlParameter("@Column8", model.Column8));
-                            base.Parameter.Add(new SqlParameter("@Column9", model.Column9));
-                            base.Parameter.Add(new SqlParameter("@Column10", model.Column10));
-                            base.Parameter.Add(new SqlParameter("@Column11", model.Column11));
-                            base.Parameter.Add(new SqlParameter("@Column12", model.Column12));
-                            base.Parameter.Add(new SqlParameter("@Column13", model.Column13));
-                            base.Parameter.Add(new SqlParameter("@Column14", model.Column14));
-                            base.Parameter.Add(new SqlParameter("@Column15", model.Column15));
-                            base.Parameter.Add(new SqlParameter("@Column16", model.Column16));
-                            base.Parameter.Add(new SqlParameter("@Column17", model.Column17));
-                            base.Parameter.Add(new SqlParameter("@Column18", model.Column18));
-                            base.Parameter.Add(new SqlParameter("@Column19", model.Column19));
-                            base.Parameter.Add(new SqlParameter("@Column20", model.Column20));
-                            base.Parameter.Add(new SqlParameter("@FrontPagePath", model.FrontPagePath));
+                            base.Parameter.Add(new SqlParameter("@Column1", model.Column1 == null ? "" :model.Column1));
+                            base.Parameter.Add(new SqlParameter("@Column2", model.Column2 == null ? "" : model.Column2));
+                            base.Parameter.Add(new SqlParameter("@Column3", model.Column3 == null ? "" : model.Column3));
+                            base.Parameter.Add(new SqlParameter("@Column4", model.Column4 == null ? "" : model.Column4));
+                            base.Parameter.Add(new SqlParameter("@Column5", model.Column5 == null ? "" : model.Column5));
+                            base.Parameter.Add(new SqlParameter("@Column6", model.Column6 == null ? "" : model.Column6));
+                            base.Parameter.Add(new SqlParameter("@Column7", model.Column7 == null ? "" : model.Column7));
+                            base.Parameter.Add(new SqlParameter("@Column8", model.Column8 == null ? "" : model.Column8));
+                            base.Parameter.Add(new SqlParameter("@Column9", model.Column9 == null ? "" : model.Column9));
+                            base.Parameter.Add(new SqlParameter("@Column10", model.Column10 == null ? "" : model.Column10));
+                            base.Parameter.Add(new SqlParameter("@Column11", model.Column11 == null ? "" : model.Column11));
+                            base.Parameter.Add(new SqlParameter("@Column12", model.Column12 == null ? "" : model.Column12));
+                            base.Parameter.Add(new SqlParameter("@Column13", model.Column13 == null ? "" : model.Column13));
+                            base.Parameter.Add(new SqlParameter("@Column14", model.Column14 == null ? "" : model.Column14));
+                            base.Parameter.Add(new SqlParameter("@Column15", model.Column15 == null ? "" : model.Column15));
+                            base.Parameter.Add(new SqlParameter("@Column16", model.Column16 == null ? "" : model.Column16));
+                            base.Parameter.Add(new SqlParameter("@Column17", model.Column17 == null ? "" : model.Column17));
+                            base.Parameter.Add(new SqlParameter("@Column18", model.Column18 == null ? "" : model.Column18));
+                            base.Parameter.Add(new SqlParameter("@Column19", model.Column19 == null ? "" : model.Column19));
+                            base.Parameter.Add(new SqlParameter("@Column20", model.Column20 == null ? "" : model.Column20));
+                            base.Parameter.Add(new SqlParameter("@FrontPagePath", model.FrontPagePath == null ? "" : model.FrontPagePath));
+                            base.Parameter.Add(new SqlParameter("@Summary", model.Summary == null ? "" : model.Summary)); 
                             base.Parameter.Add(new SqlParameter("@ClassOverview", model.ClassOverview));
-                            base.Parameter.Add(new SqlParameter("@IsRSS", model.IsRSS));
+                            base.Parameter.Add(new SqlParameter("@IsRSS", model.IsRSS ));
                             base.Parameter.Add(new SqlParameter("@IsShare", model.IsShare));
                             base.Parameter.Add(new SqlParameter("@IsPrint", model.IsPrint));
-                            base.Parameter.Add(new SqlParameter("@IntroductionHtml", model.IntroductionHtml));
+                            base.Parameter.Add(new SqlParameter("@IntroductionHtml", model.IntroductionHtml == null ? "" : model.IntroductionHtml));
                             base.Parameter.Add(new SqlParameter("@IsForward", model.IsForward));
                             base.Parameter.Add(new SqlParameter("@ShowCount", model.ShowCount));
                             base.Parameter.Add(new SqlParameter("@UpdateUser", account));
@@ -1117,23 +1116,37 @@ namespace Oaww.Business
                             base.Parameter.Add(new SqlParameter("@ColumnSetting", columnsetting.ToString()));
                             base.Parameter.Add(new SqlParameter("@MainID", model.MainID));
 
-                            r = base.ExeNonQuery(sql2, tran);
+                            r = base.ExeNonQuery(sql2);
                         }
                         string sql = "delete ColumnSetting where Type=@Type and MainID=@MainID";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@Type", Type));
                         base.Parameter.Add(new SqlParameter("@MainID", model.MainID));
-                        base.ExeNonQuery(sql, tran);
+                                                
+                        base.ExeNonQuery(sql);
 
                         if (model.columnSettings != null)
                         {
+                            var i = 0;
+                            
                             model.columnSettings.ForEach(t =>
                             {
-                                base.InsertObject(t, tran);
+                                base.Parameter.Clear();
+                                sql = "insert into ColumnSetting ([Type],[MainID],[ColumnKey],[ColumnName],[Used],[Sort]) " +
+                                                          "values(@Type,@MainID,@ColumnKey,@ColumnName,@Used,@Sort)";
+                                base.Parameter.Add(new SqlParameter("@Type", Type));
+                                base.Parameter.Add(new SqlParameter("@MainID", model.MainID));
+                                base.Parameter.Add(new SqlParameter("@ColumnKey", model.columnSettings[i].ColumnKey));
+                                base.Parameter.Add(new SqlParameter("@ColumnName", model.columnSettings[i].ColumnName));
+                                base.Parameter.Add(new SqlParameter("@Used", model.columnSettings[i].Used));
+                                base.Parameter.Add(new SqlParameter("@Sort", model.columnSettings[i].Sort));
+                                base.ExeNonQuery(sql);
+                                i++;
+
                             });
                         }
 
-                        tran.Commit();
+                        
                         if (r > 0)
                         {
                             return "修改成功";
@@ -1146,14 +1159,12 @@ namespace Oaww.Business
                     }
                     catch (Exception ex)
                     {
-                        tran.Rollback();
+                        
                         logger.Error(ex, "修改單元設定異常，ex:" + ex.ToString().NewLineReplace());
                         return "系統異常，請通知資訊人員！";
                     }
 
-                }
                 
-            }
         }
 
         public Paging<EPaperSubscriber> PagingEpaperOrder(SubscriberSearchModel model)
@@ -1257,44 +1268,43 @@ namespace Oaww.Business
         }
         #endregion
 
-        //#region DelSubscriber
-        //public string DelSubscriber(string[] idlist, string delaccount, string langid, string account, string username)
-        //{
-        //    try
-        //    {
-        //        bool r ;
-        //        for (var idx = 0; idx < idlist.Length; idx++)
-        //        {
-        //            var model= new EPaperSubscriber();
-        //            model.ID = int.Parse(idlist[idx]);
-        //            r = base.DeleteObject(model);
-        //            if (r <= 0)
-        //            {
-        //                NLogManagement.SystemLogInfo("刪除訂閱者單元成功:ID=" + idlist[idx]);
-        //            }
-        //            else
-        //            {
-        //            }
-        //        }
-        //        var rstr = "";
-        //        if (r >= 0)
-        //        {
-        //            NLogManagement.SystemLogInfo("刪除訂閱者單元失敗:" + delaccount);
-        //            rstr = "取消訂閱成功";
-        //        }
-        //        else
-        //        {
-        //            rstr = "取消訂閱失敗";
-        //        }
-        //        return rstr;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        NLogManagement.SystemLogInfo("刪除訂閱者單元失敗:" + ex.Message);
-        //        return "取消訂閱失敗";
-        //    }
-        //}
-        //#endregion
+        #region DelSubscriber
+        
+        public string CancelSubscriber(string email, string delaccount)
+        {
+            try
+            {
+                var r = 0;
+                string sql = string.Empty;
+                using (SqlConnection connection = base.OpenConnection())
+                {
+                    using (SqlTransaction tran = base.GetTransaction(connection))
+                    {
+                        sql = "delete EPaperSubscriber where UPPER(EMail)=@EMail";
+                        base.Parameter.Clear();
+                        base.Parameter.Add(new SqlParameter("@EMail", email.ToUpper()));
+                        r = base.ExeNonQuery(sql);
+                        if (r >= 0)
+                        {
+                            tran.Commit();
+                            return "取消訂閱成功";
+                        }
+                        else
+                        {
+                            return "取消訂閱失敗";
+                        }
+
+                    }
+                }
+             }
+            catch (Exception ex)
+            {
+                
+                return "取消訂閱失敗";
+            }
+        }
+        #endregion
+        
 
 
 
@@ -1717,15 +1727,15 @@ namespace Oaww.Business
         #region SavePaperManuallyContent
         public string SavePaperManuallyContent(string id, string content)
         {
-            var model = _commonService.GetGeneral<EPaperContent>("EPaperID=@EPaperID", new Dictionary<string, string>() { { "EPaperID",id } });
-
+            var model = _commonService.GetGeneralList<EPaperContent>("EPaperID=@EPaperID", new Dictionary<string, string>() { { "EPaperID",id } });
+            
             var r = 0;
             var sql = "";
             using (SqlConnection connection = base.OpenConnection())
             {
                 using (SqlTransaction tran = base.GetTransaction(connection))
                 {
-                    if (model != null)
+                    if (model.Count() !=0)
                     {
                         sql = "update EPaperContent set EPaperHtmlContent=@EPaperHtmlContent where EPaperID =@EPaperID ";
                         
@@ -1760,6 +1770,346 @@ namespace Oaww.Business
         }
         #endregion
 
+        #region GetSortTable 電子報排序
+        public string GetSortTable(string id)
+        {
+
+
+            var list = _commonService.GetGeneralList<EPaperAutoItem>("EPaperID=@EPaperID Order By GroupSortID", new Dictionary<string, string> { { "EPaperID", id } }).OrderBy(v => v.MenuLevel1Sort)
+                .ThenBy(v => v.MenuLevel2Sort).ThenBy(v => v.MenuLevel3Sort).ThenBy(v => v.Sort);
+
+
+
+            var grouplist = list.GroupBy(v => v.MenuID);
+            var sb = new System.Text.StringBuilder();
+            foreach (var g1 in grouplist)
+            {
+                var menu = _commonService.GetGeneralList<Menu>("ID=@ID", new Dictionary<string, string>() { { "ID", list.First().MenuID.ToString() } });
+
+                var lists = g1.ToList().OrderBy(v => v.Sort);
+                if (menu.Count() > 0 && lists.Count() > 0)
+                {
+                    sb.Append("<div class='table-scrollable'>");
+                    sb.Append("<table class='table table-bordered table-hover' border='0' cellspacing='0' cellpadding='0'>");
+                    sb.Append("<thead><tr class='bg-grey_1' filed-class='odd gradeX'>");
+                    sb.Append("<th class='text-center' width='80px'>刪除</th><th class='text-center' width='100px'>排序</th><th class='text-center'>標題</th></thead><tbody>");
+
+                    //訊息模組
+                    if (lists.First().ModelID == 2)
+                    {
+                        var itemlist = _commonService.GetGeneralList<MessageItem>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", list.First().MainID.ToString() } });
+
+                        foreach (var item in lists)
+                        {
+                            var citem = itemlist.Where(v => v.ItemID == item.ItemID);
+                            if (citem.Count() > 0)
+                            {
+                                sb.Append("<tr><td class='text-center'><label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'><input type='checkbox' class='checkboxes' id='"
+                                    + (item.EPaperID + "_" + item.MenuID + "_" + item.ItemID) + "'/><span></span></label></td>");
+                                sb.Append("<td class='text-center'><input type='hidden' value='" + item.Sort + "'/>" +
+                                 "<input  type='text'  value='" + item.Sort + "' class='editinput form-control input-xsmall sortedit' idindex='" +
+                                (item.EPaperID + "_" + item.MenuID + "_" + item.ItemID) + "'/><span class='required seqerror' style='color:red;display:none;margin-left:5px;font-size:12px'></span></td>");
+                                sb.Append("<td class='text-center'>" + citem.First().Title + "</td></tr>");
+                            }
+                        }
+                    }
+                    //活動模組
+                    //else if (lists.First().ModelID == 3)
+                    //{
+                    //    var itemlist = _commonService.GetGeneralList<>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", list.First().MainID.ToString() } });
+
+                    //    var itemlist = _activesqlrepository.GetByWhere("ModelID=@1", new object[] { lists.First().MainID });
+                    //    foreach (var item in lists)
+                    //    {
+                    //        var citem = itemlist.Where(v => v.ItemID == item.ItemID);
+                    //        if (citem.Count() > 0)
+                    //        {
+                    //            sb.Append("<tr><td class='text-center'><label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'><input type='checkbox' class='checkboxes' id='"
+                    //          + (item.EPaperID + "_" + item.MenuID + "_" + item.ItemID) + "'/><span></span></label></td>");
+                    //            sb.Append("<td class='text-center'><input type='hidden' value='" + item.Sort + "'/>" +
+                    //             "<input  type='text'  value='" + item.Sort + "' class='editinput form-control input-xsmall sortedit' idindex='" +
+                    //            (item.EPaperID + "_" + item.MenuID + "_" + item.ItemID) + "'/><span class='required seqerror' style='color:red;display:none;margin-left:5px;font-size:12px'></span></td>");
+                    //            sb.Append("<td class='text-center'>" + citem.First().Title + "</td></tr>");
+                    //        }
+                    //    }
+                    //}
+                    //else if (lists.First().ModelID == 4)
+                    //{
+                    //    var itemlist = _filedownloaditemsqlrepository.GetByWhere("ModelID=@1", new object[] { lists.First().MainID });
+                    //    foreach (var item in lists)
+                    //    {
+                    //        var citem = itemlist.Where(v => v.ItemID == item.ItemID);
+                    //        if (citem.Count() > 0)
+                    //        {
+                    //            sb.Append("<tr><td class='text-center'><label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'><input type='checkbox' class='checkboxes' id='"
+                    //          + (item.EPaperID + "_" + item.MenuID + "_" + item.ItemID) + "'/><span></span></label></td>");
+                    //            sb.Append("<td class='text-center'><input type='hidden' value='" + item.Sort + "'/>" +
+                    //             "<input  type='text'  value='" + item.Sort + "' class='editinput form-control input-xsmall sortedit' idindex='" +
+                    //            (item.EPaperID + "_" + item.MenuID + "_" + item.ItemID) + "'/><span class='required seqerror' style='color:red;display:none;margin-left:5px;font-size:12px'></span></td>");
+                    //            sb.Append("<td class='text-center'>" + citem.First().Title + "</td></tr>");
+                    //        }
+                    //    }
+                    //}
+                    //else if (lists.First().ModelID == 7)
+                    //{
+                    //    var itemlist = _articlesqlrepository.GetByWhere("ModelID=@1", new object[] { lists.First().MainID });
+                    //    foreach (var item in lists)
+                    //    {
+                    //        var citem = itemlist.Where(v => v.ItemID == item.ItemID);
+                    //        if (citem.Count() > 0)
+                    //        {
+                    //            sb.Append("<tr><td class='text-center'><label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'><input type='checkbox' class='checkboxes' id='"
+                    //        + (item.EPaperID + "_" + item.MenuID + "_" + item.ItemID) + "'/><span></span></label></td>");
+                    //            sb.Append("<td class='text-center'><input type='hidden' value='" + item.Sort + "'/>" +
+                    //             "<input  type='text'  value='" + item.Sort + "' class='editinput form-control input-xsmall sortedit' idindex='" +
+                    //            (item.EPaperID + "_" + item.MenuID + "_" + item.ItemID) + "'/><span class='required seqerror' style='color:red;display:none;margin-left:5px;font-size:12px'></span></td>");
+                    //            sb.Append("<td class='text-center'>" + citem.First().Title + "</td></tr>");
+                    //        }
+                    //    }
+                    //}
+
+                    sb.Append("</tbody></table></div>");
+                }
+            }
+            return sb.ToString();
+        }
+        #endregion
+
+        #region GetEPaperItemEdit
+        public List<EPaperItemEdit> GetEPaperItemEdit(string id)
+        {
+            var model = new List<EPaperItemEdit>();
+            UrlHelper helper = new UrlHelper(HttpContext.Current.Request.RequestContext);
+            //var list = _epaperitemsqlrepository.GetByWhere("EPaperID=@1", new object[] { id }).OrderBy(v=>v.MenuLevel1Sort)
+            //    .ThenBy(v => v.MenuLevel2Sort).ThenBy(v => v.MenuLevel3Sort).ThenBy(v=>v.Sort);
+            var list = _commonService.GetGeneralList<EPaperAutoItem>("EPaperID=@EPaperID Order By GroupSortID", new Dictionary<string, string> { { "EPaperID", id } });
+            var grouplist = list.GroupBy(v => v.MenuID);
+            foreach (var g1 in grouplist)
+            {
+                var g2list = g1.OrderBy(v => v.Sort).GroupBy(x => x.MainID);
+                foreach (var g2 in g2list)
+                {
+                    var EPaperItemEdit = new EPaperItemEdit();
+                    if (g1.Count() > 0)
+                    {
+                        EPaperItemEdit.MenuID = g1.First().MenuID.ToString();
+                        EPaperItemEdit.SortID = g1.First().GroupSortID;
+                        EPaperItemEdit.MainID = g1.First().MainID.ToString();
+                    }
+
+                    EPaperItemEdit.ItemName = new List<string>();
+                    EPaperItemEdit.ItemUrl = new List<string>();
+                    EPaperItemEdit.ItemKey = new List<string>();
+
+                    var modelid = g2.First().ModelID;
+                    foreach (var item in g2.ToList())
+                    {
+                        EPaperItemEdit.ItemKey.Add(item.ModelID + "_" + item.ItemID + "_" + item.MenuID + "_" + item.MainID);
+                    }
+                    if (modelid == 2)
+                    {
+                        var maindata = _commonService.GetGeneralList<ModelMessageMain>("ID=@ID", new Dictionary<string, string>() { { "ID", g2.Key.ToString() } });
+
+                        if (maindata.Count() == 0)
+                        {
+                            continue;
+                        }
+                        EPaperItemEdit.Name = maindata.First().Name;
+                        var itemlist = _commonService.GetGeneralList<MessageItem>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", g2.Key.ToString() } });
+
+                        foreach (var item in g2.ToList())
+                        {
+                            var data = itemlist.Where(v => v.ItemID == item.ItemID);
+                            if (data.Count() > 0)
+                            {
+                                EPaperItemEdit.ItemName.Add(data.First().Title);
+                                EPaperItemEdit.ItemUrl.Add(helper.Action("MessageView", "Message", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
+                            }
+                        }
+                    }
+                    //else if (modelid == 3)
+                    //{
+                    //    var maindata = _activemainsqlrepository.GetByWhere("ID=@1", new object[] { g2.Key });
+                    //    if (maindata.Count() == 0)
+                    //    {
+                    //        continue;
+                    //    }
+                    //    EPaperItemEdit.Name = maindata.First().Name;
+                    //    var itemlist = _activesqlrepository.GetByWhere("ModelID=@1", new object[] { g2.Key });
+                    //    foreach (var item in g2.ToList())
+                    //    {
+                    //        var data = itemlist.Where(v => v.ItemID == item.ItemID);
+                    //        if (data.Count() > 0)
+                    //        {
+                    //            EPaperItemEdit.ItemName.Add(data.First().Title);
+                    //            EPaperItemEdit.ItemUrl.Add(helper.Action("ActiveView", "Active", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
+                    //        }
+                    //    }
+                    //}
+                    //else if (modelid == 4)
+                    //{
+                    //    var maindata = _filedownloadsqlrepository.GetByWhere("ID=@1", new object[] { g2.Key });
+                    //    if (maindata.Count() == 0)
+                    //    {
+                    //        continue;
+                    //    }
+                    //    EPaperItemEdit.Name = maindata.First().Name;
+                    //    var itemlist = _filedownloaditemsqlrepository.GetByWhere("ModelID=@1", new object[] { g2.Key });
+                    //    foreach (var item in g2.ToList())
+                    //    {
+                    //        var data = itemlist.Where(v => v.ItemID == item.ItemID);
+                    //        if (data.Count() > 0)
+                    //        {
+                    //            EPaperItemEdit.ItemName.Add(data.First().Title);
+                    //            EPaperItemEdit.ItemUrl.Add(helper.Action("Index", "Download", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
+                    //        }
+                    //    }
+                    //}
+                    //else if (modelid == 7)
+                    //{
+                    //    var maindata = _articlemainsqlrepository.GetByWhere("ID=@1", new object[] { g2.Key });
+                    //    if (maindata.Count() == 0)
+                    //    {
+                    //        continue;
+                    //    }
+                    //    EPaperItemEdit.Name = maindata.First().Name;
+                    //    var itemlist = _articlesqlrepository.GetByWhere("ModelID=@1", new object[] { g2.Key });
+                    //    foreach (var item in g2.ToList())
+                    //    {
+                    //        var data = itemlist.Where(v => v.ItemID == item.ItemID);
+                    //        if (data.Count() > 0)
+                    //        {
+                    //            EPaperItemEdit.ItemName.Add(data.First().Title);
+                    //            EPaperItemEdit.ItemUrl.Add(helper.Action("ArticleView", "Article", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
+                    //        }
+                    //    }
+                    //}
+                    model.Add(EPaperItemEdit);
+                }
+
+
+            }
+            return model;
+        }
+        #endregion
+
+        #region DeleteEPaperItemSort 刪除SORT
+        public string DeleteEPaperItemSort(string[] delarrid, string EPaperID)
+        {//
+            
+            try
+            {
+                if (delarrid.Length == 0) { return "更新成功"; }
+                var r = 0;
+                var sql = "";
+                foreach (var delid in delarrid)
+                {
+                    if (delid.IndexOf("chk_m_") == 0)
+                    {
+                        var menuid = delid.Replace("chk_m_", "");
+                        sql = "delete from EPaperAutoItem where EPaperID=@EPaperID and MenuID = @menuid";
+                        base.Parameter.Clear();
+                        base.Parameter.Add(new SqlParameter("@menuid", menuid));
+                        base.Parameter.Add(new SqlParameter("@EPaperID", EPaperID));
+                        base.ExeNonQuery(sql);
+                    }
+                    else
+                    {
+                        var subitemkey = delid.Replace("chk_s_", "");
+                        var keys = subitemkey.Split('_');
+                        sql = "delete from EPaperAutoItem where EPaperID=@EPaperID and ModelID=@ModelID and ItemID=@ItemID and MenuID=@MenuID and MainID=@MainID";
+                        base.Parameter.Clear();
+                        base.Parameter.Add(new SqlParameter("@EPaperID", EPaperID));
+                        base.Parameter.Add(new SqlParameter("@ModelID", keys[0] ));
+                        base.Parameter.Add(new SqlParameter("@ItemID", keys[1] ));
+                        base.Parameter.Add(new SqlParameter("@MenuID", keys[2]));
+                        base.Parameter.Add(new SqlParameter("@MainID", keys[3]));
+                        base.ExeNonQuery(sql);
+                    }
+                }
+                var allitem =_commonService.GetGeneralList<EPaperAutoItem>("EPaperID=@EPaperID Order by GroupSortID,Sort", new Dictionary<string, string>() { { "EPaperID", EPaperID } });
+                var grouplist = allitem.GroupBy(v => v.MenuID).ToList();
+                for (var gidx = 0; gidx < grouplist.Count(); gidx++) {
+                    var menuid = grouplist[gidx].Key;
+                    sql = "update EPaperAutoItem set GroupSortID=@GroupSortID where EPaperID =@EPaperID and MenuID = @MenuID";
+                    base.Parameter.Clear();
+                    base.Parameter.Add(new SqlParameter("@EPaperID", EPaperID));
+                    base.Parameter.Add(new SqlParameter("@GroupSortID", gidx + 1));
+                    base.Parameter.Add(new SqlParameter("@MenuID", menuid));
+
+                    base.ExeNonQuery(sql);
+                    
+                    if (r > 0) {
+                        var subitem = grouplist[gidx].OrderBy(v=>v.Sort).ToList();
+                        for (var sidx = 0; sidx < subitem.Count(); sidx++)
+                        {
+                            sql = "update EPaperAutoItem set Sort=@Sort where EPaperID =@EPaperID and ModelID=@ModelID and ItemID=@ItemID and MenuID = @MenuID and MainID=@MainID";
+                            base.Parameter.Clear();
+                            base.Parameter.Add(new SqlParameter("@Sort", sidx + 1));
+                            base.Parameter.Add(new SqlParameter("@EPaperID", EPaperID));
+                            base.Parameter.Add(new SqlParameter("@ModelID", subitem[sidx].ModelID));
+                            base.Parameter.Add(new SqlParameter("@ItemID", subitem[sidx].ItemID));
+                            base.Parameter.Add(new SqlParameter("@MainID", subitem[sidx].MainID));
+                            base.Parameter.Add(new SqlParameter("@MenuID", subitem[sidx].MenuID));
+                            base.ExeNonQuery(sql);
+
+                        }
+                    }
+                }
+                //_siteconfigqlrepository.Update("LastUpdateDate=@1", "", new object[] { DateTime.Now.ToString("yyyy/MM/dd") });
+                return "更新成功";
+            }
+            catch (Exception ex) {
+                return "更新失敗";
+            }
+        }
+        #endregion
+
+
+        #region SetIsEdit 發佈
+        public string SetIsEdit(string id, bool status, string account, string username)
+        {
+            using (SqlConnection connection = base.OpenConnection())
+            {
+                using (SqlTransaction tran = base.GetTransaction(connection))
+                {
+                    try
+                    {
+                        var r = 0;
+                        var entity = new EPaperItem();
+                        entity.IsPublished = status ? true : false;
+                        entity.ItemID = int.Parse(id);
+                        var sql = "update EPaperItem set IsPublished=@IsPublished where ItemID=@ItemID";
+                        base.Parameter.Clear();
+                        base.Parameter.Add(new SqlParameter("@IsPublished", entity.IsPublished));
+                        base.Parameter.Add(new SqlParameter("@ItemID", entity.ItemID));
+                        r = base.ExeNonQuery(sql, tran);
+                        if (r >= 0)
+                        {
+                            
+                            tran.Commit();
+                            return "更新成功";
+                        }
+                        else
+                        {
+                            return "更新失敗";
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex, "刪除訊息模組異常,error:" + ex.ToString().NewLineReplace());
+
+                        tran.Rollback();
+                        return "更新失敗";
+                    }
+
+                }
+            }
+
+                    
+        }
+        #endregion
 
     }
 } 
