@@ -1155,7 +1155,7 @@ html:not(.sticky-header-active) #header.header-transparent-sticky-deactive .head
 	}
 
 	html.sticky-header-enabled #header .header-nav-main {
-		max-height: 170px;
+		max-height: 80vh /*170px*/;
 		overflow-x: hidden;
 		overflow-y: auto;
 	}

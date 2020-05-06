@@ -1177,6 +1177,8 @@
     <Content Include="Views\Form\ConfirmContent.cshtml" />
     <Content Include="Views\SiteMap\Index.cshtml" />
     <Content Include="Views\Public\FileNotFound.cshtml" />
+    <Content Include="Views\EPaper\Index.cshtml" />
+    <Content Include="Views\EPaper\EPaperReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1186,7 +1188,6 @@
     <Folder Include="fonts\_notes\" />
     <Folder Include="UploadFile\FileDownloadItem\" />
     <Folder Include="UploadFile\VideoItem\" />
-    <Folder Include="Views\EPaper\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

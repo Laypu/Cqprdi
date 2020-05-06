@@ -185,10 +185,10 @@ WriteLiteral(" onChange=\"window.location.href=this.value\"");
 
 WriteLiteral(">\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1457), Tuple.Create("\"", 1485)
+WriteAttribute("value", Tuple.Create(" value=\"", 1457), Tuple.Create("\"", 1521)
             
             #line 45 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 1465), Tuple.Create<System.Object, System.Int32>(Url.Action("Index")
+, Tuple.Create(Tuple.Create("", 1465), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
@@ -201,14 +201,14 @@ WriteLiteral(" value=\"#\"");
 
 WriteLiteral(" selected>模組設定</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1591), Tuple.Create("\"", 1624)
+WriteAttribute("value", Tuple.Create(" value=\"", 1627), Tuple.Create("\"", 1692)
             
             #line 47 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 1599), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber")
+, Tuple.Create(Tuple.Create("", 1635), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1599), false)
+, 1635), false)
 );
 
 WriteLiteral(">訂閱者管理</option>\r\n                </select>\r\n            </div>\r\n        </div>\r\n " +
@@ -220,14 +220,14 @@ WriteLiteral(" method=\"Post\"");
 
 WriteLiteral(" id=\"editform\"");
 
-WriteAttribute("action", Tuple.Create(" action=\'", 1841), Tuple.Create("\'", 1873)
+WriteAttribute("action", Tuple.Create(" action=\'", 1909), Tuple.Create("\'", 1941)
             
             #line 54 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-    , Tuple.Create(Tuple.Create("", 1850), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveUnit")
+    , Tuple.Create(Tuple.Create("", 1918), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveUnit")
             
             #line default
             #line hidden
-, 1850), false)
+, 1918), false)
 );
 
 WriteLiteral(">\r\n");
@@ -279,17 +279,8 @@ WriteLiteral("                        ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
+WriteLiteral("\r\n                       ");
 
-WriteLiteral("                        ");
-
-            
-            #line 63 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                   Write(Html.HiddenFor(Model => Model.ID));
-
-            
-            #line default
-            #line hidden
 WriteLiteral("\r\n                        <div");
 
 WriteLiteral(" class=\"form-group\"");
@@ -354,25 +345,25 @@ WriteLiteral("                                                <tr");
 
 WriteLiteral(" class=\"odd gradeX tr_col\"");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 3467), Tuple.Create("\"", 3479)
-, Tuple.Create(Tuple.Create("", 3472), Tuple.Create("tr_", 3472), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 3538), Tuple.Create("\"", 3550)
+, Tuple.Create(Tuple.Create("", 3543), Tuple.Create("tr_", 3543), true)
             
             #line 80 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-     , Tuple.Create(Tuple.Create("", 3475), Tuple.Create<System.Object, System.Int32>(idx
+     , Tuple.Create(Tuple.Create("", 3546), Tuple.Create<System.Object, System.Int32>(idx
             
             #line default
             #line hidden
-, 3475), false)
+, 3546), false)
 );
 
-WriteAttribute("seqidx", Tuple.Create(" seqidx=\"", 3480), Tuple.Create("\"", 3497)
+WriteAttribute("seqidx", Tuple.Create(" seqidx=\"", 3551), Tuple.Create("\"", 3568)
             
             #line 80 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                    , Tuple.Create(Tuple.Create("", 3489), Tuple.Create<System.Object, System.Int32>(idx+1
+                    , Tuple.Create(Tuple.Create("", 3560), Tuple.Create<System.Object, System.Int32>(idx+1
             
             #line default
             #line hidden
-, 3489), false)
+, 3560), false)
 );
 
 WriteLiteral(">\r\n                                                    <td");
@@ -427,79 +418,61 @@ WriteLiteral("><i");
 
 WriteLiteral(" class=\"fa fa-angle-double-down\"");
 
-WriteLiteral("></i></button>\r\n                                                        <input");
+WriteLiteral("></i></button>\r\n                                                        \r\n       " +
+"                                             </td>\r\n                            " +
+"                        <td");
 
-WriteLiteral(" type=\"hidden\"");
+WriteLiteral(" style=\"display:none\"");
 
-WriteLiteral(" id=\"Type\"");
+WriteLiteral(" class=\"ColumnKey\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 4373), Tuple.Create("\"", 4412)
-            
-            #line 86 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-              , Tuple.Create(Tuple.Create("", 4381), Tuple.Create<System.Object, System.Int32>(Model.columnSettings[idx].Type
-            
-            #line default
-            #line hidden
-, 4381), false)
-);
+WriteLiteral(">");
 
-WriteLiteral(" />\r\n                                                        <input");
-
-WriteLiteral(" type=\"hidden\"");
-
-WriteLiteral(" id=\"MainID\"");
-
-WriteAttribute("value", Tuple.Create(" value=\"", 4506), Tuple.Create("\"", 4547)
-            
-            #line 87 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                , Tuple.Create(Tuple.Create("", 4514), Tuple.Create<System.Object, System.Int32>(Model.columnSettings[idx].MainID
-            
-            #line default
-            #line hidden
-, 4514), false)
-);
-
-WriteLiteral(" />\r\n                                                        <input");
-
-WriteLiteral(" type=\"hidden\"");
-
-WriteLiteral(" id=\"ColumnKey\"");
-
-WriteAttribute("value", Tuple.Create(" value=\"", 4644), Tuple.Create("\"", 4688)
             
             #line 88 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                   , Tuple.Create(Tuple.Create("", 4652), Tuple.Create<System.Object, System.Int32>(Model.columnSettings[idx].ColumnKey
+                                                                                          Write(Model.columnSettings[idx].ColumnKey);
+
             
             #line default
             #line hidden
-, 4652), false)
-);
+WriteLiteral("</td>\r\n                                                    <td");
 
-WriteLiteral(" />\r\n                                                        <input");
+WriteLiteral(" style=\"display:none\"");
 
-WriteLiteral(" type=\"hidden\"");
+WriteLiteral(" class=\"Type\"");
 
-WriteLiteral(" id=\"ColumnName\"");
+WriteLiteral(">");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 4786), Tuple.Create("\"", 4831)
             
             #line 89 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                    , Tuple.Create(Tuple.Create("", 4794), Tuple.Create<System.Object, System.Int32>(Model.columnSettings[idx].ColumnName
+                                                                                     Write(Model.columnSettings[idx].Type);
+
             
             #line default
             #line hidden
-, 4794), false)
-);
+WriteLiteral("</td>\r\n                                                    <td");
 
-WriteLiteral(" />\r\n                                                    </td>\r\n                 " +
-"                                   <td");
+WriteLiteral(" style=\"display:none\"");
+
+WriteLiteral(" class=\"MainID\"");
+
+WriteLiteral(">");
+
+            
+            #line 90 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+                                                                                       Write(Model.columnSettings[idx].MainID);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n\r\n                                                    <td");
 
 WriteLiteral(" class=\"text-center columnname\"");
 
 WriteLiteral(">");
 
             
-            #line 91 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 92 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                                                                   Write(Model.columnSettings[idx].ColumnName);
 
             
@@ -519,11 +492,22 @@ WriteLiteral(" class=\"chkstatus\"");
 
 WriteLiteral(" type=\"checkbox\"");
 
+WriteAttribute("id", Tuple.Create(" id=\"", 5308), Tuple.Create("\"", 5322)
+, Tuple.Create(Tuple.Create("", 5313), Tuple.Create("Used_", 5313), true)
+            
+            #line 95 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+                              , Tuple.Create(Tuple.Create("", 5318), Tuple.Create<System.Object, System.Int32>(idx
+            
+            #line default
+            #line hidden
+, 5318), false)
+);
+
 WriteLiteral(" ");
 
             
-            #line 94 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                                                                                                 Write(Model.columnSettings[idx].Used == true ? "checked='checked'" : "");
+            #line 95 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+                                                                                                                Write(Model.columnSettings[idx].Used == true ? "checked" : "");
 
             
             #line default
@@ -533,7 +517,7 @@ WriteLiteral("><span></span>\r\n                                                
 "                            </tr>\r\n");
 
             
-            #line 98 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 99 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                             }
                                         
             
@@ -568,13 +552,13 @@ WriteLiteral(" name=\"ShowCount\"");
 WriteLiteral(">\r\n\r\n");
 
             
-            #line 111 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 112 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                     
             
             #line default
             #line hidden
             
-            #line 111 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 112 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                      foreach (var m in SET_EPAPER.M_EPAPER13.Split(','))
                                     {
 
@@ -583,20 +567,20 @@ WriteLiteral(">\r\n\r\n");
             #line hidden
 WriteLiteral("                                        <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 6408), Tuple.Create("\"", 6418)
+WriteAttribute("value", Tuple.Create(" value=\"", 6392), Tuple.Create("\"", 6402)
             
-            #line 113 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 6416), Tuple.Create<System.Object, System.Int32>(m
+            #line 114 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+, Tuple.Create(Tuple.Create("", 6400), Tuple.Create<System.Object, System.Int32>(m
             
             #line default
             #line hidden
-, 6416), false)
+, 6400), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 113 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 114 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                                       Write(m);
 
             
@@ -605,7 +589,7 @@ WriteLiteral(">");
 WriteLiteral("</option>\r\n");
 
             
-            #line 114 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 115 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                     }
 
             
@@ -614,15 +598,15 @@ WriteLiteral("</option>\r\n");
 WriteLiteral("                                </select>\r\n                            </div>\r\n  " +
 "                      </div>\r\n                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 6611), Tuple.Create("\"", 6671)
-, Tuple.Create(Tuple.Create("", 6619), Tuple.Create("form-group", 6619), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 6595), Tuple.Create("\"", 6655)
+, Tuple.Create(Tuple.Create("", 6603), Tuple.Create("form-group", 6603), true)
             
-            #line 118 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create(" ", 6629), Tuple.Create<System.Object, System.Int32>(SET_EPAPER.M_EPAPER17==false?"hide":""
+            #line 119 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+, Tuple.Create(Tuple.Create(" ", 6613), Tuple.Create<System.Object, System.Int32>(SET_EPAPER.M_EPAPER17==false?"hide":""
             
             #line default
             #line hidden
-, 6630), false)
+, 6614), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -644,7 +628,7 @@ WriteLiteral(" rows=\"20\"");
 WriteLiteral(">");
 
             
-            #line 121 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 122 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                                                                Write(HttpUtility.HtmlDecode(Model.IntroductionHtml));
 
             
@@ -684,7 +668,7 @@ WriteLiteral(" maxlength=\"500\"");
 WriteLiteral(">");
 
             
-            #line 127 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 128 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                                                                                                          Write(Model.Summary);
 
             
@@ -720,7 +704,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 138 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 139 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column1, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -744,7 +728,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 145 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 146 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column2, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -768,7 +752,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 152 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 153 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column3, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -792,7 +776,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 159 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 160 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column4, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -816,7 +800,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 166 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 167 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column5, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -840,7 +824,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 173 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 174 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column6, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -864,7 +848,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 180 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 181 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column7, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -888,7 +872,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 187 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 188 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column8, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -912,7 +896,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 194 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 195 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column9, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -936,7 +920,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 201 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 202 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column10, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -960,7 +944,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 208 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 209 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column11, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -984,7 +968,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 215 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 216 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column12, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -1008,7 +992,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 222 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 223 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column13, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -1032,7 +1016,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                                        ");
 
             
-            #line 229 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 230 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Html.EditorFor(model => model.Column14, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -1070,7 +1054,7 @@ DefineSection("scripts", () => {
 WriteLiteral("\r\n    <script>\r\n        $(function () {\r\n            $(\"#ShowCount\").val(\'");
 
             
-            #line 250 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 251 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                             Write(Model.ShowCount);
 
             
@@ -1100,34 +1084,47 @@ WriteLiteral("\');\r\n            $(\"#table_Column\").delegate((\".seq_list\"),
 "r.push($(nowtr));\r\n                        }\r\n                    }\r\n           " +
 "     }\r\n                $(\"#table_Column tbody\").empty();\r\n\r\n                for" +
 " (var idx = 0; idx < addarr.length; idx++) {\r\n                    $(addarr[idx])" +
-".attr(\"id\", \"tr_\" + idx).attr(\'seqidx\', (idx + 1));\r\n                    $(\"#tab" +
-"le_Column tbody\").append(addarr[idx]);\r\n                }\r\n            });\r\n    " +
-"        $(\'#editform\').submit(function (event) {\r\n                var formData =" +
-" new FormData();\r\n                var array = $(\'#editform\').serializeArray();\r\n" +
-"                $.each(array, function () {\r\n                    formData.append" +
-"(this.name, this.value);\r\n                });\r\n\r\n                var i = 0;\r\n   " +
-"             $(\'.tr_col\').each(function () {\r\n                    formData.appen" +
-"d(\"columnSettings[\" + i + \"].Type\", $(this).find(\'#Type\').val());\r\n             " +
-"       formData.append(\"columnSettings[\" + i + \"].MainID\", $(this).find(\'#MainID" +
-"\').val());\r\n                    formData.append(\"columnSettings[\" + i + \"].Colum" +
-"nKey\", $(this).find(\'#ColumnKey\').val());\r\n                    formData.append(\"" +
-"columnSettings[\" + i + \"].ColumnName\", $(this).find(\'#ColumnName\').val());\r\n    " +
-"                formData.append(\"columnSettings[\" + i + \"].Used\", $(this).find(\'" +
-"#Used\').prop(\'checked\') ? true : false);\r\n                    formData.append(\"c" +
-"olumnSettings[\" + i + \"].Sort\", i + 1);\r\n\r\n                    i++;\r\n           " +
-"     })\r\n                formData.append(\"Summary\", encodeURIComponent($(\'#Summa" +
-"ry\').val()));\r\n                formData.append(\"IntroductionHtml\", _html.encode(" +
-"CKEDITOR.instances.IntroductionHtml.getData()));\r\n                $.ajax({\r\n    " +
-"                url: this.action,\r\n                    data: formData,\r\n        " +
-"            type: \'POST\',\r\n                    cache: false,\r\n                  " +
-"  contentType: false,\r\n                    processData: false,\r\n                " +
-"    success: function (data) {\r\n                        if (data == \"\") {\r\n     " +
-"                       alert(\"儲存成功\");\r\n                        } else {\r\n       " +
-"                     alert(data);\r\n                            var obj = {};\r\n  " +
-"                              obj.mainid = \'");
+".attr(\"id\", \"tr_\" + idx).attr(\'seqidx\', (idx + 1));\r\n                    $(\".Typ" +
+"e\").attr(\"id\", \"Type_\" + idx);\r\n                    $(\".MainID\").attr(\"id\", \"Mai" +
+"nID_\" + idx);\r\n                    $(\".ColumnKey\").attr(\"id\", \"ColumnKey_\" + idx" +
+");\r\n\r\n                    $(\"#table_Column tbody\").append(addarr[idx]);\r\n       " +
+"         }\r\n                var i = 0;\r\n                $(\'.tr_col\').each(functi" +
+"on () {\r\n                    var checked = $(alltr[i]).children().children().fin" +
+"d(\'.chkstatus\')[0].checked;\r\n                    console.log(checked);\r\n        " +
+"            i++;\r\n                });\r\n\r\n            });\r\n            $(\'#editfo" +
+"rm\').submit(function (event) {\r\n                var formData = new FormData();\r\n" +
+"                var array = $(\'#editform\').serializeArray();\r\n                $." +
+"each(array, function () {\r\n                    formData.append(this.name, this.v" +
+"alue);\r\n                });\r\n\r\n                var i = 0;\r\n                var a" +
+"lltr = $(\"#table_Column tbody tr\");\r\n                $(\'.tr_col\').each(function " +
+"() {\r\n                    var Columnname = $(alltr[i]).find(\'.columnname\').text(" +
+");\r\n                    var ColumnKey = $(alltr[i]).find(\'.ColumnKey\').text();\r\n" +
+"                    var Type = $(alltr[i]).find(\'.Type\').text();\r\n              " +
+"      var MainID = $(alltr[i]).find(\'.MainID\').text();\r\n\r\n                    va" +
+"r checked = $(alltr[i]).children().children().find(\'.chkstatus\')[0].checked;\r\n  " +
+"                  console.log(checked);\r\n                    formData.append(\"co" +
+"lumnSettings[\" + i + \"].Type\", Type);\r\n                    formData.append(\"colu" +
+"mnSettings[\" + i + \"].MainID\", MainID);\r\n                    formData.append(\"co" +
+"lumnSettings[\" + i + \"].ColumnKey\", ColumnKey);\r\n                    formData.ap" +
+"pend(\"columnSettings[\" + i + \"].ColumnName\", Columnname);\r\n                    f" +
+"ormData.append(\"columnSettings[\" + i + \"].Used\", checked == true ? true : false)" +
+";\r\n                    formData.append(\"columnSettings[\" + i + \"].Sort\", i + 1);" +
+"\r\n                    \r\n                    i++;\r\n                    \r\n        " +
+"        })\r\n                \r\n                formData.append(\"Summary\", encodeU" +
+"RIComponent($(\'#Summary\').val()));\r\n                formData.append(\"Introductio" +
+"nHtml\", encodeURIComponent($(\'IntroductionHtml\').val()));\r\n                //for" +
+"mData.append(\"IntroductionHtml\", _html.encode(CKEDITOR.instances.IntroductionHtm" +
+"l.getData()));\r\n                $.ajax({\r\n                    url: this.action,\r" +
+"\n                    data: formData,\r\n                    type: \'POST\',\r\n       " +
+"             cache: false,\r\n                    contentType: false,\r\n           " +
+"         processData: false,\r\n                    success: function (data) {\r\n  " +
+"                      if (data == \"\") {\r\n                            alert(\"儲存成功" +
+"\");\r\n                        } else {\r\n                            alert(data);\r" +
+"\n                            var obj = {};\r\n                                obj." +
+"mainid = \'");
 
             
-            #line 331 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 354 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                          Write(Model.MainID);
 
             
@@ -1136,7 +1133,7 @@ WriteLiteral("\');\r\n            $(\"#table_Column\").delegate((\".seq_list\"),
 WriteLiteral("\'\r\n                            CreatePost(\'");
 
             
-            #line 332 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 355 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Url.Action("UnitSetting"));
 
             

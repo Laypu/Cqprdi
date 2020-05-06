@@ -307,7 +307,7 @@ namespace Oaww.HtmlHelp
 
             builder.MergeAttribute("title", menu.MenuName + (menu.OpenMode == 2 || menu.OpenMode == 3 ? aria.newWindow : ""));
 
-            builder.InnerHtml = $"<i class=\"{icon}\" aria-hidden=\"true\"></i><b>{menu.MenuName}</b>";
+            builder.InnerHtml = $"<i class=\"{icon}\" aria-hidden=\"true\"></i>{menu.MenuName}";
 
             if (htmlAttributes != null)
             {

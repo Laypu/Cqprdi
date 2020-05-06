@@ -294,10 +294,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\EPaperContentMenu.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPaperContentMenu.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Areas\webadmin\Views\EPaper\EPaperEdit.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EPaperEdit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\EPaperItemSelect.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPaperItemSelect.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\EPaperItemSort.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPaperItemSort.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\EPaperManuallyContent.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPaperManuallyContent.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\EPaperReview.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPaperReview.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Areas\webadmin\Views\EPaper\GroupEdit.generated.cs">
       <AutoGen>True</AutoGen>
@@ -313,6 +338,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelitem.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\webadmin\Views\EPaper\Subscriber.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Subscriber.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Areas\webadmin\Views\EPaper\UnitSetting.generated.cs">
       <AutoGen>True</AutoGen>
@@ -629,6 +659,30 @@
     <Content Include="Areas\webadmin\Views\EPaper\UnitSetting.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>UnitSetting.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\Subscriber.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Subscriber.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\EPaperReview.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EPaperReview.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EPaperManuallyContent.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EPaperContentMenu.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\EPaperItemSelect.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EPaperItemSelect.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EPaperItemSort.generated.cs</LastGenOutput>
     </Content>
     <None Include="Areas\webadmin\Views\Form\AddSelItem.cshtml">
       <Generator>RazorGenerator</Generator>

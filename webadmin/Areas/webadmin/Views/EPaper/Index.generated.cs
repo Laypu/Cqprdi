@@ -100,7 +100,7 @@ WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
 WriteLiteral(" href=\"#\"");
 
-WriteLiteral(">訊息管理</a>\r\n        </li>\r\n    </ul>\r\n</div>\r\n<!--page bar end-->\r\n<div");
+WriteLiteral(">電子報管理</a>\r\n        </li>\r\n    </ul>\r\n</div>\r\n<!--page bar end-->\r\n<div");
 
 WriteLiteral(" class=\"title_01\"");
 
@@ -287,45 +287,50 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 2894), Tuple.Create("\"", 2938)
+WriteAttribute("src", Tuple.Create(" src=\"", 2895), Tuple.Create("\"", 2939)
             
             #line 72 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 2900), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+, Tuple.Create(Tuple.Create("", 2901), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 2900), false)
+, 2901), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 2962), Tuple.Create("\"", 3003)
+WriteAttribute("src", Tuple.Create(" src=\"", 2963), Tuple.Create("\"", 3004)
             
             #line 73 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 2968), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 2969), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 2968), false)
+, 2969), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3027), Tuple.Create("\"", 3073)
+WriteAttribute("src", Tuple.Create(" src=\"", 3028), Tuple.Create("\"", 3074)
             
             #line 74 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3033), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 3034), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 3033), false)
+, 3034), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3097), Tuple.Create("\"", 3129)
-, Tuple.Create(Tuple.Create("", 3103), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
-, 3103), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 3098), Tuple.Create("\"", 3146)
+            
+            #line 75 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 3104), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/clipboard.min.js")
+            
+            #line default
+            #line hidden
+, 3104), false)
 );
 
 WriteLiteral(@"></script>

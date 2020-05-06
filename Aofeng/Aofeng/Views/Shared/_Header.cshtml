@@ -39,7 +39,9 @@
                             <button class="btn header-btn-collapse-nav float-right" data-toggle="collapse" data-target=".header-nav-main">
                                 <i class="fa fa-bars"></i>
                             </button>
-
+                            <button class="btn btn_search sidetitle float-right visible-xs">
+                                <i class="fa fa-search"></i>
+                            </button> 
                         </div>
                         
                         <div class="header-column">
@@ -161,65 +163,67 @@
                 <div class="header-container header-nav header-nav-bar">
                 	<div class="container">
                     	<div class="header-row">
-                                <div class="header-nav">
-                                    <!--<button class="btn header-btn-collapse-nav-search" data-toggle="collapse" data-target=".header-nav-search">
-                                        <i class="fa fa-bars"></i>
-                                    </button>-->
+                            <div class="header-nav">
+                                <!--<button class="btn header-btn-collapse-nav-search" data-toggle="collapse" data-target=".header-nav-search">
+        <i class="fa fa-bars"></i>
+    </button>-->
+                                <!--search start-->
+                                <div class="sidemenu search_box" style="display: none;">
+                                    <label for="search_input">
+                                        <input type="text" id="search_input" class="form-control" placeholder="Search...">
+                                    </label>
+                                    <button type="submit" class="search_icon" onclick="location.href='#'"><i class="fa fa-search"></i></button>
+                                </div>
+                                <!--search end-->
+                                <div class="header-nav-search header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
+                                    <nav>
+                                        <ul class="nav nav-pills">
 
-                                    <div class="header-nav-search header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
-                                        <nav>
-                                            <ul class="nav nav-pills">
+                                            <li class="search_box">
+                                                <input id="" type="text" class="search_input" placeholder="Search...">
+                                                <button type="submit" class="search_icon" onClick="location.href='search.html'" onkeypress="location.href='search.html'"><i class="fa fa-search"></i></button><!--無障礙需求：使用onClick, 需同時使用onkeypress-->
+                                            </li>
 
-                                                <li class="search_box">
-                                                    <input id="" type="text" class="search_input" placeholder="Search...">
-                                                    <button type="submit" class="search_icon" onClick="location.href='search.html'" onkeypress="location.href='search.html'"><i class="fa fa-search"></i></button><!--無障礙需求：使用onClick, 需同時使用onkeypress-->
-                                                </li>
+                                        </ul>
+                                    </nav>
+                                </div>
 
-                                            </ul>
-                                        </nav>
-                                    </div>
+                                <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
+                                    <nav>
+                                        <ul class="nav nav-pills" id="mainNav">
+                                            @foreach (Menu Menu1st in TopMenu.Where(t => t.MenuLevel == 1).OrderBy(t => t.Sort))
+                                            {
 
-                                    <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
-                                        <nav>
-                                            <ul class="nav nav-pills" id="mainNav">
-                                                @foreach (Menu Menu1st in TopMenu.Where(t => t.MenuLevel == 1).OrderBy(t => t.Sort))
+
+                                                if (TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
                                                 {
+                                                    <li class="dropdown">
+                                                        @Html.aira_HyperLink_Menu(Menu1st, new { @class = "dropdown-toggle" })
 
-
-                                                    if (TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).Count() > 0)
-                                                    {
-                                                        <li class="dropdown">
-                                                            @Html.aira_HyperLink_Menu(Menu1st,new { @class = "dropdown-toggle" })
-
-                                                            <ul class="dropdown-menu">
-                                                                @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
+                                                        <ul class="dropdown-menu">
+                                                            @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
+                                                            {
+                                                                if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
                                                                 {
-                                                                    if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
-                                                                    {
-                                                                        <li class="dropdown-submenu">
+                                                                    <li class="dropdown-submenu">
 
-                                                                            @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
-                                                                            {
-                                                                                @Html.aira_Top_HyperLink_Menu(Menu2nd, null)
-                                                                                <ul class="dropdown-menu">
-                                                                                    @foreach (Menu Menu3rd in TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
-                                                                                    {
-                                                                                        <li>
-                                                                                            @Html.aira_HyperLink_Menu(Menu3rd, null)
-                                                                                        </li>
-                                                                                    }
-                                                                                </ul>
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                @Html.aira_HyperLink_Menu(Menu2nd, null)
-                                                                            }
-                                                                        </li>
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        <li>@Html.aira_HyperLink_Menu(Menu2nd, null)</li>
-                                                                    }
+                                                                        @if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)//寫2次?
+                                                                        {
+                                                                            @Html.aira_Top_HyperLink_Menu(Menu2nd, null)
+                                                                            <ul class="dropdown-menu">
+                                                                                @foreach (Menu Menu3rd in TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
+                                                                                {
+                                                                                    <li>
+                                                                                        @Html.aira_HyperLink_Menu(Menu3rd, null)
+                                                                                    </li>
+                                                                                }
+                                                                            </ul>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            @Html.aira_HyperLink_Menu(Menu2nd, null)
+                                                                        }
+                                                                    </li>
                                                                 }
                                                             </ul>
                                                         </li>
@@ -309,6 +313,7 @@
                                         </nav>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                     </div>
                 </div>

@@ -159,10 +159,10 @@ WriteAttribute("value", Tuple.Create(" value=\"", 983), Tuple.Create("\"", 1049)
 
 WriteLiteral(">模組管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1093), Tuple.Create("\"", 1126)
+WriteAttribute("value", Tuple.Create(" value=\"", 1093), Tuple.Create("\"", 1158)
             
             #line 31 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 1101), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber")
+, Tuple.Create(Tuple.Create("", 1101), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
@@ -224,14 +224,14 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                        <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1678), Tuple.Create("\"", 1694)
+WriteAttribute("value", Tuple.Create(" value=\"", 1710), Tuple.Create("\"", 1726)
             
             #line 47 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 1686), Tuple.Create<System.Object, System.Int32>(g.Value
+, Tuple.Create(Tuple.Create("", 1718), Tuple.Create<System.Object, System.Int32>(g.Value
             
             #line default
             #line hidden
-, 1686), false)
+, 1718), false)
 );
 
 WriteLiteral(">");
@@ -452,53 +452,52 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4410), Tuple.Create("\"", 4454)
+WriteAttribute("src", Tuple.Create(" src=\"", 4442), Tuple.Create("\"", 4486)
             
             #line 101 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4416), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+, Tuple.Create(Tuple.Create("", 4448), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 4416), false)
+, 4448), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4478), Tuple.Create("\"", 4519)
+WriteAttribute("src", Tuple.Create(" src=\"", 4510), Tuple.Create("\"", 4551)
             
             #line 102 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4484), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 4516), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 4484), false)
+, 4516), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4543), Tuple.Create("\"", 4589)
+WriteAttribute("src", Tuple.Create(" src=\"", 4575), Tuple.Create("\"", 4621)
             
             #line 103 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4549), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 4581), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 4549), false)
+, 4581), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4613), Tuple.Create("\"", 4645)
-, Tuple.Create(Tuple.Create("", 4619), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
-, 4619), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 4645), Tuple.Create("\"", 4677)
+, Tuple.Create(Tuple.Create("", 4651), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
+, 4651), false)
 );
 
-WriteLiteral("></script>\r\n    <script>\r\n        $(document).ready(function () {\r\n\r\n            " +
-"var va = $(\".chksel [index=\'1\']\").val();\r\n            console.log(va);\r\n        " +
-"    var mainid = \'");
+WriteLiteral("></script>\r\n    <script>\r\n        $(document).ready(function () {\r\n\r\n\r\n          " +
+"  var mainid = \'");
 
             
-            #line 110 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 109 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                      Write(ViewBag.mainid);
 
             
@@ -530,7 +529,7 @@ WriteLiteral(@"';
             RegisterOrder(""#eventtable"", "".sortedit"", '");
 
             
-            #line 133 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 132 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                   Write(Url.Action("UpdateItemSeq"));
 
             
@@ -541,17 +540,17 @@ WriteLiteral("\', obj);\r\n            RegisterClickAll(\"#chk_all\", \'#eventta
 "d\', \'");
 
             
-            #line 135 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 134 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                                   Write(Url.Action("SetItemDelete"));
 
             
             #line default
             #line hidden
-WriteLiteral("\', {keyindex:\"3\"});\r\n            RegisterClicklink(\"#eventtable\", \".edit\", \'");
+WriteLiteral("\', {keyindex:\"3\"});\r\n            //RegisterClicklink(\"#eventtable\", \".edit\", \'");
 
             
-            #line 136 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-                                                  Write(Url.Action("EPaperEdit"));
+            #line 135 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+                                                    Write(Url.Action("EPaperEdit"));
 
             
             #line default
@@ -560,7 +559,7 @@ WriteLiteral("\', { idkey: \"itemid\", mainid: mainid},\"itemid\");\r\n         
 "nttable\", \".chkstatus\", \'");
 
             
-            #line 137 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 136 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                    Write(Url.Action("SetItemStatus"));
 
             
@@ -569,20 +568,94 @@ WriteLiteral("\', { idkey: \"itemid\", mainid: mainid},\"itemid\");\r\n         
 WriteLiteral("\', obj);\r\n            RegisterClick(\"#eventtable\", \".chkhome\", \'");
 
             
-            #line 138 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 137 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                                                  Write(Url.Action("SetHomeStatus"));
 
             
             #line default
             #line hidden
-WriteLiteral("\', obj);\r\n\r\n\r\n\r\n            ");
-
-WriteLiteral("\r\n\r\n            $(\"#btn_groupmanager\").click(function () {\r\n                    v" +
-"ar obj = {};\r\n                    obj.mainid = mainid;\r\n                    Crea" +
-"tePost(\'");
+WriteLiteral("\', obj);\r\n            //RegisterClick(\"#eventtable\", \".review\", \'");
 
             
-            #line 161 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 138 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+                                                  Write(Url.Action("EPaperReview"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\', { }, \"itemid\");\r\n            $(\"#eventtable\").delegate(\".epaperedit\", \"click\"," +
+" function () {\r\n                var etype = $(this).attr(\'etype\');\r\n            " +
+"    if (etype == \"1\") {\r\n                    CreatePost(\'");
+
+            
+            #line 142 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+                           Write(Url.Action("EPaperManuallyContent"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\', { id: $(this).attr(\'index\'), mainid: mainid });\r\n                } else {\r\n   " +
+"                 CreatePost(\'");
+
+            
+            #line 144 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+                           Write(Url.Action("EPaperContentMenu"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\', { id: $(this).attr(\'index\'), mainid: mainid });\r\n                }\r\n          " +
+"  });\r\n\r\n\r\n            $(\"#eventtable\").delegate(\".isedit\", \"click\", function ()" +
+" {\r\n                $.post(\'");
+
+            
+            #line 150 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+                   Write(Url.Action("SetIsEdit"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@"', { ""id"": $(this).val(), status: true }, function (data) { alert(data); mytable.GetData(1); });
+            });
+
+
+
+            //$(""#sel_year"").change(function () {
+            //    var SearchModelBase = mytable.SearchModelBase;
+            //    SearchModelBase.Key = $(""#sel_year"").val();
+            //    SearchModelBase.Search = ""Y"";
+            //    mytable.GetData(1);
+            //});
+            
+            ");
+
+WriteLiteral("\r\n\r\n            $(\"#eventtable\").delegate(\".review\", \"click\", function () {\r\n    " +
+"            window.open(\'");
+
+            
+            #line 168 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+                        Write(Url.Action("EPaperReview"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("?id=\' + $(this).attr(\'index\'), \'_blank\');\r\n            });\r\n\r\n            $(\"#eve" +
+"nttable\").delegate(\".epapersort\", \"click\", function () {\r\n                Create" +
+"Post(\'");
+
+            
+            #line 172 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+                       Write(Url.Action("EPaperItemSort"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\', { id: $(this).attr(\'index\')});\r\n            });\r\n\r\n            $(\"#btn_groupma" +
+"nager\").click(function () {\r\n                    var obj = {};\r\n                " +
+"    obj.mainid = mainid;\r\n                    CreatePost(\'");
+
+            
+            #line 178 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                            Write(Url.Action("GroupEdit"));
 
             
@@ -593,7 +666,7 @@ WriteLiteral("\', obj);\r\n            });\r\n\r\n            $(\"#btn_add\").cl
 "obj.id = -1;\r\n                CreatePost(\'");
 
             
-            #line 168 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+            #line 185 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
                        Write(Url.Action("EPaperEdit"));
 
             
@@ -601,7 +674,12 @@ WriteLiteral("\', obj);\r\n            });\r\n\r\n            $(\"#btn_add\").cl
             #line hidden
 WriteLiteral(@"', obj);
             });
-
+            $(""#GroupID"").change(function () {
+                var SearchModelBase = mytable.SearchModelBase;
+                SearchModelBase.Key = $(""#GroupID"").val();
+                SearchModelBase.Search = ""Y"";
+                mytable.GetData(1);
+            });
 
          });
         function customertr(row, columnidx, idx, filedname, tableid, type, fileditemclass) {
@@ -610,7 +688,7 @@ WriteLiteral(@"', obj);
                 if (row['FormatStr'] == '手動') {
                     htmlstr += ""<a href='#'  class='btn grey-mint epaperedit' index='"" + row[tableid] + ""' etype=1 role='button'>編輯</a>""
                 } else {
-                    htmlstr += ""<a class='btn grey-mint epaperedit' role='button' index='"" + row[tableid] + ""' etype=2>編輯</a>&nbsp;<a class='btn grey-mint epapersort' role='button' index='"" + row[tableid] + ""'>排序</a>""
+                    htmlstr += ""<a class='btn grey-mint epaperedit' role='button' index='"" + row[tableid] + ""' etype=2>編輯</a>&nbsp;<a class='btn grey-mint epapersort'  role='button' index='"" + row[tableid] + ""'>排序</a>""
                 }
             }
             htmlstr += ""&nbsp;<a class='btn grey-mint review'  role='button' index='"" + row[tableid] + ""'>預覽</a></td>""

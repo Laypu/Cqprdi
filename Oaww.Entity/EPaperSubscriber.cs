@@ -9,9 +9,10 @@ namespace Oaww.Entity
 {
     public partial class EPaperSubscriber
     {
+        [Key]
         public int ID { get; set; }
         public string Account { get; set; }
-        public string CHNName { get; set; }
+        public string Name { get; set; }
         public string EMail { get; set; }
         public Nullable<bool> Status { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
@@ -20,5 +21,6 @@ namespace Oaww.Entity
         public Nullable<System.DateTime> DisableDate { get; set; }
         public string UpdateUser { get; set; }
         public string OPDateStr { get; set; }
+        public int LangID { get; set; }
     }
 }

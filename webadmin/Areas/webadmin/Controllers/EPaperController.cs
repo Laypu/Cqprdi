@@ -16,7 +16,7 @@ using System.IO;
 
 namespace Template.webadmin.Areas.webadmin.Controllers
 {
-    public class EPaperController : BaseController
+    public class EPaperController : MenuController
     {
         protected CommonService _commonService = new CommonService();
         protected EPaperService _service;
@@ -309,12 +309,13 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         
         public ActionResult UnitSetting(string mainid)
         {
+            
             mainid = mainid.AntiXss();
             ViewBag.SET_EPAPER = SET_EPAPER;
             if (mainid.IsNullOrEmpty()) { return RedirectToAction("Index"); }
             ViewBag.mainid = mainid;
             ViewBag.modelid = mainid;
-            var model = _commonService.GetUnitModel<EPaperUnitSettingModel, EPaperUnitSetting>(mainid);
+            var model = _commonService.GetUnitModel<EPaperUnitSettingModel, EPaperUnitSetting>(mainid,"EPaper");
             var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
 
             if (maindata.ID > 0) { ViewBag.Title = maindata.Name; }
@@ -323,7 +324,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             {
                 model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "No", ColumnName = "序號", Used = true, Sort = 1 });
                 model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "PublicshDate", ColumnName = "發佈日期", Used = true, Sort = 2 });
-                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "Title", ColumnName = "標題", Used = true, Sort = 3 });
+                model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "Title", ColumnName = "電子報名稱", Used = true, Sort = 3 });
                 model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "GroupName", ColumnName = "類別", Used = true, Sort = 4 });
                 //model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "LinkUrl", ColumnName = "相關連結", Used = true, Sort = 5 });
                 //model.columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = maindata.ID, ColumnKey = "UploadFileDesc", ColumnName = "檔案下載", Used = true, Sort = 6 });
@@ -337,13 +338,240 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         {
             //var Premodel = _commonService.GetUnitModel<EPaperUnitSettingModel, EPaperUnitSetting>(model.MainID.ToString());
             model.IntroductionHtml = HttpUtility.UrlDecode(model.IntroductionHtml);
-            string result = _commonService.SetUnitModel<EPaperUnitSettingModel, EPaperUnitSetting>(model, this.Account, "EPaper", model.MainID.Value.ToString());
+            model.Summary = HttpUtility.UrlDecode(model.Summary);
+            
+            string result = _service.SetUnitModel(model, this.Account,this.LanguageID);
 
             return Content(result);
         }
 
 
         #endregion
+
+        #region Subscriber
+        public ActionResult Subscriber(string mainid)
+        {
+            mainid = mainid.AntiXss();
+            ViewBag.mainid = mainid;
+            ViewBag.LangID = this.LanguageID;
+            return View("~/Areas/webadmin/Views/EPaper/Subscriber.cshtml");
+        }
+
+        public ActionResult PagingEpaperOrder(SubscriberSearchModel model)
+        {
+            model.LangId = this.LanguageID;
+            var result =  _service.PagingEpaperOrder(model);
+            
+            return Json(result);
+        
+        }
+
+        public ActionResult AddSubscriber(string sid, string name) 
+        {
+            if (Request.IsAuthenticated)
+            {
+                try
+                {
+                    var addr = new System.Net.Mail.MailAddress(name);
+                }
+                catch
+                {
+                    return Json("Email格式錯誤");
+                }
+                var str = "";
+                if (sid == "-1" || string.IsNullOrEmpty(sid))
+                {
+                    
+                    str = _service.AddSubscriber(name, this.Account,int.Parse(this.LanguageID));
+                }
+                //else
+                //{
+                //    Common.SetLogs(this.UserID, this.Account, "修改訊息管理單元名稱 ID=" + mainid + " 改為:" + name);
+                //    str = _IMessageManager.UpdateUnit(name, mainid, this.Account);
+                //}
+                return Json(str);
+            }
+            else { return Json("請先登入"); }
+        }
+
+        #region DelSubscriber
+        public ActionResult DelSubscriber(string[] idlist, string delaccount, string type)
+        {
+            //List<EPaperSubscriber> EPaperSubscriber = _service.GetEPaperSubscribers(idlist).ToList();
+
+            string result = _service.DeleteItem<EPaperSubscriber>(idlist, delaccount);
+
+            return Content(result);
+        }
+        #endregion
+
+        public ActionResult SetSubscriberStatus(string id, bool status, string type)
+        {
+            string result = _commonService.SetItemStatus<EPaperSubscriber>(id, status, this.Account, this.UserName);
+
+
+            return Content(result);
+        }
+        #endregion
+        #region Export
+        public ActionResult Export(SubscriberSearchModel searchModel, string name)
+        {
+            try
+            {
+                if (name.IsNullOrEmpty()) { name = "資料下載"; }
+                string _fname = System.Web.HttpUtility.UrlEncode(name + ".xlsx", System.Text.Encoding.UTF8);
+                Response.AddHeader("Content-Disposition", "attachment; filename='" + _fname + "';filename*=utf-8''" + _fname);
+                return File(_service.GetExport(searchModel,this.LanguageID ), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            }
+            catch (Exception ex)
+            {
+                return Json("匯出訂閱者管理列表失敗=" + ex.Message);
+            }
+            
+        }
+        #endregion
+
+        //public ActionResult EPaperReview(string id)
+        //{
+        //    var model = new EPaperEditModel();
+        //    if (id != "-1")
+        //    {
+        //        model = _service.GetModel(id);
+        //        model.EPaperItemEdit = _service.GetEPaperItemEdit(id);
+        //    }
+        //    return View(model);
+        //}
+
+
+        #region 手動
+        public ActionResult EPaperManuallyContent(string id, string mainid)
+        {
+            
+            ViewBag.mainid = mainid;
+            ViewBag.ID = id;
+            ViewBag.HtmlContent = _commonService.GetGeneral<EPaperContent>("EPaperID=@EPaperID ",new Dictionary<string, string> { { "EPaperID", id } }).EPaperHtmlContent;
+            var itemdata = _service.GetModel(id);
+            ViewBag.Title = itemdata.Title;
+            
+            return View();
+        }
+        #endregion
+
+        #region SaveManuallyContent
+        public ActionResult SaveManuallyContent(string htmlcontent, string ID)
+        {
+            htmlcontent = HttpUtility.UrlDecode(htmlcontent);
+            var result = _service.SavePaperManuallyContent(ID, htmlcontent);
+            return Json(result);
+            
+        }
+        #endregion
+
+
+        #region 自動
+        public ActionResult EPaperContentMenu(string id, string mainid)
+        {
+            
+
+            ViewBag.mainid = mainid;
+
+            ViewBag.ID = id;
+            var model = _commonService.GetMenu(this.LanguageID, "1");
+            var itemdata = _service.GetModel(id);
+            //過濾model
+
+            //
+            var l3model = model.Where(v => v.MenuLevel == 3 && v.LinkMode == 2 && v.ModelID == 2 ).OrderBy(v => v.Sort);
+            
+            var l2model = model.Where(v => v.MenuLevel == 2 && v.LinkMode == 2 && v.ModelID == 2 || (l3model.Any(X => X.ParentID == v.ID))).OrderBy(v => v.Sort);
+            
+            var l1model = model.Where(v => v.MenuLevel == 1 && v.LinkMode == 2 && v.ModelID == 2 || (l2model.Any(X => X.ParentID == v.ID))).OrderBy(v => v.Sort);
+            var allmember = l3model.Union(l2model).Union(l1model);
+            ViewBag.Title = itemdata.Title;
+            ViewBag.ItemList = _commonService.GetGeneralList<EPaperAutoItem> ("EPaperID=@EPaperID ", new Dictionary<string, string>() { { "EPaperID", id } }).OrderBy(v => v.Sort);
+            return View(allmember);
+        }
+        #endregion
+
+        #region EPaperItemSelect的view
+        public ActionResult EPaperItemSelect(string menuid, string id)
+        {
+            //Menu的 ID
+            ViewBag.MenuId = menuid;
+
+            //EPaperItem 的ID
+            ViewBag.ID = id;
+
+            var menudata = _menuService.GetModel(menuid);
+            //模組ID(訊息為2)
+            ViewBag.ModelID = menudata.ModelID;
+            
+            //ModelMessageMain 的ID
+            ViewBag.MainID = menudata.ModelItemID;
+            var itemdata = _service.GetModel(id);
+            ViewBag.Title = itemdata.Title;
+            return View();
+        }
+        #endregion
+        #region PagingMenuItem的table資料
+        public ActionResult PagingMenuItem(SearchModelBase model)
+        {
+            model.LangId = LanguageID;
+            var result = _service.PagingMenuItem(model);
+            return Json(result);
+        }
+        #endregion
+
+
+        #region SetEpaperItem 勾選存入資料庫
+        public ActionResult SetEpaperItem(bool issel, string itemid, string menuid, string id, string modelid, string mainid)
+        {
+            return Json(_service.SetEpaperItem(issel, id, itemid, menuid, modelid, mainid));
+        }
+        #endregion
+
+        #region SaveEPaperItemSort  電子報內容排序
+        public ActionResult EPaperItemSort(string id)
+        {
+            ViewBag.ID = id;
+            ViewBag.table = _service.GetSortTable(id);
+            var Epapermodel = _service.GetEPaperItemEdit(id);
+            var itemdata = _service.GetModel(id);
+            ViewBag.Title = itemdata.Title;
+            return View("~/Areas/webadmin/Views/EPaper/EPaperItemSort.cshtml",Epapermodel);
+        }
+        #endregion
+        #region DeleteEPaperItemSort 
+        public ActionResult DeleteEPaperItemSort(string[] delarrid, string eid)
+        {
+            string result = _service.DeleteEPaperItemSort(delarrid, eid);
+            return Json(result);
+        }
+        #endregion
+
+
+        #region EPaperReview
+        public ActionResult EPaperReview(string id)
+        {
+            
+            var model = new EPaperEditModel();
+            if (id != "-1")
+            {
+                model = _service.GetModel(id);
+                model.EPaperItemEdit = _service.GetEPaperItemEdit(id);
+            }
+            return View(model);
+        }
+        #endregion
+
+        #region SetIsEdit 發布
+        public ActionResult SetIsEdit(string id, bool status)
+        {
+            return Json(_service.SetIsEdit(id, status, this.Account, this.UserName));
+            
+        }
+        #endregion
+
     }
 
 

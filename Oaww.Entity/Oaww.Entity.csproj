@@ -60,6 +60,8 @@
     <Compile Include="CommonUnitSetting.cs" />
     <Compile Include="Dictionary.cs" />
     <Compile Include="DictionaryPara.cs" />
+    <Compile Include="EPaperAutoItem.cs" />
+    <Compile Include="EPaperContent.cs" />
     <Compile Include="EPaperItem.cs" />
     <Compile Include="EPaperSubscriber.cs" />
     <Compile Include="EPaperUnitSetting.cs" />

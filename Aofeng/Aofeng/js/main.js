@@ -94,3 +94,12 @@ $( document ).on( 'keydown', function ( e ) {
 });
 
 
+
+//PC search icon 收合
+$(document).ready(function(){
+    $(".sidetitle").click(function(){
+        $(".sidemenu").slideToggle();
+    });
+});
+
+
