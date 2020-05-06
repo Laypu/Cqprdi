@@ -74,21 +74,21 @@
                                         @if (ViewBag.langID == 2)
                                         {
                                             <li class="share_icon">
-                                                <a href="#" target="_blank" title="facbook(new window)">
+                                                <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="facbook(new window)">
                                                     <!--英文 facebook(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #345db7;"></i>
                                                         <i class="fab fa-facebook-f fa-stack-1x" style="color: #fff;"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#" target="_blank" title="twitter(new window)">
+                                                <a href="#" target="_blank" title="twitter(new window)" style="display:none;">
                                                     <!--英文 twitter(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #5da9dd;"></i>
                                                         <i class="fab fa-twitter fa-stack-1x" style="color: #fff;"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#" target="_blank" title="youtube(new window)">
+                                                <a href="https://www.youtube.com/channel/UCXOjYwVme7Uo2sG4r0l7N6w/" target="_blank" title="youtube(new window)">
                                                     <!--英文 youtube(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #e50012;"></i>
@@ -106,23 +106,23 @@
 
                                         }
                                         else
-                                        { 
+                                        {
                                             <li class="share_icon">
-                                                <a href="#" target="_blank" title="facbook(另開新視窗)">
+                                                <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="facbook(另開新視窗)">
                                                     <!--英文 facebook(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #345db7;"></i>
                                                         <i class="fab fa-facebook-f fa-stack-1x" style="color: #fff;"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#" target="_blank" title="twitter(另開新視窗)">
+                                                <a href="#" target="_blank" title="twitter(另開新視窗)" style="display:none;">
                                                     <!--英文 twitter(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #5da9dd;"></i>
                                                         <i class="fab fa-twitter fa-stack-1x" style="color: #fff;"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#" target="_blank" title="youtube(另開新視窗)">
+                                                <a href="https://www.youtube.com/channel/UCXOjYwVme7Uo2sG4r0l7N6w/" target="_blank" title="youtube(另開新視窗)">
                                                     <!--英文 youtube(new window)-->
                                                     <span class="fa-stack fa-xs">
                                                         <i class="fa fa-square fa-stack-2x" style="color: #e50012;"></i>
@@ -138,6 +138,16 @@
                                                 </a>
                                             </li>
                                         }
+                                    <li>
+                                        <form method="post" action="@Url.Action("Search","Search")">
+                                            <div class="search">
+                                                <label for="footer_search">
+                                                    <input type="text" id="footer_search" name="key" title="@("全站搜尋".GetLang())" placeholder="@("請輸入欲搜尋關鍵字".GetLang())">
+                                                </label>
+                                                <button class="search_icon"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </form>
+                                    </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -236,22 +246,22 @@
                                                         <li><a href="@Url.Action("ChangeLang","Home",new { lang=m.ID})" langid='@m.ID' title="@m.Disp_Name">@m.Disp_Name</a></li>
                                                     }
                                                 }
-                                                @if (ViewBag.langID ==1 )
+                                                @if (ViewBag.langID == 1)
                                                 {
                                                     <li>
-                                                        <a href="#" target="_blank" title="facbook(另開新視窗)">
+                                                        <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="facbook(另開新視窗)">
                                                             <!--英文 facebook(new window)-->
                                                             <i class="fab fa-facebook-f"></i> facebook
                                                         </a>
                                                     </li>
-                                                    <li>
+                                                    <li style="display:none;">
                                                         <a href="#" target="_blank" title="twitter(另開新視窗)">
                                                             <!--英文 twitter(new window)-->
                                                             <i class="fab fa-twitter"></i> twitter
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#" target="_blank" title="youtube(另開新視窗)">
+                                                        <a href="https://www.youtube.com/channel/UCXOjYwVme7Uo2sG4r0l7N6w/" target="_blank" title="youtube(另開新視窗)">
                                                             <!--英文 youtube(new window)-->
                                                             <i class="fab fa-youtube"></i> youtube
                                                         </a>
@@ -266,24 +276,34 @@
                                                 else
                                                 {
                                                     <li>
-                                                        <a href="#" target="_blank" title="youtube(new window)">
+                                                        <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="youtube(new window)">
                                                             <!--英文 facebook(new window)-->
                                                             <i class="fab fa-facebook-f"></i> facebook
                                                         </a>
                                                     </li>
-                                                    <li>
+                                                    <li style="display:none;">
                                                         <a href="#" target="_blank" title="twitter(new window)">
                                                             <!--英文 twitter(new window)-->
                                                             <i class="fab fa-twitter"></i> twitter
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#" target="_blank" title="youtube(new window)">
+                                                        <a href="https://www.youtube.com/channel/UCXOjYwVme7Uo2sG4r0l7N6w/" target="_blank" title="youtube(new window)">
                                                             <!--英文 youtube(new window)-->
                                                             <i class="fab fa-youtube"></i> youtube
                                                         </a>
                                                     </li>
                                                 }
+                                                <li>
+                                                    <form method="post" action="@Url.Action("Search","Search")">
+                                                        <div class="search">
+                                                            <label for="footer_search">
+                                                                <input type="text" id="footer_search" name="key" title="@("全站搜尋".GetLang())" placeholder="@("請輸入欲搜尋關鍵字".GetLang())">
+                                                            </label>
+                                                            <button class="search_icon"><i class="fa fa-search"></i></button>
+                                                        </div>
+                                                    </form>
+                                                </li>
                                             </ul>
                                             
                                         </nav>
