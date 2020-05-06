@@ -39,9 +39,11 @@
                             <button class="btn header-btn-collapse-nav float-right" data-toggle="collapse" data-target=".header-nav-main">
                                 <i class="fa fa-bars"></i>
                             </button>
+
                             <button class="btn btn_search sidetitle float-right visible-xs">
                                 <i class="fa fa-search"></i>
                             </button> 
+
                         </div>
                         
                         <div class="header-column">
@@ -109,6 +111,7 @@
                                         }
                                         else
                                         {
+                                            
                                             <li class="share_icon">
                                                 <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="facbook(另開新視窗)">
                                                     <!--英文 facebook(new window)-->
@@ -140,16 +143,11 @@
                                                 </a>
                                             </li>
                                         }
-                                    <li>
-                                        <form method="post" action="@Url.Action("Search","Search")">
-                                            <div class="search">
-                                                <label for="footer_search">
-                                                    <input type="text" id="footer_search" name="key" title="@("全站搜尋".GetLang())" placeholder="@("請輸入欲搜尋關鍵字".GetLang())">
-                                                </label>
-                                                <button class="search_icon"><i class="fa fa-search"></i></button>
-                                            </div>
-                                        </form>
-                                    </li>
+                                        <li>
+                                            <button class="btn btn_search sidetitle">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -164,29 +162,17 @@
                 	<div class="container">
                     	<div class="header-row">
                             <div class="header-nav">
-                                <!--<button class="btn header-btn-collapse-nav-search" data-toggle="collapse" data-target=".header-nav-search">
-        <i class="fa fa-bars"></i>
-    </button>-->
+
                                 <!--search start-->
+<form method="post" action="@Url.Action("Search","Search")">
                                 <div class="sidemenu search_box" style="display: none;">
                                     <label for="search_input">
-                                        <input type="text" id="search_input" class="form-control" placeholder="Search...">
+                                        <input type="text" id="footer_search" name="key" title="@("全站搜尋".GetLang())" placeholder="@("請輸入欲搜尋關鍵字".GetLang())">
                                     </label>
-                                    <button type="submit" class="search_icon" onclick="location.href='#'"><i class="fa fa-search"></i></button>
+                                    <button type="submit" class="search_icon"><i class="fa fa-search"></i></button>
                                 </div>
+</form>
                                 <!--search end-->
-                                <div class="header-nav-search header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
-                                    <nav>
-                                        <ul class="nav nav-pills">
-
-                                            <li class="search_box">
-                                                <input id="" type="text" class="search_input" placeholder="Search...">
-                                                <button type="submit" class="search_icon" onClick="location.href='search.html'" onkeypress="location.href='search.html'"><i class="fa fa-search"></i></button><!--無障礙需求：使用onClick, 需同時使用onkeypress-->
-                                            </li>
-
-                                        </ul>
-                                    </nav>
-                                </div>
 
                                 <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
                                     <nav>
@@ -225,34 +211,39 @@
                                                                         }
                                                                     </li>
                                                                 }
-                                                            </ul>
-                                                        </li>
-                                                    }
-                                                    else
-                                                    {
-                                                        <li>
-                                                            @Html.aira_HyperLink_Menu(Menu1st, null)
-                                                        </li>
-                                                    }
-
-                                                } 
-                                            </ul>
-                                            
-                                            <ul class="nav nav-top visible-xs">
-                                                @foreach (var menu in UpMenu.OrderBy(t => t.Sort))
-                                                {
-                                                    <li>@Html.aira_Icon_HyperLink_Menu(menu, menu.Icon)</li>
+                                                                else
+                                                                {
+                                                                    <li>@Html.aira_HyperLink_Menu(Menu2nd, null)</li>
+                                                                }
+                                                            }
+                                                        </ul>
+                                                    </li>
                                                 }
-                                                @if (ListLang.Count > 1)
-                                                {
-                                                    foreach (var m in ListLang.Where(t => t.ID.ToString() != Session["LangID"].ToString()))
-                                                    {
-                                                        <li><a href="@Url.Action("ChangeLang","Home",new { lang=m.ID})" langid='@m.ID' title="@m.Disp_Name">@m.Disp_Name</a></li>
-                                                    }
-                                                }
-                                                @if (ViewBag.langID == 1)
+                                                else
                                                 {
                                                     <li>
+                                                        @Html.aira_HyperLink_Menu(Menu1st, null)
+                                                    </li>
+                                                }
+
+                                            }
+                                        </ul>
+
+                                        <ul class="nav nav-top visible-xs">
+                                            @foreach (var menu in UpMenu.OrderBy(t => t.Sort))
+                                            {
+                                                <li>@Html.aira_Icon_HyperLink_Menu(menu, menu.Icon)</li>
+                                            }
+                                            @if (ListLang.Count > 1)
+                                            {
+                                                foreach (var m in ListLang.Where(t => t.ID.ToString() != Session["LangID"].ToString()))
+                                                {
+                                                    <li><a href="@Url.Action("ChangeLang","Home",new { lang=m.ID})" langid='@m.ID' title="@m.Disp_Name">@m.Disp_Name</a></li>
+                                                }
+                                            }
+                                            @if (ViewBag.langID == 1)
+                                            {
+                                                   <li>
                                                         <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="facbook(另開新視窗)">
                                                             <!--英文 facebook(new window)-->
                                                             <i class="fab fa-facebook-f"></i> facebook
@@ -276,10 +267,9 @@
                                                             <i class="fas fa-rss"></i> RSS
                                                         </a>
                                                     </li>
-                                                }
-                                                else
-                                                {
-                                                    <li>
+                                            }
+                                            else
+                                            { <li>
                                                         <a href="https://www.facebook.com/CGPRDI/" target="_blank" title="youtube(new window)">
                                                             <!--英文 facebook(new window)-->
                                                             <i class="fab fa-facebook-f"></i> facebook
@@ -297,21 +287,10 @@
                                                             <i class="fab fa-youtube"></i> youtube
                                                         </a>
                                                     </li>
-                                                }
-                                                <li>
-                                                    <form method="post" action="@Url.Action("Search","Search")">
-                                                        <div class="search">
-                                                            <label for="footer_search">
-                                                                <input type="text" id="footer_search" name="key" title="@("全站搜尋".GetLang())" placeholder="@("請輸入欲搜尋關鍵字".GetLang())">
-                                                            </label>
-                                                            <button class="search_icon"><i class="fa fa-search"></i></button>
-                                                        </div>
-                                                    </form>
-                                                </li>
-                                            </ul>
-                                            
-                                        </nav>
-                                    </div>
+                                            }
+                                        </ul>
+
+                                    </nav>
                                 </div>
                             </div>
                             </div>
