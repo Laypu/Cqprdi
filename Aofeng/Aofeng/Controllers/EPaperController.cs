@@ -12,6 +12,7 @@ using Oaww.Utility;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Oaww.ViewModel.Search;
+using System.ComponentModel.DataAnnotations;
 
 namespace Aofeng.Controllers
 {
@@ -38,6 +39,49 @@ namespace Aofeng.Controllers
                 nowpage = 1;
             }
             #endregion
+
+            if (Request["btnorder"] != null)
+            {
+                var input = Request["txtEmailInput"];
+                if (input.IsNullOrEmpty())
+                {
+                    ViewBag.ErrorInfo = "訂閱EMail請確實輸入";
+                }
+                else
+                {
+                    var echeck = new EmailAddressAttribute();
+                    if (echeck.IsValid(input) == false)
+                    {
+                        ViewBag.ErrorInfo = "EMail格式錯誤";
+                    }
+                    else
+                    {
+                        ViewBag.ErrorInfo = _service.AddSubscriber(input, "user",this.LanguageID);
+                    }
+                }
+            }
+            else if (Request["btncancel"] != null)
+            {
+                var input = Request["txtEmailInput"];
+                if (input.IsNullOrEmpty())
+                {
+                    ViewBag.ErrorInfo = "取消訂閱EMail請確實輸入";
+                }
+                else
+                {
+                    var echeck = new EmailAddressAttribute();
+                    if (echeck.IsValid(input) == false)
+                    {
+                        ViewBag.ErrorInfo = "EMail格式錯誤";
+                    }
+                    else
+                    {
+                        ViewBag.ErrorInfo = _service.CancelSubscriber(input, "user");
+                    }
+                }
+            }
+
+
 
 
             EPaperUnitSettingModel unitmodel = new EPaperUnitSettingModel();
@@ -82,7 +126,7 @@ namespace Aofeng.Controllers
             return Json(_service.PagingItem(model, model.ModelID.ToString()));
         }
 
-        public ActionResult EPaperReview(string id)
+        public ActionResult EPaperDetails(string id)
         {
             var model = new EPaperEditModel();
             if (id != "-1")

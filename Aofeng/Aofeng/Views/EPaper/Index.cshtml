@@ -1,38 +1,38 @@
 ﻿@model EPaperViewModel
 
-
+    <form method="post" action="@Url.Action("Index")" style="display:inline">
         <!--page_search start-->
         <div class="page_search">
             <ul>
                 <li data-sr="enter left over 1.5s">
-                            
+
                     <label for="search_type">
-                        <form method="post" action="@Url.Action("Index")" style="display:inline">
-                            <div class="item_title">@("類別".GetLang())</div><!--英文Type；後台未輸入時不顯示，只有"無分類"時，整區塊不顯示-->
-                            @{var grouplist = (IList<SelectListItem>)ViewBag.grouplist; }
-                            @Html.HiddenFor(m => m.mid)
-                            @Html.HiddenFor(m => m.itemid)
-                            @Html.HiddenFor(m => m.classType)
 
-                            <select class="form-control_1" id="GroupId" name="group" onchange="this.form.submit()">
+                        <div class="item_title">@("類別".GetLang())</div><!--英文Type；後台未輸入時不顯示，只有"無分類"時，整區塊不顯示-->
+                        @{var grouplist = (IList<SelectListItem>)ViewBag.grouplist; }
+                        @Html.HiddenFor(m => m.mid)
+                        @Html.HiddenFor(m => m.itemid)
+                        @Html.HiddenFor(m => m.classType)
 
-                                @foreach (var m in Model.ListGroupEPaper)
-                                {
-                                    <option @(m.ID == Model.group ? "selected" : "") value="@m.ID">@m.Group_Name</option>
-                                }
+                        <select class="form-control_1" id="GroupId" name="group" onchange="this.form.submit()">
+
+                            @foreach (var m in Model.ListGroupEPaper)
+                            {
+                                <option @(m.ID == Model.group ? "selected" : "") value="@m.ID">@m.Group_Name</option>
+                            }
 
 
-                            </select>
-                        </form>
+                        </select>
+
                     </label>
                 </li>
                 <li data-sr="enter left over 1.5s">
                     <label for="mail">
                         <div class="item_title">訂閱電子報</div>
-                        <input type="text" class="form-control input-medium" id="mail" placeholder="請輸入mail">
+                        <input type="text" class="form-control input-medium" id="mail" placeholder="請輸入mail" name="txtEmailInput">
                     </label>
-                    <button class="btn" title="訂閱">訂閱</button>
-                    <button class="btn" title="取消">取消</button>
+                    <button class="btn" title="訂閱" type="submit" name="btnorder" value="btnorder">訂閱</button>
+                    <button class="btn" title="取消" type="submit" name="btncancel" value="btncancel">取消</button>
                 </li>
                 <li style="display:none;">
                     <label for="search_date">
@@ -62,6 +62,7 @@
             </ul>
         </div>
         <!--page_search end-->
+    </form>
         <!--list start-->
         <div class="table-scrollable list_table">
             <table class="table table-hover" summary="電子報列表" >
@@ -108,7 +109,7 @@
                                     break;
 
                                 case "Title":
-                                    <td><a href="@Url.Action("EPaperReview", new { id = M.ItemID })" title="@M.Title (另開新視窗)" target="_blank">@M.Title</a></td>
+                                    <td><a href="@Url.Action("EPaperDetails", new { id = M.ItemID })" title="@M.Title (另開新視窗)" target="_blank">@M.Title</a></td>
                                     break;
                                 case "GroupName":
                                     if (M.GroupID == 0)

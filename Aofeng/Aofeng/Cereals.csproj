@@ -1178,7 +1178,7 @@
     <Content Include="Views\SiteMap\Index.cshtml" />
     <Content Include="Views\Public\FileNotFound.cshtml" />
     <Content Include="Views\EPaper\Index.cshtml" />
-    <Content Include="Views\EPaper\EPaperReview.cshtml" />
+    <Content Include="Views\EPaper\EPaperDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

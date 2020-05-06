@@ -1268,7 +1268,7 @@ namespace Oaww.Business
         }
         #endregion
 
-        #region DelSubscriber
+        #region CancelSubscriber
         
         public string CancelSubscriber(string email, string delaccount)
         {
@@ -1923,7 +1923,7 @@ namespace Oaww.Business
                             if (data.Count() > 0)
                             {
                                 EPaperItemEdit.ItemName.Add(data.First().Title);
-                                EPaperItemEdit.ItemUrl.Add(helper.Action("MessageView", "Message", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
+                                EPaperItemEdit.ItemUrl.Add(helper.Action("MessageView", "Message", new { Area = "" }) + "?itemid=" + item.ItemID + "&mid=" + item.MenuID);
                             }
                         }
                     }

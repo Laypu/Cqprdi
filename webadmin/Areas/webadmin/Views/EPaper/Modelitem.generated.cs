@@ -376,7 +376,7 @@ WriteLiteral(" class=\"text-center\"");
 
 WriteLiteral(" filed-type=\'link\'");
 
-WriteLiteral(" filed-item-class=\'text-center\'");
+WriteLiteral(" filed-item-class=\'text-center \'");
 
 WriteLiteral(">電子報名稱</th>\r\n                    <th");
 
@@ -452,45 +452,45 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4442), Tuple.Create("\"", 4486)
+WriteAttribute("src", Tuple.Create(" src=\"", 4443), Tuple.Create("\"", 4487)
             
             #line 101 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4448), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+, Tuple.Create(Tuple.Create("", 4449), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 4448), false)
+, 4449), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4510), Tuple.Create("\"", 4551)
+WriteAttribute("src", Tuple.Create(" src=\"", 4511), Tuple.Create("\"", 4552)
             
             #line 102 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4516), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 4517), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 4516), false)
+, 4517), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4575), Tuple.Create("\"", 4621)
+WriteAttribute("src", Tuple.Create(" src=\"", 4576), Tuple.Create("\"", 4622)
             
             #line 103 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4581), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 4582), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 4581), false)
+, 4582), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4645), Tuple.Create("\"", 4677)
-, Tuple.Create(Tuple.Create("", 4651), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
-, 4651), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 4646), Tuple.Create("\"", 4678)
+, Tuple.Create(Tuple.Create("", 4652), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
+, 4652), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(document).ready(function () {\r\n\r\n\r\n          " +
@@ -546,11 +546,11 @@ WriteLiteral("\', obj);\r\n            RegisterClickAll(\"#chk_all\", \'#eventta
             
             #line default
             #line hidden
-WriteLiteral("\', {keyindex:\"3\"});\r\n            //RegisterClicklink(\"#eventtable\", \".edit\", \'");
+WriteLiteral("\', {keyindex:\"3\"});\r\n            RegisterClicklink(\"#eventtable\", \".edit\", \'");
 
             
             #line 135 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-                                                    Write(Url.Action("EPaperEdit"));
+                                                  Write(Url.Action("EPaperEdit"));
 
             
             #line default
