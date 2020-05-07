@@ -92,11 +92,11 @@ namespace Aofeng.Controllers
             if (group == -1)
             {
                 group = null;
-                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).ToList();
+                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t=>t.IsPublished ==true).ToList();
             }
             else
             {
-                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t => t.GroupID == group).ToList();
+                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t => t.IsPublished == true).Where(t => t.GroupID == group).ToList();
             }
             List<int> groupidlist = new List<int>();
             foreach (var i in EPaperItem)

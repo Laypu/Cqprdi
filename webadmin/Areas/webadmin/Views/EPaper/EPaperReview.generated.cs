@@ -81,19 +81,19 @@ WriteLiteral(" http-equiv=\"X-UA-Compatible\"");
 
 WriteLiteral(" content=\"IE=edge\"");
 
-WriteLiteral(">\r\n    <title>產業永續發展整合資訊網</title><!--英文 Industrial Sustainable Development Cleari" +
-"nghouse-->\r\n    <link");
+WriteLiteral(">\r\n    <title>中華穀類食品工業技術研究所</title><!--英文 China Grain Products research & Develop" +
+"ment Institute-->\r\n    <link");
 
 WriteLiteral(" rel=\"icon\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 383), Tuple.Create("\"", 419)
+WriteAttribute("href", Tuple.Create(" href=\"", 390), Tuple.Create("\"", 426)
             
             #line 13 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-, Tuple.Create(Tuple.Create("", 390), Tuple.Create<System.Object, System.Int32>(Url.Content("~/favicon.ico")
+, Tuple.Create(Tuple.Create("", 397), Tuple.Create<System.Object, System.Int32>(Url.Content("~/favicon.ico")
             
             #line default
             #line hidden
-, 390), false)
+, 397), false)
 );
 
 WriteLiteral(" type=\"image/x-icon\"");
@@ -118,59 +118,224 @@ WriteLiteral(">\r\n    <link");
 
 WriteLiteral(" rel=\"stylesheet\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 727), Tuple.Create("\"", 773)
+WriteAttribute("href", Tuple.Create(" href=\"", 734), Tuple.Create("\"", 780)
             
             #line 16 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-, Tuple.Create(Tuple.Create("", 734), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/bootstrap.min.css")
+, Tuple.Create(Tuple.Create("", 741), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/bootstrap.min.css")
             
             #line default
             #line hidden
-, 734), false)
+, 741), false)
 );
 
-WriteLiteral(">\r\n</head>\r\n<body");
+WriteLiteral(">\r\n    <link");
 
-WriteAttribute("style", Tuple.Create(" style=\"", 791), Tuple.Create("\"", 1009)
-, Tuple.Create(Tuple.Create("", 799), Tuple.Create("max-width:806px;", 799), true)
-, Tuple.Create(Tuple.Create(" ", 815), Tuple.Create("margin:0", 816), true)
-, Tuple.Create(Tuple.Create(" ", 824), Tuple.Create("auto;", 825), true)
-, Tuple.Create(Tuple.Create(" ", 830), Tuple.Create("font-family:", 831), true)
-, Tuple.Create(Tuple.Create(" ", 843), Tuple.Create("微軟正黑體,", 844), true)
-, Tuple.Create(Tuple.Create(" ", 850), Tuple.Create("open-sans,", 851), true)
-, Tuple.Create(Tuple.Create(" ", 861), Tuple.Create("Times", 862), true)
-, Tuple.Create(Tuple.Create(" ", 867), Tuple.Create("New", 868), true)
-, Tuple.Create(Tuple.Create(" ", 871), Tuple.Create("Roman", 872), true)
-, Tuple.Create(Tuple.Create(" ", 877), Tuple.Create(",", 878), true)
-, Tuple.Create(Tuple.Create(" ", 879), Tuple.Create("sans-serif;background:", 880), true)
-, Tuple.Create(Tuple.Create(" ", 902), Tuple.Create("url(", 903), true)
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 810), Tuple.Create("\"", 848)
             
-            #line 18 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-                                          , Tuple.Create(Tuple.Create("", 907), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Content/img/index_bg_news.png")
+            #line 17 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 817), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/theme.css")
             
             #line default
             #line hidden
-, 907), false)
-, Tuple.Create(Tuple.Create("", 954), Tuple.Create(");background-attachment:", 954), true)
-, Tuple.Create(Tuple.Create(" ", 978), Tuple.Create("fixed;", 979), true)
-, Tuple.Create(Tuple.Create(" ", 985), Tuple.Create("background-size:", 986), true)
-, Tuple.Create(Tuple.Create(" ", 1002), Tuple.Create("cover;", 1003), true)
+, 817), false)
+);
+
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 878), Tuple.Create("\"", 925)
+            
+            #line 18 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 885), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/theme-elements.css")
+            
+            #line default
+            #line hidden
+, 885), false)
+);
+
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 955), Tuple.Create("\"", 996)
+            
+            #line 19 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 962), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/settings.css")
+            
+            #line default
+            #line hidden
+, 962), false)
+);
+
+WriteLiteral(" media=\"screen\"");
+
+WriteLiteral(">\r\n\r\n    <!--fontawesome start-->\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1073), Tuple.Create("\"", 1122)
+            
+            #line 22 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 1080), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/font-awesome.min.css")
+            
+            #line default
+            #line hidden
+, 1080), false)
+);
+
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1152), Tuple.Create("\"", 1200)
+            
+            #line 23 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 1159), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/fontawesome.min.css")
+            
+            #line default
+            #line hidden
+, 1159), false)
+);
+
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1230), Tuple.Create("\"", 1273)
+            
+            #line 24 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 1237), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/brands.min.css")
+            
+            #line default
+            #line hidden
+, 1237), false)
+);
+
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1303), Tuple.Create("\"", 1345)
+            
+            #line 25 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 1310), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/solid.min.css")
+            
+            #line default
+            #line hidden
+, 1310), false)
+);
+
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1375), Tuple.Create("\"", 1419)
+            
+            #line 26 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 1382), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/regular.min.css")
+            
+            #line default
+            #line hidden
+, 1382), false)
+);
+
+WriteLiteral(">\r\n    <!--fontawesome end-->\r\n\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1479), Tuple.Create("\"", 1517)
+            
+            #line 29 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 1486), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/style.css")
+            
+            #line default
+            #line hidden
+, 1486), false)
+);
+
+WriteLiteral(">\r\n    <script");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 1532), Tuple.Create("\"", 1568)
+            
+            #line 30 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 1538), Tuple.Create<System.Object, System.Int32>(Url.Content("~/js/jquery.js")
+            
+            #line default
+            #line hidden
+, 1538), false)
+);
+
+WriteLiteral("></script>\r\n    <script");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 1592), Tuple.Create("\"", 1626)
+            
+            #line 31 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 1598), Tuple.Create<System.Object, System.Int32>(Url.Content("~/js/main.js")
+            
+            #line default
+            #line hidden
+, 1598), false)
+);
+
+WriteLiteral("></script>\r\n    <noscript>\r\n        <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1685), Tuple.Create("\"", 1726)
+            
+            #line 33 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 1692), Tuple.Create<System.Object, System.Int32>(Url.Content("~/css/noscript.css")
+            
+            #line default
+            #line hidden
+, 1692), false)
+);
+
+WriteLiteral(">\r\n    </noscript>\r\n\r\n\r\n</head>\r\n\r\n<body");
+
+WriteAttribute("style", Tuple.Create(" style=\"", 1767), Tuple.Create("\"", 1985)
+, Tuple.Create(Tuple.Create("", 1775), Tuple.Create("max-width:806px;", 1775), true)
+, Tuple.Create(Tuple.Create(" ", 1791), Tuple.Create("margin:0", 1792), true)
+, Tuple.Create(Tuple.Create(" ", 1800), Tuple.Create("auto;", 1801), true)
+, Tuple.Create(Tuple.Create(" ", 1806), Tuple.Create("font-family:", 1807), true)
+, Tuple.Create(Tuple.Create(" ", 1819), Tuple.Create("微軟正黑體,", 1820), true)
+, Tuple.Create(Tuple.Create(" ", 1826), Tuple.Create("open-sans,", 1827), true)
+, Tuple.Create(Tuple.Create(" ", 1837), Tuple.Create("Times", 1838), true)
+, Tuple.Create(Tuple.Create(" ", 1843), Tuple.Create("New", 1844), true)
+, Tuple.Create(Tuple.Create(" ", 1847), Tuple.Create("Roman", 1848), true)
+, Tuple.Create(Tuple.Create(" ", 1853), Tuple.Create(",", 1854), true)
+, Tuple.Create(Tuple.Create(" ", 1855), Tuple.Create("sans-serif;background:", 1856), true)
+, Tuple.Create(Tuple.Create(" ", 1878), Tuple.Create("url(", 1879), true)
+            
+            #line 39 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+                                         , Tuple.Create(Tuple.Create("", 1883), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Content/img/index_bg_news.png")
+            
+            #line default
+            #line hidden
+, 1883), false)
+, Tuple.Create(Tuple.Create("", 1930), Tuple.Create(");background-attachment:", 1930), true)
+, Tuple.Create(Tuple.Create(" ", 1954), Tuple.Create("fixed;", 1955), true)
+, Tuple.Create(Tuple.Create(" ", 1961), Tuple.Create("background-size:", 1962), true)
+, Tuple.Create(Tuple.Create(" ", 1978), Tuple.Create("cover;", 1979), true)
 );
 
 WriteLiteral(">\r\n    <div");
 
-WriteLiteral(" style=\"padding: 2%; margin: 2%;border: solid 1px #ccc;float: left;border-radius:" +
-" 10px;box-shadow: 0px 0px 6px 4px rgba(20%,20%,20%,0.1);background: #fff;\"");
+WriteLiteral(" class=\"con_box\"");
 
 WriteLiteral(">\r\n");
 
             
-            #line 20 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 41 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 20 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 41 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
          if (string.IsNullOrEmpty(Model.TopBannerImgName) == false)
         {
 
@@ -179,31 +344,31 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("            <div");
 
-WriteLiteral(" style=\"margin-bottom: 10px;\"");
+WriteLiteral(" class=\"con_banner\"");
 
 WriteLiteral(">\r\n                <img");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1327), Tuple.Create("\"", 1355)
+WriteAttribute("src", Tuple.Create(" src=\"", 2154), Tuple.Create("\"", 2182)
             
-            #line 23 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-, Tuple.Create(Tuple.Create("", 1333), Tuple.Create<System.Object, System.Int32>(Model.TopBannerImgUrl
+            #line 44 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 2160), Tuple.Create<System.Object, System.Int32>(Model.TopBannerImgUrl
             
             #line default
             #line hidden
-, 1333), false)
+, 2160), false)
 );
 
 WriteLiteral(" alt=\"\"");
 
-WriteLiteral("  style=\"border-radius: 10px;box-shadow: 0px 0px 6px 2px rgba(20%,20%,20%,0.1);bo" +
-"rder: solid 1px #fff;\"");
+WriteLiteral(" style=\"border-radius: 10px;box-shadow: 0px 0px 6px 2px rgba(20%,20%,20%,0.1);bor" +
+"der: solid 1px #fff;\"");
 
 WriteLiteral(" />\r\n            </div>");
 
 WriteLiteral("<!--建議尺寸740*185px；後台未上傳圖片時show預設圖print_banner.jpg -->\r\n");
 
             
-            #line 25 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 46 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
         }
         else
         {
@@ -213,31 +378,31 @@ WriteLiteral("<!--建議尺寸740*185px；後台未上傳圖片時show預設圖p
             #line hidden
 WriteLiteral("            <div");
 
-WriteLiteral(" style=\"margin-bottom: 10px;\"");
+WriteLiteral(" class=\"con_banner\"");
 
 WriteLiteral(">\r\n                <img");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1648), Tuple.Create("\"", 1700)
+WriteAttribute("src", Tuple.Create(" src=\"", 2464), Tuple.Create("\"", 2516)
             
-            #line 29 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-, Tuple.Create(Tuple.Create("", 1654), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Content/img/print_banner.jpg")
+            #line 50 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 2470), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Content/img/print_banner.jpg")
             
             #line default
             #line hidden
-, 1654), false)
+, 2470), false)
 );
 
 WriteLiteral(" alt=\"\"");
 
-WriteLiteral("  style=\"border-radius: 10px;box-shadow: 0px 0px 6px 2px rgba(20%,20%,20%,0.1);bo" +
-"rder: solid 1px #fff;width:100%\"");
+WriteLiteral(" style=\"border-radius: 10px;box-shadow: 0px 0px 6px 2px rgba(20%,20%,20%,0.1);bor" +
+"der: solid 1px #fff;width:100%\"");
 
 WriteLiteral(" />\r\n            </div>");
 
 WriteLiteral("<!--建議尺寸740*185px；後台未上傳圖片時show預設圖print_banner.jpg -->\r\n");
 
             
-            #line 31 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 52 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
         }
 
             
@@ -245,41 +410,40 @@ WriteLiteral("<!--建議尺寸740*185px；後台未上傳圖片時show預設圖p
             #line hidden
 WriteLiteral("        <div");
 
-WriteLiteral(" style=\"color: #2b79a6;padding: 5px 0;font-size: 0.8em;\"");
+WriteLiteral(" class=\"date\"");
 
 WriteLiteral(">《發佈日期：");
 
             
-            #line 32 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-                                                                      Write(Model.PublishStr);
+            #line 53 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+                           Write(Model.PublishStr);
 
             
             #line default
             #line hidden
 WriteLiteral("》</div>\r\n        <div");
 
-WriteLiteral(" style=\"padding: 12px 15px 12px 20px;background: #f2f2f2;color: #013e78;font-size" +
-": 1.4em;font-weight: bold;line-height: 100%;border-radius:5px;\"");
+WriteLiteral(" class=\"title\"");
 
-WriteLiteral(">");
+WriteLiteral("><h2>");
 
             
-            #line 33 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-                                                                                                                                                        Write(Model.Title);
+            #line 54 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+                          Write(Model.Title);
 
             
             #line default
             #line hidden
-WriteLiteral("</div>\r\n");
+WriteLiteral(" </h2></div>\r\n");
 
             
-            #line 34 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 55 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 34 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 55 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
          if (Model.PaperMode == 1)
         {
             
@@ -287,14 +451,14 @@ WriteLiteral("</div>\r\n");
             #line default
             #line hidden
             
-            #line 36 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 57 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
        Write(Html.Raw(Model.PageEndHtmlContent));
 
             
             #line default
             #line hidden
             
-            #line 36 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 57 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
                                                
         }
         else
@@ -309,77 +473,70 @@ WriteLiteral("</div>\r\n");
             #line hidden
 WriteLiteral("                    <div");
 
-WriteLiteral(" style=\"margin: 10px 0 0 0;background:#2b79a6;border-radius:5px;float:left;width:" +
-"100%;border:solid #2b79a6 5px;\"");
+WriteLiteral(" class=\"epaper_list\"");
 
 WriteLiteral(">\r\n                        <div");
 
-WriteLiteral(" style=\"padding:5px 10px;font-weight:bold;font-size:1.2em;color:#fff;\"");
+WriteLiteral(" class=\"epaper_class\"");
 
 WriteLiteral(">");
 
             
-            #line 45 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-                                                                                              Write(items.Name);
+            #line 66 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+                                             Write(items.Name);
 
             
             #line default
             #line hidden
 WriteLiteral("</div>\r\n                        <ul");
 
-WriteLiteral(" style=\"list-style:square;padding:0 20px 0 30px;background:#fff;border-radius:5px" +
-";float:left;width:100%;margin:0;\"");
+WriteLiteral(" class=\"epaper_item\"");
 
 WriteLiteral(">\r\n");
 
             
-            #line 47 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 68 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
                             
             
             #line default
             #line hidden
             
-            #line 47 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 68 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
                              for (var idx = 0; idx < items.ItemName.Count(); idx++)
                             {
 
             
             #line default
             #line hidden
-WriteLiteral("                                <li");
+WriteLiteral("                                <li><a");
 
-WriteLiteral(" style=\"border-bottom: dotted #ddd 1px;padding:5px 0;line-height:170%;width:100%\"" +
-"");
-
-WriteLiteral("><a");
-
-WriteAttribute("href", Tuple.Create(" href=\'", 3098), Tuple.Create("\'", 3124)
+WriteAttribute("href", Tuple.Create(" href=\'", 3434), Tuple.Create("\'", 3460)
             
-            #line 49 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-                                              , Tuple.Create(Tuple.Create("", 3105), Tuple.Create<System.Object, System.Int32>(items.ItemUrl[idx]
+            #line 70 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+, Tuple.Create(Tuple.Create("", 3441), Tuple.Create<System.Object, System.Int32>(items.ItemUrl[idx]
             
             #line default
             #line hidden
-, 3105), false)
+, 3441), false)
 );
 
 WriteLiteral(" target=\"_blank\"");
 
-WriteAttribute("title", Tuple.Create(" title=\"", 3141), Tuple.Create("\"", 3179)
+WriteAttribute("title", Tuple.Create(" title=\"", 3477), Tuple.Create("\"", 3515)
             
-            #line 49 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-                                                                                          , Tuple.Create(Tuple.Create("", 3149), Tuple.Create<System.Object, System.Int32>(Html.Raw(items.ItemName[idx])
+            #line 70 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+         , Tuple.Create(Tuple.Create("", 3485), Tuple.Create<System.Object, System.Int32>(Html.Raw(items.ItemName[idx])
             
             #line default
             #line hidden
-, 3149), false)
+, 3485), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 49 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-                                                                                                                                                                                                     Write(Html.Raw(items.ItemName[idx]));
+            #line 70 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+                                                                                                                    Write(Html.Raw(items.ItemName[idx]));
 
             
             #line default
@@ -387,7 +544,7 @@ WriteLiteral(">");
 WriteLiteral("</a></li>\r\n");
 
             
-            #line 50 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 71 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
                             }
 
             
@@ -396,7 +553,7 @@ WriteLiteral("</a></li>\r\n");
 WriteLiteral("                        </ul>\r\n                    </div>\r\n");
 
             
-            #line 53 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 74 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
                 }
             }
         }
@@ -412,7 +569,7 @@ WriteLiteral(" style=\"text-align:center;font-size:0.8em;line-height:150%;border
 WriteLiteral(">");
 
             
-            #line 56 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
+            #line 77 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
                                                                                                                                                                      Write(Html.Raw(Model.PageEndHtmlContent));
 
             

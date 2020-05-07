@@ -233,7 +233,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             if (model.ID <= 0)
             {
                 int itemold =0;
-                if (model.ModelID == 4 && model.ModelItemID == -1)
+                if (model.ModelID == 4  && model.ModelItemID == -1)
                 {
                     itemold = model.ModelItemID;
 

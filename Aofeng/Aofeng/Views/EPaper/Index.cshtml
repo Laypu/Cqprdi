@@ -4,7 +4,7 @@
         <!--page_search start-->
         <div class="page_search">
             <ul>
-                @if (Model.ListGroupEPaper.Count() == 2 && Model.ListGroupEPaper.LastOrDefault().Group_Name == "無分類")
+                @if ((Model.ListGroupEPaper.Count() == 2 && Model.ListGroupEPaper.LastOrDefault().Group_Name == "無分類")||(Model.ListGroupEPaper.Count() ==1))
                 {
 
                 }
@@ -33,6 +33,7 @@
 
                         </label>
                     </li>
+                }
                     <li data-sr="enter left over 1.5s">
                         <label for="mail">
                             <div class="item_title">訂閱電子報</div>
@@ -66,7 +67,7 @@
                             <button class="btn" onclick="location.href='news_01.html'" title="列表顯示"><i class="fas fa-th-list"></i></button><!--英文List-->
                         </div>
                     </li>
-                   }
+                   
                 </ul>
         </div>
         <!--page_search end-->

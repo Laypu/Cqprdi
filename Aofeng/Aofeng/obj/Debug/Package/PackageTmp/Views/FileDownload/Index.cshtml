@@ -53,11 +53,11 @@
         {
             <li class="float-left search_class">
                 <form method="post" action="@Url.Action("Index")" style="display:inline">
-                    <label for="group">@("類別".GetLang()) : </label>
+                    <label for="group">@("類別".GetLang()) </label>
                     @Html.HiddenFor(m => m.mid)
                     @Html.HiddenFor(m => m.itemid)
                     @Html.HiddenFor(m => m.classType)
-                    <select id="group" name="group" onchange="this.form.submit()">
+                    <select class="form-control w-auto" id="group" name="group" onchange="this.form.submit()">
                         @foreach (var m in Model.ListGroupMessage)
                         {
                             <option @(m.ID == Model.group ? "selected" : "") value="@m.ID">@m.Group_Name</option>

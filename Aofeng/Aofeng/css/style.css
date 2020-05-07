@@ -369,6 +369,7 @@ marquee span:before{
 	border:none;
 	padding:2px 8px;
 	border-radius:4px;
+	position: relative;
 }
 .form-control:focus {
     box-shadow: none;

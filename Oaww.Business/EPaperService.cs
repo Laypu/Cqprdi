@@ -237,13 +237,15 @@ namespace Oaww.Business
             Paging.rows = new List<EPaperItemResult>();
             var datas = new List<EPaperItem>();
             var onepagecnt = model.Limit;
+
+            base.Parameter.Clear();
+            sql = "select * from EPaperItem where LangID=@Lang_ID and ModelID=@ModelID";
             if (model.GroupId != null)
             {
                 sql += " and GroupID=@GroupID";
                 base.Parameter.Add(new SqlParameter("@GroupID", model.GroupId.Value));
             }
-            sql = "select * from EPaperItem where LangID=@Lang_ID and ModelID=@ModelID";
-            base.Parameter.Clear();
+            
             base.Parameter.Add(new SqlParameter("@Lang_ID", model.LangId));
             base.Parameter.Add(new SqlParameter("@ModelID", modelid));
 
@@ -830,6 +832,51 @@ namespace Oaww.Business
                 }
             }
         }
+
+        public bool SaveToColumnSetting(int MainID ) 
+        {
+            var i = 0;
+            var r = 0;
+            List<ColumnSetting> columnSettings = new List<ColumnSetting>();
+            columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = MainID, ColumnKey = "No", ColumnName = "序號", Used = true, Sort = 1 });
+           columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = MainID, ColumnKey = "PublicshDate", ColumnName = "發佈日期", Used = true, Sort = 2 });
+            columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = MainID, ColumnKey = "Title", ColumnName = "電子報名稱", Used = true, Sort = 3 });
+            columnSettings.Add(new ColumnSetting() { Type = "EPaper", MainID = MainID, ColumnKey = "GroupName", ColumnName = "類別", Used = true, Sort = 4 });
+
+            try
+            {
+                columnSettings.ForEach(t =>
+            {
+                base.Parameter.Clear();
+                var sql = "insert into ColumnSetting ([Type],[MainID],[ColumnKey],[ColumnName],[Used],[Sort]) " +
+                                          "values(@Type,@MainID,@ColumnKey,@ColumnName,@Used,@Sort)";
+                base.Parameter.Add(new SqlParameter("@Type", columnSettings[i].Type));
+                base.Parameter.Add(new SqlParameter("@MainID", columnSettings[i].MainID));
+                base.Parameter.Add(new SqlParameter("@ColumnKey", columnSettings[i].ColumnKey));
+                base.Parameter.Add(new SqlParameter("@ColumnName", columnSettings[i].ColumnName));
+                base.Parameter.Add(new SqlParameter("@Used", columnSettings[i].Used));
+                base.Parameter.Add(new SqlParameter("@Sort", columnSettings[i].Sort));
+                r = base.ExeNonQuery(sql);
+                i++;
+
+            });
+                if (r > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                logger.Error(ex, "新增電子報欄位異常，ex:" + ex.ToString().NewLineReplace());
+                return false;
+            }
+        }
+
 
         //public EPaperFile GetFileDownloadFile(string id)
         //{

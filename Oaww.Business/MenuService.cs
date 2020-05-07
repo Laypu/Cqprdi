@@ -15,7 +15,7 @@ namespace Oaww.Business
     public class MenuService : BaseBusiness.BaseBusiness
     {
         CommonService _commonService = new CommonService();
-
+        EPaperService _EPservice = new EPaperService(12);
         /// <summary>
         /// 取得語系跟語言相對應的Menu list
         /// </summary>
@@ -264,25 +264,34 @@ namespace Oaww.Business
                             
 
                           
-                            if (SET_MENU.M_Menu11== "ModelPageEditMain")
+                            if (SET_MENU.M_Menu11== "ModelPageEditMain")//圖文
                             {
                                 model.ModelItemID = AddUnit<ModelPageEditMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
                             }
-                            else if (SET_MENU.M_Menu11 == "ModelMessageMain")
+                            else if (SET_MENU.M_Menu11 == "ModelMessageMain")//訊息
                             {
                                 model.ModelItemID = AddUnit<ModelMessageMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
                             }                            
-                            else if (SET_MENU.M_Menu11 == "ModelFormMain")
+                            else if (SET_MENU.M_Menu11 == "ModelFormMain")//表單
                             {
                                 model.ModelItemID = AddUnit<ModelFormMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
                             }
-                            else if (SET_MENU.M_Menu11 == "ModelVideoMain")
+                            else if (SET_MENU.M_Menu11 == "ModelVideoMain")//影音
                             {
                                 model.ModelItemID = AddUnit<ModelVideoMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
                             }
                             else if (SET_MENU.M_Menu11 == "ModelCommonMain") //直接變成共用
                             {
                                 model.ModelItemID = AddUnit<ModelCommonMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
+                            }
+                            else if (SET_MENU.M_Menu11 == "ModelSiteMapMain")//網站導覽
+                            {
+                                model.ModelItemID = AddUnit<ModelSiteMapMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
+                            }
+                            else if (SET_MENU.M_Menu11 == "ModelEPaperMain") //電子報
+                            {
+                                model.ModelItemID = AddUnit<ModelEPaperMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
+                                _EPservice.SaveToColumnSetting(model.ModelItemID);
                             }
                         }
 
@@ -411,9 +420,13 @@ namespace Oaww.Business
                             {
                                 model.ModelItemID = AddUnit<ModelCommonMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
                             }
-                            else if (SET_MENU.M_Menu11 == "ModelSiteMapMain")
+                            else if (SET_MENU.M_Menu11 == "ModelSiteMapMain")//網站導覽
                             {
                                 model.ModelItemID = AddUnit<ModelSiteMapMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
+                            }
+                            else if (SET_MENU.M_Menu11 == "ModelEPaperMain") //電子報
+                            {
+                                model.ModelItemID = AddUnit<ModelEPaperMain>(model.MenuName, model.LangID.ToString(), account, model.ModelID, tran);
                             }
 
                         }

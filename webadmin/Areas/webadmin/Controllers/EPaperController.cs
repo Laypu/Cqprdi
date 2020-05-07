@@ -76,7 +76,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             {
 
 
-                str = _menuService.AddUnit<ModelEPaperMain>(name, this.LanguageID, this.Account, _ModelID) ? "新增成功" : "新增失敗";
+                str = _menuService.AddUnit<ModelEPaperMain>(name, this.LanguageID, this.Account, _ModelID) && _service.SaveToColumnSetting(_ModelID) ? "新增成功" : "新增失敗";
 
 
             }
