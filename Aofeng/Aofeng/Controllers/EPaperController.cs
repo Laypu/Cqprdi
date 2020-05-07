@@ -39,27 +39,30 @@ namespace Aofeng.Controllers
                 nowpage = 1;
             }
             #endregion
-
+            var Error = string.Empty;
             if (Request["btnorder"] != null)
             {
+                
                 var input = Request["txtEmailInput"];
                 if (input.IsNullOrEmpty())
                 {
-                    ViewBag.ErrorInfo = "訂閱EMail請確實輸入";
-                    ViewData["message"] = "訂閱EMail請確實輸入";
+                    Error=_service.GetEPMulti("Column15", int.Parse(itemid)) == "" ? "EMail請確實輸入" : _service.GetEPMulti("Column15", int.Parse(itemid));
+                    ViewBag.ErrorInfo = Error;
+                    ViewData["message"] = Error;
                 }
                 else
                 {
                     var echeck = new EmailAddressAttribute();
                     if (echeck.IsValid(input) == false)
                     {
-                        ViewBag.ErrorInfo = "EMail格式錯誤";
-                        ViewData["message"] = "EMail格式錯誤";
+                        Error = _service.GetEPMulti("Column10", int.Parse(itemid)) == "" ? "EMail格式錯誤" : _service.GetEPMulti("Column10", int.Parse(itemid));
+                        ViewBag.ErrorInfo = Error;
+                        ViewData["message"] = Error;
                     }
                     else
                     {
-                        ViewBag.ErrorInfo = _service.AddSubscriber(input, "user",this.LanguageID);
-                        ViewData["message"] = _service.AddSubscriber(input, "user", this.LanguageID);
+                        ViewBag.ErrorInfo = _service.AddSubscriber(input, "user",this.LanguageID,itemid);
+                        ViewData["message"] = _service.AddSubscriber(input, "user", this.LanguageID,itemid);
                     }
                 }
             }
@@ -68,21 +71,23 @@ namespace Aofeng.Controllers
                 var input = Request["txtEmailInput"];
                 if (input.IsNullOrEmpty())
                 {
-                    ViewBag.ErrorInfo = "取消訂閱EMail請確實輸入";
-                    ViewData["message"] = "取消訂閱EMail請確實輸入";
+                    Error = _service.GetEPMulti("Column15", int.Parse(itemid)) == "" ? "EMail請確實輸入" : _service.GetEPMulti("Column15", int.Parse(itemid));
+                    ViewBag.ErrorInfo = Error;
+                    ViewData["message"] =Error;
                 }
                 else
                 {
                     var echeck = new EmailAddressAttribute();
                     if (echeck.IsValid(input) == false)
                     {
-                        ViewBag.ErrorInfo = "EMail格式錯誤";
-                        ViewData["message"] = "EMail格式錯誤";
+                        Error = _service.GetEPMulti("Column10", int.Parse(itemid)) == "" ? "EMail格式錯誤" : _service.GetEPMulti("Column10", int.Parse(itemid));
+                        ViewBag.ErrorInfo = Error;
+                        ViewData["message"] = Error;
                     }
                     else
                     {
-                        ViewBag.ErrorInfo = _service.CancelSubscriber(input, "user");
-                        ViewData["message"] = _service.CancelSubscriber(input, "user");
+                        ViewBag.ErrorInfo = _service.CancelSubscriber(input, "user",itemid);
+                        ViewData["message"] = _service.CancelSubscriber(input, "user",itemid);
                     }
                 }
             }

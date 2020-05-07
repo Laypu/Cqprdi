@@ -937,7 +937,7 @@ WriteLiteral("\r\n                                    </div>\r\n                
 
 WriteLiteral(" class=\"col-md-12\"");
 
-WriteLiteral("\r\n\r\n                                ");
+WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
@@ -1076,11 +1076,105 @@ WriteLiteral("                                        ");
             
             #line default
             #line hidden
+WriteLiteral("\r\n                                    </div>\r\n                                </d" +
+"iv>\r\n                                <div");
+
+WriteLiteral(" class=\"col-md-12\"");
+
+WriteLiteral(">\r\n                                    <label");
+
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">EMail請確實輸入</label>\r\n                                    <div");
+
+WriteLiteral(" class=\"col-md-9\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                                        ");
+
+            
+            #line 241 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+                                   Write(Html.EditorFor(model => model.Column15, new { htmlAttributes = new { @class = "form-control" } }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                                    </div>\r\n                                </d" +
+"iv>\r\n                                <div");
+
+WriteLiteral(" class=\"col-md-12\"");
+
+WriteLiteral(">\r\n                                    <label");
+
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">電子報訂閱失敗!</label>\r\n                                    <div");
+
+WriteLiteral(" class=\"col-md-9\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                                        ");
+
+            
+            #line 247 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+                                   Write(Html.EditorFor(model => model.Column16, new { htmlAttributes = new { @class = "form-control" } }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                                    </div>\r\n                                </d" +
+"iv>\r\n                                <div");
+
+WriteLiteral(" class=\"col-md-12\"");
+
+WriteLiteral(">\r\n                                    <label");
+
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">此 Email 無訂閱電子報!</label>\r\n                                    <div");
+
+WriteLiteral(" class=\"col-md-9\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                                        ");
+
+            
+            #line 253 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+                                   Write(Html.EditorFor(model => model.Column17, new { htmlAttributes = new { @class = "form-control" } }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                                    </div>\r\n                                </d" +
+"iv>\r\n\r\n                                <div");
+
+WriteLiteral(" class=\"col-md-12\"");
+
+WriteLiteral(">\r\n                                    <label");
+
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">電子報取消訂閱失敗</label>\r\n                                    <div");
+
+WriteLiteral(" class=\"col-md-9\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                                        ");
+
+            
+            #line 260 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+                                   Write(Html.EditorFor(model => model.Column18, new { htmlAttributes = new { @class = "form-control" } }));
+
+            
+            #line default
+            #line hidden
 WriteLiteral(@"
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
 
@@ -1108,7 +1202,7 @@ DefineSection("scripts", () => {
 WriteLiteral("\r\n    <script>\r\n        $(function () {\r\n            $(\"#ShowCount\").val(\'");
 
             
-            #line 256 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 279 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                             Write(Model.ShowCount);
 
             
@@ -1178,7 +1272,7 @@ WriteLiteral("\');\r\n            $(\"#table_Column\").delegate((\".seq_list\"),
 "mainid = \'");
 
             
-            #line 359 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 382 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                          Write(Model.MainID);
 
             
@@ -1187,7 +1281,7 @@ WriteLiteral("\');\r\n            $(\"#table_Column\").delegate((\".seq_list\"),
 WriteLiteral("\'\r\n                            CreatePost(\'");
 
             
-            #line 360 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
+            #line 383 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
                                    Write(Url.Action("UnitSetting"));
 
             

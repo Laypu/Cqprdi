@@ -1276,8 +1276,8 @@ namespace Oaww.Business
             return Paging;
         }
 
-        #region AddSubscriber
-        public string AddSubscriber(string email, string account,int lang)
+        #region AddSubscriber 前台
+        public string AddSubscriber(string email, string account,int lang,string MainID)
         {
 
             string sql = string.Empty;
@@ -1292,7 +1292,7 @@ namespace Oaww.Business
 
                     if (olddata.Count() > 0)
                     {
-                        return "此EMail已經訂閱!";
+                        return GetEPMulti("Column13", int.Parse(MainID)) == "" ? "此 EMail 已經訂閱!" : GetEPMulti("Column13", int.Parse(MainID)) ;
                     }
                     var nowdate = DateTime.Now;
 
@@ -1317,23 +1317,72 @@ namespace Oaww.Business
                     {
                         tran.Commit();
 
-
-
-                        return "電子報訂閱成功!";
+                        return GetEPMulti("Column12", int.Parse(MainID)) == "" ? "電子報訂閱成功!" : GetEPMulti("Column12", int.Parse(MainID));
                     }
                     else
                     {
-                        return "電子報訂閱失敗";
+                        return GetEPMulti("Column16", int.Parse(MainID)) == "" ? "電子報訂閱失敗!" : GetEPMulti("Column16", int.Parse(MainID));
                     }
                 }
             }
                    
         }
         #endregion
+        #region AddSubscriber 後台
+        public string AddSubscriber(string email, string account, int lang)
+        {
 
+            string sql = string.Empty;
+
+
+
+            using (SqlConnection connection = base.OpenConnection())
+            {
+                using (SqlTransaction tran = base.GetTransaction(connection))
+                {
+                    var olddata = _commonService.GetGeneralList<EPaperSubscriber>("EMail=@EMail", new Dictionary<string, string>() { { "EMail", email } }, tran);
+
+                    if (olddata.Count() > 0)
+                    {
+                        return "此 EMail 已經訂閱!";
+                    }
+                    var nowdate = DateTime.Now;
+
+                    var Model = new EPaperSubscriber()
+                    {
+                        EMail = email,
+                        Status = true,
+                        CreateDate = nowdate,
+                        CreateUser = account,
+                        UpdateDate = nowdate,
+                        UpdateUser = account,
+                        OPDateStr = nowdate.ToString("yyyy/MM/dd"),
+                        LangID = lang
+                    };
+
+                    //sql = "update EPaperSubscriber ";
+                    //base.ExeNonQuery(sql, tran);
+
+
+                    var r = (int)base.InsertObject(Model, tran);
+                    if (r > 0)
+                    {
+                        tran.Commit();
+
+                        return "電子報訂閱成功!";
+                    }
+                    else
+                    {
+                        return "電子報訂閱失敗!";
+                    }
+                }
+            }
+
+        }
+#endregion
         #region CancelSubscriber
-        
-        public string CancelSubscriber(string email, string delaccount)
+
+        public string CancelSubscriber(string email, string delaccount, string MainID)
         {
             try
             {
@@ -1349,18 +1398,18 @@ namespace Oaww.Business
                         var olddata = _commonService.GetGeneralList<EPaperSubscriber>("EMail=@EMail", new Dictionary<string, string>() { { "EMail", email } }, tran);
                         if (olddata.Count() <= 0)
                         {
-                            return "此 Email 無訂閱電子報!";
+                            return GetEPMulti("Column17", int.Parse(MainID)) == "" ? "此 Email 無訂閱電子報!" : GetEPMulti("Column17", int.Parse(MainID));
                         }
 
                         r = base.ExeNonQuery(sql);
                         if (r >= 0)
                         {
                             tran.Commit();
-                            return "電子報取消訂閱成功!";
+                            return GetEPMulti("Column14", int.Parse(MainID)) == "" ? "電子報取消訂閱成功!" : GetEPMulti("Column14", int.Parse(MainID));
                         }
                         else
                         {
-                            return "電子報取消訂閱失敗";
+                            return GetEPMulti("Column18", int.Parse(MainID)) == "" ? "電子報取消訂閱成功!" : GetEPMulti("Column18", int.Parse(MainID));
                         }
 
                     }
@@ -1368,8 +1417,8 @@ namespace Oaww.Business
              }
             catch (Exception ex)
             {
-                
-                return "電子報取消訂閱失敗";
+
+                return GetEPMulti("Column18", int.Parse(MainID)) == "" ? "電子報取消訂閱失敗" : GetEPMulti("Column18", int.Parse(MainID));
             }
         }
         #endregion
