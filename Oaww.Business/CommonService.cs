@@ -1629,6 +1629,13 @@ namespace Oaww.Business
                     Column5 = data.First().Column5,
                     Column6 = data.First().Column6,
                     Column7 = data.First().Column7,
+                    Column8 = data.First().Column8,
+                    Column9 = data.First().Column9,
+                    Column10 = data.First().Column10,
+                    Column11 = data.First().Column11,
+                    Column12 = data.First().Column12,
+                    Column13 = data.First().Column13,
+                    Column14 = data.First().Column14,
                     Summary = data.First().Summary,
                     IsForward = data.First().IsForward,
                     IsPrint = data.First().IsPrint,
@@ -2502,7 +2509,6 @@ namespace Oaww.Business
 
             return base.ExecuteScalar(sql, LKey).ToString();
         }
-
         public bool chkExist(string Key)
         {
             string sql = "select t.ID from LangKey t where t.LKey=@LKey";
@@ -2511,7 +2517,6 @@ namespace Oaww.Business
 
             return base.SearchCount(sql) > 0;
         }
-
         public void AddMultiKey(string Key)
         {
             LangKey LangKey = new LangKey();

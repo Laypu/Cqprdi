@@ -821,7 +821,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">年份</label>\r\n                                    <div");
+WriteLiteral(">類別</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 
@@ -845,7 +845,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">電子報訂閱</label>\r\n                                    <div");
+WriteLiteral(">訂閱電子報</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 
@@ -893,7 +893,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">取消訂閱</label>\r\n                                    <div");
+WriteLiteral(">取消</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 
@@ -911,7 +911,7 @@ WriteLiteral("                                        ");
 WriteLiteral("\r\n                                    </div>\r\n                                </d" +
 "iv>\r\n\r\n                                <div");
 
-WriteLiteral(" class=\"col-md-12\"");
+WriteLiteral(" class=\"col-md-12 hide\"");
 
 WriteLiteral(">\r\n                                    <label");
 
@@ -941,7 +941,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">Email</label>\r\n                                    <div");
+WriteLiteral(">請輸入Email</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 

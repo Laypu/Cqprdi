@@ -26,6 +26,19 @@ namespace Oaww.Business
         {
             _ModelID = ModelID;
         }
+        public string GetEPMulti(string Key, int MainID)
+        {
+            var Lang = HttpContext.Current.Session["LangID"].ToString();
+            var Skey = "t." + Key;
+            string sql = "select ";
+            sql += Skey;
+            sql += " from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+            base.Parameter.Clear();
+            base.Parameter.Add(new SqlParameter("@LangID", Lang));
+            base.Parameter.Add(new SqlParameter("@MainID", MainID));
+
+            return base.ExecuteScalar(sql)==null?"": base.ExecuteScalar(sql).ToString();
+        }
         public List<GroupEPaper> GetVaildGroupEPapers(string Main_ID,string Lang_ID)
         {
             string sql = @"with cte as
