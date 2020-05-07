@@ -13,7 +13,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="@Url.Action("ModelItem",new {mainid = ViewBag.mainid })">電子報管理</a>
+            <a href="@Url.Action("Index","EPaper")">電子報管理</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
@@ -64,7 +64,7 @@
         </div>
     </div>
     <div class="table-scrollable">
-        <table class="table table-bordered table-hover" border="0" cellspacing="0" cellpadding="0"
+        <table align="center" class="table table-bordered table-hover" border="0" cellspacing="0" cellpadding="0"
                id="eventtable"
                data-url="@Url.Action("PagingItem")"
                data-sort-name='Sort'
@@ -175,7 +175,7 @@
             });
 
             $("#eventtable").delegate(".epapersort", "click", function () {
-                CreatePost('@Url.Action("EPaperItemSort")', { id: $(this).attr('index')});
+                CreatePost('@Url.Action("EPaperItemSort")', { id: $(this).attr('index'), mainid: mainid });
             });
 
             $("#btn_groupmanager").click(function () {

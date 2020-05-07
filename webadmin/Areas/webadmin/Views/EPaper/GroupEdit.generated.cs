@@ -133,9 +133,32 @@ WriteLiteral(">電子報管理</a>\r\n            <i");
 
 WriteLiteral(" class=\"fa fa-circle\"");
 
-WriteLiteral("></i>\r\n        </li>\r\n        ");
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteLiteral("\r\n        <li>\r\n            <a");
+WriteAttribute("href", Tuple.Create(" href=\"", 721), Tuple.Create("\"", 783)
+            
+            #line 23 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+, Tuple.Create(Tuple.Create("", 728), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            
+            #line default
+            #line hidden
+, 728), false)
+);
+
+WriteLiteral(">");
+
+            
+            #line 23 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+                                                                         Write(ViewBag.ModelItemTitle);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" 管理</a>\r\n            <i");
+
+WriteLiteral(" class=\"fa fa-circle\"");
+
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -316,8 +339,16 @@ WriteLiteral(">\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-
 
 DefineSection("scripts", () => {
 
+WriteLiteral("\r\n    <script>\r\n        var mainid = ");
+
+            
+            #line 85 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+                Write(ViewBag.mainid);
+
+            
+            #line default
+            #line hidden
 WriteLiteral(@"
-    <script>
     var selvalue = [];
     $(document).ready(function () {
         mytable = $(""#eventtable"").myDataTable().TableList[0];
@@ -327,15 +358,15 @@ WriteLiteral(@"
             var totalclick = mytable.keepcheckid.length;
             $(""#"" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + ""~"" + (offsetcnt + nowpagecnt - 1));
         };
-        mytable.SearchModelBase.ModelID = '1';
+        mytable.SearchModelBase.ModelID = mainid;
         mytable.GetData(1);
         var obj = {};
         obj.item = ""類別"";
-        obj.mainid = '1';
+        obj.mainid = mainid;
         RegisterOrder(""#eventtable"", "".sortedit"", '");
 
             
-            #line 99 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+            #line 100 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
                                               Write(Url.Action("EditGroupSeq"));
 
             
@@ -345,7 +376,7 @@ WriteLiteral("\', obj);\r\n        RegisterClickAll(\"#chk_all\", \'#eventtable 
 "value\");\r\n        RegisterDelete(\"#btn_del\", \'#eventtable .chksel:checked\', \'");
 
             
-            #line 101 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+            #line 102 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
                                                               Write(Url.Action("SetGroupDelete"));
 
             
@@ -354,7 +385,7 @@ WriteLiteral("\', obj);\r\n        RegisterClickAll(\"#chk_all\", \'#eventtable 
 WriteLiteral("\', obj);\r\n        RegisterClicklink(\"#eventtable\", \".edit\", \'");
 
             
-            #line 102 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+            #line 103 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
                                               Write(Url.Action("EditGroup"));
 
             
@@ -363,7 +394,7 @@ WriteLiteral("\', obj);\r\n        RegisterClicklink(\"#eventtable\", \".edit\",
 WriteLiteral("\', obj, \'UpdateItem\');\r\n        RegisterClicklink(\"#eventtable\", \".manage\", \'");
 
             
-            #line 103 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+            #line 104 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
                                                 Write(Url.Action("Index"));
 
             
@@ -372,7 +403,7 @@ WriteLiteral("\', obj, \'UpdateItem\');\r\n        RegisterClicklink(\"#eventtab
 WriteLiteral("\', obj);\r\n        RegisterClick(\"#eventtable\", \".chkstatus\", \'");
 
             
-            #line 104 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+            #line 105 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
                                                Write(Url.Action("SetGroupStatus"));
 
             
@@ -381,7 +412,7 @@ WriteLiteral("\', obj);\r\n        RegisterClick(\"#eventtable\", \".chkstatus\"
 WriteLiteral("\', obj);\r\n        $(\"#btn_add\").click(function () { CallAddDialog(\'");
 
             
-            #line 105 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+            #line 106 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
                                                     Write(Url.Action("EditGroup"));
 
             
@@ -391,13 +422,13 @@ WriteLiteral("\', obj); });\r\n        $(\"#btn_return\").click(function () {\r\
 "t(\'");
 
             
-            #line 107 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
+            #line 108 "..\..\Areas\webadmin\Views\EPaper\GroupEdit.cshtml"
                    Write(Url.Action("ModelItem"));
 
             
             #line default
             #line hidden
-WriteLiteral("\', { mainid: \'1\' });\r\n        });\r\n    });\r\n    </script>\r\n");
+WriteLiteral("\', { mainid: mainid });\r\n        });\r\n    });\r\n    </script>\r\n");
 
 });
 

@@ -821,7 +821,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">年份</label>\r\n                                    <div");
+WriteLiteral(">類別</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 
@@ -845,7 +845,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">電子報訂閱</label>\r\n                                    <div");
+WriteLiteral(">訂閱電子報</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 
@@ -893,7 +893,9 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">取消訂閱</label>\r\n                                    <div");
+WriteLiteral(">取消");
+
+WriteLiteral("</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 
@@ -909,7 +911,11 @@ WriteLiteral("                                        ");
             #line default
             #line hidden
 WriteLiteral("\r\n                                    </div>\r\n                                </d" +
-"iv>\r\n\r\n                                <div");
+"iv>\r\n\r\n                                ");
+
+WriteLiteral("\r\n\r\n                                ");
+
+WriteLiteral("\r\n\r\n                                <div");
 
 WriteLiteral(" class=\"col-md-12\"");
 
@@ -917,55 +923,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">查閱電子報</label>\r\n                                    <div");
-
-WriteLiteral(" class=\"col-md-9\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("                                        ");
-
-            
-            #line 193 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                                   Write(Html.EditorFor(model => model.Column8, new { htmlAttributes = new { @class = "form-control" } }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                                    </div>\r\n                                </d" +
-"iv>\r\n\r\n                                <div");
-
-WriteLiteral(" class=\"col-md-12\"");
-
-WriteLiteral(">\r\n                                    <label");
-
-WriteLiteral(" class=\"col-md-3\"");
-
-WriteLiteral(">Email</label>\r\n                                    <div");
-
-WriteLiteral(" class=\"col-md-9\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("                                        ");
-
-            
-            #line 200 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                                   Write(Html.EditorFor(model => model.Column9, new { htmlAttributes = new { @class = "form-control" } }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                                    </div>\r\n                                </d" +
-"iv>\r\n\r\n                                <div");
-
-WriteLiteral(" class=\"col-md-12\"");
-
-WriteLiteral(">\r\n                                    <label");
-
-WriteLiteral(" class=\"col-md-3\"");
-
-WriteLiteral(">Email 格式有誤</label>\r\n                                    <div");
+WriteLiteral(">EMail格式錯誤</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 
@@ -1037,7 +995,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">此 Email 無訂閱電子報!</label>\r\n                                    <div");
+WriteLiteral(">此 EMail 已經訂閱!</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 

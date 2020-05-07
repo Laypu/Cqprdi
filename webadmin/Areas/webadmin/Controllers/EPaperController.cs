@@ -123,11 +123,17 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return Json(_commonService.PagingGroup<GroupEPaper>(model, int.Parse(this.LanguageID)));
         }
 
-        public ActionResult GroupEdit()
+        public ActionResult GroupEdit(string mainid)
         {
-            //mainid = mainid.AntiXss();
+            mainid = mainid.AntiXss();
 
-            //ViewBag.mainid = mainid;
+            ViewBag.mainid = mainid;
+
+            var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
+
+            if (maindata.ID > 0) { ViewBag.ModelItemTitle = maindata.Name; }
+
+
             return View("~/Areas/webadmin/Views/EPaper/GroupEdit.cshtml");
         }
 
@@ -186,11 +192,14 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             EPaperEditModel model = null;
             ViewBag.grouplist = _commonService.GetAllGroupSelectList<GroupEPaper>(mainid, int.Parse(this.LanguageID));
             ViewBag.GroupID = new SelectList(ViewBag.grouplist, "GroupID", "Group_Name");
-
+            ViewBag.mainid = mainid;
             var EPaperItemdata = _service.GetEPaperItemByID(itemid);
 
             if (EPaperItemdata.ItemID > 0) { ViewBag.Title = EPaperItemdata.Title; }
 
+            var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
+
+            if (maindata.ID > 0) { ViewBag.ModelItemTitle = maindata.Name; }
 
             model = _service.GetModelByID(mainid, itemid, SET_EPAPER.M_EPAPER02);
             model.SET_EPAPER = SET_EPAPER;
@@ -455,7 +464,11 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         #region 手動
         public ActionResult EPaperManuallyContent(string id, string mainid)
         {
-            
+            var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
+
+            if (maindata.ID > 0) { ViewBag.ModelItemTitle = maindata.Name; }
+
+
             ViewBag.mainid = mainid;
             ViewBag.ID = id;
             ViewBag.HtmlContent = _commonService.GetGeneral<EPaperContent>("EPaperID=@EPaperID ",new Dictionary<string, string> { { "EPaperID", id } }).EPaperHtmlContent;
@@ -489,7 +502,12 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             var itemdata = _service.GetModel(id);
             //過濾model
 
-            //
+
+            var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
+
+            if (maindata.ID > 0) { ViewBag.ModelItemTitle = maindata.Name; }
+
+
             var l3model = model.Where(v => v.MenuLevel == 3 && v.LinkMode == 2 && v.ModelID == 2 ).OrderBy(v => v.Sort);
             
             var l2model = model.Where(v => v.MenuLevel == 2 && v.LinkMode == 2 && v.ModelID == 2 || (l3model.Any(X => X.ParentID == v.ID))).OrderBy(v => v.Sort);
@@ -505,6 +523,9 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         #region EPaperItemSelect的view
         public ActionResult EPaperItemSelect(string menuid, string id)
         {
+            
+            
+            
             //Menu的 ID
             ViewBag.MenuId = menuid;
 
@@ -540,8 +561,12 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         #endregion
 
         #region SaveEPaperItemSort  電子報內容排序
-        public ActionResult EPaperItemSort(string id)
+        public ActionResult EPaperItemSort(string id ,string mainid)
         {
+            var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
+
+            if (maindata.ID > 0) { ViewBag.ModelItemTitle = maindata.Name; }
+            ViewBag.mainid = mainid;
             ViewBag.ID = id;
             ViewBag.table = _service.GetSortTable(id);
             var Epapermodel = _service.GetEPaperItemEdit(id);

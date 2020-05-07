@@ -19,10 +19,10 @@
             <a href="@Url.Action(" Index","EPaper")">電子報管理</a>
             <i class="fa fa-circle"></i>
         </li>
-        @*<li>
-            <a href="@Url.Action("ModelItem","Message")">清單</a>
+        <li>
+            <a href="@Url.Action("ModelItem",new {mainid = ViewBag.mainid })">@ViewBag.ModelItemTitle 管理</a>
             <i class="fa fa-circle"></i>
-        </li>*@
+        </li>
         <li>
             <a href="#">類別管理</a>
         </li>
@@ -82,6 +82,7 @@
 <!--message end-->
 @section scripts {
     <script>
+        var mainid = @ViewBag.mainid
     var selvalue = [];
     $(document).ready(function () {
         mytable = $("#eventtable").myDataTable().TableList[0];
@@ -91,11 +92,11 @@
             var totalclick = mytable.keepcheckid.length;
             $("#" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + "~" + (offsetcnt + nowpagecnt - 1));
         };
-        mytable.SearchModelBase.ModelID = '1';
+        mytable.SearchModelBase.ModelID = mainid;
         mytable.GetData(1);
         var obj = {};
         obj.item = "類別";
-        obj.mainid = '1';
+        obj.mainid = mainid;
         RegisterOrder("#eventtable", ".sortedit", '@Url.Action("EditGroupSeq")', obj);
         RegisterClickAll("#chk_all", '#eventtable tbody .chksel', "#selvalue");
         RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("SetGroupDelete")', obj);
@@ -104,7 +105,7 @@
         RegisterClick("#eventtable", ".chkstatus", '@Url.Action("SetGroupStatus")', obj);
         $("#btn_add").click(function () { CallAddDialog('@Url.Action("EditGroup")', obj); });
         $("#btn_return").click(function () {
-            CreatePost('@Url.Action("ModelItem")', { mainid: '1' });
+            CreatePost('@Url.Action("ModelItem")', { mainid: mainid });
         });
     });
     </script>

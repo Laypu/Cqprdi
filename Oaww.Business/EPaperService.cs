@@ -910,6 +910,7 @@ namespace Oaww.Business
             }
 
             sql += @" and t.Enabled =1";
+            sql += @" and t.IsPublished =1";
 
             var Paging = new Paging<EPaperItem>();
 
@@ -1278,7 +1279,7 @@ namespace Oaww.Business
 
                     if (olddata.Count() > 0)
                     {
-                        return "此EMail已經訂閱";
+                        return "此EMail已經訂閱!";
                     }
                     var nowdate = DateTime.Now;
 
@@ -1305,11 +1306,11 @@ namespace Oaww.Business
 
 
 
-                        return "訂閱成功";
+                        return "電子報訂閱成功!";
                     }
                     else
                     {
-                        return "訂閱失敗";
+                        return "電子報訂閱失敗";
                     }
                 }
             }
@@ -1332,15 +1333,21 @@ namespace Oaww.Business
                         sql = "delete EPaperSubscriber where UPPER(EMail)=@EMail";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@EMail", email.ToUpper()));
+                        var olddata = _commonService.GetGeneralList<EPaperSubscriber>("EMail=@EMail", new Dictionary<string, string>() { { "EMail", email } }, tran);
+                        if (olddata.Count() <= 0)
+                        {
+                            return "此 Email 無訂閱電子報!";
+                        }
+
                         r = base.ExeNonQuery(sql);
                         if (r >= 0)
                         {
                             tran.Commit();
-                            return "取消訂閱成功";
+                            return "電子報取消訂閱成功!";
                         }
                         else
                         {
-                            return "取消訂閱失敗";
+                            return "電子報取消訂閱失敗";
                         }
 
                     }
@@ -1349,7 +1356,7 @@ namespace Oaww.Business
             catch (Exception ex)
             {
                 
-                return "取消訂閱失敗";
+                return "電子報取消訂閱失敗";
             }
         }
         #endregion

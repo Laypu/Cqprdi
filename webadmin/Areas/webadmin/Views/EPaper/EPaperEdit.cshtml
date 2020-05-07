@@ -21,12 +21,27 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="@Url.Action("ModelItem",new {mainid = ViewBag.mainid })">電子報管理</a>
+            <a href="@Url.Action("Index","EPaper")">電子報管理</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="#">@ViewBag.Title 管理</a>
+            <a href="@Url.Action("ModelItem",new {mainid = ViewBag.mainid })">@ViewBag.ModelItemTitle 管理</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            @{
+                if (@ViewBag.Title != null)
+                {
+                    <a href="#">@ViewBag.Title 修改</a>
+                }
+                else
+                { 
+                    <a href="#">新增電子報</a>
+                }
+
+             }
             
+
         </li>
     </ul>
 
@@ -126,7 +141,7 @@
         </div>
         <div class="text-center search_padding" id="div_buttons">
             <button type="submit" class="btn blue" id="btn_submit">確認送出</button>
-            <button type="button" class="btn grey-mint" id="btn_return">返回列表</button>
+            <button type="button" class="btn grey-mint" id="btn_return" onclick="document.location.href='@Url.Action("ModelItem",new {mainid = ViewBag.mainid })'">返回列表</button>
         </div>
     </form>
 
@@ -145,6 +160,8 @@
                 $('#div_topimagefile').hide();
                 $('#TopBannerImgName').val('');
             });
+
+
 
             var PageEndHtmlContent = CKEDITOR.replace('PageEndHtmlContent', {
                 height: 300,
