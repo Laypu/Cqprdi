@@ -131,10 +131,10 @@ WriteLiteral(" class=\"page-breadcrumb\"");
 
 WriteLiteral(">\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 680), Tuple.Create("\"", 715)
+WriteAttribute("href", Tuple.Create(" href=\"", 680), Tuple.Create("\"", 714)
             
             #line 19 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-, Tuple.Create(Tuple.Create("", 687), Tuple.Create<System.Object, System.Int32>(Url.Action("Index", "Home")
+, Tuple.Create(Tuple.Create("", 687), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home")
             
             #line default
             #line hidden
@@ -147,14 +147,14 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 812), Tuple.Create("\"", 847)
+WriteAttribute("href", Tuple.Create(" href=\"", 811), Tuple.Create("\"", 846)
             
             #line 23 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-, Tuple.Create(Tuple.Create("", 819), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
+, Tuple.Create(Tuple.Create("", 818), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
             
             #line default
             #line hidden
-, 819), false)
+, 818), false)
 );
 
 WriteLiteral(">模組管理</a>\r\n            <i");
@@ -163,17 +163,42 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 944), Tuple.Create("\"", 1006)
+WriteAttribute("href", Tuple.Create(" href=\"", 943), Tuple.Create("\"", 979)
             
             #line 27 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-, Tuple.Create(Tuple.Create("", 951), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 950), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","EPaper")
             
             #line default
             #line hidden
-, 951), false)
+, 950), false)
 );
 
 WriteLiteral(">電子報管理</a>\r\n            <i");
+
+WriteLiteral(" class=\"fa fa-circle\"");
+
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1077), Tuple.Create("\"", 1139)
+            
+            #line 31 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+, Tuple.Create(Tuple.Create("", 1084), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            
+            #line default
+            #line hidden
+, 1084), false)
+);
+
+WriteLiteral(">");
+
+            
+            #line 31 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+                                                                         Write(ViewBag.ModelItemTitle);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" 管理</a>\r\n            <i");
 
 WriteLiteral(" class=\"fa fa-circle\"");
 
@@ -184,7 +209,7 @@ WriteLiteral(" href=\"#\"");
 WriteLiteral(">");
 
             
-            #line 31 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 35 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                    Write(ViewBag.Title);
 
             
@@ -194,7 +219,7 @@ WriteLiteral(" 訊息排序</a>\r\n        </li>\r\n    </ul>\r\n\r\n</div>\r\n<
 "tart-->\r\n<h2>");
 
             
-            #line 38 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 42 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
 Write(ViewBag.Title);
 
             
@@ -220,16 +245,16 @@ WriteLiteral(">\r\n                <button");
 
 WriteLiteral(" class=\"btn grey-mint\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1466), Tuple.Create("\"", 1547)
-, Tuple.Create(Tuple.Create("", 1476), Tuple.Create("location.href=\'", 1476), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1620), Tuple.Create("\"", 1701)
+, Tuple.Create(Tuple.Create("", 1630), Tuple.Create("location.href=\'", 1630), true)
             
-            #line 44 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-, Tuple.Create(Tuple.Create("", 1491), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            #line 48 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+, Tuple.Create(Tuple.Create("", 1645), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1491), false)
-, Tuple.Create(Tuple.Create("", 1546), Tuple.Create("\'", 1546), true)
+, 1645), false)
+, Tuple.Create(Tuple.Create("", 1700), Tuple.Create("\'", 1700), true)
 );
 
 WriteLiteral(">回上一頁</button>\r\n            </p>\r\n        </div>\r\n    </div>\r\n    <!--set item en" +
@@ -241,14 +266,14 @@ WriteLiteral(" method=\"Post\"");
 
 WriteLiteral(" id=\"editform\"");
 
-WriteAttribute("action", Tuple.Create(" action=\'", 1734), Tuple.Create("\'", 1776)
+WriteAttribute("action", Tuple.Create(" action=\'", 1888), Tuple.Create("\'", 1930)
             
-            #line 50 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-    , Tuple.Create(Tuple.Create("", 1743), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveEPaperItemSort")
+            #line 54 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+    , Tuple.Create(Tuple.Create("", 1897), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveEPaperItemSort")
             
             #line default
             #line hidden
-, 1743), false)
+, 1897), false)
 );
 
 WriteLiteral(" enctype=\"multipart/form-data\"");
@@ -258,7 +283,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("        ");
 
             
-            #line 51 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 55 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
    Write(Html.AntiForgeryToken());
 
             
@@ -336,13 +361,13 @@ WriteLiteral(">已選取項目</th>\r\n                    </tr>\r\n            
 " <tbody>\r\n");
 
             
-            #line 69 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 73 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                     
             
             #line default
             #line hidden
             
-            #line 69 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 73 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                      for (var idx = 0; idx < Model.Count(); idx++)
                     {
 
@@ -351,27 +376,27 @@ WriteLiteral(">已選取項目</th>\r\n                    </tr>\r\n            
             #line hidden
 WriteLiteral("                        <tr");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 2999), Tuple.Create("\"", 3026)
-, Tuple.Create(Tuple.Create("", 3004), Tuple.Create("trm_", 3004), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 3153), Tuple.Create("\"", 3180)
+, Tuple.Create(Tuple.Create("", 3158), Tuple.Create("trm_", 3158), true)
             
-            #line 71 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-, Tuple.Create(Tuple.Create("", 3008), Tuple.Create<System.Object, System.Int32>(Model[idx].MenuID
+            #line 75 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+, Tuple.Create(Tuple.Create("", 3162), Tuple.Create<System.Object, System.Int32>(Model[idx].MenuID
             
             #line default
             #line hidden
-, 3008), false)
+, 3162), false)
 );
 
 WriteLiteral(" class=\"mainselitemtr\"");
 
-WriteAttribute("seqidx", Tuple.Create(" seqidx=\"", 3049), Tuple.Create("\"", 3066)
+WriteAttribute("seqidx", Tuple.Create(" seqidx=\"", 3203), Tuple.Create("\"", 3220)
             
-            #line 71 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-       , Tuple.Create(Tuple.Create("", 3058), Tuple.Create<System.Object, System.Int32>(idx+1
+            #line 75 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+       , Tuple.Create(Tuple.Create("", 3212), Tuple.Create<System.Object, System.Int32>(idx+1
             
             #line default
             #line hidden
-, 3058), false)
+, 3212), false)
 );
 
 WriteLiteral(">\r\n                            <td");
@@ -388,15 +413,15 @@ WriteLiteral(" type=\"checkbox\"");
 
 WriteLiteral(" class=\"checkboxes chksel\"");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 3308), Tuple.Create("\"", 3337)
-, Tuple.Create(Tuple.Create("", 3313), Tuple.Create("chk_m_", 3313), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 3462), Tuple.Create("\"", 3491)
+, Tuple.Create(Tuple.Create("", 3467), Tuple.Create("chk_m_", 3467), true)
             
-            #line 74 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-               , Tuple.Create(Tuple.Create("", 3319), Tuple.Create<System.Object, System.Int32>(Model[idx].MenuID
+            #line 78 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+               , Tuple.Create(Tuple.Create("", 3473), Tuple.Create<System.Object, System.Int32>(Model[idx].MenuID
             
             #line default
             #line hidden
-, 3319), false)
+, 3473), false)
 );
 
 WriteLiteral(" />\r\n                                    <span");
@@ -462,20 +487,20 @@ WriteLiteral(" type=\"text\"");
 
 WriteLiteral(" class=\"btn btn-default btn-xs sequence_list\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 4263), Tuple.Create("\"", 4279)
+WriteAttribute("value", Tuple.Create(" value=\"", 4417), Tuple.Create("\"", 4433)
             
-            #line 83 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-                        , Tuple.Create(Tuple.Create("", 4271), Tuple.Create<System.Object, System.Int32>(idx+1
+            #line 87 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+                        , Tuple.Create(Tuple.Create("", 4425), Tuple.Create<System.Object, System.Int32>(idx+1
             
             #line default
             #line hidden
-, 4271), false)
+, 4425), false)
 );
 
 WriteLiteral(" />\r\n                            </td>\r\n                            <td>");
 
             
-            #line 85 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 89 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                             Write(Model[idx].Name);
 
             
@@ -515,13 +540,13 @@ WriteLiteral(">標題</th>\r\n                                        </tr>\r\n 
 "            </thead>\r\n                                    <tbody>\r\n");
 
             
-            #line 97 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 101 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                                         
             
             #line default
             #line hidden
             
-            #line 97 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 101 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                                          for (var subidx = 0; subidx < Model[idx].ItemKey.Count(); subidx++)
                                         {
 
@@ -530,26 +555,26 @@ WriteLiteral(">標題</th>\r\n                                        </tr>\r\n 
             #line hidden
 WriteLiteral("                                            <tr");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 5312), Tuple.Create("\"", 5344)
+WriteAttribute("id", Tuple.Create(" id=\"", 5466), Tuple.Create("\"", 5498)
             
-            #line 99 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-, Tuple.Create(Tuple.Create("", 5317), Tuple.Create<System.Object, System.Int32>(Model[idx].ItemKey[subidx]
+            #line 103 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+, Tuple.Create(Tuple.Create("", 5471), Tuple.Create<System.Object, System.Int32>(Model[idx].ItemKey[subidx]
             
             #line default
             #line hidden
-, 5317), false)
+, 5471), false)
 );
 
 WriteLiteral(" class=\"selitem\"");
 
-WriteAttribute("seqidx", Tuple.Create(" seqidx=\"", 5361), Tuple.Create("\"", 5381)
+WriteAttribute("seqidx", Tuple.Create(" seqidx=\"", 5515), Tuple.Create("\"", 5535)
             
-            #line 99 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-                          , Tuple.Create(Tuple.Create("", 5370), Tuple.Create<System.Object, System.Int32>(subidx+1
+            #line 103 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+                          , Tuple.Create(Tuple.Create("", 5524), Tuple.Create<System.Object, System.Int32>(subidx+1
             
             #line default
             #line hidden
-, 5370), false)
+, 5524), false)
 );
 
 WriteLiteral(">\r\n                                                <td");
@@ -566,15 +591,15 @@ WriteLiteral(" type=\"checkbox\"");
 
 WriteLiteral(" class=\"checkboxes chksel\"");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 5683), Tuple.Create("\"", 5721)
-, Tuple.Create(Tuple.Create("", 5688), Tuple.Create("chk_s_", 5688), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 5837), Tuple.Create("\"", 5875)
+, Tuple.Create(Tuple.Create("", 5842), Tuple.Create("chk_s_", 5842), true)
             
-            #line 102 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-                                   , Tuple.Create(Tuple.Create("", 5694), Tuple.Create<System.Object, System.Int32>(Model[idx].ItemKey[subidx]
+            #line 106 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+                                   , Tuple.Create(Tuple.Create("", 5848), Tuple.Create<System.Object, System.Int32>(Model[idx].ItemKey[subidx]
             
             #line default
             #line hidden
-, 5694), false)
+, 5848), false)
 );
 
 WriteLiteral(">\r\n                                                        <span></span>\r\n       " +
@@ -636,7 +661,7 @@ WriteLiteral("></i></button>\r\n                                                
 "                                      <td>");
 
             
-            #line 112 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 116 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                                                Write(Model[idx].ItemName[subidx]);
 
             
@@ -645,7 +670,7 @@ WriteLiteral("></i></button>\r\n                                                
 WriteLiteral("</td>\r\n                                            </tr>\r\n");
 
             
-            #line 114 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 118 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                                         }
 
             
@@ -656,7 +681,7 @@ WriteLiteral("                                    </tbody>\r\n                  
 "     </td>\r\n                        </tr>\r\n");
 
             
-            #line 120 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 124 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                     }
 
             
@@ -698,7 +723,7 @@ WriteLiteral(@"
                             obj.eid = '");
 
             
-            #line 148 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 152 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                                   Write(ViewBag.ID);
 
             
@@ -707,7 +732,7 @@ WriteLiteral(@"
 WriteLiteral("\' ;\r\n                            $.post(\'");
 
             
-            #line 149 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 153 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                                Write(Url.Action("DeleteEPaperItemSort"));
 
             
@@ -717,7 +742,7 @@ WriteLiteral("\', obj, function (data) {\r\n                                 ale
 "                           CreatePost(\'");
 
             
-            #line 151 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 155 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                                          Write(Url.Action("EPaperItemSort"));
 
             
@@ -726,7 +751,7 @@ WriteLiteral("\', obj, function (data) {\r\n                                 ale
 WriteLiteral("\', { id:\'");
 
             
-            #line 151 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 155 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                                                                                Write(ViewBag.ID);
 
             
@@ -821,7 +846,7 @@ WriteLiteral("\'});\r\n                               });\r\n                   
 "nd(\"eid\", \'");
 
             
-            #line 291 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 295 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                                    Write(ViewBag.ID);
 
             
@@ -842,7 +867,7 @@ WriteLiteral(@"');
                        CreatePost('");
 
             
-            #line 303 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+            #line 307 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
                               Write(Url.Action("ModelItem",new {mainid = ViewBag.mainid }));
 
             

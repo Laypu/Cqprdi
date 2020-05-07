@@ -39,6 +39,7 @@
                 </li>
             }
             <li data-sr="enter left over 1.5s">
+            <span class="required">@ViewBag.ErrorInfo</span>
                 <label for="mail">
                     <div class="item_title">@(ePaper.GetEPMulti("Column5", int.Parse(Model.itemid))=="" ? "訂閱電子報" : ePaper.GetEPMulti("Column5", int.Parse(Model.itemid)))</div>
                     <input type="text" class="form-control input-medium" id="mail" placeholder="@(ePaper.GetEPMulti("Column9", int.Parse(Model.itemid))=="" ? "請輸入Email" : ePaper.GetEPMulti("Column9", int.Parse(Model.itemid)))" name="txtEmailInput">
@@ -106,56 +107,87 @@
             </tr>
         </thead>
         <tbody>
+            @{ var idx = 1;}
             @foreach (var M in Model.ListEPaperItem)
             {
-                <tr>
-                    @foreach (var i in Model.columnSettings)
+                
+            <tr>
+                
+                @foreach (var i in Model.columnSettings)
+                {
+                    switch (i.ColumnKey)
                     {
-                        switch (i.ColumnKey)
-                        {
-                            case "No":
-                                <td scope="row" class="text-center">@M.Sort</td>
-                                break;
+                        case "No":
+                            <td scope="row" class="text-center">@(idx++)</td>
+                            break;
 
-                            case "PublicshDate":
-                                <td class="text-center">@M.PublishStr</td>
-                                break;
+                        case "PublicshDate":
+                            <td class="text-center">@M.PublishStr</td>
+                            break;
 
-                            case "Title":
-                                <td><a href="@Url.Action("EPaperDetails", new { id = M.ItemID })" title="@M.Title (另開新視窗)" target="_blank">@M.Title</a></td>
-                                break;
-                            case "GroupName":
-                                if (M.GroupID == 0)
-                                {
-                                    <td scope="col" width="10%">無分類</td>
-                                }
-                                else
-                                {
-                                    <td scope="col" width="10%">@Model.ListGroupEPaper.Where(t => t.ID == M.GroupID).FirstOrDefault().Group_Name</td>
-                                }
+                        case "Title":
+                            <td><a href="@Url.Action("EPaperDetails", new { id = M.ItemID })" title="@M.Title (另開新視窗)" target="_blank">@M.Title</a></td>
+                            break;
+                        case "GroupName":
+                            if (M.GroupID == 0)
+                            {
+                                <td scope="col" width="10%">無分類</td>
+                            }
+                            else
+                            { 
+                                <td scope="col" width="10%">@Model.ListGroupEPaper.Where(t => t.ID == M.GroupID).FirstOrDefault().Group_Name</td>
+                            }
 
-                                break;
+                            break;
 
-                        }
                     }
+                    
+                }
 
 
-                </tr>
+            </tr>
             }
-
+                    
             @*<tr>
-                    <td scope="row" class="text-center">2</td>
-                    <td class="text-center">2019/09/09</td>
-                    <td><a href="epaper_detail.html" title="">第198期 中華穀類食品工業技術研究所</a></td>
-                    <td class="text-center">類別1</td>
-                </tr>
-                <tr>
-                    <td scope="row" class="text-center">3</td>
-                    <td class="text-center">2019/09/09</td>
-                    <td><a href="epaper_detail.html" title="">第197期 中華穀類食品工業技術研究所</a></td>
-                    <td class="text-center">類別2</td>
-                </tr>*@
+                <td scope="row" class="text-center">2</td>
+                <td class="text-center">2019/09/09</td>
+                <td><a href="epaper_detail.html" title="">第198期 中華穀類食品工業技術研究所</a></td>
+                <td class="text-center">類別1</td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">3</td>
+                <td class="text-center">2019/09/09</td>
+                <td><a href="epaper_detail.html" title="">第197期 中華穀類食品工業技術研究所</a></td>
+                <td class="text-center">類別2</td>
+            </tr>*@
         </tbody>
     </table>
 </div>
 <!--list end-->
+
+
+@*頁簽*@
+<form target="_self" action="@Url.Action("Index")" method="post">
+    @Html.HiddenFor(m => m.mid)
+    @Html.HiddenFor(m => m.itemid)
+    @Html.HiddenFor(m => m.group)
+    @Html.HiddenFor(m => m.classType)
+    @Html.Partial("~/Views/Shared/_Page_Number.cshtml")
+    <!--頁碼 end-->
+</form>
+
+<script>
+    $(document).ready(function () {
+        var ErrorInfo ="@ViewBag.ErrorInfo";
+        var message = @Html.Raw(Json.Encode(ViewData["message"]));
+        
+        if (message != null)
+        {
+            alert(message);
+        }
+    });
+
+
+
+</script>
+    

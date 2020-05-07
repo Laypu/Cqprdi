@@ -138,10 +138,10 @@ WriteLiteral(" class=\"page-breadcrumb\"");
 
 WriteLiteral(">\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 787), Tuple.Create("\"", 822)
+WriteAttribute("href", Tuple.Create(" href=\"", 787), Tuple.Create("\"", 821)
             
             #line 18 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-, Tuple.Create(Tuple.Create("", 794), Tuple.Create<System.Object, System.Int32>(Url.Action("Index", "Home")
+, Tuple.Create(Tuple.Create("", 794), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home")
             
             #line default
             #line hidden
@@ -154,14 +154,14 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 919), Tuple.Create("\"", 954)
+WriteAttribute("href", Tuple.Create(" href=\"", 918), Tuple.Create("\"", 953)
             
             #line 22 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-, Tuple.Create(Tuple.Create("", 926), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
+, Tuple.Create(Tuple.Create("", 925), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
             
             #line default
             #line hidden
-, 926), false)
+, 925), false)
 );
 
 WriteLiteral(">模組管理</a>\r\n            <i");
@@ -170,17 +170,42 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1051), Tuple.Create("\"", 1113)
+WriteAttribute("href", Tuple.Create(" href=\"", 1050), Tuple.Create("\"", 1086)
             
             #line 26 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-, Tuple.Create(Tuple.Create("", 1058), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 1057), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","EPaper")
             
             #line default
             #line hidden
-, 1058), false)
+, 1057), false)
 );
 
 WriteLiteral(">電子報管理</a>\r\n            <i");
+
+WriteLiteral(" class=\"fa fa-circle\"");
+
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1184), Tuple.Create("\"", 1246)
+            
+            #line 30 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+, Tuple.Create(Tuple.Create("", 1191), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            
+            #line default
+            #line hidden
+, 1191), false)
+);
+
+WriteLiteral(">");
+
+            
+            #line 30 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+                                                                         Write(ViewBag.ModelItemTitle);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" 管理</a>\r\n            <i");
 
 WriteLiteral(" class=\"fa fa-circle\"");
 
@@ -191,7 +216,7 @@ WriteLiteral(" href=\"#\"");
 WriteLiteral(">");
 
             
-            #line 30 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 34 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                    Write(ViewBag.Title);
 
             
@@ -201,7 +226,7 @@ WriteLiteral(" 管理</a>\r\n        </li>\r\n    </ul>\r\n\r\n</div>\r\n<!--pag
 "rt-->\r\n<h2>");
 
             
-            #line 37 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 41 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
 Write(ViewBag.Title);
 
             
@@ -227,28 +252,28 @@ WriteLiteral(">\r\n                <button");
 
 WriteLiteral(" class=\"btn grey-mint\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1571), Tuple.Create("\"", 1652)
-, Tuple.Create(Tuple.Create("", 1581), Tuple.Create("location.href=\'", 1581), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1725), Tuple.Create("\"", 1806)
+, Tuple.Create(Tuple.Create("", 1735), Tuple.Create("location.href=\'", 1735), true)
             
-            #line 43 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-, Tuple.Create(Tuple.Create("", 1596), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            #line 47 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+, Tuple.Create(Tuple.Create("", 1750), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1596), false)
-, Tuple.Create(Tuple.Create("", 1651), Tuple.Create("\'", 1651), true)
+, 1750), false)
+, Tuple.Create(Tuple.Create("", 1805), Tuple.Create("\'", 1805), true)
 );
 
 WriteLiteral(">回上一頁</button>\r\n            </p>\r\n        </div>\r\n    </div>\r\n");
 
             
-            #line 47 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 51 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 47 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 51 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
      using (Ajax.BeginForm("MainMenu", new AjaxOptions { UpdateTargetId = "eventtable" }))
     {
 
@@ -276,13 +301,13 @@ WriteLiteral(" cellpadding=\"0\"");
 WriteLiteral(">\r\n                <tbody>\r\n                    \r\n");
 
             
-            #line 53 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 57 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                     
             
             #line default
             #line hidden
             
-            #line 53 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 57 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                       
                         var l1arr = Model.Where(v => v.MenuLevel == 1);
                         foreach (var l1 in l1arr)
@@ -312,13 +337,13 @@ WriteLiteral(">\r\n                <tbody>\r\n                    \r\n");
 WriteLiteral("                                <tr>\r\n");
 
             
-            #line 76 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 80 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                     
             
             #line default
             #line hidden
             
-            #line 76 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 80 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                      if (idx == 0)
                                     {
 
@@ -329,14 +354,14 @@ WriteLiteral("                                        <td");
 
 WriteLiteral(" class=\'class_03\'");
 
-WriteAttribute("rowspan", Tuple.Create(" rowspan=\'", 3417), Tuple.Create("\'", 3438)
+WriteAttribute("rowspan", Tuple.Create(" rowspan=\'", 3571), Tuple.Create("\'", 3592)
             
-            #line 78 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-, Tuple.Create(Tuple.Create("", 3427), Tuple.Create<System.Object, System.Int32>(l1rowcount
+            #line 82 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+, Tuple.Create(Tuple.Create("", 3581), Tuple.Create<System.Object, System.Int32>(l1rowcount
             
             #line default
             #line hidden
-, 3427), false)
+, 3581), false)
 );
 
 WriteLiteral(">\r\n                                            <div");
@@ -348,13 +373,13 @@ WriteLiteral(" style=\'float:left\'");
 WriteLiteral(">\r\n");
 
             
-            #line 80 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 84 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                 
             
             #line default
             #line hidden
             
-            #line 80 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 84 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                  if (l1.ModelID == 2)
                                                 {
 
@@ -367,14 +392,14 @@ WriteLiteral(" type=\'button\'");
 
 WriteLiteral(" class=\'btn blue edit\'");
 
-WriteAttribute("index", Tuple.Create(" index=\'", 3752), Tuple.Create("\'", 3766)
+WriteAttribute("index", Tuple.Create(" index=\'", 3906), Tuple.Create("\'", 3920)
             
-            #line 82 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-                       , Tuple.Create(Tuple.Create("", 3760), Tuple.Create<System.Object, System.Int32>(l1.ID
+            #line 86 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+                       , Tuple.Create(Tuple.Create("", 3914), Tuple.Create<System.Object, System.Int32>(l1.ID
             
             #line default
             #line hidden
-, 3760), false)
+, 3914), false)
 );
 
 WriteLiteral(" style=\'float:left; margin-left:2px\'");
@@ -382,7 +407,7 @@ WriteLiteral(" style=\'float:left; margin-left:2px\'");
 WriteLiteral(">選擇</button>\r\n");
 
             
-            #line 83 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 87 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                 }
 
             
@@ -395,20 +420,20 @@ WriteLiteral(" class=\'training_class_title\'");
 
 WriteLiteral(" style=\'float:left; margin-left:10px\'");
 
-WriteAttribute("level", Tuple.Create(" level=\'", 4034), Tuple.Create("\'", 4055)
+WriteAttribute("level", Tuple.Create(" level=\'", 4188), Tuple.Create("\'", 4209)
             
-            #line 85 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-                                          , Tuple.Create(Tuple.Create("", 4042), Tuple.Create<System.Object, System.Int32>(l1.MenuLevel
+            #line 89 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+                                          , Tuple.Create(Tuple.Create("", 4196), Tuple.Create<System.Object, System.Int32>(l1.MenuLevel
             
             #line default
             #line hidden
-, 4042), false)
+, 4196), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 85 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 89 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                                                                                                     Write(l1.MenuName);
 
             
@@ -417,7 +442,7 @@ WriteLiteral(">");
 WriteLiteral("</div>\r\n                                        </td>\r\n");
 
             
-            #line 87 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 91 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                         if (l2arr.Count() == 0)
                                         {
 
@@ -437,7 +462,7 @@ WriteLiteral(" class=\'class_03\'");
 WriteLiteral(">&nbsp;</td>\r\n");
 
             
-            #line 91 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 95 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                         }
                                     }
 
@@ -447,7 +472,7 @@ WriteLiteral(">&nbsp;</td>\r\n");
 WriteLiteral("                                    ");
 
             
-            #line 93 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 97 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                      if (arrl2stratidx.Contains(idx))
                                     {
                                         var l2arridx = arrl2stratidx.IndexOf(idx);
@@ -464,7 +489,7 @@ WriteLiteral(" class=\'class_03\'");
 WriteLiteral(">&nbsp;</td>\r\n");
 
             
-            #line 99 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 103 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                         }
                                         else
                                         {
@@ -478,14 +503,14 @@ WriteLiteral("                                            <td");
 
 WriteLiteral(" class=\'class_03\'");
 
-WriteAttribute("rowspan", Tuple.Create(" rowspan=\'", 5230), Tuple.Create("\'", 5279)
+WriteAttribute("rowspan", Tuple.Create(" rowspan=\'", 5384), Tuple.Create("\'", 5433)
             
-            #line 104 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-, Tuple.Create(Tuple.Create("", 5240), Tuple.Create<System.Object, System.Int32>(_l3menu.Count()==0?1:_l3menu.Count()
+            #line 108 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+, Tuple.Create(Tuple.Create("", 5394), Tuple.Create<System.Object, System.Int32>(_l3menu.Count()==0?1:_l3menu.Count()
             
             #line default
             #line hidden
-, 5240), false)
+, 5394), false)
 );
 
 WriteLiteral(">\r\n                                                <div");
@@ -497,13 +522,13 @@ WriteLiteral(" style=\'float:left\'");
 WriteLiteral(">\r\n");
 
             
-            #line 106 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 110 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                     
             
             #line default
             #line hidden
             
-            #line 106 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 110 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                      if (@l2arr[l2arridx].ModelID == 2)
                                                     {
 
@@ -516,14 +541,14 @@ WriteLiteral(" type=\'button\'");
 
 WriteLiteral(" class=\'btn blue edit\'");
 
-WriteAttribute("index", Tuple.Create(" index=\'", 5623), Tuple.Create("\'", 5650)
+WriteAttribute("index", Tuple.Create(" index=\'", 5777), Tuple.Create("\'", 5804)
             
-            #line 108 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-                           , Tuple.Create(Tuple.Create("", 5631), Tuple.Create<System.Object, System.Int32>(l2arr[l2arridx].ID
+            #line 112 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+                           , Tuple.Create(Tuple.Create("", 5785), Tuple.Create<System.Object, System.Int32>(l2arr[l2arridx].ID
             
             #line default
             #line hidden
-, 5631), false)
+, 5785), false)
 );
 
 WriteLiteral(" style=\'float:left; margin-left:2px\'");
@@ -531,7 +556,7 @@ WriteLiteral(" style=\'float:left; margin-left:2px\'");
 WriteLiteral(">選擇</button>\r\n");
 
             
-            #line 109 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 113 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                     }
 
             
@@ -544,20 +569,20 @@ WriteLiteral(" class=\'training_class_title\'");
 
 WriteLiteral(" style=\'float:left; margin-left:10px\'");
 
-WriteAttribute("level", Tuple.Create(" level=\'", 5930), Tuple.Create("\'", 5964)
+WriteAttribute("level", Tuple.Create(" level=\'", 6084), Tuple.Create("\'", 6118)
             
-            #line 111 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-                                              , Tuple.Create(Tuple.Create("", 5938), Tuple.Create<System.Object, System.Int32>(l2arr[l2arridx].MenuLevel
+            #line 115 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+                                              , Tuple.Create(Tuple.Create("", 6092), Tuple.Create<System.Object, System.Int32>(l2arr[l2arridx].MenuLevel
             
             #line default
             #line hidden
-, 5938), false)
+, 6092), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 111 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 115 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                                                                                                                      Write(l2arr[l2arridx].MenuName);
 
             
@@ -566,7 +591,7 @@ WriteLiteral(">");
 WriteLiteral("</div>\r\n                                            </td>\r\n");
 
             
-            #line 113 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 117 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                             if (_l3menu.Count() == 0)
                                             {
 
@@ -580,7 +605,7 @@ WriteLiteral(" class=\'class_03\'");
 WriteLiteral(">&nbsp;</td>\r\n");
 
             
-            #line 116 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 120 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                             }
                                         }
                                     }
@@ -591,13 +616,13 @@ WriteLiteral(">&nbsp;</td>\r\n");
 WriteLiteral("\r\n");
 
             
-            #line 120 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 124 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                     
             
             #line default
             #line hidden
             
-            #line 120 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 124 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                      if (_l3menu != null && l3useidx < _l3menu.Count())
                                     {
 
@@ -617,13 +642,13 @@ WriteLiteral(" style=\'float:left\'");
 WriteLiteral(">\r\n");
 
             
-            #line 124 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 128 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                 
             
             #line default
             #line hidden
             
-            #line 124 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 128 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                  if (@_l3menu[l3useidx].ModelID == 2)
                                                 {
 
@@ -636,14 +661,14 @@ WriteLiteral(" type=\'button\'");
 
 WriteLiteral(" class=\'btn blue edit\'");
 
-WriteAttribute("index", Tuple.Create(" index=\'", 6898), Tuple.Create("\'", 6927)
+WriteAttribute("index", Tuple.Create(" index=\'", 7052), Tuple.Create("\'", 7081)
             
-            #line 126 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-                       , Tuple.Create(Tuple.Create("", 6906), Tuple.Create<System.Object, System.Int32>(_l3menu[l3useidx].ID
+            #line 130 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+                       , Tuple.Create(Tuple.Create("", 7060), Tuple.Create<System.Object, System.Int32>(_l3menu[l3useidx].ID
             
             #line default
             #line hidden
-, 6906), false)
+, 7060), false)
 );
 
 WriteLiteral(" style=\'float:left; margin-left:2px\'");
@@ -651,7 +676,7 @@ WriteLiteral(" style=\'float:left; margin-left:2px\'");
 WriteLiteral(">選擇</button>\r\n");
 
             
-            #line 127 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 131 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                 }
 
             
@@ -664,20 +689,20 @@ WriteLiteral(" class=\'training_class_title\'");
 
 WriteLiteral(" style=\'float:left; margin-left:10px\'");
 
-WriteAttribute("level", Tuple.Create(" level=\'", 7195), Tuple.Create("\'", 7231)
+WriteAttribute("level", Tuple.Create(" level=\'", 7349), Tuple.Create("\'", 7385)
             
-            #line 129 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
-                                          , Tuple.Create(Tuple.Create("", 7203), Tuple.Create<System.Object, System.Int32>(_l3menu[l3useidx].MenuLevel
+            #line 133 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+                                          , Tuple.Create(Tuple.Create("", 7357), Tuple.Create<System.Object, System.Int32>(_l3menu[l3useidx].MenuLevel
             
             #line default
             #line hidden
-, 7203), false)
+, 7357), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 129 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 133 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                                                                                                                                    Write(_l3menu[l3useidx].MenuName);
 
             
@@ -686,7 +711,7 @@ WriteLiteral(">");
 WriteLiteral("</div>\r\n                                        </td>\r\n");
 
             
-            #line 131 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 135 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                                         l3useidx += 1;
                                     }
 
@@ -696,7 +721,7 @@ WriteLiteral("</div>\r\n                                        </td>\r\n");
 WriteLiteral("                                </tr>\r\n");
 
             
-            #line 134 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 138 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                             }
                         }
                     
@@ -706,7 +731,7 @@ WriteLiteral("                                </tr>\r\n");
 WriteLiteral("\r\n\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n");
 
             
-            #line 141 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 145 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
      }
 
             
@@ -721,7 +746,7 @@ WriteLiteral("\r\n    <script>\r\n        $(function () {\r\n        \t$(\".edit
 ".menuid = $(this).attr(\"index\");\r\n                obj.id = \'");
 
             
-            #line 150 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 154 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                      Write(ViewBag.ID);
 
             
@@ -730,7 +755,7 @@ WriteLiteral("\r\n    <script>\r\n        $(function () {\r\n        \t$(\".edit
 WriteLiteral("\';\r\n\t\t\t\tCreatePost(\'");
 
             
-            #line 151 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+            #line 155 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                        Write(Url.Action("EPaperItemSelect"));
 
             

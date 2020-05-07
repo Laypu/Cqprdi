@@ -46,6 +46,7 @@ namespace Aofeng.Controllers
                 if (input.IsNullOrEmpty())
                 {
                     ViewBag.ErrorInfo = "訂閱EMail請確實輸入";
+                    ViewData["message"] = "訂閱EMail請確實輸入";
                 }
                 else
                 {
@@ -53,10 +54,12 @@ namespace Aofeng.Controllers
                     if (echeck.IsValid(input) == false)
                     {
                         ViewBag.ErrorInfo = "EMail格式錯誤";
+                        ViewData["message"] = "EMail格式錯誤";
                     }
                     else
                     {
                         ViewBag.ErrorInfo = _service.AddSubscriber(input, "user",this.LanguageID);
+                        ViewData["message"] = _service.AddSubscriber(input, "user", this.LanguageID);
                     }
                 }
             }
@@ -66,6 +69,7 @@ namespace Aofeng.Controllers
                 if (input.IsNullOrEmpty())
                 {
                     ViewBag.ErrorInfo = "取消訂閱EMail請確實輸入";
+                    ViewData["message"] = "取消訂閱EMail請確實輸入";
                 }
                 else
                 {
@@ -73,10 +77,12 @@ namespace Aofeng.Controllers
                     if (echeck.IsValid(input) == false)
                     {
                         ViewBag.ErrorInfo = "EMail格式錯誤";
+                        ViewData["message"] = "EMail格式錯誤";
                     }
                     else
                     {
                         ViewBag.ErrorInfo = _service.CancelSubscriber(input, "user");
+                        ViewData["message"] = _service.CancelSubscriber(input, "user");
                     }
                 }
             }
@@ -92,7 +98,7 @@ namespace Aofeng.Controllers
             if (group == -1)
             {
                 group = null;
-                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t=>t.IsPublished ==true).ToList();
+                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t=> t.IsPublished ==true).ToList();
             }
             else
             {
@@ -123,17 +129,17 @@ namespace Aofeng.Controllers
             model.columnSettings = _commonService.GetColumnSettings("EPaper", itemid);
             ViewBag.UnitSetting = new EPaperUnitSetting();
             EPaperUnitSetting EPaperUnitSetting = (EPaperUnitSetting)ViewBag.UnitSetting;
-            
-            //int ShowCount = EPaperUnitSetting.ShowCount.HasValue ? EPaperUnitSetting.ShowCount.Value : 10;
+
+            int ShowCount = EPaperUnitSetting.ShowCount.HasValue ? EPaperUnitSetting.ShowCount.Value : 10;
             #region Grid
 
-            //var paging = _service.GetPaging(itemid, group, "", nowpage, ShowCount);
+            var paging = _service.GetPaging(itemid, group, "", nowpage, ShowCount);
 
-            //model.ListEPaperItem = paging.rows;
+            model.ListEPaperItem = paging.rows;
 
             //Grid一定要有
-            //ViewBag.Total = paging.total;
-            //ViewBag.ShowCount = ShowCount;
+            ViewBag.Total = paging.total;
+            ViewBag.ShowCount = ShowCount;
             ViewBag.NowPage = nowpage;
             #endregion
 

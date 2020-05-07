@@ -937,7 +937,7 @@ WriteLiteral("\r\n                                    </div>\r\n                
 
 WriteLiteral(" class=\"col-md-12\"");
 
-WriteLiteral(">\r\n                                    <label");
+WriteLiteral("\r\n\r\n                                ");
 
 WriteLiteral(" class=\"col-md-3\"");
 
@@ -965,7 +965,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">Email 格式有誤</label>\r\n                                    <div");
+WriteLiteral(">EMail格式錯誤</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 
@@ -1037,7 +1037,7 @@ WriteLiteral(">\r\n                                    <label");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">此 Email 無訂閱電子報!</label>\r\n                                    <div");
+WriteLiteral(">此 EMail 已經訂閱!</label>\r\n                                    <div");
 
 WriteLiteral(" class=\"col-md-9\"");
 

@@ -130,10 +130,10 @@ WriteLiteral(" class=\"page-breadcrumb\"");
 
 WriteLiteral(">\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 646), Tuple.Create("\"", 681)
+WriteAttribute("href", Tuple.Create(" href=\"", 646), Tuple.Create("\"", 680)
             
             #line 16 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
-, Tuple.Create(Tuple.Create("", 653), Tuple.Create<System.Object, System.Int32>(Url.Action("Index", "Home")
+, Tuple.Create(Tuple.Create("", 653), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home")
             
             #line default
             #line hidden
@@ -146,14 +146,14 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 778), Tuple.Create("\"", 813)
+WriteAttribute("href", Tuple.Create(" href=\"", 777), Tuple.Create("\"", 812)
             
             #line 20 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
-, Tuple.Create(Tuple.Create("", 785), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
+, Tuple.Create(Tuple.Create("", 784), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
             
             #line default
             #line hidden
-, 785), false)
+, 784), false)
 );
 
 WriteLiteral(">模組管理</a>\r\n            <i");
@@ -162,17 +162,42 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 910), Tuple.Create("\"", 972)
+WriteAttribute("href", Tuple.Create(" href=\"", 909), Tuple.Create("\"", 945)
             
             #line 24 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
-, Tuple.Create(Tuple.Create("", 917), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 916), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","EPaper")
             
             #line default
             #line hidden
-, 917), false)
+, 916), false)
 );
 
 WriteLiteral(">電子報管理</a>\r\n            <i");
+
+WriteLiteral(" class=\"fa fa-circle\"");
+
+WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1043), Tuple.Create("\"", 1105)
+            
+            #line 28 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+, Tuple.Create(Tuple.Create("", 1050), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            
+            #line default
+            #line hidden
+, 1050), false)
+);
+
+WriteLiteral(">");
+
+            
+            #line 28 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+                                                                         Write(ViewBag.ModelItemTitle);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" 管理</a>\r\n            <i");
 
 WriteLiteral(" class=\"fa fa-circle\"");
 
@@ -183,7 +208,7 @@ WriteLiteral(" href=\"#\"");
 WriteLiteral(">");
 
             
-            #line 28 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+            #line 32 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
                    Write(ViewBag.Title);
 
             
@@ -193,7 +218,7 @@ WriteLiteral(" 管理</a>\r\n        </li>\r\n    </ul>\r\n\r\n</div>\r\n<!--pag
 "rt-->\r\n<h2>");
 
             
-            #line 35 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+            #line 39 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
 Write(ViewBag.Title);
 
             
@@ -211,14 +236,14 @@ WriteLiteral(" method=\"Post\"");
 
 WriteLiteral(" id=\"editform\"");
 
-WriteAttribute("action", Tuple.Create(" action=\'", 1322), Tuple.Create("\'", 1365)
+WriteAttribute("action", Tuple.Create(" action=\'", 1476), Tuple.Create("\'", 1519)
             
-            #line 38 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
-    , Tuple.Create(Tuple.Create("", 1331), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveManuallyContent")
+            #line 42 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+    , Tuple.Create(Tuple.Create("", 1485), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveManuallyContent")
             
             #line default
             #line hidden
-, 1331), false)
+, 1485), false)
 );
 
 WriteLiteral(" enctype=\"multipart/form-data\"");
@@ -228,7 +253,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("        ");
 
             
-            #line 39 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+            #line 43 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
    Write(Html.AntiForgeryToken());
 
             
@@ -273,7 +298,7 @@ WriteLiteral(" rows=\"20\"");
 WriteLiteral(">");
 
             
-            #line 47 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+            #line 51 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
                                                                           Write(ViewBag.HtmlContent);
 
             
@@ -301,16 +326,16 @@ WriteLiteral(" class=\"btn blue\"");
 
 WriteLiteral(" id=\"btn_return\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 2324), Tuple.Create("\"", 2414)
-, Tuple.Create(Tuple.Create("", 2334), Tuple.Create("document.location.href=\'", 2334), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 2478), Tuple.Create("\"", 2568)
+, Tuple.Create(Tuple.Create("", 2488), Tuple.Create("document.location.href=\'", 2488), true)
             
-            #line 57 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
-                    , Tuple.Create(Tuple.Create("", 2358), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            #line 61 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+                    , Tuple.Create(Tuple.Create("", 2512), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 2358), false)
-, Tuple.Create(Tuple.Create("", 2413), Tuple.Create("\'", 2413), true)
+, 2512), false)
+, Tuple.Create(Tuple.Create("", 2567), Tuple.Create("\'", 2567), true)
 );
 
 WriteLiteral(">返回列表</button>\r\n        </div>\r\n        <!--message end-->\r\n    </form>\r\n</div>\r\n" +
@@ -323,7 +348,7 @@ WriteLiteral("\r\n    <script>\r\n        $(function () {\r\n               var 
 "mageUploadUrl: \'");
 
             
-            #line 67 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+            #line 71 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
                                       Write(Url.Action("Upload"));
 
             
@@ -332,7 +357,7 @@ WriteLiteral("\r\n    <script>\r\n        $(function () {\r\n               var 
 WriteLiteral("?command=QuickUpload&type=Images\',\r\n               filebrowserUploadUrl: \'");
 
             
-            #line 68 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+            #line 72 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
                                  Write(Url.Action("UploadFile"));
 
             
@@ -368,7 +393,7 @@ WriteLiteral(@"?command=QuickUpload&type=Files',
                 formData.append(""ID"", '");
 
             
-            #line 95 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+            #line 99 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
                                   Write(ViewBag.ID);
 
             
@@ -388,7 +413,7 @@ WriteLiteral(@"');
                        CreatePost('");
 
             
-            #line 106 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
+            #line 110 "..\..\Areas\webadmin\Views\EPaper\EPaperManuallyContent.cshtml"
                               Write(Url.Action("ModelItem",new {mainid = ViewBag.mainid }));
 
             

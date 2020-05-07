@@ -98,10 +98,10 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 451), Tuple.Create("\"", 513)
+WriteAttribute("href", Tuple.Create(" href=\"", 451), Tuple.Create("\"", 487)
             
             #line 16 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 458), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 458), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","EPaper")
             
             #line default
             #line hidden
@@ -172,26 +172,26 @@ WriteLiteral(" value=\"#\"");
 
 WriteLiteral(" selected>編輯管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1157), Tuple.Create("\"", 1223)
+WriteAttribute("value", Tuple.Create(" value=\"", 1131), Tuple.Create("\"", 1197)
             
             #line 35 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 1165), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 1139), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1165), false)
+, 1139), false)
 );
 
 WriteLiteral(">模組管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1267), Tuple.Create("\"", 1332)
+WriteAttribute("value", Tuple.Create(" value=\"", 1241), Tuple.Create("\"", 1306)
             
             #line 36 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 1275), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber",new { mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 1249), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1275), false)
+, 1249), false)
 );
 
 WriteLiteral(">訂閱者管理</option>\r\n                </select>\r\n            </div>\r\n        </div>\r\n " +
@@ -249,14 +249,14 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                        <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1884), Tuple.Create("\"", 1900)
+WriteAttribute("value", Tuple.Create(" value=\"", 1858), Tuple.Create("\"", 1874)
             
             #line 52 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 1892), Tuple.Create<System.Object, System.Int32>(g.Value
+, Tuple.Create(Tuple.Create("", 1866), Tuple.Create<System.Object, System.Int32>(g.Value
             
             #line default
             #line hidden
-, 1892), false)
+, 1866), false)
 );
 
 WriteLiteral(">");
@@ -314,6 +314,8 @@ WriteLiteral("></i></button>\r\n            </p>\r\n        </div>\r\n    </div>
 WriteLiteral(" class=\"table-scrollable\"");
 
 WriteLiteral(">\r\n        <table");
+
+WriteLiteral(" align=\"center\"");
 
 WriteLiteral(" class=\"table table-bordered table-hover\"");
 
@@ -487,45 +489,45 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4737), Tuple.Create("\"", 4781)
+WriteAttribute("src", Tuple.Create(" src=\"", 4726), Tuple.Create("\"", 4770)
             
             #line 107 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4743), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+, Tuple.Create(Tuple.Create("", 4732), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 4743), false)
+, 4732), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4805), Tuple.Create("\"", 4846)
+WriteAttribute("src", Tuple.Create(" src=\"", 4794), Tuple.Create("\"", 4835)
             
             #line 108 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4811), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 4800), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 4811), false)
+, 4800), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4870), Tuple.Create("\"", 4916)
+WriteAttribute("src", Tuple.Create(" src=\"", 4859), Tuple.Create("\"", 4905)
             
             #line 109 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
-, Tuple.Create(Tuple.Create("", 4876), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 4865), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 4876), false)
+, 4865), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4940), Tuple.Create("\"", 4972)
-, Tuple.Create(Tuple.Create("", 4946), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
-, 4946), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 4929), Tuple.Create("\"", 4961)
+, Tuple.Create(Tuple.Create("", 4935), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
+, 4935), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n        $(document).ready(function () {\r\n\r\n\r\n          " +
@@ -685,9 +687,9 @@ WriteLiteral("?id=\' + $(this).attr(\'index\'), \'_blank\');\r\n            });\
             
             #line default
             #line hidden
-WriteLiteral("\', { id: $(this).attr(\'index\')});\r\n            });\r\n\r\n            $(\"#btn_groupma" +
-"nager\").click(function () {\r\n                    var obj = {};\r\n                " +
-"    obj.mainid = mainid;\r\n                    CreatePost(\'");
+WriteLiteral("\', { id: $(this).attr(\'index\'), mainid: mainid });\r\n            });\r\n\r\n          " +
+"  $(\"#btn_groupmanager\").click(function () {\r\n                    var obj = {};\r" +
+"\n                    obj.mainid = mainid;\r\n                    CreatePost(\'");
 
             
             #line 184 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
