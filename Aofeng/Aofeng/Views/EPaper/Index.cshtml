@@ -22,7 +22,7 @@
 
                         <label for="search_type">
 
-                            <div class="item_title">@(ePaper.GetEPMulti("Column4", int.Parse(Model.itemid)) == "" ? "類別" : ePaper.GetEPMulti("Column4", int.Parse(Model.itemid)))</div><!--英文Type；後台未輸入時不顯示，只有"無分類"時，整區塊不顯示-->
+                            <div class="item_title">@(ePaper.GetEPMulti("Column4", int.Parse(Model.itemid)))</div><!--英文Type；後台未輸入時不顯示，只有"無分類"時，整區塊不顯示-->
                             @{var grouplist = (IList<SelectListItem>)ViewBag.grouplist; }
 
 
@@ -42,12 +42,12 @@
                 <li data-sr="enter left over 1.5s">
                     <span class="required">@ViewBag.ErrorInfo</span>
                     <label for="mail">
-                        <div class="item_title">@(ePaper.GetEPMulti("Column5", int.Parse(Model.itemid)) == "" ? "訂閱電子報" : ePaper.GetEPMulti("Column5", int.Parse(Model.itemid)))</div>
-                        <input type="text" class="form-control input-medium" id="mail" placeholder="@(ePaper.GetEPMulti("Column9", int.Parse(Model.itemid))=="" ? "請輸入Email" : ePaper.GetEPMulti("Column9", int.Parse(Model.itemid)))" name="txtEmailInput">
+                        <div class="item_title">@(ePaper.GetEPMulti("Column5", int.Parse(Model.itemid)))</div>
+                        <input type="text" class="form-control input-medium" id="mail" placeholder="@(ePaper.GetEPMulti("Column9", int.Parse(Model.itemid)))" name="txtEmailInput">
                     </label>
 
-                    <button class="btn" title="@(ePaper.GetEPMulti("Column6", int.Parse(Model.itemid)) == "" ? "訂閱" : ePaper.GetEPMulti("Column6", int.Parse(Model.itemid)))" type="submit" name="btnorder" value="btnorder">@(ePaper.GetEPMulti("Column6", int.Parse(Model.itemid)) == "" ? "訂閱" : ePaper.GetEPMulti("Column6", int.Parse(Model.itemid)))</button>
-                    <button class="btn" title="@(ePaper.GetEPMulti("Column7", int.Parse(Model.itemid)) == "" ? "取消" : ePaper.GetEPMulti("Column7", int.Parse(Model.itemid)))" type="submit" name="btncancel" value="btncancel">@(ePaper.GetEPMulti("Column7", int.Parse(Model.itemid)) == "" ? "取消" : ePaper.GetEPMulti("Column7", int.Parse(Model.itemid)))</button>
+                    <button class="btn" title="@(ePaper.GetEPMulti("Column6",int.Parse(Model.itemid)) )">@(ePaper.GetEPMulti("Column6", int.Parse(Model.itemid)))</button>
+                    <button class="btn" title="@(ePaper.GetEPMulti("Column7",int.Parse(Model.itemid)) )">@(ePaper.GetEPMulti("Column7", int.Parse(Model.itemid)))</button>
                 </li>
                 <li style="display:none;">
                     <label for="search_date">
@@ -89,16 +89,16 @@
                     switch (i.ColumnKey)
                     {
                         case "No":
-                <th scope="col" width="60">@(ePaper.GetEPMulti("Column1", int.Parse(Model.itemid)) == "" ? i.ColumnName: ePaper.GetEPMulti("Column1", int.Parse(Model.itemid)))</th>
+                <th scope="col" width="60">@(ePaper.GetEPMulti("Column1", int.Parse(Model.itemid)))</th>
                             break;
                         case "Title":
-            <th scope="col">@(ePaper.GetEPMulti("Column3", int.Parse(Model.itemid)) == "" ? i.ColumnName : ePaper.GetEPMulti("Column3", int.Parse(Model.itemid)))</th>
+            <th scope="col">@(ePaper.GetEPMulti("Column3", int.Parse(Model.itemid)))</th>
                             break;
                         case "PublicshDate":
-            <th scope="col" width="100">@(ePaper.GetEPMulti("Column2", int.Parse(Model.itemid)) == "" ? i.ColumnName : ePaper.GetEPMulti("Column2", int.Parse(Model.itemid)))</th>
+            <th scope="col" width="100">@(ePaper.GetEPMulti("Column2", int.Parse(Model.itemid)))</th>
                             break;
                         case "GroupName":
-            <th scope="col" width="10%">@(ePaper.GetEPMulti("Column4", int.Parse(Model.itemid)) == "" ? i.ColumnName : ePaper.GetEPMulti("Column4", int.Parse(Model.itemid)))</th>
+            <th scope="col" width="10%">@(ePaper.GetEPMulti("Column4", int.Parse(Model.itemid)))</th>
                             break;
 
                     }

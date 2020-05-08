@@ -28,16 +28,89 @@ namespace Oaww.Business
         }
         public string GetEPMulti(string Key, int MainID)
         {
+            string sql = string.Empty;
+            string deval = "";
+            switch (Key)
+            {
+                case "Column1":
+                    sql ="select t.Column1 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "序號";
+                    break;
+                case "Column2":
+                    sql = "select t.Column2 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "發佈日期";
+                    break;
+                case "Column3":
+                    sql = "select t.Column3 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "電子報名稱";
+                    break;
+                case "Column4":
+                    sql = "select t.Column4 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "類別";
+                    break;
+                case "Column5":
+                    sql = "select t.Column5 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "訂閱電子報";
+                    break;
+                case "Column6":
+                    sql = "select t.Column6 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "訂閱";
+                    break;
+                case "Column7":
+                    sql = "select t.Column7 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "取消";
+                    break;
+                case "Column8":
+                    sql = "select t.Column8 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "查閱電子報";
+                    break;
+                case "Column9":
+                    sql = "select t.Column9 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "請輸入Email";
+                    break;
+                case "Column10":
+                    sql = "select t.Column10 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "EMail格式錯誤";
+                    break;
+                case "Column11":
+                    sql = "select t.Column11 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "此 Email 已有訂閱電子報!";
+                    break;
+                case "Column12":
+                    sql = "select t.Column12 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "電子報訂閱成功!";
+                    break;
+                case "Column13":
+                    sql = "select t.Column13 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "此 EMail 已經訂閱!";
+                    break;
+                case "Column14":
+                    sql = "select t.Column14 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "電子報取消訂閱成功!";
+                    break;
+                case "Column15":
+                    sql = "select t.Column15 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "EMail請確實輸入";
+                    break;
+                case "Column16":
+                    sql = "select t.Column16 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "電子報訂閱失敗!";
+                    break;
+                case "Column17":
+                    sql = "select t.Column17 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "此 Email 無訂閱電子報!";
+                    break;
+                case "Column18":
+                    sql = "select t.Column18 from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
+                    deval = "電子報取消訂閱失敗";
+                    break;
+            }
             var Lang = HttpContext.Current.Session["LangID"].ToString();
-            var Skey = "t." + Key;
-            string sql = "select ";
-            sql += Skey;
-            sql += " from EPaperUnitSetting t where t.LangID=@LangID and t.MainID=@MainID";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@LangID", Lang));
             base.Parameter.Add(new SqlParameter("@MainID", MainID));
-
-            return base.ExecuteScalar(sql)==null?"": base.ExecuteScalar(sql).ToString();
+            var keyval = base.ExecuteScalar(sql).ToString();
+            return keyval.IsNullOrEmpty()? deval : base.ExecuteScalar(sql).ToString();
         }
         public List<GroupEPaper> GetVaildGroupEPapers(string Main_ID,string Lang_ID)
         {
@@ -1292,7 +1365,7 @@ namespace Oaww.Business
 
                     if (olddata.Count() > 0)
                     {
-                        return GetEPMulti("Column13", int.Parse(MainID)) == "" ? "此 EMail 已經訂閱!" : GetEPMulti("Column13", int.Parse(MainID)) ;
+                        return GetEPMulti("Column13", int.Parse(MainID));
                     }
                     var nowdate = DateTime.Now;
 
@@ -1317,11 +1390,11 @@ namespace Oaww.Business
                     {
                         tran.Commit();
 
-                        return GetEPMulti("Column12", int.Parse(MainID)) == "" ? "電子報訂閱成功!" : GetEPMulti("Column12", int.Parse(MainID));
+                        return GetEPMulti("Column12", int.Parse(MainID));
                     }
                     else
                     {
-                        return GetEPMulti("Column16", int.Parse(MainID)) == "" ? "電子報訂閱失敗!" : GetEPMulti("Column16", int.Parse(MainID));
+                        return GetEPMulti("Column16", int.Parse(MainID));
                     }
                 }
             }
@@ -1398,18 +1471,18 @@ namespace Oaww.Business
                         var olddata = _commonService.GetGeneralList<EPaperSubscriber>("EMail=@EMail", new Dictionary<string, string>() { { "EMail", email } }, tran);
                         if (olddata.Count() <= 0)
                         {
-                            return GetEPMulti("Column17", int.Parse(MainID)) == "" ? "此 Email 無訂閱電子報!" : GetEPMulti("Column17", int.Parse(MainID));
+                            return GetEPMulti("Column17", int.Parse(MainID));
                         }
 
                         r = base.ExeNonQuery(sql);
                         if (r >= 0)
                         {
                             tran.Commit();
-                            return GetEPMulti("Column14", int.Parse(MainID)) == "" ? "電子報取消訂閱成功!" : GetEPMulti("Column14", int.Parse(MainID));
+                            return GetEPMulti("Column14", int.Parse(MainID));
                         }
                         else
                         {
-                            return GetEPMulti("Column18", int.Parse(MainID)) == "" ? "電子報取消訂閱成功!" : GetEPMulti("Column18", int.Parse(MainID));
+                            return GetEPMulti("Column18", int.Parse(MainID));
                         }
 
                     }
