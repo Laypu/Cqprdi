@@ -25,7 +25,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="@Url.Action("EPaperContentMenu",new {id = ViewBag.ID })">@ViewBag.Title 管理</a>
+            <a href="@Url.Action("EPaperContentMenu",new {id = ViewBag.ID , mainid = ViewBag.mainid })">@ViewBag.Title 管理</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
@@ -40,7 +40,7 @@
 
 <div class="portlet light bordered">
     <!--set item start-->
-    <button type="button" class="btn blue" id="btn_return" onclick="document.location.href='@Url.Action("EPaperContentMenu")?id=@ViewBag.ID'">返回列表</button>
+    <button type="button" class="btn blue" id="btn_return" onclick="location.href='@Url.Action("EPaperContentMenu",new {id = ViewBag.ID , mainid = ViewBag.mainid })'">返回列表</button>
     <!--table start-->
     <div class="table-scrollable">
         <table class="table table-bordered table-hover" border="0" cellspacing="0" cellpadding="0"

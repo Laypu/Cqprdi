@@ -498,6 +498,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             ViewBag.mainid = mainid;
 
             ViewBag.ID = id;
+            //"1"表示主選單
             var model = _commonService.GetMenu(this.LanguageID, "1");
             var itemdata = _service.GetModel(id);
             //過濾model
@@ -521,10 +522,10 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         #endregion
 
         #region EPaperItemSelect的view
-        public ActionResult EPaperItemSelect(string menuid, string id)
+        public ActionResult EPaperItemSelect(string menuid, string id ,string mainid)
         {
-            
-            
+            //EpaperMain 的ID
+            ViewBag.mainid = mainid;
             
             //Menu的 ID
             ViewBag.MenuId = menuid;
@@ -536,8 +537,8 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             //模組ID(訊息為2)
             ViewBag.ModelID = menudata.ModelID;
             
-            //ModelMessageMain 的ID
-            ViewBag.MainID = menudata.ModelItemID;
+            //訊息 的ID
+            ViewBag.ModelItemID = menudata.ModelItemID;
             var itemdata = _service.GetModel(id);
             ViewBag.Title = itemdata.Title;
             return View();
