@@ -109,8 +109,8 @@ namespace Oaww.Business
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@LangID", Lang));
             base.Parameter.Add(new SqlParameter("@MainID", MainID));
-
-            return base.ExecuteScalar(sql).ToString()==""|| base.ExecuteScalar(sql).ToString() == null? deval : base.ExecuteScalar(sql).ToString();
+            var keyval = base.ExecuteScalar(sql).ToString();
+            return keyval.IsNullOrEmpty()? deval : base.ExecuteScalar(sql).ToString();
         }
         public List<GroupEPaper> GetVaildGroupEPapers(string Main_ID,string Lang_ID)
         {
