@@ -1371,7 +1371,10 @@ namespace Oaww.Business
                         base.Parameter.Add(new SqlParameter("@TypeID", idlist[idx]));
                         base.ExeNonQuery(sql);
 
-
+                        sql = @"delete  EPaperAutoItem where EPaperID=@EPaperID";
+                        base.Parameter.Clear();
+                        base.Parameter.Add(new SqlParameter("@EPaperID", idlist[idx]));
+                        base.ExeNonQuery(sql);
                     }
                 }
                 var rstr = "";
@@ -1379,6 +1382,7 @@ namespace Oaww.Business
                 {
                     //NLogManagement.SystemLogInfo("刪除訊息項目:" + delaccount);
                     rstr = "刪除成功";
+                    
                 }
                 else
                 {

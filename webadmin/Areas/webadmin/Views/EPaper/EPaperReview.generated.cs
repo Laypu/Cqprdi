@@ -452,14 +452,14 @@ WriteLiteral(" </h2></div>\r\n");
             #line hidden
             
             #line 57 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-       Write(Html.Raw(Model.PageEndHtmlContent));
+       Write(Html.Raw(Model.EPaperHtmlContent.safeHtmlFragment()));
 
             
             #line default
             #line hidden
             
             #line 57 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-                                               
+                                                                 
         }
         else
         {
@@ -510,26 +510,26 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                                <li><a");
 
-WriteAttribute("href", Tuple.Create(" href=\'", 3434), Tuple.Create("\'", 3460)
+WriteAttribute("href", Tuple.Create(" href=\'", 3452), Tuple.Create("\'", 3478)
             
             #line 70 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-, Tuple.Create(Tuple.Create("", 3441), Tuple.Create<System.Object, System.Int32>(items.ItemUrl[idx]
+, Tuple.Create(Tuple.Create("", 3459), Tuple.Create<System.Object, System.Int32>(items.ItemUrl[idx]
             
             #line default
             #line hidden
-, 3441), false)
+, 3459), false)
 );
 
 WriteLiteral(" target=\"_blank\"");
 
-WriteAttribute("title", Tuple.Create(" title=\"", 3477), Tuple.Create("\"", 3515)
+WriteAttribute("title", Tuple.Create(" title=\"", 3495), Tuple.Create("\"", 3533)
             
             #line 70 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-         , Tuple.Create(Tuple.Create("", 3485), Tuple.Create<System.Object, System.Int32>(Html.Raw(items.ItemName[idx])
+         , Tuple.Create(Tuple.Create("", 3503), Tuple.Create<System.Object, System.Int32>(Html.Raw(items.ItemName[idx])
             
             #line default
             #line hidden
-, 3485), false)
+, 3503), false)
 );
 
 WriteLiteral(">");
@@ -570,7 +570,7 @@ WriteLiteral(">");
 
             
             #line 77 "..\..\Areas\webadmin\Views\EPaper\EPaperReview.cshtml"
-                                                                                                                                                                     Write(Html.Raw(Model.PageEndHtmlContent));
+                                                                                                                                                                     Write(Html.Raw(Model.PageEndHtmlContent.safeHtmlFragment()));
 
             
             #line default

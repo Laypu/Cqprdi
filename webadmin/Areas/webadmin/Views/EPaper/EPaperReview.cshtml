@@ -54,7 +54,7 @@
         <div class="title"><h2>@Model.Title </h2></div>
         @if (Model.PaperMode == 1)
         {
-            @Html.Raw(Model.PageEndHtmlContent)
+            @Html.Raw(Model.EPaperHtmlContent.safeHtmlFragment())
         }
         else
         {
@@ -74,7 +74,7 @@
                 }
             }
         }
-        <div style="text-align:center;font-size:0.8em;line-height:150%;border-top:double #fff 5px;float:left;width:100%;margin-top:10px;padding:10px;background:#f5f5f5;">@Html.Raw(Model.PageEndHtmlContent)</div>
+        <div style="text-align:center;font-size:0.8em;line-height:150%;border-top:double #fff 5px;float:left;width:100%;margin-top:10px;padding:10px;background:#f5f5f5;">@Html.Raw(Model.PageEndHtmlContent.safeHtmlFragment())</div>
     </div>
 </body>
 </html>

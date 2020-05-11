@@ -46,7 +46,7 @@ namespace Aofeng.Controllers
                 var input = Request["txtEmailInput"];
                 if (input.IsNullOrEmpty())
                 {
-                    Error=_service.GetEPMulti("Column15", int.Parse(itemid)) == "" ? "EMail請確實輸入" : _service.GetEPMulti("Column15", int.Parse(itemid));
+                    Error=_service.GetEPMulti("Column15", int.Parse(itemid));
                     ViewBag.ErrorInfo = Error;
                     ViewData["message"] = Error;
                 }
@@ -55,14 +55,15 @@ namespace Aofeng.Controllers
                     var echeck = new EmailAddressAttribute();
                     if (echeck.IsValid(input) == false)
                     {
-                        Error = _service.GetEPMulti("Column10", int.Parse(itemid)) == "" ? "EMail格式錯誤" : _service.GetEPMulti("Column10", int.Parse(itemid));
+                        Error = _service.GetEPMulti("Column10", int.Parse(itemid));
                         ViewBag.ErrorInfo = Error;
                         ViewData["message"] = Error;
                     }
                     else
                     {
-                        ViewBag.ErrorInfo = _service.AddSubscriber(input, "user",this.LanguageID,itemid);
-                        ViewData["message"] = _service.AddSubscriber(input, "user", this.LanguageID,itemid);
+                        var mess= _service.AddSubscriber(input, "user", this.LanguageID, itemid);
+                        ViewBag.ErrorInfo = mess;
+                        ViewData["message"] = mess;
                     }
                 }
             }
@@ -71,7 +72,7 @@ namespace Aofeng.Controllers
                 var input = Request["txtEmailInput"];
                 if (input.IsNullOrEmpty())
                 {
-                    Error = _service.GetEPMulti("Column15", int.Parse(itemid)) == "" ? "EMail請確實輸入" : _service.GetEPMulti("Column15", int.Parse(itemid));
+                    Error = _service.GetEPMulti("Column15", int.Parse(itemid));
                     ViewBag.ErrorInfo = Error;
                     ViewData["message"] =Error;
                 }
@@ -80,14 +81,15 @@ namespace Aofeng.Controllers
                     var echeck = new EmailAddressAttribute();
                     if (echeck.IsValid(input) == false)
                     {
-                        Error = _service.GetEPMulti("Column10", int.Parse(itemid)) == "" ? "EMail格式錯誤" : _service.GetEPMulti("Column10", int.Parse(itemid));
+                        Error = _service.GetEPMulti("Column10", int.Parse(itemid));
                         ViewBag.ErrorInfo = Error;
                         ViewData["message"] = Error;
                     }
                     else
                     {
-                        ViewBag.ErrorInfo = _service.CancelSubscriber(input, "user",itemid);
-                        ViewData["message"] = _service.CancelSubscriber(input, "user",itemid);
+                        var mess = _service.AddSubscriber(input, "user", this.LanguageID, itemid);
+                        ViewBag.ErrorInfo = mess;
+                        ViewData["message"] = mess;
                     }
                 }
             }
