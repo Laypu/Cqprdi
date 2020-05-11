@@ -56,6 +56,51 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public ActionResult SetMainDelete(string[] idlist, string delaccount)
+        {
+            
+                List<EPaperItem> EPaperItem = _service.GetEPaperItems(idlist);
+
+                string result = _service.Delete(idlist, delaccount, this.LanguageID, this.Account, this.UserName);
+
+                //if (result == "刪除成功")
+                //{
+                //    var oldroot = System.Web.HttpContext.Current.Request.PhysicalApplicationPath + $"\\UploadImage\\{SET_EPAPER.M_EPAPER02}\\";
+
+                //    foreach (var items in EPaperItem)
+                //    {
+                //        //刪除File
+                //        if (items.UploadFileName.IsNullOrEmpty() == false)
+                //        {
+                //            items.UploadFilePath = System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\UploadFile" + items.UploadFilePath;
+
+                //            if (System.IO.File.Exists(items.UploadFilePath))
+                //            {
+                //                System.IO.File.Delete(items.UploadFilePath);
+                //            }
+                //        }
+                //        if (items.ImageFileName.IsNullOrEmpty() == false)
+                //        {
+
+                //            if (System.IO.File.Exists(oldroot + "\\" + items.ImageFileName))
+                //            {
+                //                System.IO.File.Delete(oldroot + "\\" + items.ImageFileName);
+                //            }
+                //        }
+
+
+                //    }
+
+
+                //}
+
+                return Content(result);
+           
+        }
+
+
         //電子報模組呈現
         public ActionResult PagingMain(SearchModelBase model)
         {

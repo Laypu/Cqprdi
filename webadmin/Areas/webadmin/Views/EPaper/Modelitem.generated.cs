@@ -525,8 +525,13 @@ WriteAttribute("src", Tuple.Create(" src=\"", 4859), Tuple.Create("\"", 4905)
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4929), Tuple.Create("\"", 4961)
-, Tuple.Create(Tuple.Create("", 4935), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
+WriteAttribute("src", Tuple.Create(" src=\"", 4929), Tuple.Create("\"", 4977)
+            
+            #line 110 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
+, Tuple.Create(Tuple.Create("", 4935), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/clipboard.min.js")
+            
+            #line default
+            #line hidden
 , 4935), false)
 );
 

@@ -1745,7 +1745,7 @@ namespace Oaww.Business
 
                 r = base.ExeNonQuery(sql);
 
-                var data = _commonService.GetGeneralList<EPaperAutoItem>("menuid=@menuid and modelid=@modelid and EPaperID=@EPaperID Order By Sort", new Dictionary<string, string> { { "menuid",mainid },{ "modelid", modelid },{ "EPaperID", id }});
+                var data = _commonService.GetGeneralList<EPaperAutoItem>("menuid=@menuid and modelid=@modelid and EPaperID=@EPaperID Order By Sort", new Dictionary<string, string> { { "menuid",menuid },{ "modelid", modelid },{ "EPaperID", id }});
 
                 sql = "update EPaperAutoItem";
                 //idx為新的sort
@@ -1780,7 +1780,7 @@ namespace Oaww.Business
                     using (SqlTransaction tran = base.GetTransaction(connection))
                     {
                         var r = 0;
-                        var data = _commonService.GetGeneralList<EPaperAutoItem>("menuid=@menuid and modelid=@modelid and EPaperID=@EPaperID order by Sort", new Dictionary<string, string> { { "menuid", mainid }, { "modelid", modelid }, { "EPaperID", id } });
+                        var data = _commonService.GetGeneralList<EPaperAutoItem>("menuid=@menuid and modelid=@modelid and EPaperID=@EPaperID order by Sort", new Dictionary<string, string> { { "menuid", menuid }, { "modelid", modelid }, { "EPaperID", id } });
                         var Groupcount = 1;
                         if (data.Count() > 0)
                         {
@@ -2074,112 +2074,122 @@ namespace Oaww.Business
             //var list = _epaperitemsqlrepository.GetByWhere("EPaperID=@1", new object[] { id }).OrderBy(v=>v.MenuLevel1Sort)
             //    .ThenBy(v => v.MenuLevel2Sort).ThenBy(v => v.MenuLevel3Sort).ThenBy(v=>v.Sort);
             var list = _commonService.GetGeneralList<EPaperAutoItem>("EPaperID=@EPaperID Order By GroupSortID", new Dictionary<string, string> { { "EPaperID", id } });
-            var grouplist = list.GroupBy(v => v.MenuID);
-            foreach (var g1 in grouplist)
+            if (list.Count() > 0)
             {
-                var g2list = g1.OrderBy(v => v.Sort).GroupBy(x => x.MainID);
-                foreach (var g2 in g2list)
+                var grouplist = list.GroupBy(v => v.MenuID);
+                foreach (var g1 in grouplist)
                 {
-                    var EPaperItemEdit = new EPaperItemEdit();
-                    if (g1.Count() > 0)
+                    var g2list = g1.OrderBy(v => v.Sort).GroupBy(x => x.MainID);
+                    foreach (var g2 in g2list)
                     {
-                        EPaperItemEdit.MenuID = g1.First().MenuID.ToString();
-                        EPaperItemEdit.SortID = g1.First().GroupSortID;
-                        EPaperItemEdit.MainID = g1.First().MainID.ToString();
-                    }
-
-                    EPaperItemEdit.ItemName = new List<string>();
-                    EPaperItemEdit.ItemUrl = new List<string>();
-                    EPaperItemEdit.ItemKey = new List<string>();
-
-                    var modelid = g2.First().ModelID;
-                    foreach (var item in g2.ToList())
-                    {
-                        EPaperItemEdit.ItemKey.Add(item.ModelID + "_" + item.ItemID + "_" + item.MenuID + "_" + item.MainID);
-                    }
-                    if (modelid == 2)
-                    {
-                        var maindata = _commonService.GetGeneralList<ModelMessageMain>("ID=@ID", new Dictionary<string, string>() { { "ID", g2.Key.ToString() } });
-
-                        if (maindata.Count() == 0)
+                        var EPaperItemEdit = new EPaperItemEdit();
+                        if (g1.Count() > 0)
                         {
-                            continue;
+                            EPaperItemEdit.MenuID = g1.First().MenuID.ToString();
+                            EPaperItemEdit.SortID = g1.First().GroupSortID;
+                            EPaperItemEdit.MainID = g1.First().MainID.ToString();
                         }
-                        EPaperItemEdit.Name = maindata.First().Name;
-                        var itemlist = _commonService.GetGeneralList<MessageItem>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", g2.Key.ToString() } });
 
+                        EPaperItemEdit.ItemName = new List<string>();
+                        EPaperItemEdit.ItemUrl = new List<string>();
+                        EPaperItemEdit.ItemKey = new List<string>();
+
+                        var modelid = g2.First().ModelID;
                         foreach (var item in g2.ToList())
                         {
-                            var data = itemlist.Where(v => v.ItemID == item.ItemID);
-                            if (data.Count() > 0)
+                            EPaperItemEdit.ItemKey.Add(item.ModelID + "_" + item.ItemID + "_" + item.MenuID + "_" + item.MainID);
+                        }
+                        if (modelid == 2)
+                        {
+                            var maindata = _commonService.GetGeneralList<ModelMessageMain>("ID=@ID", new Dictionary<string, string>() { { "ID", g2.Key.ToString() } });
+
+                            if (maindata.Count() == 0)
                             {
-                                EPaperItemEdit.ItemName.Add(data.First().Title);
-                                EPaperItemEdit.ItemUrl.Add(helper.Action("MessageView", "Message", new { Area = "" }) + "?itemid=" + item.ItemID + "&mid=" + item.MenuID);
+                                continue;
+                            }
+                            EPaperItemEdit.Name = maindata.First().Name;
+                            var itemlist = _commonService.GetGeneralList<MessageItem>("ModelID=@ModelID", new Dictionary<string, string>() { { "ModelID", g2.Key.ToString() } });
+
+                            foreach (var item in g2.ToList())
+                            {
+                                var data = itemlist.Where(v => v.ItemID == item.ItemID);
+                                if (data.Count() > 0)
+                                {
+                                    EPaperItemEdit.ItemName.Add(data.First().Title);
+                                    EPaperItemEdit.ItemUrl.Add(helper.Action("MessageView", "Message", new { Area = "" }) + "?itemid=" + item.ItemID + "&mid=" + item.MenuID);
+                                }
                             }
                         }
+                        //else if (modelid == 3)
+                        //{
+                        //    var maindata = _activemainsqlrepository.GetByWhere("ID=@1", new object[] { g2.Key });
+                        //    if (maindata.Count() == 0)
+                        //    {
+                        //        continue;
+                        //    }
+                        //    EPaperItemEdit.Name = maindata.First().Name;
+                        //    var itemlist = _activesqlrepository.GetByWhere("ModelID=@1", new object[] { g2.Key });
+                        //    foreach (var item in g2.ToList())
+                        //    {
+                        //        var data = itemlist.Where(v => v.ItemID == item.ItemID);
+                        //        if (data.Count() > 0)
+                        //        {
+                        //            EPaperItemEdit.ItemName.Add(data.First().Title);
+                        //            EPaperItemEdit.ItemUrl.Add(helper.Action("ActiveView", "Active", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
+                        //        }
+                        //    }
+                        //}
+                        //else if (modelid == 4)
+                        //{
+                        //    var maindata = _filedownloadsqlrepository.GetByWhere("ID=@1", new object[] { g2.Key });
+                        //    if (maindata.Count() == 0)
+                        //    {
+                        //        continue;
+                        //    }
+                        //    EPaperItemEdit.Name = maindata.First().Name;
+                        //    var itemlist = _filedownloaditemsqlrepository.GetByWhere("ModelID=@1", new object[] { g2.Key });
+                        //    foreach (var item in g2.ToList())
+                        //    {
+                        //        var data = itemlist.Where(v => v.ItemID == item.ItemID);
+                        //        if (data.Count() > 0)
+                        //        {
+                        //            EPaperItemEdit.ItemName.Add(data.First().Title);
+                        //            EPaperItemEdit.ItemUrl.Add(helper.Action("Index", "Download", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
+                        //        }
+                        //    }
+                        //}
+                        //else if (modelid == 7)
+                        //{
+                        //    var maindata = _articlemainsqlrepository.GetByWhere("ID=@1", new object[] { g2.Key });
+                        //    if (maindata.Count() == 0)
+                        //    {
+                        //        continue;
+                        //    }
+                        //    EPaperItemEdit.Name = maindata.First().Name;
+                        //    var itemlist = _articlesqlrepository.GetByWhere("ModelID=@1", new object[] { g2.Key });
+                        //    foreach (var item in g2.ToList())
+                        //    {
+                        //        var data = itemlist.Where(v => v.ItemID == item.ItemID);
+                        //        if (data.Count() > 0)
+                        //        {
+                        //            EPaperItemEdit.ItemName.Add(data.First().Title);
+                        //            EPaperItemEdit.ItemUrl.Add(helper.Action("ArticleView", "Article", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
+                        //        }
+                        //    }
+                        //}
+                        model.Add(EPaperItemEdit);
                     }
-                    //else if (modelid == 3)
-                    //{
-                    //    var maindata = _activemainsqlrepository.GetByWhere("ID=@1", new object[] { g2.Key });
-                    //    if (maindata.Count() == 0)
-                    //    {
-                    //        continue;
-                    //    }
-                    //    EPaperItemEdit.Name = maindata.First().Name;
-                    //    var itemlist = _activesqlrepository.GetByWhere("ModelID=@1", new object[] { g2.Key });
-                    //    foreach (var item in g2.ToList())
-                    //    {
-                    //        var data = itemlist.Where(v => v.ItemID == item.ItemID);
-                    //        if (data.Count() > 0)
-                    //        {
-                    //            EPaperItemEdit.ItemName.Add(data.First().Title);
-                    //            EPaperItemEdit.ItemUrl.Add(helper.Action("ActiveView", "Active", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
-                    //        }
-                    //    }
-                    //}
-                    //else if (modelid == 4)
-                    //{
-                    //    var maindata = _filedownloadsqlrepository.GetByWhere("ID=@1", new object[] { g2.Key });
-                    //    if (maindata.Count() == 0)
-                    //    {
-                    //        continue;
-                    //    }
-                    //    EPaperItemEdit.Name = maindata.First().Name;
-                    //    var itemlist = _filedownloaditemsqlrepository.GetByWhere("ModelID=@1", new object[] { g2.Key });
-                    //    foreach (var item in g2.ToList())
-                    //    {
-                    //        var data = itemlist.Where(v => v.ItemID == item.ItemID);
-                    //        if (data.Count() > 0)
-                    //        {
-                    //            EPaperItemEdit.ItemName.Add(data.First().Title);
-                    //            EPaperItemEdit.ItemUrl.Add(helper.Action("Index", "Download", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
-                    //        }
-                    //    }
-                    //}
-                    //else if (modelid == 7)
-                    //{
-                    //    var maindata = _articlemainsqlrepository.GetByWhere("ID=@1", new object[] { g2.Key });
-                    //    if (maindata.Count() == 0)
-                    //    {
-                    //        continue;
-                    //    }
-                    //    EPaperItemEdit.Name = maindata.First().Name;
-                    //    var itemlist = _articlesqlrepository.GetByWhere("ModelID=@1", new object[] { g2.Key });
-                    //    foreach (var item in g2.ToList())
-                    //    {
-                    //        var data = itemlist.Where(v => v.ItemID == item.ItemID);
-                    //        if (data.Count() > 0)
-                    //        {
-                    //            EPaperItemEdit.ItemName.Add(data.First().Title);
-                    //            EPaperItemEdit.ItemUrl.Add(helper.Action("ArticleView", "Article", new { Area = "" }) + "?id=" + item.ItemID + "&mid=" + item.MenuID);
-                    //        }
-                    //    }
-                    //}
-                    model.Add(EPaperItemEdit);
+
+
                 }
 
-
             }
+            //var list1= _commonService.GetGeneralList<EPaperContent>("EPaperID=@EPaperID Order By GroupSortID", new Dictionary<string, string> { { "EPaperID", id } });
+            //if (list1 > 0)
+            //{ 
+            //    model.
+            //}
+            
             return model;
         }
         #endregion
