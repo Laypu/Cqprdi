@@ -162,10 +162,10 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 947), Tuple.Create("\"", 1009)
+WriteAttribute("href", Tuple.Create(" href=\"", 947), Tuple.Create("\"", 1035)
             
             #line 28 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSelect.cshtml"
-, Tuple.Create(Tuple.Create("", 954), Tuple.Create<System.Object, System.Int32>(Url.Action("EPaperContentMenu",new {id = ViewBag.ID })
+, Tuple.Create(Tuple.Create("", 954), Tuple.Create<System.Object, System.Int32>(Url.Action("EPaperContentMenu",new {id = ViewBag.ID , mainid = ViewBag.mainid })
             
             #line default
             #line hidden
@@ -176,7 +176,7 @@ WriteLiteral(">");
 
             
             #line 28 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSelect.cshtml"
-                                                                         Write(ViewBag.Title);
+                                                                                                   Write(ViewBag.Title);
 
             
             #line default
@@ -220,33 +220,16 @@ WriteLiteral(" class=\"btn blue\"");
 
 WriteLiteral(" id=\"btn_return\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1383), Tuple.Create("\"", 1492)
-, Tuple.Create(Tuple.Create("", 1393), Tuple.Create("document.location.href=\'", 1393), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1409), Tuple.Create("\"", 1516)
+, Tuple.Create(Tuple.Create("", 1419), Tuple.Create("location.href=\'", 1419), true)
             
             #line 43 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSelect.cshtml"
-            , Tuple.Create(Tuple.Create("", 1417), Tuple.Create<System.Object, System.Int32>(Url.Action("EPaperContentMenu")
+   , Tuple.Create(Tuple.Create("", 1434), Tuple.Create<System.Object, System.Int32>(Url.Action("EPaperContentMenu",new {id = ViewBag.ID , mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1417), false)
-, Tuple.Create(Tuple.Create("", 1449), Tuple.Create("?id=", 1449), true)
-            
-            #line 43 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSelect.cshtml"
-                                                , Tuple.Create(Tuple.Create("", 1453), Tuple.Create<System.Object, System.Int32>(ViewBag.ID
-            
-            #line default
-            #line hidden
-, 1453), false)
-, Tuple.Create(Tuple.Create(" ", 1464), Tuple.Create("&&", 1465), true)
-, Tuple.Create(Tuple.Create(" ", 1467), Tuple.Create("mainid=", 1468), true)
-            
-            #line 43 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSelect.cshtml"
-                                                                      , Tuple.Create(Tuple.Create("", 1475), Tuple.Create<System.Object, System.Int32>(ViewBag.ModelID
-            
-            #line default
-            #line hidden
-, 1475), false)
-, Tuple.Create(Tuple.Create("", 1491), Tuple.Create("\'", 1491), true)
+, 1434), false)
+, Tuple.Create(Tuple.Create("", 1515), Tuple.Create("\'", 1515), true)
 );
 
 WriteLiteral(">返回列表</button>\r\n    <!--table start-->\r\n    <div");

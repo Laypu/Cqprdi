@@ -752,10 +752,19 @@ WriteLiteral("\r\n    <script>\r\n        $(function () {\r\n        \t$(\".edit
             
             #line default
             #line hidden
-WriteLiteral("\';\r\n\t\t\t\tCreatePost(\'");
+WriteLiteral("\';\r\n                obj.mainid = \'");
 
             
             #line 155 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
+                         Write(ViewBag.mainid);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\';\r\n\t\t\t\tCreatePost(\'");
+
+            
+            #line 156 "..\..\Areas\webadmin\Views\EPaper\EPaperContentMenu.cshtml"
                        Write(Url.Action("EPaperItemSelect"));
 
             

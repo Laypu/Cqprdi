@@ -152,6 +152,7 @@
                 //menuid = 
                 obj.menuid = $(this).attr("index");
                 obj.id = '@ViewBag.ID';
+                obj.mainid = '@ViewBag.mainid';
 				CreatePost('@Url.Action("EPaperItemSelect")', obj);
             });
         });
