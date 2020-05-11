@@ -220,7 +220,7 @@ WriteLiteral(" class=\"btn blue\"");
 
 WriteLiteral(" id=\"btn_return\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1383), Tuple.Create("\"", 1465)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1383), Tuple.Create("\"", 1492)
 , Tuple.Create(Tuple.Create("", 1393), Tuple.Create("document.location.href=\'", 1393), true)
             
             #line 43 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSelect.cshtml"
@@ -237,7 +237,16 @@ WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1383), Tuple.Create("\"", 
             #line default
             #line hidden
 , 1453), false)
-, Tuple.Create(Tuple.Create("", 1464), Tuple.Create("\'", 1464), true)
+, Tuple.Create(Tuple.Create(" ", 1464), Tuple.Create("&&", 1465), true)
+, Tuple.Create(Tuple.Create(" ", 1467), Tuple.Create("mainid=", 1468), true)
+            
+            #line 43 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSelect.cshtml"
+                                                                      , Tuple.Create(Tuple.Create("", 1475), Tuple.Create<System.Object, System.Int32>(ViewBag.ModelID
+            
+            #line default
+            #line hidden
+, 1475), false)
+, Tuple.Create(Tuple.Create("", 1491), Tuple.Create("\'", 1491), true)
 );
 
 WriteLiteral(">返回列表</button>\r\n    <!--table start-->\r\n    <div");

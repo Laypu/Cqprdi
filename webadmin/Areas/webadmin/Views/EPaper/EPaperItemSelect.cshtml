@@ -40,7 +40,7 @@
 
 <div class="portlet light bordered">
     <!--set item start-->
-    <button type="button" class="btn blue" id="btn_return" onclick="document.location.href='@Url.Action("EPaperContentMenu")?id=@ViewBag.ID'">返回列表</button>
+    <button type="button" class="btn blue" id="btn_return" onclick="document.location.href='@Url.Action("EPaperContentMenu")?id=@ViewBag.ID && mainid=@ViewBag.ModelID'">返回列表</button>
     <!--table start-->
     <div class="table-scrollable">
         <table class="table table-bordered table-hover" border="0" cellspacing="0" cellpadding="0"

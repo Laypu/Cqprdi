@@ -46,8 +46,8 @@
                         <input type="text" class="form-control input-medium" id="mail" placeholder="@(ePaper.GetEPMulti("Column9", int.Parse(Model.itemid)))" name="txtEmailInput">
                     </label>
 
-                    <button class="btn" title="@(ePaper.GetEPMulti("Column6",int.Parse(Model.itemid)) )">@(ePaper.GetEPMulti("Column6", int.Parse(Model.itemid)))</button>
-                    <button class="btn" title="@(ePaper.GetEPMulti("Column7",int.Parse(Model.itemid)) )">@(ePaper.GetEPMulti("Column7", int.Parse(Model.itemid)))</button>
+                    <button class="btn" title="@(ePaper.GetEPMulti("Column6",int.Parse(Model.itemid)) )" name="btnorder" value="btnorder">@(ePaper.GetEPMulti("Column6", int.Parse(Model.itemid)))</button>
+                    <button class="btn" title="@(ePaper.GetEPMulti("Column7",int.Parse(Model.itemid)) )" name="btncancel" value="btncancel" >@(ePaper.GetEPMulti("Column7", int.Parse(Model.itemid)))</button>
                 </li>
                 <li style="display:none;">
                     <label for="search_date">
