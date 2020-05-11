@@ -284,13 +284,13 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
                 string result = _service.CreateItem(model, this.LanguageID, this.Account, this.UserName);
 
-                return Content(result);
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
             else
             {
                 string result = _service.UpdateItem(model, this.LanguageID, this.Account, this.UserName);
 
-                return Content(result);
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
         }
         public ActionResult UpdateItemSeq(int modelid, int id, int seq, string type)

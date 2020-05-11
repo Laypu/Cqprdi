@@ -137,7 +137,7 @@
 
             RegisterOrder("#eventtable", ".sortedit", '@Url.Action("UpdateItemSeq")', obj);
             RegisterClickAll("#chk_all", '#eventtable tbody .chksel', "#selvalue");
-            RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("SetItemDelete")', {keyindex:"3"});
+            RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("SetItemDelete")', {keyindex:"2"});
             RegisterClicklink("#eventtable", ".edit", '@Url.Action("EPaperEdit")', { idkey: "itemid", mainid: mainid},"itemid");
             RegisterClick("#eventtable", ".chkstatus", '@Url.Action("SetItemStatus")', obj);
             RegisterClick("#eventtable", ".chkhome", '@Url.Action("SetHomeStatus")', obj);

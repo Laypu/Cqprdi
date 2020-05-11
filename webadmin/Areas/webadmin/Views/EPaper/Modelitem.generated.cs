@@ -588,7 +588,7 @@ WriteLiteral("\', obj);\r\n            RegisterClickAll(\"#chk_all\", \'#eventta
             
             #line default
             #line hidden
-WriteLiteral("\', {keyindex:\"3\"});\r\n            RegisterClicklink(\"#eventtable\", \".edit\", \'");
+WriteLiteral("\', {keyindex:\"2\"});\r\n            RegisterClicklink(\"#eventtable\", \".edit\", \'");
 
             
             #line 141 "..\..\Areas\webadmin\Views\EPaper\Modelitem.cshtml"
