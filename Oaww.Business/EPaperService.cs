@@ -26,6 +26,15 @@ namespace Oaww.Business
         {
             _ModelID = ModelID;
         }
+        public string GetEPaperContent(string id)
+        {
+            string sql = string.Empty;
+           sql = "select t.EPaperHtmlContent from EPaperContent t where t.EPaperID=@EPaperID";
+            base.Parameter.Clear();
+            base.Parameter.Add(new SqlParameter("@EPaperID", id));
+            var keyval = base.ExecuteScalar(sql)==null || base.ExecuteScalar(sql).ToString() == ""? "" : base.ExecuteScalar(sql).ToString();
+            return keyval;
+        }
         public string GetEPMulti(string Key, int MainID)
         {
             string sql = string.Empty;
@@ -109,8 +118,8 @@ namespace Oaww.Business
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@LangID", Lang));
             base.Parameter.Add(new SqlParameter("@MainID", MainID));
-            var keyval = base.ExecuteScalar(sql).ToString();
-            return keyval.IsNullOrEmpty()? deval : base.ExecuteScalar(sql).ToString();
+            var keyval = base.ExecuteScalar(sql) == null || base.ExecuteScalar(sql).ToString() == "" ? deval : base.ExecuteScalar(sql).ToString();
+            return keyval;
         }
         public List<GroupEPaper> GetVaildGroupEPapers(string Main_ID,string Lang_ID)
         {

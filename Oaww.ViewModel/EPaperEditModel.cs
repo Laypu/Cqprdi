@@ -61,6 +61,8 @@ namespace Oaww.ViewModel
         public SET_EPAPER SET_EPAPER { get; set; }
 
         public SET_BASE SET_BASE { get; set; }
+
+        public string EPaperHtmlContent { get; set; }
     }
     public class EPaperItemEdit
     {

@@ -266,7 +266,6 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             if (result == "刪除成功")
             {
                 var oldroot = System.Web.HttpContext.Current.Request.PhysicalApplicationPath + $"\\UploadImage\\{SET_EPAPER.M_EPAPER02}\\";
-
                 foreach (var items in EPaperItem)
                 {
                     //刪除File
@@ -593,6 +592,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             if (id != "-1")
             {
                 model = _service.GetModel(id);
+                model.EPaperHtmlContent = _service.GetEPaperContent(id);
                 model.EPaperItemEdit = _service.GetEPaperItemEdit(id);
             }
             return View(model);

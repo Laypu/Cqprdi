@@ -61,8 +61,9 @@ namespace Aofeng.Controllers
                     }
                     else
                     {
-                        ViewBag.ErrorInfo = _service.AddSubscriber(input, "user",this.LanguageID,itemid);
-                        ViewData["message"] = _service.AddSubscriber(input, "user", this.LanguageID,itemid);
+                        var mess= _service.AddSubscriber(input, "user", this.LanguageID, itemid);
+                        ViewBag.ErrorInfo = mess;
+                        ViewData["message"] = mess;
                     }
                 }
             }
@@ -86,8 +87,9 @@ namespace Aofeng.Controllers
                     }
                     else
                     {
-                        ViewBag.ErrorInfo = _service.CancelSubscriber(input, "user",itemid);
-                        ViewData["message"] = _service.CancelSubscriber(input, "user",itemid);
+                        var mess = _service.AddSubscriber(input, "user", this.LanguageID, itemid);
+                        ViewBag.ErrorInfo = mess;
+                        ViewData["message"] = mess;
                     }
                 }
             }
