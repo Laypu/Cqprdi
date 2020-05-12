@@ -1214,12 +1214,12 @@ namespace Oaww.Business
         {
             try
             {
-                string sql = $@"update {typeof(T).Name} set Enabled=@Enabled
-                                                           ,UnPublishDate = case when @Enabled =0 then GetDate() else null end 
-                                where ItemID=@ItemID";
+                string sql = $@"update {typeof(T).Name} set Status=@Status
+                                                           ,UpdateDate = case when @Status =0 then GetDate() else null end 
+                                where ID=@ID";
                 base.Parameter.Clear();
-                base.Parameter.Add(new SqlParameter("@Enabled", status ? 1 : 0));
-                base.Parameter.Add(new SqlParameter("@ItemID", int.Parse(id)));
+                base.Parameter.Add(new SqlParameter("@Status", status ? 1 : 0));
+                base.Parameter.Add(new SqlParameter("@ID", int.Parse(id)));
 
                 var r = base.ExeNonQuery(sql);
 

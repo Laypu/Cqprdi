@@ -1344,11 +1344,11 @@ namespace Oaww.Business
             }
             if (string.IsNullOrEmpty(model.DateTo) == false)
             {
-                sql += " and UpdateDate <= @DateTo ";
-                base.Parameter.Add(new SqlParameter("@DateTo", DateTime.Parse(model.DateTo)));
+                sql += " and UpdateDate < @DateTo ";
+                base.Parameter.Add(new SqlParameter("@DateTo", DateTime.Parse(model.DateTo).AddDays(1)));
             }
             
-            data = base.SearchListPage<EPaperSubscriber>(sql, model.Offset, model.Limit, " order by " + model.Sort).ToList();
+            data = base.SearchListPage<EPaperSubscriber>(sql, model.Offset, model.Limit, " order by " + model.Sort +"  desc  ").ToList();
 
 
             Paging.rows = data;
@@ -2203,6 +2203,60 @@ namespace Oaww.Business
         }
         #endregion
 
+
+        #region SaveEPaperItemSort
+        public string SaveEPaperItemSort(Dictionary<string, string> allitemkey, string EPaperID, string iseditsub)
+        {
+            try
+            {
+                var r = 0;
+                var idx = 1;
+                foreach (var key in allitemkey.Keys)
+                {
+                    var menuid = key.Replace("trm_", "");
+                    var sql ="update EPaperAutoItem set GroupSortID=@GroupSortID where EPaperID =@EPaperID and MenuID = @MenuID";
+                    base.Parameter.Clear();
+                    base.Parameter.Add(new SqlParameter("@EPaperID", EPaperID));
+                    base.Parameter.Add(new SqlParameter("@GroupSortID", idx + 1));
+                    base.Parameter.Add(new SqlParameter("@MenuID", menuid));
+                    base.ExeNonQuery(sql);
+                    idx++;
+                    if (iseditsub == "1")
+                    {
+                        var keyvalue = allitemkey[key];
+                        if (keyvalue.Length > 0)
+                        {
+                            var keyarr = keyvalue.Split(',');
+                            for (var sidx = 0; sidx < keyarr.Length; sidx++)
+                            {
+                                var keys = keyarr[sidx].Split('_');
+                                sql = "update EPaperAutoItem set Sort=@Sort where EPaperID =@EPaperID and ModelID=@ModelID and ItemID=@ItemID and MenuID = @MenuID and MainID=@MainID";
+                                base.Parameter.Clear();
+                                base.Parameter.Add(new SqlParameter("@Sort", sidx + 1));
+                                base.Parameter.Add(new SqlParameter("@EPaperID", EPaperID));
+                                base.Parameter.Add(new SqlParameter("@ModelID", keys[0]));
+                                base.Parameter.Add(new SqlParameter("@ItemID", keys[1]));
+                                base.Parameter.Add(new SqlParameter("@MainID", keys[2]));
+                                base.Parameter.Add(new SqlParameter("@MenuID", keys[3]));
+                                base.ExeNonQuery(sql);
+
+                            }
+                        }
+
+                    }
+                }
+                //_siteconfigqlrepository.Update("LastUpdateDate=@1", "", new object[] { DateTime.Now.ToString("yyyy/MM/dd") });
+                return "更新成功";
+            }
+            catch (Exception ex)
+            {
+                return "更新失敗";
+            }
+        }
+
+        #endregion
+
+
         #region DeleteEPaperItemSort 刪除SORT
         public string DeleteEPaperItemSort(string[] delarrid, string EPaperID)
         {//
@@ -2248,9 +2302,10 @@ namespace Oaww.Business
                     base.Parameter.Add(new SqlParameter("@MenuID", menuid));
 
                     base.ExeNonQuery(sql);
-                    
-                    if (r > 0) {
-                        var subitem = grouplist[gidx].OrderBy(v=>v.Sort).ToList();
+
+                    if (r > 0)
+                    {
+                        var subitem = grouplist[gidx].OrderBy(v => v.Sort).ToList();
                         for (var sidx = 0; sidx < subitem.Count(); sidx++)
                         {
                             sql = "update EPaperAutoItem set Sort=@Sort where EPaperID =@EPaperID and ModelID=@ModelID and ItemID=@ItemID and MenuID = @MenuID and MainID=@MainID";
@@ -2265,6 +2320,7 @@ namespace Oaww.Business
 
                         }
                     }
+                   
                 }
                 //_siteconfigqlrepository.Update("LastUpdateDate=@1", "", new object[] { DateTime.Now.ToString("yyyy/MM/dd") });
                 return "更新成功";
@@ -2320,6 +2376,10 @@ namespace Oaww.Business
                     
         }
         #endregion
+
+
+        
+
 
     }
 } 

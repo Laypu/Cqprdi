@@ -605,7 +605,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         }
         #endregion
 
-        #region SaveEPaperItemSort  電子報內容排序
+        #region EPaperItemSort  電子報內容排序
         public ActionResult EPaperItemSort(string id ,string mainid)
         {
             var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
@@ -620,6 +620,19 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return View("~/Areas/webadmin/Views/EPaper/EPaperItemSort.cshtml",Epapermodel);
         }
         #endregion
+
+        
+
+        #region SaveEPaperItemSort
+        public ActionResult SaveEPaperItemSort(Dictionary<string, string> allitemkey, string eid, string iseditsub)
+        {
+            string result = _service.SaveEPaperItemSort(allitemkey, eid, iseditsub);
+            return Json(result);
+        }
+        #endregion
+
+
+
         #region DeleteEPaperItemSort 
         public ActionResult DeleteEPaperItemSort(string[] delarrid, string eid)
         {
