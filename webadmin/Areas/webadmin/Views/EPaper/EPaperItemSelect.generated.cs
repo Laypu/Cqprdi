@@ -350,7 +350,7 @@ WriteLiteral("\';\r\n            var mainid = \'");
 
             
             #line 78 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSelect.cshtml"
-                     Write(ViewBag.MainID);
+                     Write(ViewBag.ModelItemID);
 
             
             #line default

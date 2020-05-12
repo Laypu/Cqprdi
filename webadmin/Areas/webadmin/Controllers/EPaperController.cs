@@ -56,6 +56,51 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public ActionResult SetMainDelete(string[] idlist, string delaccount)
+        {
+            
+                List<EPaperItem> EPaperItem = _service.GetEPaperItems(idlist);
+
+                string result = _service.Delete(idlist, delaccount, this.LanguageID, this.Account, this.UserName);
+
+                //if (result == "刪除成功")
+                //{
+                //    var oldroot = System.Web.HttpContext.Current.Request.PhysicalApplicationPath + $"\\UploadImage\\{SET_EPAPER.M_EPAPER02}\\";
+
+                //    foreach (var items in EPaperItem)
+                //    {
+                //        //刪除File
+                //        if (items.UploadFileName.IsNullOrEmpty() == false)
+                //        {
+                //            items.UploadFilePath = System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\UploadFile" + items.UploadFilePath;
+
+                //            if (System.IO.File.Exists(items.UploadFilePath))
+                //            {
+                //                System.IO.File.Delete(items.UploadFilePath);
+                //            }
+                //        }
+                //        if (items.ImageFileName.IsNullOrEmpty() == false)
+                //        {
+
+                //            if (System.IO.File.Exists(oldroot + "\\" + items.ImageFileName))
+                //            {
+                //                System.IO.File.Delete(oldroot + "\\" + items.ImageFileName);
+                //            }
+                //        }
+
+
+                //    }
+
+
+                //}
+
+                return Content(result);
+           
+        }
+
+
         //電子報模組呈現
         public ActionResult PagingMain(SearchModelBase model)
         {
@@ -239,13 +284,13 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
                 string result = _service.CreateItem(model, this.LanguageID, this.Account, this.UserName);
 
-                return Content(result);
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
             else
             {
                 string result = _service.UpdateItem(model, this.LanguageID, this.Account, this.UserName);
 
-                return Content(result);
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
         }
         public ActionResult UpdateItemSeq(int modelid, int id, int seq, string type)
@@ -560,7 +605,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         }
         #endregion
 
-        #region SaveEPaperItemSort  電子報內容排序
+        #region EPaperItemSort  電子報內容排序
         public ActionResult EPaperItemSort(string id ,string mainid)
         {
             var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
@@ -575,6 +620,19 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return View("~/Areas/webadmin/Views/EPaper/EPaperItemSort.cshtml",Epapermodel);
         }
         #endregion
+
+        
+
+        #region SaveEPaperItemSort
+        public ActionResult SaveEPaperItemSort(Dictionary<string, string> allitemkey, string eid, string iseditsub)
+        {
+            string result = _service.SaveEPaperItemSort(allitemkey, eid, iseditsub);
+            return Json(result);
+        }
+        #endregion
+
+
+
         #region DeleteEPaperItemSort 
         public ActionResult DeleteEPaperItemSort(string[] delarrid, string eid)
         {

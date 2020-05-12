@@ -902,6 +902,7 @@ WriteLiteral(@"');
                     data: formData,
                     type: 'POST',
                     cache: false,
+                    datatype:'json',
                     contentType: false,
                     processData: false,
                     success: function (data) {
@@ -909,7 +910,7 @@ WriteLiteral(@"');
                         CreatePost('");
 
             
-            #line 227 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 228 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                Write(Url.Action("ModelItem"));
 
             
@@ -918,7 +919,7 @@ WriteLiteral(@"');
 WriteLiteral("\', {mainid: \'");
 
             
-            #line 227 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 228 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                                                     Write(Model.ModelID);
 
             
