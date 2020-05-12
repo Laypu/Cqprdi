@@ -12,7 +12,7 @@ using Oaww.Business;
 using Oaww.Utility;
 using System.Configuration;
 using System.IO;
-
+using NPOI.SS.Formula.Functions;
 
 namespace Template.webadmin.Areas.webadmin.Controllers
 {
@@ -419,16 +419,20 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return View("~/Areas/webadmin/Views/EPaper/Subscriber.cshtml");
         }
 
-        public ActionResult PagingEpaperOrder(SubscriberSearchModel model)
+        public ActionResult PagingEpaperOrder(SubscriberSearchModel model, String MainID)
         {
             model.LangId = this.LanguageID;
+            if(! MainID.IsNullOrEmpty())
+            {
+                model.ModelID = int.Parse(MainID);  
+            }
             var result =  _service.PagingEpaperOrder(model);
             
             return Json(result);
         
         }
 
-        public ActionResult AddSubscriber(string sid, string name) 
+        public ActionResult AddSubscriber(string sid, string name,string mainid) 
         {
             if (Request.IsAuthenticated)
             {
@@ -444,7 +448,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                 if (sid == "-1" || string.IsNullOrEmpty(sid))
                 {
                     
-                    str = _service.AddSubscriber(name, this.Account,int.Parse(this.LanguageID));
+                    str = _service.AddSubscriberBack(name, this.Account,int.Parse(this.LanguageID),mainid);
                 }
                 //else
                 //{
@@ -457,17 +461,17 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         }
 
         #region DelSubscriber
-        public ActionResult DelSubscriber(string[] idlist, string delaccount, string type)
+        public ActionResult DelSubscriber(string[] idlist, string delaccount,int? MainID ,string type )
         {
             //List<EPaperSubscriber> EPaperSubscriber = _service.GetEPaperSubscribers(idlist).ToList();
 
-            string result = _service.DeleteItem<EPaperSubscriber>(idlist, delaccount);
+            string result = _service.DeleteItem<EPaperSubscriber>(idlist, delaccount, MainID);
 
             return Content(result);
         }
         #endregion
 
-        public ActionResult SetSubscriberStatus(string id, bool status, string type)
+        public ActionResult SetSubscriberStatus(string id, bool status, string type )
         {
             string result = _commonService.SetItemStatus<EPaperSubscriber>(id, status, this.Account, this.UserName);
 

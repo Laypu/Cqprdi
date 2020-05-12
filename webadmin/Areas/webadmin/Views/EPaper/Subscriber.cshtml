@@ -3,6 +3,7 @@
     Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
     SET_EPAPER SET_EPAPER = (SET_EPAPER)ViewBag.SET_EPAPER;
     var LangID =  ViewBag.LangID;
+    var MainID = ViewBag.mainid;
 }
 <script src="@Url.Content("~/Scripts/datatable.js")"></script>
 <script src="@Url.Content("~/Scripts/custom.js")"></script>
@@ -21,7 +22,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="@Url.Action("ModelItem",new {mainid = ViewBag.mainid })">電子報管理</a>
+            <a href="@Url.Action("ModelItem",new {mainid = MainID })">電子報管理</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
@@ -108,7 +109,7 @@
     <div class="table-scrollable">
         <table class="table table-bordered table-hover" border="0" cellspacing="0" cellpadding="0"
                id="eventtable"
-               data-url="@Url.Action("PagingEpaperOrder")"
+               data-url="@Url.Action("PagingEpaperOrder",new {MainID = MainID })"
                data-sort-name='UpdateDate'
                data-page-size='10'
                data-filed-id='ID'
@@ -147,7 +148,9 @@
 @section scripts {
     <script>
         $(document).ready(function () {
-            
+
+
+
             RegisterSearchItem();
         mytable = $("#eventtable").myDataTable().TableList[0];
         mytable.settingTdData = myDataTableTr;
@@ -158,10 +161,10 @@
 
         mytable.SearchModelBase.Key = "0";
         mytable.SearchModelBase.OrderEPaper = "1";
-        mytable.GetData(1);
-        $("#btn_add").click(function () { CallAddDialog('@Url.Action("AddSubscriber")', { sid: -1, item: "E-Mail", title: "請輸入訂閱者Mail" }); });
+            mytable.GetData(1);
+            $("#btn_add").click(function () { CallAddDialog('@Url.Action("AddSubscriber")', { sid: -1, item: "E-Mail", title: "請輸入訂閱者Mail",mainid: @MainID }); });
          RegisterClickAll("#chk_all", '#eventtable tbody .chksel', "#selvalue");
-         RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("DelSubscriber")', {});
+         RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("DelSubscriber")', {mainid: @MainID});
          RegisterClick("#eventtable", ".chkstatus", '@Url.Action("SetSubscriberStatus")', {});
          $("#btn_search").click(function () {
                 var SearchModelBase = mytable.SearchModelBase;
@@ -171,6 +174,7 @@
                 SearchModelBase.Status = $('#sel_Status' ).val();
                 SearchModelBase.Search = "Y";
                 SearchModelBase.LangID = @LangID;
+                SearchModelBase.ModelID = @MainID;
                 mytable.GetData();
             });
 
@@ -182,6 +186,7 @@
                 SearchModelBase.Status = $('#sel_Status').val();
                 SearchModelBase.Search = "Y";
                 SearchModelBase.LangID = @LangID;
+                SearchModelBase.ModelID = @MainID;
                 CreatePost('@Url.Action("Export")', SearchModelBase);
             });
     });

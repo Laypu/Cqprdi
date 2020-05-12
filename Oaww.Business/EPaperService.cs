@@ -1315,13 +1315,13 @@ namespace Oaww.Business
         public Paging<EPaperSubscriber> PagingEpaperOrder(SubscriberSearchModel model)
         {
             var Paging = new Paging<EPaperSubscriber>();
-            string sql = @"select * from EPaperSubscriber t where LangID=@LangID";
+            string sql = @"select * from EPaperSubscriber t where LangID=@LangID and MainID = @MainID ";
             var data = new List<EPaperSubscriber>();
 
 
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@LangID", int.Parse(model.LangId)));
-
+            base.Parameter.Add(new SqlParameter("@MainID", model.ModelID));
             if (model.Name != null)
             {
                 sql += " (Name like @Name)";
@@ -1387,7 +1387,8 @@ namespace Oaww.Business
                         UpdateDate = nowdate,
                         UpdateUser = account,
                         OPDateStr = nowdate.ToString("yyyy/MM/dd"),
-                        LangID=lang
+                        LangID=lang,
+                        MainID = int.Parse(MainID)
                     };
 
                     //sql = "update EPaperSubscriber ";
@@ -1411,7 +1412,7 @@ namespace Oaww.Business
         }
         #endregion
         #region AddSubscriber 後台
-        public string AddSubscriber(string email, string account, int lang)
+        public string AddSubscriberBack(string email, string account, int lang,string mainid)
         {
 
             string sql = string.Empty;
@@ -1422,7 +1423,7 @@ namespace Oaww.Business
             {
                 using (SqlTransaction tran = base.GetTransaction(connection))
                 {
-                    var olddata = _commonService.GetGeneralList<EPaperSubscriber>("EMail=@EMail", new Dictionary<string, string>() { { "EMail", email } }, tran);
+                    var olddata = _commonService.GetGeneralList<EPaperSubscriber>("EMail=@EMail and MainID =@MainID", new Dictionary<string, string>() { { "EMail", email  },{ "MainID", mainid } }, tran);
 
                     if (olddata.Count() > 0)
                     {
@@ -1439,7 +1440,8 @@ namespace Oaww.Business
                         UpdateDate = nowdate,
                         UpdateUser = account,
                         OPDateStr = nowdate.ToString("yyyy/MM/dd"),
-                        LangID = lang
+                        LangID = lang,
+                        MainID = int.Parse(mainid)
                     };
 
                     //sql = "update EPaperSubscriber ";
@@ -1536,13 +1538,13 @@ namespace Oaww.Business
             }
             if (string.IsNullOrEmpty(model.DateFrom) == false)
             {
-                sql += " and UpdateDate <= @DateFrom or UpdateDate is Null";
+                sql += " and UpdateDate >= @DateFrom or UpdateDate is Null";
                 base.Parameter.Add(new SqlParameter("@DateFrom", DateTime.Parse(model.DateFrom)));
             }
             if (string.IsNullOrEmpty(model.DateTo) == false)
             {
-                sql += " and UpdateDate >= @DateTo or UpdateDate is Null";
-                base.Parameter.Add(new SqlParameter("@DateTo", DateTime.Parse(model.DateTo)));
+                sql += " and UpdateDate < @DateTo or UpdateDate is Null";
+                base.Parameter.Add(new SqlParameter("@DateTo", DateTime.Parse(model.DateTo).AddDays(1)));
             }
             data = base.SearchListPage<EPaperSubscriber>(sql, model.Offset, model.Limit, " order by " + model.Sort).ToList();
 
@@ -1611,7 +1613,7 @@ namespace Oaww.Business
             return base.SearchList<EPaperSubscriber>(sql);
         }
 
-        public string DeleteItem<EPaperSubscriber>(string[] idlist, string delaccount)
+        public string DeleteItem<EPaperSubscriber>(string[] idlist, string delaccount,int? MainID)
         {
             try
             {
@@ -1623,9 +1625,10 @@ namespace Oaww.Business
                 for (var idx = 0; idx < idlist.Length; idx++)
                 {
                     
-                    sql = "delete EPaperSubscriber where ID=@ID";
+                    sql = "delete EPaperSubscriber where ID=@ID and MainID = @MainID";
                     base.Parameter.Clear();
                     base.Parameter.Add(new SqlParameter("@ID", idlist[idx]));
+                    base.Parameter.Add(new SqlParameter("@MainID", MainID));
                     r = base.ExeNonQuery(sql);
 
                     

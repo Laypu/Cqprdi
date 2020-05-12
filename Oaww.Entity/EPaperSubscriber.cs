@@ -22,5 +22,6 @@ namespace Oaww.Entity
         public string UpdateUser { get; set; }
         public string OPDateStr { get; set; }
         public int LangID { get; set; }
+        public int MainID { get; set; }
     }
 }
