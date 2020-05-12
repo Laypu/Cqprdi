@@ -87,7 +87,7 @@ namespace Aofeng.Controllers
                     }
                     else
                     {
-                        var mess = _service.CancelSubscriber(input, "user",mid);
+                        var mess = _service.CancelSubscriber(input, "user", itemid);
                         ViewBag.ErrorInfo = mess;
                         ViewData["message"] = mess;
                     }
