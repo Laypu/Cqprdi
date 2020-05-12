@@ -424,7 +424,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
         public ActionResult SetSubscriberStatus(string id, bool status, string type)
         {
-            string result = _commonService.SetItemStatus<EPaperSubscriber>(id, status, this.Account, this.UserName);
+            string result = _service.SetItemStatus(id, status, this.Account, this.UserName);
 
 
             return Content(result);

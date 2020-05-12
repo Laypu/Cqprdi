@@ -1500,17 +1500,46 @@ namespace Oaww.Business
             catch (Exception ex)
             {
 
-                return GetEPMulti("Column18", int.Parse(MainID)) == "" ? "電子報取消訂閱失敗" : GetEPMulti("Column18", int.Parse(MainID));
+                return GetEPMulti("Column18", int.Parse(MainID));
             }
         }
         #endregion
-        
 
+        #region SetItemStatus
+        public string SetItemStatus(string id, bool status, string account, string username)
+        {
+            try
+            {
+                string sql = $@"update EPaperSubscriber set Status=@Status
+                                                           ,UpdateDate = case when @Status =0 then GetDate() else null end 
+                                where ID=@ID";
+                base.Parameter.Clear();
+                base.Parameter.Add(new SqlParameter("@Status", status ? 1 : 0));
+                base.Parameter.Add(new SqlParameter("@ID", int.Parse(id)));
 
+                var r = base.ExeNonQuery(sql);
 
+                if (r >= 0)
+                {
+                    //NLogManagement.SystemLogInfo("修改MessageItem顯示狀態 id=" + id + " 為:" + status);
+                    return "更新成功";
+                }
+                else
+                {
+                    return "更新失敗";
+                }
 
-        #region GetExport
-        public byte[] GetExport(SubscriberSearchModel model,string LangID)
+            }
+            catch (Exception ex)
+            {
+                logger.Error($"修改EPaperSubscriber顯示狀態失敗:" + ex.ToString().NewLineReplace());
+                return "更新失敗";
+            }
+        }
+            #endregion
+
+            #region GetExport
+            public byte[] GetExport(SubscriberSearchModel model,string LangID)
         {
 
             var Paging = new Paging<EPaperSubscriber>();
