@@ -890,7 +890,6 @@ WriteLiteral(@"');
                 var images = $('#file_bannerimage').get(0).files;
                 if (images.length > 0) {
                     formData.append(""TopBannerImg"", images[0]);
-                    formData.append()
                 } else {
                     formData.append(""TopBannerImg"", null);
                 }
@@ -910,7 +909,7 @@ WriteLiteral(@"');
                         CreatePost('");
 
             
-            #line 228 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 227 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                Write(Url.Action("ModelItem"));
 
             
@@ -919,7 +918,7 @@ WriteLiteral(@"');
 WriteLiteral("\', {mainid: \'");
 
             
-            #line 228 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 227 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                                                     Write(Model.ModelID);
 
             
