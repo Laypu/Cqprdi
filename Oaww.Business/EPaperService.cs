@@ -334,7 +334,7 @@ namespace Oaww.Business
             var onepagecnt = model.Limit;
 
             base.Parameter.Clear();
-            sql = "select * from EPaperItem where LangID=@Lang_ID and ModelID=@ModelID";
+            sql = "select * from EPaperItem where Lang_ID=@Lang_ID and ModelID=@ModelID";
             if (model.GroupId != null)
             {
                 sql += " and GroupID=@GroupID";
@@ -385,7 +385,7 @@ namespace Oaww.Business
                 var seodata = _commonService.GetGeneral<SEO>("TypeName='EPaperItem' and TypeID=@TypeID", new Dictionary<string, string>() { { "TypeID", itemid } });
                 EPaperEditModel model = new EPaperEditModel();
                 model.ItemID = olddata.ItemID;
-                model.Lang_ID = olddata.LangID;
+                model.Lang_ID = olddata.Lang_ID;
                 model.PaperMode = olddata.PaperMode.Value;
                 model.PaperStyle = olddata.PaperStyle.Value;
                 model.PublishStr = olddata.PublishStr;
@@ -459,7 +459,7 @@ namespace Oaww.Business
                             PageEndHtmlContent = model.PageEndHtmlContent == null ? "" : model.PageEndHtmlContent,
                             CreateDatetime = DateTime.Now,
                             Sort = 1,
-                            LangID = int.Parse(LangId),
+                            Lang_ID = int.Parse(LangId),
                             ModelID = model.ModelID,
                             GroupID = model.GroupID,
                             PaperMode = model.PaperMode,
@@ -847,7 +847,7 @@ namespace Oaww.Business
                         olddata.PageEndHtmlContent = model.PageEndHtmlContent == null ? "" : model.PageEndHtmlContent;
                         olddata.CreateDatetime = DateTime.Now;
                         olddata.GroupID = model.GroupID;
-                        olddata.LangID = int.Parse(LangId);
+                        olddata.Lang_ID = int.Parse(LangId);
                         olddata.ModelID = model.ModelID;
                         olddata.Sort = 1;
                         olddata.PaperMode = model.PaperMode;
@@ -1370,7 +1370,7 @@ namespace Oaww.Business
             {
                 using (SqlTransaction tran = base.GetTransaction(connection))
                 {
-                    var olddata = _commonService.GetGeneralList<EPaperSubscriber>("EMail=@EMail", new Dictionary<string, string>() {{ "EMail", email } }, tran);
+                    var olddata = _commonService.GetGeneralList<EPaperSubscriber>(" MainID=@MainID and  EMail=@EMail", new Dictionary<string, string>() { { "MainID",MainID },{ "EMail", email } }, tran);
 
                     if (olddata.Count() > 0)
                     {
@@ -1463,7 +1463,7 @@ namespace Oaww.Business
             }
 
         }
-#endregion
+        #endregion
         #region CancelSubscriber
 
         public string CancelSubscriber(string email, string delaccount, string MainID)
@@ -1476,16 +1476,17 @@ namespace Oaww.Business
                 {
                     using (SqlTransaction tran = base.GetTransaction(connection))
                     {
-                        sql = "delete EPaperSubscriber where UPPER(EMail)=@EMail";
+                        sql = "delete EPaperSubscriber where MainID=@MainID and  UPPER(EMail)=@EMail";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@EMail", email.ToUpper()));
-                        var olddata = _commonService.GetGeneralList<EPaperSubscriber>("EMail=@EMail", new Dictionary<string, string>() { { "EMail", email } }, tran);
+                        base.Parameter.Add(new SqlParameter("@MainID", MainID));
+                        var olddata = _commonService.GetGeneralList<EPaperSubscriber>(" MainID=@MainID and  EMail=@EMail ", new Dictionary<string, string>() { { "MainID", MainID }, { "EMail", email } }, tran);
                         if (olddata.Count() <= 0)
                         {
                             return GetEPMulti("Column17", int.Parse(MainID));
                         }
 
-                        r = base.ExeNonQuery(sql);
+                        r = base.ExeNonQuery(sql,tran);
                         if (r >= 0)
                         {
                             tran.Commit();
@@ -1507,13 +1508,13 @@ namespace Oaww.Business
         }
         #endregion
 
-        #region SetItemStatus
-        public string SetItemStatus(string id, bool status, string account, string username)
+        #region SetSubscriberStatus
+        public string SetSubscriberStatus(string id, bool status, string account, string username)
         {
             try
             {
                 string sql = $@"update EPaperSubscriber set Status=@Status
-                                                           ,UpdateDate = case when @Status =0 then GetDate() else null end 
+                                ,UpdateDate = case when @Status =0 then GetDate() else null end 
                                 where ID=@ID";
                 base.Parameter.Clear();
                 base.Parameter.Add(new SqlParameter("@Status", status ? 1 : 0));
@@ -2242,7 +2243,7 @@ namespace Oaww.Business
             try
             {
                 var r = 0;
-                var idx = 1;
+                var idx = 0;
                 foreach (var key in allitemkey.Keys)
                 {
                     var menuid = key.Replace("trm_", "");
@@ -2251,7 +2252,9 @@ namespace Oaww.Business
                     base.Parameter.Add(new SqlParameter("@EPaperID", EPaperID));
                     base.Parameter.Add(new SqlParameter("@GroupSortID", idx + 1));
                     base.Parameter.Add(new SqlParameter("@MenuID", menuid));
-                    base.ExeNonQuery(sql);
+                    
+                    
+                     r = base.ExeNonQuery(sql);
                     idx++;
                     if (iseditsub == "1")
                     {
@@ -2268,11 +2271,12 @@ namespace Oaww.Business
                                 base.Parameter.Add(new SqlParameter("@EPaperID", EPaperID));
                                 base.Parameter.Add(new SqlParameter("@ModelID", keys[0]));
                                 base.Parameter.Add(new SqlParameter("@ItemID", keys[1]));
-                                base.Parameter.Add(new SqlParameter("@MainID", keys[2]));
-                                base.Parameter.Add(new SqlParameter("@MenuID", keys[3]));
-                                base.ExeNonQuery(sql);
+                                base.Parameter.Add(new SqlParameter("@MainID", keys[3]));
+                                base.Parameter.Add(new SqlParameter("@MenuID", keys[2]));
 
+                                var r1 =base.ExeNonQuery(sql);
                             }
+                            
                         }
 
                     }
@@ -2348,7 +2352,7 @@ namespace Oaww.Business
                             base.Parameter.Add(new SqlParameter("@ItemID", subitem[sidx].ItemID));
                             base.Parameter.Add(new SqlParameter("@MainID", subitem[sidx].MainID));
                             base.Parameter.Add(new SqlParameter("@MenuID", subitem[sidx].MenuID));
-                            base.ExeNonQuery(sql);
+                            var r1=base.ExeNonQuery(sql);
 
                         }
                     }

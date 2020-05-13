@@ -161,10 +161,10 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 955), Tuple.Create("\"", 1009)
+WriteAttribute("href", Tuple.Create(" href=\"", 955), Tuple.Create("\"", 991)
             
             #line 25 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 962), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = MainID })
+, Tuple.Create(Tuple.Create("", 962), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","EPaper")
             
             #line default
             #line hidden
@@ -230,26 +230,26 @@ WriteLiteral(" onChange=\"window.location.href=this.value\"");
 
 WriteLiteral(">\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1635), Tuple.Create("\"", 1699)
+WriteAttribute("value", Tuple.Create(" value=\"", 1617), Tuple.Create("\"", 1681)
             
             #line 46 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 1643), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new { mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 1625), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1643), false)
+, 1625), false)
 );
 
 WriteLiteral(">編輯管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1743), Tuple.Create("\"", 1809)
+WriteAttribute("value", Tuple.Create(" value=\"", 1725), Tuple.Create("\"", 1791)
             
             #line 47 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 1751), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 1733), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1751), false)
+, 1733), false)
 );
 
 WriteLiteral(">模組設定</option>\r\n                    <option");

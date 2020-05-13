@@ -108,8 +108,16 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return Json(_service.Paging(model, _ModelID));
         }
 
+        //電子報排序
+        public ActionResult EditSeq(int? id, int seq, string type)
+        {
+            ModelEPaperMain ModelEpaperMain = _service.GetModelEPaperMain(id.ToString(), this.LanguageID);
+
+            string result = _commonService.UpdateSeq<ModelEPaperMain>(id.Value, seq, this.LanguageID, this.Account, this.UserName, _ModelID);
 
 
+            return Json(result);
+        }
 
 
         //增加電子報模組
@@ -350,7 +358,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         /// <returns></returns>
         public ActionResult SetItemStatus(string id, bool status, string type)
         {
-            string result = _commonService.SetItemStatus<EPaperItem>(id, status, this.Account, this.UserName);
+            string result =_commonService.SetItemStatus<EPaperItem>(id, status, this.Account, this.UserName);
 
 
             return Content(result);
@@ -473,7 +481,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
         public ActionResult SetSubscriberStatus(string id, bool status, string type )
         {
-            string result = _service.SetItemStatus(id, status, this.Account, this.UserName);
+            string result = _service.SetSubscriberStatus(id, status, this.Account, this.UserName);
 
 
             return Content(result);
@@ -609,7 +617,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         }
         #endregion
 
-        #region EPaperItemSort  電子報內容排序
+        #region EPaperItemSort  電子報排序內容
         public ActionResult EPaperItemSort(string id ,string mainid)
         {
             var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);

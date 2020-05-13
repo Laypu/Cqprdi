@@ -394,6 +394,18 @@ namespace Oaww.Business
                         {
                             model.LinkUrl = "";
                         }
+                        //if (model.LinkMode==2 && model.LinkUrl.Contains("EPaper/Index"))
+                        //{
+                        //    var str = model.LinkUrl.Split('?')[1];
+                        //    model.ModelID = 12;
+                        //    model.LinkUrl = "EPaper/Index";
+                        //    var parameterstr = str.Split('&');
+                        //    var itemidstr = parameterstr[0];
+                           
+                        //    var midstr = parameterstr[1];
+                        //}
+
+
                         //1.create message
                         var datetime = DateTime.Now;
                         if (model.LinkMode == 2 && model.ModelItemID == -1)
@@ -462,6 +474,9 @@ namespace Oaww.Business
                         };
 
                         r = base.UpdateObject(ad);
+
+
+
 
                         if (r)
                         {

@@ -8,8 +8,6 @@ D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.pdb
 D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csprojAssemblyReference.cache
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Oaww.DAL.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Oaww.DAL.pdb
-C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Dapper.xml
-C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Dapper.Contrib.xml
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csprojAssemblyReference.cache
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csproj.CoreCompileInputs.cache
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csproj.CopyComplete

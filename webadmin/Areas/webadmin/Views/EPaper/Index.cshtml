@@ -21,12 +21,12 @@
 <div class="title_01">@ViewBag.Title</div>
 <div class="portlet light bordered">
     <!--set item start-->
-    <div class="table-toolbar">
+    <div class="table-toolbar" style="display:none">
         <div class="col-md-6 col-sm-12 col-xs-12">
 
         </div>
-        <div class="col-md-6 col-sm-12 col-xs-12 mobile_left">
-            <p class="display_inline">
+        <div class="col-md-6 col-sm-12 col-xs-12 mobile_left" >
+            <p class="display_inline" >
                 <button class="btn green-meadow" id='btn_add'>新增 <i class="fa fa-plus"></i></button>
             </p>
         </div>
@@ -41,12 +41,12 @@
                data-max-pagination='10'>
             <thead>
                 <tr class="bg-grey_1" filed-class='odd gradeX'>
-                    <th width="80" class="text-center delete_th" filed-type='delcheckbox'>
+                    @*<th width="80" class="text-center delete_th" filed-type='delcheckbox'>
                         <label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'>
                             <input type='checkbox' class='checkboxes' id="chk_all" /><span></span>
                         </label>
-                        <button class="btn red-mint btn-xs" id='btn_del'><i class="glyphicon glyphicon-trash"></i></button>
-                    </th>
+                        <button class="btn red-mint btn-xs" id='btn_del' ><i class="glyphicon glyphicon-trash"></i></button>
+                    </th>*@
                     <th filed-name='Sort' width="160px" class="text-center" filed-type='numbertextcheck' filed-item-class="sortedit">排序</th>
                     <th filed-name='Name' class="text-center" filed-type='link'>單元名稱</th>
                     <th filed-name='customertr' width="350px" class="text-center" filed-type='function'>單元路徑</th>

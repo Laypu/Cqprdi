@@ -89,9 +89,7 @@ C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\System.Web.WebPages.Ra
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\Oaww.Entity.pdb
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\Oaww.ViewModel.pdb
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\Oaww.Utility.pdb
-C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\Dapper.xml
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\Oaww.DAL.pdb
-C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\Dapper.Contrib.xml
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\zh-Hant\System.Web.Helpers.resources.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\zh-Hant\System.Web.Mvc.resources.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Filter\bin\Debug\zh-Hant\System.Web.Razor.resources.dll

@@ -10,7 +10,7 @@ namespace Oaww.Entity
     public partial class EPaperItem : ItemBase
     {
         //public int ItemID { get; set; }
-        public int LangID { get; set; }
+        public int Lang_ID { get; set; }
 
         //因為已經繼承itembase 所以註解
         //public int? Sort { get; set; }

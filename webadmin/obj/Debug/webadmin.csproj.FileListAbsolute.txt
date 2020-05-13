@@ -245,8 +245,6 @@ C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\System.Web.WebPages.Deployment.
 C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\System.Web.WebPages.Razor.xml
 C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\Antlr3.Runtime.pdb
 C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\Dapper.xml
-C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\Dapper.Contrib.xml
 C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\zh-Hant\System.Web.Mvc.resources.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\zh-Hant\System.Web.Helpers.resources.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\zh-Hant\System.Web.Optimization.resources.dll
