@@ -1,7 +1,5 @@
 D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Oaww.DAL.dll
 D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Oaww.DAL.pdb
-D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Dapper.xml
-D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\bin\Debug\Dapper.Contrib.xml
 D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.csproj.CopyComplete
 D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.dll
 D:\穀物\Cqprdi\Oaww.DAL\oaww.DAL\obj\Debug\Oaww.DAL.pdb

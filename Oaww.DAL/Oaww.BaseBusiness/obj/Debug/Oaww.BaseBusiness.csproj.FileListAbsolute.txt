@@ -5,8 +5,6 @@ D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Microsoft.SqlServer.Smo.dl
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\NLog.dll
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.DAL.dll
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Oaww.DAL.pdb
-D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Dapper.xml
-D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\Dapper.Contrib.xml
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\bin\Debug\NLog.xml
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csprojAssemblyReference.cache
 D:\穀物\Cqprdi\Oaww.DAL\Oaww.BaseBusiness\obj\Debug\Oaww.BaseBusiness.csproj.CopyComplete
