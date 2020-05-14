@@ -305,3 +305,17 @@ function RegisterClickAndData(eventid, targetid, posturl, postobj,tableobj) {
         });
     });
 }
+
+function RegisterClickReload(eventid, targetid, posturl, postobj) {
+    $(eventid).delegate((targetid), "click", function () {
+        postobj.id = $(this).attr('value');
+        postobj.status = this.checked;
+        $(targetid).attr('disabled', 'disabled');
+        $.post(posturl, postobj, function (data) {
+            $(targetid).removeAttr('disabled');
+            alert(data);
+            
+            mytable.GetData(1);
+        });
+    });
+}

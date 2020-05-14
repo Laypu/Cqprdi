@@ -152,33 +152,37 @@
 
 
             RegisterSearchItem();
-        mytable = $("#eventtable").myDataTable().TableList[0];
-        mytable.settingTdData = myDataTableTr;
-        mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
-            var totalclick = mytable.keepcheckid.length;
-            $("#" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + "~" + (offsetcnt + nowpagecnt - 1));
-            };
+            mytable = $("#eventtable").myDataTable().TableList[0];
 
-        mytable.SearchModelBase.Key = "0";
-        mytable.SearchModelBase.OrderEPaper = "1";
-            mytable.GetData(1);
-            $("#btn_add").click(function () { CallAddDialog('@Url.Action("AddSubscriber")', { sid: -1, item: "E-Mail", title: "請輸入訂閱者Mail",mainid: @MainID }); });
-         RegisterClickAll("#chk_all", '#eventtable tbody .chksel', "#selvalue");
-         RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("DelSubscriber")', {mainid: @MainID});
-         RegisterClick("#eventtable", ".chkstatus", '@Url.Action("SetSubscriberStatus")', {});
-         $("#btn_search").click(function () {
-                var SearchModelBase = mytable.SearchModelBase;
-                SearchModelBase.DateTo = $('#txt_OPDateTo').val();
-                SearchModelBase.DateFrom = $('#txt_OPDateFrom').val();
-                SearchModelBase.EMail = $('#txt_EMail').val();
-                SearchModelBase.Status = $('#sel_Status' ).val();
-                SearchModelBase.Search = "Y";
-                SearchModelBase.LangID = @LangID;
-                SearchModelBase.ModelID = @MainID;
-                mytable.GetData();
-            });
+            console.log(mytable);
+            mytable.settingTdData = myDataTableTr;
+            mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
+                var totalclick = mytable.keepcheckid.length;
+                $("#" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + "~" + (offsetcnt + nowpagecnt - 1));
+                };
 
-            $("#btn_export").click(function () {
+            mytable.SearchModelBase.Key = "0";
+            mytable.SearchModelBase.OrderEPaper = "1";
+                mytable.GetData(1);
+                $("#btn_add").click(function () { CallAddDialog('@Url.Action("AddSubscriber")', { sid: -1, item: "E-Mail", title: "請輸入訂閱者Mail",mainid: @MainID }); });
+             RegisterClickAll("#chk_all", '#eventtable tbody .chksel', "#selvalue");
+             RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("DelSubscriber")', {mainid: @MainID});
+             RegisterClickReload("#eventtable", ".chkstatus", '@Url.Action("SetSubscriberStatus")', {});
+         
+
+             $("#btn_search").click(function () {
+                    var SearchModelBase = mytable.SearchModelBase;
+                    SearchModelBase.DateTo = $('#txt_OPDateTo').val();
+                    SearchModelBase.DateFrom = $('#txt_OPDateFrom').val();
+                    SearchModelBase.EMail = $('#txt_EMail').val();
+                    SearchModelBase.Status = $('#sel_Status' ).val();
+                    SearchModelBase.Search = "Y";
+                    SearchModelBase.LangID = @LangID;
+                    SearchModelBase.ModelID = @MainID;
+                    mytable.GetData();
+             });
+
+             $("#btn_export").click(function () {
                 var SearchModelBase = mytable.SearchModelBase;
                 SearchModelBase.DateTo = $('#txt_OPDateTo').val();
                 SearchModelBase.DateFrom = $('#txt_OPDateFrom').val();
@@ -188,7 +192,7 @@
                 SearchModelBase.LangID = @LangID;
                 SearchModelBase.ModelID = @MainID;
                 CreatePost('@Url.Action("Export")', SearchModelBase);
-            });
-    });
+             });
+        });
     </script>
 }

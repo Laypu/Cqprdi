@@ -214,6 +214,7 @@
                 formData.append("PageEndHtmlContent", encodeURIComponent(CKEDITOR.instances.PageEndHtmlContent.getData()));
                 var trs = $("#table_selContent tbody tr");
                 var idx = 0;
+
                 $.ajax({
                     url: this.action,
                     data: formData,

@@ -896,6 +896,7 @@ WriteLiteral(@"');
                 formData.append(""PageEndHtmlContent"", encodeURIComponent(CKEDITOR.instances.PageEndHtmlContent.getData()));
                 var trs = $(""#table_selContent tbody tr"");
                 var idx = 0;
+
                 $.ajax({
                     url: this.action,
                     data: formData,
@@ -909,7 +910,7 @@ WriteLiteral(@"');
                         CreatePost('");
 
             
-            #line 227 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 228 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                Write(Url.Action("ModelItem"));
 
             
@@ -918,7 +919,7 @@ WriteLiteral(@"');
 WriteLiteral("\', {mainid: \'");
 
             
-            #line 227 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
+            #line 228 "..\..\Areas\webadmin\Views\EPaper\EPaperEdit.cshtml"
                                                                     Write(Model.ModelID);
 
             

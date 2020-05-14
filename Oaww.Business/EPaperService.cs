@@ -639,6 +639,7 @@ namespace Oaww.Business
                 model.LeftHtmlContent = olddata.LeftHtmlContent;
                 model.CenterHtmlContent = olddata.CenterHtmlContent;
                 model.BottomHtmlContent = olddata.BottomHtmlContent;
+                
                 //var addata = _commonService.GetGeneral<ADMain>(id);
                 
                 //var ADID = new List<string>();
@@ -1513,14 +1514,18 @@ namespace Oaww.Business
         {
             try
             {
-                string sql = $@"update EPaperSubscriber set Status=@Status
-                                ,UpdateDate = case when @Status =0 then GetDate() else null end 
+                
+                string sql = $@"update EPaperSubscriber set Status=@Status 
+                                ,OPDateStr = @OPDateStr
+                                ,UpdateDate = case when @Status =0 then GetDate() else GetDate() end 
                                 where ID=@ID";
                 base.Parameter.Clear();
                 base.Parameter.Add(new SqlParameter("@Status", status ? 1 : 0));
+                base.Parameter.Add(new SqlParameter("@OPDateStr",DateTime.Now.ToString("yyyy/MM/dd")));
                 base.Parameter.Add(new SqlParameter("@ID", int.Parse(id)));
 
                 var r = base.ExeNonQuery(sql);
+
 
                 if (r >= 0)
                 {

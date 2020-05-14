@@ -570,21 +570,23 @@ WriteLiteral(@"
 
 
             RegisterSearchItem();
-        mytable = $(""#eventtable"").myDataTable().TableList[0];
-        mytable.settingTdData = myDataTableTr;
-        mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
-            var totalclick = mytable.keepcheckid.length;
-            $(""#"" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + ""~"" + (offsetcnt + nowpagecnt - 1));
-            };
+            mytable = $(""#eventtable"").myDataTable().TableList[0];
 
-        mytable.SearchModelBase.Key = ""0"";
-        mytable.SearchModelBase.OrderEPaper = ""1"";
-            mytable.GetData(1);
-            $(""#btn_add"").click(function () { CallAddDialog('");
+            console.log(mytable);
+            mytable.settingTdData = myDataTableTr;
+            mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
+                var totalclick = mytable.keepcheckid.length;
+                $(""#"" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + ""~"" + (offsetcnt + nowpagecnt - 1));
+                };
+
+            mytable.SearchModelBase.Key = ""0"";
+            mytable.SearchModelBase.OrderEPaper = ""1"";
+                mytable.GetData(1);
+                $(""#btn_add"").click(function () { CallAddDialog('");
 
             
-            #line 165 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                                        Write(Url.Action("AddSubscriber"));
+            #line 167 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                            Write(Url.Action("AddSubscriber"));
 
             
             #line default
@@ -592,18 +594,19 @@ WriteLiteral(@"
 WriteLiteral("\', { sid: -1, item: \"E-Mail\", title: \"請輸入訂閱者Mail\",mainid: ");
 
             
-            #line 165 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                                                                                                                              Write(MainID);
+            #line 167 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                                                                                                                  Write(MainID);
 
             
             #line default
             #line hidden
-WriteLiteral(" }); });\r\n         RegisterClickAll(\"#chk_all\", \'#eventtable tbody .chksel\', \"#se" +
-"lvalue\");\r\n         RegisterDelete(\"#btn_del\", \'#eventtable .chksel:checked\', \'");
+WriteLiteral(" }); });\r\n             RegisterClickAll(\"#chk_all\", \'#eventtable tbody .chksel\', " +
+"\"#selvalue\");\r\n             RegisterDelete(\"#btn_del\", \'#eventtable .chksel:chec" +
+"ked\', \'");
 
             
-            #line 167 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                                               Write(Url.Action("DelSubscriber"));
+            #line 169 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                                   Write(Url.Action("DelSubscriber"));
 
             
             #line default
@@ -611,52 +614,54 @@ WriteLiteral(" }); });\r\n         RegisterClickAll(\"#chk_all\", \'#eventtable 
 WriteLiteral("\', {mainid: ");
 
             
-            #line 167 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                                                                                       Write(MainID);
+            #line 169 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                                                                           Write(MainID);
 
             
             #line default
             #line hidden
-WriteLiteral("});\r\n         RegisterClick(\"#eventtable\", \".chkstatus\", \'");
+WriteLiteral("});\r\n             RegisterClickReload(\"#eventtable\", \".chkstatus\", \'");
 
             
-            #line 168 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                                Write(Url.Action("SetSubscriberStatus"));
+            #line 170 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                          Write(Url.Action("SetSubscriberStatus"));
 
             
             #line default
             #line hidden
 WriteLiteral(@"', {});
-         $(""#btn_search"").click(function () {
-                var SearchModelBase = mytable.SearchModelBase;
-                SearchModelBase.DateTo = $('#txt_OPDateTo').val();
-                SearchModelBase.DateFrom = $('#txt_OPDateFrom').val();
-                SearchModelBase.EMail = $('#txt_EMail').val();
-                SearchModelBase.Status = $('#sel_Status' ).val();
-                SearchModelBase.Search = ""Y"";
-                SearchModelBase.LangID = ");
+         
+
+             $(""#btn_search"").click(function () {
+                    var SearchModelBase = mytable.SearchModelBase;
+                    SearchModelBase.DateTo = $('#txt_OPDateTo').val();
+                    SearchModelBase.DateFrom = $('#txt_OPDateFrom').val();
+                    SearchModelBase.EMail = $('#txt_EMail').val();
+                    SearchModelBase.Status = $('#sel_Status' ).val();
+                    SearchModelBase.Search = ""Y"";
+                    SearchModelBase.LangID = ");
 
             
-            #line 176 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                    Write(LangID);
+            #line 180 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                        Write(LangID);
 
             
             #line default
             #line hidden
-WriteLiteral(";\r\n                SearchModelBase.ModelID = ");
+WriteLiteral(";\r\n                    SearchModelBase.ModelID = ");
 
             
-            #line 177 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                     Write(MainID);
+            #line 181 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                         Write(MainID);
 
             
             #line default
             #line hidden
 WriteLiteral(@";
-                mytable.GetData();
-            });
+                    mytable.GetData();
+             });
 
-            $(""#btn_export"").click(function () {
+             $(""#btn_export"").click(function () {
                 var SearchModelBase = mytable.SearchModelBase;
                 SearchModelBase.DateTo = $('#txt_OPDateTo').val();
                 SearchModelBase.DateFrom = $('#txt_OPDateFrom').val();
@@ -666,7 +671,7 @@ WriteLiteral(@";
                 SearchModelBase.LangID = ");
 
             
-            #line 188 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 192 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                                     Write(LangID);
 
             
@@ -675,7 +680,7 @@ WriteLiteral(@";
 WriteLiteral(";\r\n                SearchModelBase.ModelID = ");
 
             
-            #line 189 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 193 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                                      Write(MainID);
 
             
@@ -684,13 +689,13 @@ WriteLiteral(";\r\n                SearchModelBase.ModelID = ");
 WriteLiteral(";\r\n                CreatePost(\'");
 
             
-            #line 190 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 194 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                        Write(Url.Action("Export"));
 
             
             #line default
             #line hidden
-WriteLiteral("\', SearchModelBase);\r\n            });\r\n    });\r\n    </script>\r\n");
+WriteLiteral("\', SearchModelBase);\r\n             });\r\n        });\r\n    </script>\r\n");
 
 });
 

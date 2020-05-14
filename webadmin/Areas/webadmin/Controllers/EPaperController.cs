@@ -677,6 +677,75 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         }
         #endregion
 
+
+
+        #region Ckeditor 上傳圖片 
+        public ActionResult Upload(HttpPostedFileBase upload, string CKEditorFuncNum, string CKEditor, string langCode)
+        {
+            string result = "";
+            var filename = "";
+            var imageUrl = "";
+            if (upload != null && upload.ContentLength > 0)
+            {
+                //儲存圖片至Server
+                var last = upload.FileName.Split('.').Last();
+                filename = DateTime.Now.Ticks + "." + last;
+                var root = Request.PhysicalApplicationPath + $"/UploadImage/{SET_EPAPER.M_EPAPER02}/";
+                if (System.IO.Directory.Exists(root) == false)
+                {
+                    System.IO.Directory.CreateDirectory(root);
+                }
+
+                upload.SaveAs(root + filename);
+
+                imageUrl = Url.Content((Request.ApplicationPath == "/" ? "" : Request.ApplicationPath) + $"/UploadImage/{SET_EPAPER.M_EPAPER02}/" + filename);
+                var vMessage = string.Empty;
+                result = @"<html><body><script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", \"" + imageUrl + "\", \"" + vMessage + "\");</script></body></html>";
+            }
+            return Json(new
+            {
+                uploaded = 1,
+                fileName = filename,
+                url = imageUrl
+            });
+            //return Content(result);
+
+        }
+
+        public ActionResult UploadFile(HttpPostedFileBase upload, string CKEditorFuncNum, string CKEditor, string langCode)
+        {
+            string result = "";
+            var filename = "";
+            var imageUrl = "";
+            if (upload != null && upload.ContentLength > 0)
+            {
+                var last = upload.FileName.Split('.').Last();
+                filename = DateTime.Now.Ticks + "." + last;
+                var root = Request.PhysicalApplicationPath + $"/UploadFile/{SET_EPAPER.M_EPAPER02}/";
+                if (System.IO.Directory.Exists(root) == false)
+                {
+                    System.IO.Directory.CreateDirectory(root);
+                }
+                upload.SaveAs(root + filename);
+                imageUrl = Url.Content((Request.ApplicationPath == "/" ? "" : Request.ApplicationPath) + $"/UploadFile/{SET_EPAPER.M_EPAPER02}/" + filename);
+                var vMessage = string.Empty;
+                result = @"<html><body><script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", \"" + imageUrl + "\", \"" + vMessage + "\");</script></body></html>";
+            }
+            return Json(new
+            {
+                uploaded = 1,
+                fileName = filename,
+                url = imageUrl
+            });
+
+
+        }
+
+#endregion
+
+
+
+
     }
 
 
