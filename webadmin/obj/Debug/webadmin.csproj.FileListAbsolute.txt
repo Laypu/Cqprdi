@@ -115,8 +115,6 @@ D:\穀物\Cqprdi\webadmin\bin\System.Web.WebPages.Deployment.xml
 D:\穀物\Cqprdi\webadmin\bin\System.Web.WebPages.Razor.xml
 D:\穀物\Cqprdi\webadmin\bin\Antlr3.Runtime.pdb
 D:\穀物\Cqprdi\webadmin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\穀物\Cqprdi\webadmin\bin\Dapper.xml
-D:\穀物\Cqprdi\webadmin\bin\Dapper.Contrib.xml
 D:\穀物\Cqprdi\webadmin\bin\zh-Hant\System.Web.Mvc.resources.dll
 D:\穀物\Cqprdi\webadmin\bin\zh-Hant\System.Web.Helpers.resources.dll
 D:\穀物\Cqprdi\webadmin\bin\zh-Hant\System.Web.Optimization.resources.dll

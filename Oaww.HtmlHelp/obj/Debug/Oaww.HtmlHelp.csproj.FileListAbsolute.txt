@@ -24,9 +24,7 @@ D:\穀物\Cqprdi\Oaww.HtmlHelp\bin\Debug\Oaww.BaseBusiness.pdb
 D:\穀物\Cqprdi\Oaww.HtmlHelp\bin\Debug\Oaww.Entity.pdb
 D:\穀物\Cqprdi\Oaww.HtmlHelp\bin\Debug\Oaww.ViewModel.pdb
 D:\穀物\Cqprdi\Oaww.HtmlHelp\bin\Debug\Oaww.Utility.pdb
-D:\穀物\Cqprdi\Oaww.HtmlHelp\bin\Debug\Dapper.xml
 D:\穀物\Cqprdi\Oaww.HtmlHelp\bin\Debug\Oaww.DAL.pdb
-D:\穀物\Cqprdi\Oaww.HtmlHelp\bin\Debug\Dapper.Contrib.xml
 D:\穀物\Cqprdi\Oaww.HtmlHelp\obj\Debug\Oaww.HtmlHelp.csprojAssemblyReference.cache
 D:\穀物\Cqprdi\Oaww.HtmlHelp\obj\Debug\Oaww.HtmlHelp.aria.resources
 D:\穀物\Cqprdi\Oaww.HtmlHelp\obj\Debug\Oaww.HtmlHelp.csproj.GenerateResource.cache

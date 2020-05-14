@@ -23,7 +23,6 @@
                         <label for="search_type">
 
                             <div class="item_title">@(ePaper.GetEPMulti("Column4", int.Parse(Model.itemid)))</div><!--英文Type；後台未輸入時不顯示，只有"無分類"時，整區塊不顯示-->
-                            @{var grouplist = (IList<SelectListItem>)ViewBag.grouplist; }
 
 
                             <select class="form-control w-auto" id="GroupId" name="group" onchange="this.form.submit()">

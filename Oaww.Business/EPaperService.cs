@@ -989,7 +989,7 @@ namespace Oaww.Business
         {
             string sql = @"select  ROW_NUMBER() OVER(ORDER BY t.Sort) AS No,t.*,isnull(s.Group_Name,'無分類') as GroupName 
                            from EPaperItem t
-                           left join GroupEPaper s on t.GroupID = s.ID where ModelID=@itemid";
+                           left join GroupEPaper s on t.GroupID = s.ID where ModelID=@itemid and convert(datetime, PublishStr, 111)<=@date";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@itemid", itemid));
 
@@ -1004,7 +1004,7 @@ namespace Oaww.Business
                 sql += " and t.Title like @Title";
                 base.Parameter.Add(new SqlParameter("@Title", "%" + title + "%"));
             }
-
+            base.Parameter.Add(new SqlParameter("@date", DateTime.Now.Date));
             sql += @" and t.Enabled =1";
             sql += @" and t.IsPublished =1";
 
@@ -1139,7 +1139,7 @@ namespace Oaww.Business
                         if (model.ID == -1)
                         {
 
-                            newmodel.FrontPagePath = model.FrontPagePath;
+                            //newmodel.FrontPagePath = model.FrontPagePath;
                             newmodel.Column1 = model.Column1;
                             newmodel.Column2 = model.Column2;
                             newmodel.Column3 = model.Column3;
@@ -1147,20 +1147,20 @@ namespace Oaww.Business
                             newmodel.Column5 = model.Column5;
                             newmodel.Column6 = model.Column6;
                             newmodel.Column7 = model.Column7;
-                            newmodel.Column8 = model.Column8;
-                            newmodel.Column9 = model.Column9;
-                            newmodel.Column10 = model.Column10;
-                            newmodel.Column11 = model.Column11;
-                            newmodel.Column12 = model.Column12;
-                            newmodel.Column13 = model.Column13;
-                            newmodel.Column14 = model.Column14;
-                            newmodel.Column15 = model.Column15;
-                            newmodel.Column16 = model.Column16;
-                            newmodel.Column17 = model.Column17;
-                            newmodel.Column18 = model.Column18;
-                            newmodel.Column19 = model.Column19;
-                            newmodel.Column20 = model.Column20;
-                            newmodel.MainID = (int)model.MainID;
+                    newmodel.Column8 = model.Column8;
+                    newmodel.Column9 = model.Column9;
+                    newmodel.Column10 = model.Column10;
+                    newmodel.Column11 = model.Column11;
+                    newmodel.Column12 = model.Column12;
+                    newmodel.Column13 = model.Column13;
+                    newmodel.Column14 = model.Column14;
+                    newmodel.Column15 = model.Column15;
+                    newmodel.Column16 = model.Column16;
+                    newmodel.Column17 = model.Column17;
+                    newmodel.Column18 = model.Column18;
+                    newmodel.Column19 = model.Column19;
+                    newmodel.Column20 = model.Column20;
+                    newmodel.MainID = (int)model.MainID;
                             newmodel.LangID = Int32.Parse(LangID);
                             newmodel.IsRSS = model.IsRSS;
                             newmodel.IsShare = model.IsShare;
@@ -1175,8 +1175,8 @@ namespace Oaww.Business
                             newmodel.IntroductionHtml = model.IntroductionHtml == null ? "" : model.IntroductionHtml;
                             newmodel.ShowCount = model.ShowCount;
                             newmodel.ColumnSetting = columnsetting.ToString();
-                            newmodel.Summary = model.Summary == null ? "" : model.Summary;
-                            r = (int)base.InsertObject(newmodel);
+                          newmodel.Summary = model.Summary == null ? "" : model.Summary;
+                    r = (int)base.InsertObject(newmodel);
                         }
                         else
                         {
@@ -1248,8 +1248,8 @@ namespace Oaww.Business
                             base.Parameter.Add(new SqlParameter("@Column18", model.Column18 == null ? "" : model.Column18));
                             base.Parameter.Add(new SqlParameter("@Column19", model.Column19 == null ? "" : model.Column19));
                             base.Parameter.Add(new SqlParameter("@Column20", model.Column20 == null ? "" : model.Column20));
-                            base.Parameter.Add(new SqlParameter("@FrontPagePath", model.FrontPagePath == null ? "" : model.FrontPagePath));
-                            base.Parameter.Add(new SqlParameter("@Summary", model.Summary == null ? "" : model.Summary)); 
+                    base.Parameter.Add(new SqlParameter("@FrontPagePath", model.FrontPagePath == null ? "" : model.FrontPagePath));
+                    base.Parameter.Add(new SqlParameter("@Summary", model.Summary == null ? "" : model.Summary)); 
                             base.Parameter.Add(new SqlParameter("@ClassOverview", model.ClassOverview));
                             base.Parameter.Add(new SqlParameter("@IsRSS", model.IsRSS ));
                             base.Parameter.Add(new SqlParameter("@IsShare", model.IsShare));
@@ -1689,7 +1689,26 @@ namespace Oaww.Business
                 return "刪除失敗";
             }
         }
+        #region GetVaildGroupEPaper的資料
+        public List<GroupEPaper> GetVaildGroupEPaper(string Main_ID,string lang)
+        {
+            string sql = @"with cte as
+                            (
+                            select distinct GroupID from EPaperItem s where ModelID = @Main_ID
+                            and s.Enabled = 1
+                            and convert(datetime, PublishStr, 111)<=@date
+                            )
+                            select t.GroupID as ID,isnull(s.Group_Name,'無分類') as Group_Name from cte  t
+                            left join GroupEPaper s on t.GroupID = s.ID";
 
+            base.Parameter.Clear();
+            base.Parameter.Add(new SqlParameter("@Main_ID", Main_ID));
+            //base.Parameter.Add(new SqlParameter("@Lang_ID", lang));
+            base.Parameter.Add(new SqlParameter("@date", DateTime.Now.Date));
+
+            return base.SearchList<GroupEPaper>(sql);
+        }
+        #endregion
         #region PagingMenuItem的資料
         public Paging<EPaperContentItem> PagingMenuItem(SearchModelBase model)
         {
@@ -2419,7 +2438,59 @@ namespace Oaww.Business
         #endregion
 
 
-        
+        public EPaperUnitSettingModel GetUnitModel (string modelid, string type = "EPaper") 
+        {
+            var data = _commonService.GetGeneralList<EPaperUnitSetting>("MainID=@MainID", new Dictionary<string, string>() { { "MainID", modelid } }).ToList();
+            var model = new EPaperUnitSettingModel();
+            model.MainID = int.Parse(modelid);
+
+            if (data.Count() > 0)
+            {
+                model = new EPaperUnitSettingModel()
+                {
+                    ClassOverview = data.First().ClassOverview,
+                    Column1 = data.First().Column1,
+                    Column2 = data.First().Column2,
+                    Column3 = data.First().Column3,
+                    Column4 = data.First().Column4,
+                    Column5 = data.First().Column5,
+                    Column6 = data.First().Column6,
+                    Column7 = data.First().Column7,
+                    Column8 = data.First().Column8,
+                    Column9 = data.First().Column9,
+                    Column10 = data.First().Column10,
+                    Column11 = data.First().Column11,
+                    Column12 = data.First().Column12,
+                    Column13 = data.First().Column13,
+                    Column14 = data.First().Column14,
+                    Column15 = data.First().Column15,
+                    Column16 = data.First().Column16,
+                    Column17 = data.First().Column17,
+                    Column18 = data.First().Column18,
+                    Column19 = data.First().Column19,
+                    Column20 = data.First().Column20,
+                    Summary = data.First().Summary,
+                    FrontPagePath = data.First().FrontPagePath,
+                    IsForward = data.First().IsForward,
+                    IsPrint = data.First().IsPrint,
+                    IsRSS = data.First().IsRSS,
+                    IsShare = data.First().IsShare,
+                    MemberAuth = data.First().MemberAuth,
+                    MainID = data.First().MainID,
+                    ShowCount = data.First().ShowCount,
+                    ID = data.First().ID,
+                    EMailAuth = data.First().EMailAuth,
+                    VIPAuth = data.First().VIPAuth,
+                    EnterpriceStudentAuth = data.First().EnterpriceStudentAuth,
+                    GeneralStudentAuth = data.First().GeneralStudentAuth,
+                    IntroductionHtml = data.First().IntroductionHtml,
+                };
+            }
+
+            model.columnSettings = _commonService.GetGeneralList<ColumnSetting>("Type=@Type and MainID=@MainID", new Dictionary<string, string>() { { "Type", type }, { "MainID", modelid } }).OrderBy(v => v.Sort).ToList();
+
+            return model;
+        }
 
 
     }

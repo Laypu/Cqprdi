@@ -37,9 +37,7 @@ D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\System.Web.WebPages.Razor.xml
 D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\Oaww.Entity.pdb
 D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\Oaww.ViewModel.pdb
 D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\Oaww.Utility.pdb
-D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\Dapper.xml
 D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\Oaww.DAL.pdb
-D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\Dapper.Contrib.xml
 D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\zh-Hant\System.Web.Helpers.resources.dll
 D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\zh-Hant\System.Web.Mvc.resources.dll
 D:\穀物\Cqprdi\Oaww.Filter\bin\Debug\zh-Hant\System.Web.Razor.resources.dll

@@ -382,7 +382,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             if (mainid.IsNullOrEmpty()) { return RedirectToAction("Index"); }
             ViewBag.mainid = mainid;
             ViewBag.modelid = mainid;
-            var model = _commonService.GetUnitModel<EPaperUnitSettingModel, EPaperUnitSetting>(mainid,"EPaper");
+            var model = _service.GetUnitModel(mainid,"EPaper");
             var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
 
             if (maindata.ID > 0) { ViewBag.Title = maindata.Name; }

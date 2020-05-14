@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Oaww.ViewModel.Search;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace Aofeng.Controllers
 {
@@ -100,39 +101,25 @@ namespace Aofeng.Controllers
 
             EPaperUnitSettingModel unitmodel = new EPaperUnitSettingModel();
             EPaperViewModel model = new EPaperViewModel() { mid = mid, itemid = itemid, group = group, classType = classType };
-
             var EPaperItem = _service.GetEPaperItemsByModelID(itemid);
+            model.ListGroupEPaper = _service.GetVaildGroupEPaper(itemid, this.LanguageID.ToString());
+            //model.ListGroupEPaper.Insert(0, new GroupEPaper() { ID = -1, Group_Name = "全部" });
+            //if (group == -1)
+            ////{
+            //    group = null;
+            //    model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t=> t.IsPublished ==true).ToList();
+            //}
+            //else
+            //{
+            //    model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t => t.IsPublished == true).Where(t => t.GroupID == group).ToList();
+            //}
+          
 
+            //model.ListGroupEPaper = _service.GetVaildGroupEPapers(itemid,this.LanguageID.ToString());
+          
             if (group == -1)
             {
                 group = null;
-                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t=> t.IsPublished ==true).ToList();
-            }
-            else
-            {
-                model.ListEPaperItem = EPaperItem.OrderBy(t => t.Sort).Where(t => t.IsPublished == true).Where(t => t.GroupID == group).ToList();
-            }
-            List<int> groupidlist = new List<int>();
-            foreach (var i in EPaperItem)
-            {
-                if (groupidlist.Contains((int)i.GroupID))
-                {
-                    
-
-                }
-                else
-                {
-                    groupidlist.Add((int)i.GroupID);
-                }
-                
-            }    
-            
-            model.ListGroupEPaper = _service.GetVaildGroupEPapers(itemid,this.LanguageID.ToString());
-            model.ListGroupEPaper.Insert(0, new GroupEPaper() { ID = -1, Group_Name = "全部" });
-            if (groupidlist.Contains(0))
-            {
-                model.ListGroupEPaper.Insert(1, new GroupEPaper() { ID = 0, Group_Name = "無分類" });
-
             }
             model.columnSettings = _commonService.GetColumnSettings("EPaper", itemid);
             ViewBag.UnitSetting = new EPaperUnitSetting();
@@ -144,6 +131,21 @@ namespace Aofeng.Controllers
             var paging = _service.GetPaging(itemid, group, "", nowpage, ShowCount);
 
             model.ListEPaperItem = paging.rows;
+            //List<int> groupidlist = new List<int>();
+            //foreach (var i in model.ListEPaperItem)
+            //{
+            //    if (groupidlist.Contains((int)i.GroupID))
+            //    {
+
+
+            //    }
+            //    else
+            //    {
+            //        groupidlist.Add((int)i.GroupID);
+            //    }
+
+            //}
+            model.ListGroupEPaper.Insert(0, new GroupEPaper() { ID = -1, Group_Name = "全部" });
 
             //Grid一定要有
             ViewBag.Total = paging.total;
