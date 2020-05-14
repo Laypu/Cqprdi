@@ -25,7 +25,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="@Url.Action("ModelItem",new {mainid = ViewBag.mainid })">電子報管理</a>
+            <a href="@Url.Action("Index","EPaper")">電子報管理</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
@@ -127,7 +127,7 @@
                                 <textarea cols="80" id="IntroductionHtml" rows="20">@HttpUtility.HtmlDecode(Model.IntroductionHtml)</textarea>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display:none">
                             <div class="col-md-2 col-sm-12 search_item"><span class="red">*</span> 表格摘要</div>
                             <div class="col-md-10 col-sm-12 bg-white mobile_white">
                                 <textarea cols="80" id="Summary" rows="3" name="Summary" class="form-control" maxlength="500">@Model.Summary</textarea>

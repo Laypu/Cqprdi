@@ -12,7 +12,7 @@ using Oaww.Business;
 using Oaww.Utility;
 using System.Configuration;
 using System.IO;
-
+using NPOI.SS.Formula.Functions;
 
 namespace Template.webadmin.Areas.webadmin.Controllers
 {
@@ -108,8 +108,16 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return Json(_service.Paging(model, _ModelID));
         }
 
+        //電子報排序
+        public ActionResult EditSeq(int? id, int seq, string type)
+        {
+            ModelEPaperMain ModelEpaperMain = _service.GetModelEPaperMain(id.ToString(), this.LanguageID);
+
+            string result = _commonService.UpdateSeq<ModelEPaperMain>(id.Value, seq, this.LanguageID, this.Account, this.UserName, _ModelID);
 
 
+            return Json(result);
+        }
 
 
         //增加電子報模組
@@ -350,7 +358,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         /// <returns></returns>
         public ActionResult SetItemStatus(string id, bool status, string type)
         {
-            string result = _commonService.SetItemStatus<EPaperItem>(id, status, this.Account, this.UserName);
+            string result =_commonService.SetItemStatus<EPaperItem>(id, status, this.Account, this.UserName);
 
 
             return Content(result);
@@ -419,16 +427,20 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             return View("~/Areas/webadmin/Views/EPaper/Subscriber.cshtml");
         }
 
-        public ActionResult PagingEpaperOrder(SubscriberSearchModel model)
+        public ActionResult PagingEpaperOrder(SubscriberSearchModel model, String MainID)
         {
             model.LangId = this.LanguageID;
+            if(! MainID.IsNullOrEmpty())
+            {
+                model.ModelID = int.Parse(MainID);  
+            }
             var result =  _service.PagingEpaperOrder(model);
             
             return Json(result);
         
         }
 
-        public ActionResult AddSubscriber(string sid, string name) 
+        public ActionResult AddSubscriber(string sid, string name,string mainid) 
         {
             if (Request.IsAuthenticated)
             {
@@ -444,7 +456,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                 if (sid == "-1" || string.IsNullOrEmpty(sid))
                 {
                     
-                    str = _service.AddSubscriber(name, this.Account,int.Parse(this.LanguageID));
+                    str = _service.AddSubscriberBack(name, this.Account,int.Parse(this.LanguageID),mainid);
                 }
                 //else
                 //{
@@ -457,19 +469,19 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         }
 
         #region DelSubscriber
-        public ActionResult DelSubscriber(string[] idlist, string delaccount, string type)
+        public ActionResult DelSubscriber(string[] idlist, string delaccount,int? MainID ,string type )
         {
             //List<EPaperSubscriber> EPaperSubscriber = _service.GetEPaperSubscribers(idlist).ToList();
 
-            string result = _service.DeleteItem<EPaperSubscriber>(idlist, delaccount);
+            string result = _service.DeleteItem<EPaperSubscriber>(idlist, delaccount, MainID);
 
             return Content(result);
         }
         #endregion
 
-        public ActionResult SetSubscriberStatus(string id, bool status, string type)
+        public ActionResult SetSubscriberStatus(string id, bool status, string type )
         {
-            string result = _service.SetItemStatus(id, status, this.Account, this.UserName);
+            string result = _service.SetSubscriberStatus(id, status, this.Account, this.UserName);
 
 
             return Content(result);
@@ -605,7 +617,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         }
         #endregion
 
-        #region EPaperItemSort  電子報內容排序
+        #region EPaperItemSort  電子報排序內容
         public ActionResult EPaperItemSort(string id ,string mainid)
         {
             var maindata = _service.GetModelEPaperMain(mainid, this.LanguageID);
@@ -664,6 +676,75 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             
         }
         #endregion
+
+
+
+        #region Ckeditor 上傳圖片 
+        public ActionResult Upload(HttpPostedFileBase upload, string CKEditorFuncNum, string CKEditor, string langCode)
+        {
+            string result = "";
+            var filename = "";
+            var imageUrl = "";
+            if (upload != null && upload.ContentLength > 0)
+            {
+                //儲存圖片至Server
+                var last = upload.FileName.Split('.').Last();
+                filename = DateTime.Now.Ticks + "." + last;
+                var root = Request.PhysicalApplicationPath + $"/UploadImage/{SET_EPAPER.M_EPAPER02}/";
+                if (System.IO.Directory.Exists(root) == false)
+                {
+                    System.IO.Directory.CreateDirectory(root);
+                }
+
+                upload.SaveAs(root + filename);
+
+                imageUrl = Url.Content((Request.ApplicationPath == "/" ? "" : Request.ApplicationPath) + $"/UploadImage/{SET_EPAPER.M_EPAPER02}/" + filename);
+                var vMessage = string.Empty;
+                result = @"<html><body><script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", \"" + imageUrl + "\", \"" + vMessage + "\");</script></body></html>";
+            }
+            return Json(new
+            {
+                uploaded = 1,
+                fileName = filename,
+                url = imageUrl
+            });
+            //return Content(result);
+
+        }
+
+        public ActionResult UploadFile(HttpPostedFileBase upload, string CKEditorFuncNum, string CKEditor, string langCode)
+        {
+            string result = "";
+            var filename = "";
+            var imageUrl = "";
+            if (upload != null && upload.ContentLength > 0)
+            {
+                var last = upload.FileName.Split('.').Last();
+                filename = DateTime.Now.Ticks + "." + last;
+                var root = Request.PhysicalApplicationPath + $"/UploadFile/{SET_EPAPER.M_EPAPER02}/";
+                if (System.IO.Directory.Exists(root) == false)
+                {
+                    System.IO.Directory.CreateDirectory(root);
+                }
+                upload.SaveAs(root + filename);
+                imageUrl = Url.Content((Request.ApplicationPath == "/" ? "" : Request.ApplicationPath) + $"/UploadFile/{SET_EPAPER.M_EPAPER02}/" + filename);
+                var vMessage = string.Empty;
+                result = @"<html><body><script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", \"" + imageUrl + "\", \"" + vMessage + "\");</script></body></html>";
+            }
+            return Json(new
+            {
+                uploaded = 1,
+                fileName = filename,
+                url = imageUrl
+            });
+
+
+        }
+
+#endregion
+
+
+
 
     }
 

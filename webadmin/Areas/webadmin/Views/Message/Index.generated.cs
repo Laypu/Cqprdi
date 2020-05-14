@@ -33,7 +33,9 @@ namespace ASP
     using Oaww.Utility;
     using Oaww.ViewModel;
     using Oaww.ViewModel.Config;
+    using Oaww.ViewModel.Lang;
     using Oaww.ViewModel.Search;
+    using Oaww.ViewModel.SiteMap;
     using Template;
     using webadmin;
     
@@ -321,8 +323,13 @@ WriteAttribute("src", Tuple.Create(" src=\"", 3027), Tuple.Create("\"", 3073)
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3097), Tuple.Create("\"", 3129)
-, Tuple.Create(Tuple.Create("", 3103), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/clipboard.min.js")
+WriteAttribute("src", Tuple.Create(" src=\"", 3097), Tuple.Create("\"", 3145)
+            
+            #line 75 "..\..\Areas\webadmin\Views\Message\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 3103), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/clipboard.min.js")
+            
+            #line default
+            #line hidden
 , 3103), false)
 );
 

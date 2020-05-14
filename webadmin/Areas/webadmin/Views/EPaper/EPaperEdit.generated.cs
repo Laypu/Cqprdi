@@ -890,13 +890,13 @@ WriteLiteral(@"');
                 var images = $('#file_bannerimage').get(0).files;
                 if (images.length > 0) {
                     formData.append(""TopBannerImg"", images[0]);
-                    formData.append()
                 } else {
                     formData.append(""TopBannerImg"", null);
                 }
                 formData.append(""PageEndHtmlContent"", encodeURIComponent(CKEDITOR.instances.PageEndHtmlContent.getData()));
                 var trs = $(""#table_selContent tbody tr"");
                 var idx = 0;
+
                 $.ajax({
                     url: this.action,
                     data: formData,

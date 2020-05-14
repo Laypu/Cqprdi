@@ -54,68 +54,69 @@ namespace ASP
     Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
     SET_EPAPER SET_EPAPER = (SET_EPAPER)ViewBag.SET_EPAPER;
     var LangID =  ViewBag.LangID;
+    var MainID = ViewBag.mainid;
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n<script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 199), Tuple.Create("\"", 243)
-            
-            #line 7 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 205), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
-            
-            #line default
-            #line hidden
-, 205), false)
-);
-
-WriteLiteral("></script>\r\n<script");
-
-WriteAttribute("src", Tuple.Create(" src=\"", 263), Tuple.Create("\"", 304)
+WriteAttribute("src", Tuple.Create(" src=\"", 233), Tuple.Create("\"", 277)
             
             #line 8 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 269), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 239), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 269), false)
+, 239), false)
 );
 
 WriteLiteral("></script>\r\n<script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 324), Tuple.Create("\"", 391)
+WriteAttribute("src", Tuple.Create(" src=\"", 297), Tuple.Create("\"", 338)
             
             #line 9 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 330), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
+, Tuple.Create(Tuple.Create("", 303), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 330), false)
+, 303), false)
 );
 
 WriteLiteral("></script>\r\n<script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 411), Tuple.Create("\"", 470)
+WriteAttribute("src", Tuple.Create(" src=\"", 358), Tuple.Create("\"", 425)
             
             #line 10 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 417), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.min.js")
+, Tuple.Create(Tuple.Create("", 364), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
             
             #line default
             #line hidden
-, 417), false)
+, 364), false)
 );
 
 WriteLiteral("></script>\r\n<script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 490), Tuple.Create("\"", 536)
+WriteAttribute("src", Tuple.Create(" src=\"", 445), Tuple.Create("\"", 504)
             
             #line 11 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 496), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 451), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.min.js")
             
             #line default
             #line hidden
-, 496), false)
+, 451), false)
+);
+
+WriteLiteral("></script>\r\n<script");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 524), Tuple.Create("\"", 570)
+            
+            #line 12 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 530), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+            
+            #line default
+            #line hidden
+, 530), false)
 );
 
 WriteLiteral("></script>\r\n<!--page bar start-->\r\n<div");
@@ -128,14 +129,14 @@ WriteLiteral(" class=\"page-breadcrumb\"");
 
 WriteLiteral(">\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 658), Tuple.Create("\"", 692)
+WriteAttribute("href", Tuple.Create(" href=\"", 692), Tuple.Create("\"", 726)
             
-            #line 16 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 665), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home")
+            #line 17 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 699), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home")
             
             #line default
             #line hidden
-, 665), false)
+, 699), false)
 );
 
 WriteLiteral(">Home</a>\r\n            <i");
@@ -144,14 +145,14 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 789), Tuple.Create("\"", 824)
+WriteAttribute("href", Tuple.Create(" href=\"", 823), Tuple.Create("\"", 858)
             
-            #line 20 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 796), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
+            #line 21 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 830), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Model")
             
             #line default
             #line hidden
-, 796), false)
+, 830), false)
 );
 
 WriteLiteral(">模組管理</a>\r\n            <i");
@@ -160,14 +161,14 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 921), Tuple.Create("\"", 983)
+WriteAttribute("href", Tuple.Create(" href=\"", 955), Tuple.Create("\"", 991)
             
-            #line 24 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 928), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+            #line 25 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 962), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","EPaper")
             
             #line default
             #line hidden
-, 928), false)
+, 962), false)
 );
 
 WriteLiteral(">電子報管理</a>\r\n            <i");
@@ -181,7 +182,7 @@ WriteLiteral(" href=\"#\"");
 WriteLiteral(">");
 
             
-            #line 28 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 29 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                    Write(ViewBag.Title);
 
             
@@ -195,7 +196,7 @@ WriteLiteral(" class=\"title_01\"");
 WriteLiteral(">");
 
             
-            #line 35 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 36 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                  Write(ViewBag.Title);
 
             
@@ -229,26 +230,26 @@ WriteLiteral(" onChange=\"window.location.href=this.value\"");
 
 WriteLiteral(">\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1609), Tuple.Create("\"", 1673)
+WriteAttribute("value", Tuple.Create(" value=\"", 1617), Tuple.Create("\"", 1681)
             
-            #line 45 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 1617), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new { mainid = ViewBag.mainid })
+            #line 46 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 1625), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1617), false)
+, 1625), false)
 );
 
 WriteLiteral(">編輯管理</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1717), Tuple.Create("\"", 1783)
+WriteAttribute("value", Tuple.Create(" value=\"", 1725), Tuple.Create("\"", 1791)
             
-            #line 46 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-, Tuple.Create(Tuple.Create("", 1725), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
+            #line 47 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+, Tuple.Create(Tuple.Create("", 1733), Tuple.Create<System.Object, System.Int32>(Url.Action("UnitSetting",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1725), false)
+, 1733), false)
 );
 
 WriteLiteral(">模組設定</option>\r\n                    <option");
@@ -454,8 +455,8 @@ WriteLiteral("\r\n               id=\"eventtable\"");
 WriteLiteral("\r\n               data-url=\"");
 
             
-            #line 111 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                    Write(Url.Action("PagingEpaperOrder"));
+            #line 112 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                    Write(Url.Action("PagingEpaperOrder",new {MainID = MainID }));
 
             
             #line default
@@ -565,69 +566,102 @@ DefineSection("scripts", () => {
 WriteLiteral(@"
     <script>
         $(document).ready(function () {
-            
+
+
+
             RegisterSearchItem();
-        mytable = $(""#eventtable"").myDataTable().TableList[0];
-        mytable.settingTdData = myDataTableTr;
-        mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
-            var totalclick = mytable.keepcheckid.length;
-            $(""#"" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + ""~"" + (offsetcnt + nowpagecnt - 1));
-            };
+            mytable = $(""#eventtable"").myDataTable().TableList[0];
 
-        mytable.SearchModelBase.Key = ""0"";
-        mytable.SearchModelBase.OrderEPaper = ""1"";
-        mytable.GetData(1);
-        $(""#btn_add"").click(function () { CallAddDialog('");
+            console.log(mytable);
+            mytable.settingTdData = myDataTableTr;
+            mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
+                var totalclick = mytable.keepcheckid.length;
+                $(""#"" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + ""~"" + (offsetcnt + nowpagecnt - 1));
+                };
 
-            
-            #line 162 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                                    Write(Url.Action("AddSubscriber"));
+            mytable.SearchModelBase.Key = ""0"";
+            mytable.SearchModelBase.OrderEPaper = ""1"";
+                mytable.GetData(1);
+                $(""#btn_add"").click(function () { CallAddDialog('");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\', { sid: -1, item: \"E-Mail\", title: \"請輸入訂閱者Mail\" }); });\r\n         RegisterClick" +
-"All(\"#chk_all\", \'#eventtable tbody .chksel\', \"#selvalue\");\r\n         RegisterDel" +
-"ete(\"#btn_del\", \'#eventtable .chksel:checked\', \'");
-
-            
-            #line 164 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                                               Write(Url.Action("DelSubscriber"));
+            #line 167 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                            Write(Url.Action("AddSubscriber"));
 
             
             #line default
             #line hidden
-WriteLiteral("\', {});\r\n         RegisterClick(\"#eventtable\", \".chkstatus\", \'");
+WriteLiteral("\', { sid: -1, item: \"E-Mail\", title: \"請輸入訂閱者Mail\",mainid: ");
 
             
-            #line 165 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                                Write(Url.Action("SetSubscriberStatus"));
+            #line 167 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                                                                                                                  Write(MainID);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" }); });\r\n             RegisterClickAll(\"#chk_all\", \'#eventtable tbody .chksel\', " +
+"\"#selvalue\");\r\n             RegisterDelete(\"#btn_del\", \'#eventtable .chksel:chec" +
+"ked\', \'");
+
+            
+            #line 169 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                                   Write(Url.Action("DelSubscriber"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\', {mainid: ");
+
+            
+            #line 169 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                                                                           Write(MainID);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("});\r\n             RegisterClickReload(\"#eventtable\", \".chkstatus\", \'");
+
+            
+            #line 170 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                                          Write(Url.Action("SetSubscriberStatus"));
 
             
             #line default
             #line hidden
 WriteLiteral(@"', {});
-         $(""#btn_search"").click(function () {
-                var SearchModelBase = mytable.SearchModelBase;
-                SearchModelBase.DateTo = $('#txt_OPDateTo').val();
-                SearchModelBase.DateFrom = $('#txt_OPDateFrom').val();
-                SearchModelBase.EMail = $('#txt_EMail').val();
-                SearchModelBase.Status = $('#sel_Status' ).val();
-                SearchModelBase.Search = ""Y"";
-                SearchModelBase.LangID = ");
+         
+
+             $(""#btn_search"").click(function () {
+                    var SearchModelBase = mytable.SearchModelBase;
+                    SearchModelBase.DateTo = $('#txt_OPDateTo').val();
+                    SearchModelBase.DateFrom = $('#txt_OPDateFrom').val();
+                    SearchModelBase.EMail = $('#txt_EMail').val();
+                    SearchModelBase.Status = $('#sel_Status' ).val();
+                    SearchModelBase.Search = ""Y"";
+                    SearchModelBase.LangID = ");
 
             
-            #line 173 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
-                                    Write(LangID);
+            #line 180 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                        Write(LangID);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(";\r\n                    SearchModelBase.ModelID = ");
+
+            
+            #line 181 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                         Write(MainID);
 
             
             #line default
             #line hidden
 WriteLiteral(@";
-                mytable.GetData();
-            });
+                    mytable.GetData();
+             });
 
-            $(""#btn_export"").click(function () {
+             $(""#btn_export"").click(function () {
                 var SearchModelBase = mytable.SearchModelBase;
                 SearchModelBase.DateTo = $('#txt_OPDateTo').val();
                 SearchModelBase.DateFrom = $('#txt_OPDateFrom').val();
@@ -637,8 +671,17 @@ WriteLiteral(@";
                 SearchModelBase.LangID = ");
 
             
-            #line 184 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 192 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                                     Write(LangID);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(";\r\n                SearchModelBase.ModelID = ");
+
+            
+            #line 193 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+                                     Write(MainID);
 
             
             #line default
@@ -646,13 +689,13 @@ WriteLiteral(@";
 WriteLiteral(";\r\n                CreatePost(\'");
 
             
-            #line 185 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
+            #line 194 "..\..\Areas\webadmin\Views\EPaper\Subscriber.cshtml"
                        Write(Url.Action("Export"));
 
             
             #line default
             #line hidden
-WriteLiteral("\', SearchModelBase);\r\n            });\r\n    });\r\n    </script>\r\n");
+WriteLiteral("\', SearchModelBase);\r\n             });\r\n        });\r\n    </script>\r\n");
 
 });
 

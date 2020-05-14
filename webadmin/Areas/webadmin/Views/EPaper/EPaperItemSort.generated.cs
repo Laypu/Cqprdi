@@ -739,20 +739,29 @@ WriteLiteral("\' ;\r\n                            $.post(\'");
             #line default
             #line hidden
 WriteLiteral("\', obj, function (data) {\r\n                                 alert(data);\r\n       " +
-"                           CreatePost(\'");
+"                         CreatePost(\'");
 
             
             #line 155 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-                                         Write(Url.Action("EPaperItemSort"));
+                                       Write(Url.Action("EPaperItemSort"));
 
             
             #line default
             #line hidden
-WriteLiteral("\', { id:\'");
+WriteLiteral("\', { id: \'");
 
             
             #line 155 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
-                                                                               Write(ViewBag.ID);
+                                                                              Write(ViewBag.ID);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\', mainid:\'");
+
+            
+            #line 155 "..\..\Areas\webadmin\Views\EPaper\EPaperItemSort.cshtml"
+                                                                                                    Write(ViewBag.mainid);
 
             
             #line default

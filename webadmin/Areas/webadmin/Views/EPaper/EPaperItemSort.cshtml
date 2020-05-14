@@ -152,7 +152,7 @@
                             obj.eid = '@ViewBag.ID' ;
                             $.post('@Url.Action("DeleteEPaperItemSort")', obj, function (data) {
                                  alert(data);
-                                  CreatePost('@Url.Action("EPaperItemSort")', { id:'@ViewBag.ID'});
+                                CreatePost('@Url.Action("EPaperItemSort")', { id: '@ViewBag.ID', mainid:'@ViewBag.mainid'});
                                });
                         }
                     }

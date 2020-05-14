@@ -121,6 +121,8 @@ WriteLiteral(">\r\n    <!--set item start-->\r\n    <div");
 
 WriteLiteral(" class=\"table-toolbar\"");
 
+WriteLiteral(" style=\"display:none\"");
+
 WriteLiteral(">\r\n        <div");
 
 WriteLiteral(" class=\"col-md-6 col-sm-12 col-xs-12\"");
@@ -129,11 +131,11 @@ WriteLiteral(">\r\n\r\n        </div>\r\n        <div");
 
 WriteLiteral(" class=\"col-md-6 col-sm-12 col-xs-12 mobile_left\"");
 
-WriteLiteral(">\r\n            <p");
+WriteLiteral(" >\r\n            <p");
 
 WriteLiteral(" class=\"display_inline\"");
 
-WriteLiteral(">\r\n                <button");
+WriteLiteral(" >\r\n                <button");
 
 WriteLiteral(" class=\"btn green-meadow\"");
 
@@ -184,38 +186,9 @@ WriteLiteral(" class=\"bg-grey_1\"");
 
 WriteLiteral(" filed-class=\'odd gradeX\'");
 
-WriteLiteral(">\r\n                    <th");
+WriteLiteral(">\r\n                    ");
 
-WriteLiteral(" width=\"80\"");
-
-WriteLiteral(" class=\"text-center delete_th\"");
-
-WriteLiteral(" filed-type=\'delcheckbox\'");
-
-WriteLiteral(">\r\n                        <label");
-
-WriteLiteral(" class=\'mt-checkbox mt-checkbox-single mt-checkbox-outline\'");
-
-WriteLiteral(">\r\n                            <input");
-
-WriteLiteral(" type=\'checkbox\'");
-
-WriteLiteral(" class=\'checkboxes\'");
-
-WriteLiteral(" id=\"chk_all\"");
-
-WriteLiteral(" /><span></span>\r\n                        </label>\r\n                        <butt" +
-"on");
-
-WriteLiteral(" class=\"btn red-mint btn-xs\"");
-
-WriteLiteral(" id=\'btn_del\'");
-
-WriteLiteral("><i");
-
-WriteLiteral(" class=\"glyphicon glyphicon-trash\"");
-
-WriteLiteral("></i></button>\r\n                    </th>\r\n                    <th");
+WriteLiteral("\r\n                    <th");
 
 WriteLiteral(" filed-name=\'Sort\'");
 
@@ -287,50 +260,50 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 2895), Tuple.Create("\"", 2939)
+WriteAttribute("src", Tuple.Create(" src=\"", 2923), Tuple.Create("\"", 2967)
             
             #line 72 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 2901), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
+, Tuple.Create(Tuple.Create("", 2929), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/datatable.js")
             
             #line default
             #line hidden
-, 2901), false)
+, 2929), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 2963), Tuple.Create("\"", 3004)
+WriteAttribute("src", Tuple.Create(" src=\"", 2991), Tuple.Create("\"", 3032)
             
             #line 73 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 2969), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
+, Tuple.Create(Tuple.Create("", 2997), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/custom.js")
             
             #line default
             #line hidden
-, 2969), false)
+, 2997), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3028), Tuple.Create("\"", 3074)
+WriteAttribute("src", Tuple.Create(" src=\"", 3056), Tuple.Create("\"", 3102)
             
             #line 74 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3034), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 3062), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
             
             #line default
             #line hidden
-, 3034), false)
+, 3062), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3098), Tuple.Create("\"", 3146)
+WriteAttribute("src", Tuple.Create(" src=\"", 3126), Tuple.Create("\"", 3174)
             
             #line 75 "..\..\Areas\webadmin\Views\EPaper\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3104), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/clipboard.min.js")
+, Tuple.Create(Tuple.Create("", 3132), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/clipboard.min.js")
             
             #line default
             #line hidden
-, 3104), false)
+, 3132), false)
 );
 
 WriteLiteral(@"></script>

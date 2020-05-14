@@ -170,10 +170,10 @@ WriteLiteral(" class=\"fa fa-circle\"");
 
 WriteLiteral("></i>\r\n        </li>\r\n        <li>\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1028), Tuple.Create("\"", 1090)
+WriteAttribute("href", Tuple.Create(" href=\"", 1028), Tuple.Create("\"", 1064)
             
             #line 28 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 1035), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new {mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 1035), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","EPaper")
             
             #line default
             #line hidden
@@ -239,14 +239,14 @@ WriteLiteral(" onChange=\"window.location.href=this.value\"");
 
 WriteLiteral(">\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1718), Tuple.Create("\"", 1782)
+WriteAttribute("value", Tuple.Create(" value=\"", 1692), Tuple.Create("\"", 1756)
             
             #line 50 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 1726), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new { mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 1700), Tuple.Create<System.Object, System.Int32>(Url.Action("ModelItem",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1726), false)
+, 1700), false)
 );
 
 WriteLiteral(">編輯管理</option>\r\n                    <option");
@@ -255,14 +255,14 @@ WriteLiteral(" value=\"#\"");
 
 WriteLiteral(" selected>模組設定</option>\r\n                    <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 1888), Tuple.Create("\"", 1953)
+WriteAttribute("value", Tuple.Create(" value=\"", 1862), Tuple.Create("\"", 1927)
             
             #line 52 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 1896), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber",new { mainid = ViewBag.mainid })
+, Tuple.Create(Tuple.Create("", 1870), Tuple.Create<System.Object, System.Int32>(Url.Action("Subscriber",new { mainid = ViewBag.mainid })
             
             #line default
             #line hidden
-, 1896), false)
+, 1870), false)
 );
 
 WriteLiteral(">訂閱者管理</option>\r\n                </select>\r\n            </div>\r\n        </div>\r\n " +
@@ -274,14 +274,14 @@ WriteLiteral(" method=\"Post\"");
 
 WriteLiteral(" id=\"editform\"");
 
-WriteAttribute("action", Tuple.Create(" action=\'", 2170), Tuple.Create("\'", 2202)
+WriteAttribute("action", Tuple.Create(" action=\'", 2144), Tuple.Create("\'", 2176)
             
             #line 59 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-    , Tuple.Create(Tuple.Create("", 2179), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveUnit")
+    , Tuple.Create(Tuple.Create("", 2153), Tuple.Create<System.Object, System.Int32>(Url.Action("SaveUnit")
             
             #line default
             #line hidden
-, 2179), false)
+, 2153), false)
 );
 
 WriteLiteral(">\r\n");
@@ -399,25 +399,25 @@ WriteLiteral("                                                <tr");
 
 WriteLiteral(" class=\"odd gradeX tr_col\"");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 3799), Tuple.Create("\"", 3811)
-, Tuple.Create(Tuple.Create("", 3804), Tuple.Create("tr_", 3804), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 3773), Tuple.Create("\"", 3785)
+, Tuple.Create(Tuple.Create("", 3778), Tuple.Create("tr_", 3778), true)
             
             #line 85 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-     , Tuple.Create(Tuple.Create("", 3807), Tuple.Create<System.Object, System.Int32>(idx
+     , Tuple.Create(Tuple.Create("", 3781), Tuple.Create<System.Object, System.Int32>(idx
             
             #line default
             #line hidden
-, 3807), false)
+, 3781), false)
 );
 
-WriteAttribute("seqidx", Tuple.Create(" seqidx=\"", 3812), Tuple.Create("\"", 3829)
+WriteAttribute("seqidx", Tuple.Create(" seqidx=\"", 3786), Tuple.Create("\"", 3803)
             
             #line 85 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                    , Tuple.Create(Tuple.Create("", 3821), Tuple.Create<System.Object, System.Int32>(idx+1
+                    , Tuple.Create(Tuple.Create("", 3795), Tuple.Create<System.Object, System.Int32>(idx+1
             
             #line default
             #line hidden
-, 3821), false)
+, 3795), false)
 );
 
 WriteLiteral(">\r\n                                                    <td");
@@ -546,15 +546,15 @@ WriteLiteral(" class=\"chkstatus\"");
 
 WriteLiteral(" type=\"checkbox\"");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 5569), Tuple.Create("\"", 5583)
-, Tuple.Create(Tuple.Create("", 5574), Tuple.Create("Used_", 5574), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 5543), Tuple.Create("\"", 5557)
+, Tuple.Create(Tuple.Create("", 5548), Tuple.Create("Used_", 5548), true)
             
             #line 100 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-                              , Tuple.Create(Tuple.Create("", 5579), Tuple.Create<System.Object, System.Int32>(idx
+                              , Tuple.Create(Tuple.Create("", 5553), Tuple.Create<System.Object, System.Int32>(idx
             
             #line default
             #line hidden
-, 5579), false)
+, 5553), false)
 );
 
 WriteLiteral(" ");
@@ -621,14 +621,14 @@ WriteLiteral(">\r\n\r\n");
             #line hidden
 WriteLiteral("                                        <option");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 6653), Tuple.Create("\"", 6663)
+WriteAttribute("value", Tuple.Create(" value=\"", 6627), Tuple.Create("\"", 6637)
             
             #line 119 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create("", 6661), Tuple.Create<System.Object, System.Int32>(m
+, Tuple.Create(Tuple.Create("", 6635), Tuple.Create<System.Object, System.Int32>(m
             
             #line default
             #line hidden
-, 6661), false)
+, 6635), false)
 );
 
 WriteLiteral(">");
@@ -652,15 +652,15 @@ WriteLiteral("</option>\r\n");
 WriteLiteral("                                </select>\r\n                            </div>\r\n  " +
 "                      </div>\r\n                        <div");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 6856), Tuple.Create("\"", 6916)
-, Tuple.Create(Tuple.Create("", 6864), Tuple.Create("form-group", 6864), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 6830), Tuple.Create("\"", 6890)
+, Tuple.Create(Tuple.Create("", 6838), Tuple.Create("form-group", 6838), true)
             
             #line 124 "..\..\Areas\webadmin\Views\EPaper\UnitSetting.cshtml"
-, Tuple.Create(Tuple.Create(" ", 6874), Tuple.Create<System.Object, System.Int32>(SET_EPAPER.M_EPAPER17==false?"hide":""
+, Tuple.Create(Tuple.Create(" ", 6848), Tuple.Create<System.Object, System.Int32>(SET_EPAPER.M_EPAPER17==false?"hide":""
             
             #line default
             #line hidden
-, 6875), false)
+, 6849), false)
 );
 
 WriteLiteral(">\r\n                            <div");
@@ -692,6 +692,8 @@ WriteLiteral("</textarea>\r\n                            </div>\r\n             
 "                        <div");
 
 WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(" style=\"display:none\"");
 
 WriteLiteral(">\r\n                            <div");
 

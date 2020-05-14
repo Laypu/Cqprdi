@@ -39,6 +39,7 @@ namespace Aofeng.Controllers
                 nowpage = 1;
             }
             #endregion
+         
             var Error = string.Empty;
             if (Request["btnorder"] != null)
             {
@@ -166,6 +167,7 @@ namespace Aofeng.Controllers
             {
                 model = _service.GetModel(id);
                 model.EPaperItemEdit = _service.GetEPaperItemEdit(id);
+                model.EPaperHtmlContent = _service.GetEPaperContent(id);
             }
             return View(model);
         }

@@ -54,7 +54,7 @@
         <div class="title"><h2>@Model.Title </h2></div>
         @if (Model.PaperMode == 1)
         {
-            @Html.Raw(Model.PageEndHtmlContent)
+            @Html.Raw(Model.EPaperHtmlContent.safeHtmlFragment())
         }
         else
         {
