@@ -1,0 +1,279 @@
+﻿@{ Layout = null;
+    Layout = "~/Views/Shared/_LayoutSearch.cshtml";
+}
+@{
+    var UpMenu = (List<Menu>)ViewBag.UpMenu;
+    var TopMenu = (List<Menu>)ViewBag.TopMenu;
+    var DownMenu = (List<Menu>)ViewBag.DownMenu;
+    var SiteMapHtmlContent = ViewBag.SiteMapHtmlContent;
+    var SiteMapKeyList = (List<Oaww.Entity.SiteMap.SiteMapKey>)ViewBag.SiteMapmodel;
+
+    
+}
+
+<div class="page_con">
+    <div class="container">
+
+        @*<h2 data-sr="enter left over 1.5s">@Common.GetLangText("Sitemap")</h2>*@
+
+        <div class="content_con">
+            <div class="con_one">
+                <!--後台可編輯 start-->
+                @*<div class="title_01">@Common.GetLangText("Accessibility instructions")</div>*@
+                <div class="con_font">@Html.Raw(SiteMapHtmlContent)</div>
+                <div class="table-scrollable">
+                    @if (SiteMapKeyList.Count() != 0)
+                    {
+                        <table class="table table-bordered table-hover sitemap_table" cellspacing="0" cellpadding="0" border="0" summary="無障礙說明">
+                            @*Accessibility description list, the first column is the block name, the second column is the shortcut key, and the third column is the block introduction*@
+                            @*英文accessibility list*@
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-md-3 col-xs-3 text-center">區塊說明</th>
+                                    <th scope="col" class="col-md-2 col-xs-2 text-center">快速鍵</th>
+                                    <th scope="col" class="text-center">介紹</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var i in SiteMapKeyList)
+                                {
+                                    <tr>
+                                        <td scope="row" class="text-center">@i.AreaName</td>
+                                        <td class="text-center">@i.QuickKey</td>
+                                        <td class="text-center">@i.Introduction</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        <br /><br />
+                    }
+
+
+                </div>
+                <!--後台可編輯 end-->
+
+                @{
+                    var level1idx = 0;
+                    var level2idx = 0;
+                    var level3idx = 0;
+                }
+                <!--上方選單 start-->
+                <h3>上方選單@*@Common.GetLangText("Top menu")*@</h3>
+                <div class="title_01"></div>
+                <ul class="sitemap_list">
+                    @{
+                        level1idx = 0;
+                        if (UpMenu.Where(v => v.MenuLevel == 1).Count() > 0)
+                        {
+                            foreach (var menu in UpMenu.Where(v => v.MenuLevel == 1).OrderBy(t => t.Sort))
+                            {
+                                level1idx += 1;
+                                <li class="sitemap_item">
+                                    @level1idx.
+                                    @Html.aira_HyperLink_SiteMapMenu(menu, new { @class = "dropdown-toggle" })
+                                    @{
+                                        level2idx = 0;
+                                        <ul class="sitemap_list_1">
+                                            @foreach (Menu Menu2nd in UpMenu.Where(t => t.MenuLevel == 2 && t.ParentID == menu.ID).OrderBy(t => t.Sort))
+                                            {
+                                                level2idx += 1;
+                                                <li class="sitemap_item_1">
+
+                                                    @*<div class="sitemap_no">@level1idx.@level2idx</div><div class="sitemap_font">@(string.IsNullOrEmpty(l2menu.DisplayName) ? l2menu.MenuName : l2menu.DisplayName )</div>*@
+
+                                                    <div class="sitemap_no">@level1idx.@level2idx</div>
+                                                    <div class="sitemap_font">@Html.aira_HyperLink_SiteMapMenu(Menu2nd, null)</div>
+
+                                                    @{
+                                                        level3idx = 0;
+                                                        if (UpMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                                        {
+                                                            <ul class="sitemap_list_2">
+                                                                @foreach (Menu Menu3rd in UpMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
+                                                                {
+                                                                    level3idx += 1;
+                                                                    <li class="sitemap_item_2">
+
+                                                                        <div class="sitemap_no">@level1idx.@level2idx.@level3idx</div>
+                                                                        <div class="sitemap_font">@Html.aira_HyperLink_SiteMapMenu(Menu3rd, null)</div>
+
+
+                                                                    </li>
+                                                                }
+
+                                                            </ul>
+                                                        }
+
+                                                    }
+
+                                                </li>
+                                            }
+                                        </ul>
+                                    }
+
+                                </li>
+                            }
+
+
+                        }
+
+                        @*<li class="sitemap_item">
+                    @if (Model.LangId == "1")
+                    {
+                        <a href="@Url.Action("ChangeLang","Home",new { lang=2})" class="accesskey" title="@(level1idx + 1).EN">
+                            <div class="sitemap_no">@(level1idx + 1).</div>
+                            <div class="sitemap_font">EN</div>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("ChangeLang","Home",new { lang=1})" class="accesskey" title="@(level1idx + 1).中文">
+                            <div class="sitemap_no">@(level1idx + 1).</div>
+                            <div class="sitemap_font">中文</div>
+                        </a>
+                    }
+                </li>*@
+                    }
+                </ul>
+                <!--上方選單 end-->
+
+                <br />
+                <!--主要選單 start-->
+                <h3>主要選單</h3>
+
+                <ul class="sitemap_list">
+                    @{
+                        level1idx = 0;
+                        if (TopMenu.Where(v => v.MenuLevel == 1).Count() > 0)
+                        {
+                            foreach (var menu in TopMenu.Where(v => v.MenuLevel == 1).OrderBy(t => t.Sort))
+                            {
+                                level1idx += 1;
+                                <li class="sitemap_item">
+                                    @level1idx.
+                                    @Html.aira_HyperLink_SiteMapMenu(menu, new { @class = "dropdown-toggle" })
+                                    @{
+                                        level2idx = 0;
+                                        <ul class="sitemap_list_1">
+                                            @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == menu.ID).OrderBy(t => t.Sort))
+                                            {
+                                                level2idx += 1;
+                                                <li class="sitemap_item_1">
+
+                                                    @*<div class="sitemap_no">@level1idx.@level2idx</div><div class="sitemap_font">@(string.IsNullOrEmpty(l2menu.DisplayName) ? l2menu.MenuName : l2menu.DisplayName )</div>*@
+
+                                                    <div class="sitemap_no">@level1idx.@level2idx</div>
+                                                    <div class="sitemap_font">@Html.aira_HyperLink_SiteMapMenu(Menu2nd, null)</div>
+
+                                                    @{
+                                                        level3idx = 0;
+                                                        if (TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                                        {
+                                                            <ul class="sitemap_list_2">
+                                                                @foreach (Menu Menu3rd in TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
+                                                                {
+                                                                    level3idx += 1;
+                                                                    <li class="sitemap_item_2">
+
+                                                                        <div class="sitemap_no">@level1idx.@level2idx.@level3idx</div>
+                                                                        <div class="sitemap_font">@Html.aira_HyperLink_SiteMapMenu(Menu3rd, null)</div>
+
+
+                                                                    </li>
+                                                                }
+
+                                                            </ul>
+                                                        }
+
+                                                    }
+
+                                                </li>
+                                            }
+                                        </ul>
+                                    }
+
+                                </li>
+                            }
+
+
+                        }
+
+
+                    }
+                </ul>
+                <!--主要選單 end-->
+
+                <br />
+                <!--下方選單 start-->
+                <h3>下方選單</h3>
+
+                <ul class="sitemap_list">
+                    @{
+                        level1idx = 0;
+                        if (DownMenu.Where(v => v.MenuLevel == 1).Count() > 0)
+                        {
+                            foreach (var menu in DownMenu.Where(v => v.MenuLevel == 1).OrderBy(t => t.Sort))
+                            {
+                                level1idx += 1;
+                                <li class="sitemap_item">
+                                    @level1idx.
+                                    @Html.aira_HyperLink_SiteMapMenu(menu, new { @class = "dropdown-toggle" })
+                                    @{
+                                        level2idx = 0;
+                                        <ul class="sitemap_list_1">
+                                            @foreach (Menu Menu2nd in DownMenu.Where(t => t.MenuLevel == 2 && t.ParentID == menu.ID).OrderBy(t => t.Sort))
+                                            {
+                                                level2idx += 1;
+                                                <li class="sitemap_item_1">
+
+                                                    @*<div class="sitemap_no">@level1idx.@level2idx</div><div class="sitemap_font">@(string.IsNullOrEmpty(l2menu.DisplayName) ? l2menu.MenuName : l2menu.DisplayName )</div>*@
+
+                                                    <div class="sitemap_no">@level1idx.@level2idx</div>
+                                                    <div class="sitemap_font">@Html.aira_HyperLink_SiteMapMenu(Menu2nd, null)</div>
+
+                                                    @{
+                                                        level3idx = 0;
+                                                        if (DownMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0)
+                                                        {
+                                                            <ul class="sitemap_list_2">
+                                                                @foreach (Menu Menu3rd in DownMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).OrderBy(t => t.Sort))
+                                                                {
+                                                                    level3idx += 1;
+                                                                    <li class="sitemap_item_2">
+
+                                                                        <div class="sitemap_no">@level1idx.@level2idx.@level3idx</div>
+                                                                        <div class="sitemap_font">@Html.aira_HyperLink_SiteMapMenu(Menu3rd, null)</div>
+
+
+                                                                    </li>
+                                                                }
+
+                                                            </ul>
+                                                        }
+
+                                                    }
+
+                                                </li>
+                                            }
+                                        </ul>
+                                    }
+
+                                </li>
+                            }
+
+
+                        }
+
+                    }
+                </ul>
+                <!--下方選單 end-->
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

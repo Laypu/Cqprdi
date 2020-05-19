@@ -1,0 +1,38 @@
+﻿@model MessageViewModel
+@{
+    bool isPrint = (bool)ViewBag.print;
+
+    if (isPrint)
+    {
+        Layout = "~/Views/Shared/_Print.cshtml";
+    }
+}
+<div class="title_bar">
+    <h1>@Model.MessageItem.Title</h1>
+    <br>
+    <span class="date">@(Model.MessageItem.PublicshDate?.ToString("yyyy/MM/dd"))</span>
+    @if (Model.GroupName.IsNullOrEmpty() == false)
+    {
+        <span class="type">@Model.GroupName</span>
+    }
+</div>
+
+@Html.Raw(HttpUtility.HtmlDecode(Model.MessageItem.HtmlContent))
+<div class="clear"></div>
+<hr>
+
+<div class="pho_list_title">@("相關相片".GetLang())</div>
+<div class="pho_list pho-gallery">
+    @foreach (var m in Model.ListMessageImage)
+    {
+        <a href="@Url.Content("~/UploadFile/"+m.UploadFilePath)" class="item imgLiquidFill"><img src="@Url.Content("~/UploadFile/"+m.UploadFilePath)" alt="" /><figure>@m.UploadFileDesc</figure></a>
+    }
+</div>
+<div class="clear"></div>
+
+
+<div class="pager_bar">
+    <div class="left">
+        <a href="javascript:history.back()" class="con">@("回上一頁".GetLang())</a>
+    </div>
+</div>

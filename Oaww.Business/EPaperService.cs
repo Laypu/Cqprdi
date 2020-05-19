@@ -201,6 +201,13 @@ namespace Oaww.Business
             base.Parameter.Add(new SqlParameter("@ModelID", ModelID));
 
             Paging.rows = base.SearchListPage<ModelEPaperMain>(sql, model.Offset, model.Limit, " order by " + model.Sort);
+            var count = 1;
+            foreach (var i in Paging.rows)
+            {
+                i.Sort = count + model.Limit * (model.NowPage - 1);
+                count = count + 1;
+            }
+
             Paging.total = base.SearchCount(sql);
 
             return Paging;
@@ -366,10 +373,15 @@ namespace Oaww.Business
 
                 });
             }
-            
-            
+            var count = 1;
+            foreach (var i in Paging.rows)
+            {
+                i.Sort = count + model.Limit * (model.NowPage - 1);
+                count = count + 1;
+            }
 
-            
+
+
             Paging.total = base.SearchCount(sql);
 
             return Paging;

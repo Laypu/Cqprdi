@@ -1,0 +1,98 @@
+﻿
+@using Oaww.HtmlHelp;
+@using Oaww.Entity;
+
+@{
+    Layout = null;
+
+    List<Menu> TopMenu = (List<Menu>)ViewBag.AllMenu;
+    string mid = (string)ViewBag.mid;
+
+    Menu menu = TopMenu.Where(t => t.ID.ToString() == mid).FirstOrDefault(); //先找到level
+
+    //由上方/下方Menu來的
+    if (menu == null)
+    {
+        List<Menu> DownMenu = (List<Menu>)ViewBag.DownMenu;
+        menu = DownMenu.Where(t => t.ID.ToString() == mid).FirstOrDefault(); //先找到level
+        if (menu != null)
+        {
+            menu = TopMenu.Where(t => t.ModelID == menu.ModelID && t.ModelItemID == menu.ModelItemID).FirstOrDefault();
+        }
+        else
+        {
+            List<Menu> UpMenu = (List<Menu>)ViewBag.UpMenu;
+            menu = UpMenu.Where(t => t.ID.ToString() == mid).FirstOrDefault(); //先找到level
+            if (menu != null)
+            {
+                menu = TopMenu.Where(t => t.ModelID == menu.ModelID && t.ModelItemID == menu.ModelItemID).FirstOrDefault();
+            }
+        }
+
+    }
+
+    int menuLevel = menu != null ? menu.MenuLevel : 1;
+
+
+
+    //再找到1stMenu
+    Menu Menu1st = new Menu();
+    Menu menu2nd = new Menu();
+    if (menuLevel == 1)
+    {
+        Menu1st = menu;
+    }
+    else if (menuLevel == 2)
+    {
+        Menu1st = TopMenu.Where(t => t.ID == menu.ParentID).First();
+    }
+    else if (menuLevel == 3)
+    {
+        menu2nd = TopMenu.Where(t => t.ID == menu.ParentID).First();
+        Menu1st = TopMenu.Where(t => t.ID == menu2nd.ParentID).First();
+    }
+
+    if (ViewBag.mid == "Forward")
+    {
+        Menu1st = new Menu() { MenuName = "mail分享" };
+    }
+
+    if (ViewBag.mid == "Search")
+    {
+        if ((int)ViewBag.Language == 1)
+        {
+            Menu1st = new Menu() { MenuName = "搜尋結果" };
+        }
+        else
+        {
+            Menu1st = new Menu() { MenuName = "result" };
+        }
+    }
+}
+
+<a href="javascript:void(0);" title="主要內容區" accesskey="C" id="main-content">:::</a>
+<a href="@Url.Action("Index","Home")"><i class="fa fa-home" aria-hidden="true"></i> </a>
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+@Menu1st.MenuName
+@if (menuLevel == 2)
+{
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    <span class="active">
+        @menu.MenuName
+    </span>
+}
+@if (menuLevel == 3)
+{
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    <span class="active">
+        @menu2nd.MenuName
+    </span>
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    <span class="active">
+        @menu.MenuName
+    </span>
+}
+
+
+
+
