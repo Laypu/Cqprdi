@@ -678,7 +678,8 @@ namespace Oaww.Business
                 Paging.rows.Add(new VerifyDataResult()
                 {
                     Name = d.ModuleName,
-                    Status = d.VerifyStatus == 0 ? "審核中" : (d.VerifyStatus == 1 ? "已通過" : "未通過"),
+                    Status = "",
+                    //Status = d.VerifyStatus == 0 ? "審核中" : (d.VerifyStatus == 1 ? "已通過" : "未通過"),
                     Title = d.ModelName,
                     UpdateStatus = d.ModelStatus == 1 ? "新增" : (d.ModelStatus == 2 ? "修改" : "刪除"),
                     UpdateTime = d.UpdateDateTime == null ? "" : d.UpdateDateTime.Value.ToString("yyyy/MM/dd HH:mm:ss"),

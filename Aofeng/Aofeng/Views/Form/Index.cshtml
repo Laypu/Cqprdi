@@ -30,7 +30,7 @@
                                 <div class="form_q">
                                     <label for="@item.ID">
                                         @*@{var STR = Html.Raw("<span class='red'>( 必填 )</span>")}
-        @item.Title@(item.MustInput ==true ? STR: "")*@
+                                        @item.Title@(item.MustInput ==true ? STR: "")*@
                                         @item.Title
                                         @if (item.MustInput == true)
                                         {
@@ -47,7 +47,14 @@
                                         break;
                                     //textarea
                                     case 2:
-                                        <div class="form_q"><label for="textarea">@item.Title</label></div>
+                                        <div class="form_q">
+                                            <label for="textarea">@item.Title
+                                                @if (item.MustInput == true)
+                                                {
+                                                    <span class='red'>( 必填 )</span>
+                                                }
+                                             </label>
+                                        </div>
                                         <div class="form_a">
                                             <textarea name="@item.ID" id="@item.ID" @(Model.btn == item.ID.ToString() ? "autofocus" : "")
                                                       @(item.ColumnNum.HasValue ? "size=" + item.ColumnNum.Value : "")
@@ -60,7 +67,15 @@
                                         break;
                                     //單選
                                     case 3:
-                                        <div class="form_q"><label for="radio">@item.Title</label></div>
+                                        <div class="form_q">
+                                            <label for="textarea">
+                                                @item.Title
+                                            @if (item.MustInput == true)
+                                            {
+                                                <span class='red'>( 必填 )</span>
+                                            }
+                                        </label>
+                                        </div>
                                         <div class="form_a">
                                             @{
 
@@ -83,7 +98,15 @@
                                         break;
                                     //多選
                                     case 4:
-                                        <div class="form_q"><label for="checkboxes">@item.Title</label></div>
+                                        <div class="form_q">
+                                            <label for="textarea">
+                                                @item.Title
+                                            @if (item.MustInput == true)
+                                            {
+                                                <span class='red'>( 必填 )</span>
+                                            }
+                                        </label>
+                                        </div>
                                         <div class="form_a">
                                             @{
                                                 var checkitem = item.SelList.Split('^');
@@ -103,7 +126,15 @@
                                         break;
                                     //下拉式
                                     case 5:
-                                        <div class="form_q">@item.Title</div>
+                                        <div class="form_q">
+                                            <label for="textarea">
+                                                @item.Title
+                                            @if (item.MustInput == true)
+                                            {
+                                                <span class='red'>( 必填 )</span>
+                                            }
+                                        </label>
+                                        </div>
                                         <div class="form_a">
                                             <select class="form-control w-auto" name="@item.ID">
                                                 @{

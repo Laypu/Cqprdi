@@ -25,17 +25,17 @@
 <div class="portlet light bordered">
     <!--set item start-->
     <div class="table-toolbar">
-        <div class="col-md-6 col-sm-12 col-xs-12">
-            <div class="display_inline">
+        @*<div class="col-md-6 col-sm-12 col-xs-12" >
+            <div class="display_inline" >
                 <p class="class_title">審核狀態</p>
                 <select class="form-control_1" id="sel_status">
-                    <option value="">全部</option>
-                    <option value="0" selected>審核中</option>
+                    <option value=""  selected="selected">全部</option>
+                    <option value="0">審核中</option>
                     <option value="1">已通過</option>
                     <option value="2">未通過</option>
                 </select>
             </div>
-        </div>
+        </div>*@
         <div class="col-md-6 col-sm-12 col-xs-12 mobile_left">
             <p class="display_inline">
                 <button class="btn blue search_icon">搜尋 <i class="fa fa-search"></i></button>
@@ -89,13 +89,13 @@
 
                                 </select>
                             </div>
-                            <div class="col-md-2 search_item">審核狀態</div>
+                            <div class="col-md-2 search_item" style="display:none">審核狀態</div>
                             <div class="col-md-4 bg-white">
                                 <select class="form-control_1" id="VerifyStatus">
-                                    <option value="">全部</option>
-                                    <option value="0" selected>審核中</option>
+                                    <option value="" selected>全部</option>
+                                    @*<option value="0" >審核中</option>
                                     <option value="1">已通過</option>
-                                    <option value="2">未通過</option>
+                                    <option value="2">未通過</option>*@
                                 </select>
                             </div>
 
@@ -161,7 +161,9 @@
                 $("#" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + "~" + (offsetcnt + nowpagecnt - 1));
             };
             var SearchModelBase = mytable.SearchModelBase;
-            SearchModelBase.Key = "0";
+
+            //剛開始的審核狀態
+            SearchModelBase.Key = "";
             mytable.GetData(1);
 
             $("#sel_status").change(function () {
