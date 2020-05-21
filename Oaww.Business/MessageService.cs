@@ -93,6 +93,12 @@ namespace Oaww.Business
             base.Parameter.Add(new SqlParameter("@ModelID", ModelID));
 
             Paging.rows = base.SearchListPage<ModelMessageMain>(sql, model.Offset, model.Limit, " order by " + model.Sort);
+            var count = 1;
+            foreach (var i in Paging.rows)
+            { 
+                i.Sort = count + model.Limit*(model.NowPage-1) ;
+                count = count + 1;
+            }
             Paging.total = base.SearchCount(sql);
 
             return Paging;
@@ -282,6 +288,8 @@ namespace Oaww.Business
 
             data = base.SearchListPage<MessageItem>(sql, model.Offset, model.Limit, " order by " + model.Sort).ToList();
 
+
+            
             Paging.total = base.SearchCount(sql);
 
 
@@ -328,6 +336,12 @@ namespace Oaww.Business
                     Home = d.Home,
                     VerifyStr = vdata.Count() == 0 ? "審核中" : vdata.First().VerifyStatus == 0 ? "審核中" : (vdata.First().VerifyStatus == 1 ? "已通過" : "未通過"),
                 });
+                var count = 1;
+                foreach (var i in Paging.rows)
+                {
+                    i.Sort = count + model.Limit * (model.NowPage - 1);
+                    count = count + 1;
+                }
 
             }
             return Paging;

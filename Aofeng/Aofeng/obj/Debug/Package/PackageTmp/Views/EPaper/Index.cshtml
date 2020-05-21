@@ -1,0 +1,194 @@
+﻿@using Oaww.Business
+@model EPaperViewModel
+@{
+
+    EPaperService ePaper = new EPaperService(12);
+}
+    <form method="post" action="@Url.Action("Index")" style="display:inline">
+        <!--page_search start-->
+        @Html.HiddenFor(m => m.mid)
+        @Html.HiddenFor(m => m.itemid)
+        @Html.HiddenFor(m => m.classType)
+        <div class="page_search">
+            <ul>
+                @if ((Model.ListGroupEPaper.Count() == 2 && Model.ListGroupEPaper.LastOrDefault().Group_Name == "無分類") || (Model.ListGroupEPaper.Count() == 1))
+                {
+
+                }
+                else
+                {
+
+                    <li data-sr="enter left over 1.5s" class="float-left search_class">
+
+                        <label for="search_type">
+
+                            <div class="item_title">@(ePaper.GetEPMulti("Column4", int.Parse(Model.itemid)))</div><!--英文Type；後台未輸入時不顯示，只有"無分類"時，整區塊不顯示-->
+
+
+                            <select class="form-control w-auto" id="GroupId" name="group" onchange="this.form.submit()">
+
+                                @foreach (var m in Model.ListGroupEPaper)
+                                {
+                                    <option @(m.ID == Model.group ? "selected" : "") value="@m.ID">@m.Group_Name</option>
+                                }
+
+
+                            </select>
+
+                        </label>
+                    </li>
+                }
+                <li data-sr="enter left over 1.5s">
+                    <span class="required">@ViewBag.ErrorInfo</span>
+                    <label for="mail">
+                        <div class="item_title">@(ePaper.GetEPMulti("Column5", int.Parse(Model.itemid)))</div>
+                        <input type="text" class="form-control input-medium" id="mail" placeholder="@(ePaper.GetEPMulti("Column9", int.Parse(Model.itemid)))" name="txtEmailInput">
+                    </label>
+
+                    <button class="btn" title="@(ePaper.GetEPMulti("Column6",int.Parse(Model.itemid)) )" name="btnorder" value="btnorder">@(ePaper.GetEPMulti("Column6", int.Parse(Model.itemid)))</button>
+                    <button class="btn" title="@(ePaper.GetEPMulti("Column7",int.Parse(Model.itemid)) )" name="btncancel" value="btncancel" >@(ePaper.GetEPMulti("Column7", int.Parse(Model.itemid)))</button>
+                </li>
+                <li style="display:none;">
+                    <label for="search_date">
+                        <div class="item_title">日期</div><!--英文 date-->
+                        <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy/mm/dd">
+                            <input id="search_date" type="text" class="form-control" name="from" placeholder="開始日期">
+                            <span class="input-group-addon"> ~ </span>
+                            <label for="end_date"><input id="end_date" type="text" class="form-control" name="to" placeholder="結束日期"></label>
+                        </div>
+                    </label>
+                </li>
+                <li style="display:none;">
+                    <label for="keyword">
+                        <div class="item_title">關鍵字</div><!--英文keyword；搜尋標題和內容-->
+                        <input id="keyword" type="text" class="form-control input-small" placeholder="關鍵字搜尋">
+                    </label>
+                    <button class="btn">送出</button><!--英文GO-->
+                </li>
+                <li style="display:none;" data-sr="enter right over 1.5s">
+                    <div class="list_icon">
+                        <button class="btn" onclick="location.href='news.html'" title="圖文顯示"><i class="fas fa-th-large"></i></button><!--英文Grid-->
+                    </div>
+                    <div class="list_icon">
+                        <button class="btn" onclick="location.href='news_01.html'" title="列表顯示"><i class="fas fa-th-list"></i></button><!--英文List-->
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!--page_search end-->
+    </form>
+<!--list start-->
+<div class="table-scrollable list_table">
+    <table class="table table-hover" summary="電子報列表">
+        <thead>
+            <tr>
+                @foreach (var i in Model.columnSettings)
+                {
+                    switch (i.ColumnKey)
+                    {
+                        case "No":
+                        <th scope="col" width="60">@(ePaper.GetEPMulti("Column1", int.Parse(Model.itemid)))</th>
+                            break;
+                        case "Title":
+                        <th scope="col">@(ePaper.GetEPMulti("Column3", int.Parse(Model.itemid)))</th>
+                            break;
+                        case "PublicshDate":
+                        <th scope="col" width="100">@(ePaper.GetEPMulti("Column2", int.Parse(Model.itemid)))</th>
+                            break;
+                        case "GroupName":
+                        <th scope="col" width="10%">@(ePaper.GetEPMulti("Column4", int.Parse(Model.itemid)))</th>
+                            break;
+
+                    }
+
+
+                }
+
+            </tr>
+        </thead>
+        <tbody>
+            @{ var idx = 1;}
+            @foreach (var M in Model.ListEPaperItem)
+            {
+                
+            <tr>
+                
+                @foreach (var i in Model.columnSettings)
+                {
+                    switch (i.ColumnKey)
+                    {
+                        case "No":
+                            <td scope="row" class="text-center">@(idx++)</td>
+                            break;
+
+                        case "PublicshDate":
+                            <td class="text-center">@M.PublishStr</td>
+                            break;
+
+                        case "Title":
+                            <td><a href="@Url.Action("EPaperDetails", new { id = M.ItemID })" title="@M.Title (另開新視窗)" target="_blank">@M.Title</a></td>
+                            break;
+                        case "GroupName":
+                            if (M.GroupID == 0)
+                            {
+                                <td scope="col" width="10%">無分類</td>
+                            }
+                            else
+                            { 
+                                <td scope="col" width="10%">@Model.ListGroupEPaper.Where(t => t.ID == M.GroupID).FirstOrDefault().Group_Name</td>
+                            }
+
+                            break;
+
+                    }
+                    
+                }
+
+
+            </tr>
+            }
+                    
+            @*<tr>
+                <td scope="row" class="text-center">2</td>
+                <td class="text-center">2019/09/09</td>
+                <td><a href="epaper_detail.html" title="">第198期 中華穀類食品工業技術研究所</a></td>
+                <td class="text-center">類別1</td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">3</td>
+                <td class="text-center">2019/09/09</td>
+                <td><a href="epaper_detail.html" title="">第197期 中華穀類食品工業技術研究所</a></td>
+                <td class="text-center">類別2</td>
+            </tr>*@
+        </tbody>
+    </table>
+</div>
+<!--list end-->
+
+
+@*頁簽*@
+<form target="_self" action="@Url.Action("Index")" method="post">
+    @Html.HiddenFor(m => m.mid)
+    @Html.HiddenFor(m => m.itemid)
+    @Html.HiddenFor(m => m.group)
+    @Html.HiddenFor(m => m.classType)
+    @Html.Partial("~/Views/Shared/_Page_Number.cshtml")
+    <!--頁碼 end-->
+</form>
+
+<script>
+    $(document).ready(function () {
+        var ErrorInfo ="@ViewBag.ErrorInfo";
+        var message = @Html.Raw(Json.Encode(ViewData["message"]));
+        
+        if (message != null)
+        {
+            alert(message);
+        }
+    });
+
+
+
+</script>
+    
