@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Oaww.Entity.SET;
 using Oaww.Entity;
+using Newtonsoft.Json;
 
 namespace Oaww.ViewModel
 {
@@ -21,12 +22,12 @@ namespace Oaww.ViewModel
         public string UploadFileName { get; set; }
         public string UploadFilePath { get; set; }
         public string UploadFileDesc { get; set; }
-       
+        [JsonIgnore]
         public HttpPostedFileBase UploadFile { get; set; }
         public string LinkUrl { get; set; }
 
 
-       
+        [JsonIgnore]
         public HttpPostedFileBase ImageFile { get; set; }
         public string ImageFileOrgName { get; set; }
         public string ImageFileName { get; set; }

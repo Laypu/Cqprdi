@@ -1051,6 +1051,7 @@
     <Content Include="Scripts\libs\velocity.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\owlcarousel\assets\ajax-loader.gif" />
     <Content Include="Scripts\owlcarousel\assets\owl.carousel.css" />
     <Content Include="Scripts\owlcarousel\assets\owl.carousel.min.css" />

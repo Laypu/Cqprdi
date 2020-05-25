@@ -1,0 +1,156 @@
+﻿@{
+    Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
+}
+<div class="page-bar all_width">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">管理紀錄查詢</a>
+        </li>
+    </ul>
+</div>
+<!--page bar end-->
+<div class="title_01">管理紀錄查詢</div>
+<div class="portlet light bordered">
+    <div class="search_menu">
+        <div class="portlet light form-fit bordered">
+            <div class="portlet-body form">
+                <div class="form-horizontal form-bordered">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 search_item"> 查詢區分</div>
+                            <div class="col-md-4 col-sm-12 bg-white mobile_white">
+                                <select class="form-control w-auto" id="drpOperation">
+                                    <option value="">全部</option>
+                                    <option value="1">1-使用(登入、登出)</option>
+                                    <option value="2">2-異動(增刪修)</option>
+                                    <option value="Login">登入</option>
+                                    <option value="Logout">登出</option>
+                                    <option value="Insert">新增</option>
+                                    <option value="Delete">刪除</option>
+                                    <option value="Update">修改</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-sm-12 search_item">紀錄關鍵字</div>
+                            <div class="col-md-4 col-sm-12 bg-white mobile_white">
+                                <input type="text" class="form-control_1" id="txtKeyWord" />
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 search_item"> 管理群組</div>
+                            <div class="col-md-4 col-sm-12 bg-white mobile_white">
+                                @Html.DropDownList("GroupID", (List<SelectListItem>)ViewData["ListGetGroup"], new { @id = "GroupID", @class = "form-control_1" })
+                            </div>
+                            <div class="col-md-2 col-sm-12 search_item"> 使用者ID</div>
+                            <div class="col-md-4 col-sm-12 bg-white mobile_white">
+                                <input type="text" class="form-control_1" id="txtUserID" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 search_item">使用者姓名</div>
+                            <div class="col-md-4 col-sm-12 bg-white mobile_white">
+                                <input type="text" class="form-control_1" id="txtUserName" />
+                            </div>
+                            <div class="col-md-2 col-sm-12 search_item">交易別</div>
+                            <div class="col-md-4 col-sm-12 bg-white mobile_white">
+                                @Html.DropDownList("drpTrx", (List<SelectListItem>)ViewData["ListCategory"], new { @id = "drpTrx", @class = "form-control_1" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 search_item">查詢期間</div>
+                            <div class="col-md-10 col-sm-12 bg-white mobile_white">
+                                <div class="input-group input-large">
+                                    <div class="date-picker input-daterange" style="float:left" data-date-format="yyyy/mm/dd">
+                                        <input type="text" class="form-control" readonly id="txtReceiveDate1" placeholder="開始日期" value="@DateTime.Now.AddDays(-1).ToString("yyyy/MM/dd")">
+                                    </div>
+                                    <span class="input-group-addon">to</span>
+                                    <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
+                                        <input type="text" class="form-control" readonly id="txtReceiveDate2" placeholder="結束日期" value="@DateTime.Now.ToString("yyyy/MM/dd")">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center search_padding">
+            <button type="button" class="btn green" id="btn_search">搜尋 <i class="fa fa-search"></i></button>
+        </div>
+        <div class="table-scrollable">
+            <table class="table table-bordered table-hover" border="0" cellspacing="0" cellpadding="0"
+                   id="eventtable"
+                   data-url="@Url.Action("Paging")"
+                   data-sort-name='LM_Time'
+                   data-page-size='10'
+                   data-filed-id='ID'
+                   data-max-pagination='10'>
+                <thead>
+                    <tr class="bg-grey_1" filed-class='odd gradeX'>
+                        <th filed-name='LM_Time' class="text-center" filed-type="datetime">登出/登入/異動時間</th>
+                        <th filed-name='Operation' class="text-center">區分</th>
+                        <th filed-name='Name' class="text-center">交易名稱</th>
+                        <th filed-name='MUser' class="text-center">群組名稱/使用者</th>
+                        <th filed-name='ModelName' class="text-center">單元名稱</th>
+                        <th filed-name='ItemName' class="text-center">項目名稱</th>
+                        <th filed-name='Before' width="30%" class="text-center" filed-type="textarea">資料表<br />變更前資料</th>
+                        <th filed-name='After' width="30%" class="text-center" filed-type="textarea">資料表<br />變更後資料</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div id="page_number" class="table-toolbar">
+            <div class="col-md-4 col-sm-12 col-xs-12 page_total" id="tableinfo"></div>
+            <div class="col-md-8 col-sm-12 col-xs-12 page_icon">
+                <div class="btn-group" id="pagination">
+                </div>
+            </div>
+        </div>
+    </div>
+    @section scripts {
+        <script src="@Url.Content("~/Scripts/components-date-time-pickers.min.js")"></script>
+        <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
+        <script src="@Url.Content("~/Scripts/datatable.js")"></script>
+        <script src="@Url.Content("~/Scripts/custom.js")"></script>
+        <script src="~/Scripts/moment.min.js"></script>
+        <script src="~/Scripts/Common.js"></script>
+        <script>
+            $(document).ready(function () {
+                mytable = $("#eventtable").myDataTable().TableList[0];
+                mytable.settingTdData = myDataTableTr;
+                mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
+                    var totalclick = mytable.keepcheckid.length;
+                    $("#" + tableinfoId).html('總筆數:' + totalcnt + '，顯示' + (totalcnt <= 0 ? 0 : offsetcnt) + "~" + (offsetcnt + nowpagecnt - 1));
+                };
+                var SearchModelBase = mytable.SearchModelBase;
+                SearchModelBase.sdate = $('#txtReceiveDate1').val();
+                SearchModelBase.edate = $('#txtReceiveDate2').val();
+                mytable.GetData(1);
+
+                $("#btn_search").click(function () {
+                    if (DateBetweenVaild('txtReceiveDate1', 'txtReceiveDate2') == false) {
+                        alert('開始日期必須小於結束日期！');
+                        return false;
+                    }
+                    var SearchModelBase = mytable.SearchModelBase;
+                    SearchModelBase.Operation = $('#drpOperation').val();
+                    SearchModelBase.sdate = $('#txtReceiveDate1').val();
+                    SearchModelBase.edate = $('#txtReceiveDate2').val();
+                    SearchModelBase.GroupID = $('#GroupID').val();
+                    SearchModelBase.UserID = $('#txtUserID').val();
+                    SearchModelBase.UserName = $('#txtUserName').val();
+                    SearchModelBase.Trx = $('#drpTrx').val();
+                    SearchModelBase.KeyWord = $('#txtKeyWord').val();
+                    SearchModelBase.Search = "Y";
+                    mytable.GetData(1);
+                });
+            });
+
+        </script>
+    }

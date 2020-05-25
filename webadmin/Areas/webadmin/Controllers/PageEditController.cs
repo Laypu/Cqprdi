@@ -11,6 +11,8 @@ using Oaww.Entity.SET;
 using Oaww.Utility;
 using System.Configuration;
 using System.IO;
+using static Oaww.Business.CommonService;
+using Newtonsoft.Json;
 
 namespace Template.webadmin.Areas.webadmin.Controllers
 {
@@ -72,11 +74,26 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             if (id == "-1")
             {
                 str = _menuService.AddUnit<ModelPageEditMain>(name, this.LanguageID, this.Account, _ModelID) ? "新增成功" : "新增失敗";
+                if (str == "新增成功")
+                {
+                    _commonService.InsertLog(Operation.Insert, this.Account, name,"",
+                     "MainPage"
+                     , ""
+                     , $"新增圖文單元名稱:{name}");
+                }
             }
             else
             {
+                string odatName = _service.GetPageIndexItemByItemID(id).ItemName;
                 str = _menuService.UpdateUnit<ModelPageEditMain>(name, id, this.Account, _ModelID.ToString()) ? "修改成功" : "修改失敗";
-
+                if (str == "修改成功")
+                {
+                    
+                    _commonService.InsertLog(Operation.Update, this.Account, odatName, "",
+                     "MainPage"
+                     , $"原圖文單元名稱:{odatName}  ItemID:{id}"
+                     , $"修改過後圖文單元名稱:{name}");
+                }
                 ModelPageEditMain modelAMLMain = _service.GetModelPageEditMainByID(int.Parse(id));
             }
 
@@ -101,6 +118,11 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
                 pageIndexItems.ForEach(t =>
                 {
+                    _commonService.InsertLog(Operation.Delete, this.Account, t.ItemName,"",
+                    "MainPage"
+                    , JsonConvert.SerializeObject(t, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
+                     , "");
+
                     //刪除File
                     if (t.UploadFileName.IsNullOrEmpty() == false)
                     {
@@ -349,7 +371,10 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                 string result = _service.CreatePageEdit(model, this.LanguageID, this.Account);
                 ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
                 _siteConfigService.Update(ListConfig);
-
+                _commonService.InsertLog(Operation.Insert, this.Account, model.ModelName, "",
+       "PageIndexItem"
+       , ""
+       , JsonConvert.SerializeObject(model, Formatting.Indented, new HttpPostedFileConverter()));
                 return Content(result);
             }
             else
@@ -366,7 +391,10 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                                                             : olddata.ImageFileOrgName); //不變
 
                 string result = _service.EditPageItem(model, this.Account);
-
+                _commonService.InsertLog(Operation.Update, this.Account, model.ModelName,"",
+                       "PageIndexItem"
+                       , JsonConvert.SerializeObject(Premodel, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
+                       , JsonConvert.SerializeObject(model, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
                 var oldroot = System.Web.HttpContext.Current.Request.PhysicalApplicationPath + $"\\UploadImage\\{_Path}\\";
 
                 //刪除舊檔案

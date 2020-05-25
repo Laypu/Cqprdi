@@ -991,127 +991,7 @@ WriteLiteral("                                    ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n");
-
-WriteLiteral("                            <div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n                                <div");
-
-WriteLiteral(" class=\"col-md-2 col-sm-12 col-xs-12 search_item\"");
-
-WriteLiteral(">新增</div>\r\n                                <div");
-
-WriteLiteral(" class=\"col-md-10 col-sm-12 mobile_white language_set\"");
-
-WriteLiteral(">\r\n                                    <div");
-
-WriteLiteral(" class=\"col-md-12\"");
-
-WriteLiteral(">\r\n                                        <label");
-
-WriteLiteral(" for=\"exampleInputFile\"");
-
-WriteLiteral(" class=\"col-md-2\"");
-
-WriteLiteral(">人員</label>\r\n                                        <div");
-
-WriteLiteral(" class=\"col-md-10 label_font\"");
-
-WriteLiteral(">");
-
-            
-            #line 199 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
-                                                                     Write(Model.CreateUser);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n                                    </div>\r\n                             " +
-"       <div");
-
-WriteLiteral(" class=\"col-md-12\"");
-
-WriteLiteral(">\r\n                                        <label");
-
-WriteLiteral(" class=\"col-md-2\"");
-
-WriteLiteral(">時間</label>\r\n                                        <div");
-
-WriteLiteral(" class=\"col-md-10 label_font\"");
-
-WriteLiteral(">");
-
-            
-            #line 203 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
-                                                                     Write(Model.CreateDatetime);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n                                    </div>\r\n                             " +
-"   </div>\r\n                            </div>\r\n");
-
-WriteLiteral("                            <div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n                                <div");
-
-WriteLiteral(" class=\"col-md-2 col-sm-12 col-xs-12 search_item\"");
-
-WriteLiteral(">最後修改</div>\r\n                                <div");
-
-WriteLiteral(" class=\"col-md-10 col-sm-12 mobile_white language_set\"");
-
-WriteLiteral(">\r\n                                    <div");
-
-WriteLiteral(" class=\"col-md-12\"");
-
-WriteLiteral(">\r\n                                        <label");
-
-WriteLiteral(" for=\"exampleInputFile\"");
-
-WriteLiteral(" class=\"col-md-2\"");
-
-WriteLiteral(">人員</label>\r\n                                        <div");
-
-WriteLiteral(" class=\"col-md-10 label_font\"");
-
-WriteLiteral(">");
-
-            
-            #line 212 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
-                                                                     Write(Model.UpdateUser);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n                                    </div>\r\n                             " +
-"       <div");
-
-WriteLiteral(" class=\"col-md-12\"");
-
-WriteLiteral(">\r\n                                        <label");
-
-WriteLiteral(" class=\"col-md-2\"");
-
-WriteLiteral(">時間</label>\r\n                                        <div");
-
-WriteLiteral(" class=\"col-md-10 label_font\"");
-
-WriteLiteral(">");
-
-            
-            #line 216 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
-                                                                     Write(Model.UpdateDatetime);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n                                    </div>\r\n                             " +
-"   </div>\r\n                            </div>\r\n");
+WriteLiteral("\r\n                                </div>\r\n                            </div> \r\n");
 
 WriteLiteral("                            <div");
 
@@ -1142,7 +1022,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 225 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 199 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
                                                                      Write(Model.VerifyUser);
 
             
@@ -1164,7 +1044,7 @@ WriteLiteral(" class=\"col-md-10 label_font\"");
 WriteLiteral(">");
 
             
-            #line 229 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 203 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
                                                                      Write(Model.VerifyDateTime);
 
             
@@ -1174,14 +1054,130 @@ WriteLiteral("</div>\r\n                                    </div>\r\n          
 "   </div>\r\n                            </div>\r\n");
 
             
-            #line 233 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 207 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
                         }
 
             
             #line default
             #line hidden
-WriteLiteral("                    </div>\r\n                </div>\r\n            </div>\r\n        <" +
-"/div>\r\n        <div");
+WriteLiteral("                        <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                            <div");
+
+WriteLiteral(" class=\"col-md-2 col-sm-12 col-xs-12 search_item\"");
+
+WriteLiteral(">新增</div>\r\n                            <div");
+
+WriteLiteral(" class=\"col-md-10 col-sm-12 mobile_white language_set\"");
+
+WriteLiteral(">\r\n                                <div");
+
+WriteLiteral(" class=\"col-md-12\"");
+
+WriteLiteral(">\r\n                                    <label");
+
+WriteLiteral(" for=\"exampleInputFile\"");
+
+WriteLiteral(" class=\"col-md-2\"");
+
+WriteLiteral(">人員</label>\r\n                                    <div");
+
+WriteLiteral(" class=\"col-md-10 label_font\"");
+
+WriteLiteral(">");
+
+            
+            #line 213 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+                                                                 Write(Model.CreateUser);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>\r\n                                </div>\r\n                                <" +
+"div");
+
+WriteLiteral(" class=\"col-md-12\"");
+
+WriteLiteral(">\r\n                                    <label");
+
+WriteLiteral(" class=\"col-md-2\"");
+
+WriteLiteral(">時間</label>\r\n                                    <div");
+
+WriteLiteral(" class=\"col-md-10 label_font\"");
+
+WriteLiteral(">");
+
+            
+            #line 217 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+                                                                 Write(Model.CreateDatetime);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>\r\n                                </div>\r\n                            </div" +
+">\r\n                        </div>\r\n                        <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                            <div");
+
+WriteLiteral(" class=\"col-md-2 col-sm-12 col-xs-12 search_item\"");
+
+WriteLiteral(">最後修改</div>\r\n                            <div");
+
+WriteLiteral(" class=\"col-md-10 col-sm-12 mobile_white language_set\"");
+
+WriteLiteral(">\r\n                                <div");
+
+WriteLiteral(" class=\"col-md-12\"");
+
+WriteLiteral(">\r\n                                    <label");
+
+WriteLiteral(" for=\"exampleInputFile\"");
+
+WriteLiteral(" class=\"col-md-2\"");
+
+WriteLiteral(">人員</label>\r\n                                    <div");
+
+WriteLiteral(" class=\"col-md-10 label_font\"");
+
+WriteLiteral(">");
+
+            
+            #line 226 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+                                                                 Write(Model.UpdateUser);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>\r\n                                </div>\r\n                                <" +
+"div");
+
+WriteLiteral(" class=\"col-md-12\"");
+
+WriteLiteral(">\r\n                                    <label");
+
+WriteLiteral(" class=\"col-md-2\"");
+
+WriteLiteral(">時間</label>\r\n                                    <div");
+
+WriteLiteral(" class=\"col-md-10 label_font\"");
+
+WriteLiteral(">");
+
+            
+            #line 230 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+                                                                 Write(Model.UpdateDatetime);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>\r\n                                </div>\r\n                            </div" +
+">\r\n                        </div>\r\n\r\n                    </div>\r\n               " +
+" </div>\r\n            </div>\r\n        </div>\r\n        <div");
 
 WriteLiteral(" class=\"text-center search_padding\"");
 
@@ -1203,16 +1199,16 @@ WriteLiteral(" class=\"btn blue\"");
 
 WriteLiteral(" id=\"btn_return\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 15945), Tuple.Create("\"", 15998)
-, Tuple.Create(Tuple.Create("", 15955), Tuple.Create("window.location.href=\'", 15955), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 15844), Tuple.Create("\"", 15897)
+, Tuple.Create(Tuple.Create("", 15854), Tuple.Create("window.location.href=\'", 15854), true)
             
-            #line 241 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
-                 , Tuple.Create(Tuple.Create("", 15977), Tuple.Create<System.Object, System.Int32>(Url.Action("Index")
+            #line 242 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+                 , Tuple.Create(Tuple.Create("", 15876), Tuple.Create<System.Object, System.Int32>(Url.Action("Index")
             
             #line default
             #line hidden
-, 15977), false)
-, Tuple.Create(Tuple.Create("", 15997), Tuple.Create("\'", 15997), true)
+, 15876), false)
+, Tuple.Create(Tuple.Create("", 15896), Tuple.Create("\'", 15896), true)
 );
 
 WriteLiteral(">返回列表</button>\r\n            <button");
@@ -1231,64 +1227,64 @@ DefineSection("scripts", () => {
 
 WriteLiteral("\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 16194), Tuple.Create("\"", 16261)
-            
-            #line 249 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
-, Tuple.Create(Tuple.Create("", 16200), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
-            
-            #line default
-            #line hidden
-, 16200), false)
-);
-
-WriteLiteral("></script>\r\n    <script");
-
-WriteAttribute("src", Tuple.Create(" src=\"", 16285), Tuple.Create("\"", 16340)
+WriteAttribute("src", Tuple.Create(" src=\"", 16093), Tuple.Create("\"", 16160)
             
             #line 250 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
-, Tuple.Create(Tuple.Create("", 16291), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
+, Tuple.Create(Tuple.Create("", 16099), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/components-date-time-pickers.min.js")
             
             #line default
             #line hidden
-, 16291), false)
+, 16099), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 16364), Tuple.Create("\"", 16416)
+WriteAttribute("src", Tuple.Create(" src=\"", 16184), Tuple.Create("\"", 16239)
             
             #line 251 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
-, Tuple.Create(Tuple.Create("", 16370), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
+, Tuple.Create(Tuple.Create("", 16190), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootstrap-datepicker.js")
             
             #line default
             #line hidden
-, 16370), false)
+, 16190), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 16440), Tuple.Create("\"", 16486)
+WriteAttribute("src", Tuple.Create(" src=\"", 16263), Tuple.Create("\"", 16315)
             
             #line 252 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
-, Tuple.Create(Tuple.Create("", 16446), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+, Tuple.Create(Tuple.Create("", 16269), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/ckeditor/ckeditor.js")
             
             #line default
             #line hidden
-, 16446), false)
+, 16269), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 16510), Tuple.Create("\"", 16534)
-, Tuple.Create(Tuple.Create("", 16516), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
-, 16516), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 16339), Tuple.Create("\"", 16385)
+            
+            #line 253 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+, Tuple.Create(Tuple.Create("", 16345), Tuple.Create<System.Object, System.Int32>(Url.Content("~/Scripts/bootbox.min.js")
+            
+            #line default
+            #line hidden
+, 16345), false)
+);
+
+WriteLiteral("></script>\r\n    <script");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 16409), Tuple.Create("\"", 16433)
+, Tuple.Create(Tuple.Create("", 16415), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/_html.js")
+, 16415), false)
 );
 
 WriteLiteral("></script>\r\n    <script>\r\n         \r\n        $(function () {\r\n\r\n            $(\"#b" +
 "tn_return\").hide();\r\n            if (\'");
 
             
-            #line 259 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 260 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
             Write(ViewBag.IsFromClick);
 
             
@@ -1298,7 +1294,7 @@ WriteLiteral("\' == \'Y\') {\r\n                $(\"#btn_return\").show();\r\n  
 "   $(\"#ImageFileLocation\").val(\'");
 
             
-            #line 263 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 264 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
                                     Write(Model.ImageFileLocation);
 
             
@@ -1330,7 +1326,7 @@ WriteLiteral("\');\r\n\r\n              $(\'#btn_image_add\').click(function (ev
 "           height: 300,\r\n               filebrowserImageUploadUrl: \'");
 
             
-            #line 304 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 305 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
                                       Write(Url.Action("Upload"));
 
             
@@ -1339,7 +1335,7 @@ WriteLiteral("\');\r\n\r\n              $(\'#btn_image_add\').click(function (ev
 WriteLiteral("?command=QuickUpload&type=Images\',\r\n               filebrowserUploadUrl: \'");
 
             
-            #line 305 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 306 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
                                  Write(Url.Action("UploadFile"));
 
             
@@ -1364,7 +1360,7 @@ WriteLiteral(@"?command=QuickUpload&type=Files',
              var fileupload = '");
 
             
-            #line 321 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 322 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
                           Write(Model.UploadFileName);
 
             
@@ -1375,7 +1371,7 @@ WriteLiteral("\'\r\n            if (fileupload!==\"\"){\r\n                $(\"#
 "        $(\"#div_seo\").toggle(500);\r\n            });\r\n\r\n           if (\'");
 
             
-            #line 329 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 330 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
            Write(Model.ItemID);
 
             
@@ -1384,7 +1380,7 @@ WriteLiteral("\'\r\n            if (fileupload!==\"\"){\r\n                $(\"#
 WriteLiteral("\'>0 && \'");
 
             
-            #line 329 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 330 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
                                 Write(Model.ImageFileName);
 
             
@@ -1465,7 +1461,7 @@ WriteLiteral("\'!=\'\') {\r\n                $(\'#div_oldfile\').show();\r\n    
 "                      document.location.href = \'");
 
             
-            #line 454 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
+            #line 455 "..\..\Areas\webadmin\Views\PageEdit\ModelItem.cshtml"
                                               Write(Url.Action("ModelItem", new { id=Model.ModelID,itemid=Model.ItemID}));
 
             

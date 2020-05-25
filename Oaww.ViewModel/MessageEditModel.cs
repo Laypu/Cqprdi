@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Newtonsoft.Json;
 using Oaww.Entity;
 using Oaww.Entity.SET;
 
@@ -40,14 +41,14 @@ namespace Oaww.ViewModel
         public string ImageUrl { get; set; }
         public string ImageFileDesc { get; set; }
         public string ImageFileLocation { get; set; }
-       
+        [JsonIgnore]
         public HttpPostedFileBase ImageFile { get; set; }
         public string ImageFileOrgName { get; set; }
         public string ImageFileName { get; set; }
 
 
         public string RelateImagelUrl { get; set; }
-       
+        [JsonIgnore]
         public HttpPostedFileBase RelateImageFile { get; set; }
         public string RelateImageFileOrgName { get; set; }
         public string RelateImageName { get; set; }
@@ -58,6 +59,7 @@ namespace Oaww.ViewModel
         public string UploadFileDesc { get; set; }
         public int? UploadFileSize { get; set; }
         public string UploadFileType { get; set; }
+        [JsonIgnore]
         public HttpPostedFileBase UploadFile { get; set; }
 
         public string WebsiteTitle { get; set; }

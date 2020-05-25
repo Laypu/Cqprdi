@@ -117,6 +117,7 @@
     <Compile Include="SiteLayout.cs" />
     <Compile Include="SiteMap\SiteMapItem.cs" />
     <Compile Include="SiteMap\SiteMapKey.cs" />
+    <Compile Include="sys_Operation_Log.cs" />
     <Compile Include="UnitSetting.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="VerifyData.cs" />

@@ -85,6 +85,7 @@
     <Compile Include="ExclusiveLayoutService.cs" />
     <Compile Include="FormService.cs" />
     <Compile Include="HomeService.cs" />
+    <Compile Include="LogService.cs" />
     <Compile Include="MenuService.cs" />
     <Compile Include="MessageService.cs" />
     <Compile Include="ModelService.cs" />

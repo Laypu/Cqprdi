@@ -9,7 +9,7 @@ using Oaww.Utility;
 using System.Web.Mvc;
 using Oaww.ViewModel;
 using System.IO;
-
+using System.Runtime.Serialization;
 
 namespace Oaww.Business
 {
@@ -467,7 +467,7 @@ namespace Oaww.Business
             return item;
         }
 
-        public IList<SelectListItem> GetAllGroupSelectList<T>(string mainid,int Lang_ID) where T : GroupBase
+        public IList<SelectListItem> GetAllGroupSelectList<T>(string mainid, int Lang_ID) where T : GroupBase
         {
             string sql = string.Empty;
             base.Parameter.Clear();
@@ -481,8 +481,8 @@ namespace Oaww.Business
                 sql += " and Lang_ID=@Lang_ID Order By Sort";
                 base.Parameter.Add(new SqlParameter("@Lang_ID", Lang_ID));
             }
-            
-            
+
+
             base.Parameter.Add(new SqlParameter("@Main_ID", mainid));
             var list = base.SearchList<T>(sql);
 
@@ -516,7 +516,7 @@ namespace Oaww.Business
             return Paging;
         }
 
-        public Paging<T> PagingGroup<T>(SearchModelBase model,int Lang_ID) where T : class
+        public Paging<T> PagingGroup<T>(SearchModelBase model, int Lang_ID) where T : class
         {
             var Paging = new Paging<T>();
 
@@ -524,7 +524,7 @@ namespace Oaww.Business
 
             base.Parameter.Clear();
 
-              if (Lang_ID == 0)
+            if (Lang_ID == 0)
             {
                 sql += " and Lang_ID is null";
             }
@@ -1382,7 +1382,7 @@ namespace Oaww.Business
                 {
                     //NLogManagement.SystemLogInfo("刪除訊息項目:" + delaccount);
                     rstr = "刪除成功";
-                    
+
                 }
                 else
                 {
@@ -2537,5 +2537,83 @@ namespace Oaww.Business
             return base.ExecuteScalar(sql, "").ToString();
         }
         #endregion
+        #region InsertLog
+        public void InsertLog(Operation Operation, string Operator, string OperationModelName, string OperationItemName, string TrxType, string Before, string After)
+        {
+            sys_Operation_Log sysLog = new sys_Operation_Log();
+            sysLog.Operation = GetOperationName(Operation);
+            sysLog.Operator = Operator;
+            sysLog.OperationModelName = OperationModelName.IsNullOrEmpty() ? "" : OperationModelName;
+            sysLog.OperationItemName = OperationItemName.IsNullOrEmpty() ? "" : OperationItemName;
+            sysLog.TrxType = TrxType;
+            sysLog.Before = Before;
+            if (sysLog.Operation == "Login" || sysLog.Operation == "Logout")
+            {
+                sysLog.After = After.safeHtmlFragment().NewLineReplace();
+            }
+            else
+            {
+                sysLog.After = After;
+            }
+            sysLog.LM_Time = DateTime.Now;
+
+              try
+            {
+                base.InsertObject(sysLog);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, $"新增 SysLog 到DB異常，error:" + ex.ToString().NewLineReplace());
+                throw ex;
+            }
+        }
+        #endregion
+        #region GetOperationName
+        public string GetOperationName(Operation operation)
+        {
+            string result = string.Empty;
+
+            switch (operation)
+            {
+                case Operation.Insert:
+                    result = "Insert";
+                    break;
+                case Operation.Delete:
+                    result = "Delete";
+                    break;
+                case Operation.Login:
+                    result = "Login";
+                    break;
+                case Operation.Logout:
+                    result = "Logout";
+                    break;
+                case Operation.Update:
+                    result = "Update";
+                    break;
+                case Operation.Release:
+                    result = "Release";
+                    break;
+            }
+
+            return result;
+        }
+#endregion
+        [DataContract(Name = "Operation")]
+        public enum Operation
+        {
+            [EnumMember]
+            Login = 0,
+            [EnumMember]
+            Logout = 1,
+            [EnumMember]
+            Insert = 2,
+            [EnumMember]
+            Delete = 3,
+            [EnumMember]
+            Update = 4,
+            [EnumMember]
+            Release = 5
+        }
+
     }
 }

@@ -12,6 +12,8 @@ using Oaww.Business;
 using Oaww.Utility;
 using System.Configuration;
 using System.IO;
+using static Oaww.Business.CommonService;
+using Newtonsoft.Json;
 
 namespace Template.webadmin.Areas.webadmin.Controllers
 {
@@ -100,6 +102,10 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
                 foreach (var items in messageItems)
                 {
+                    _commonService.InsertLog(Operation.Delete, this.Account, items.ModelName,"",
+                     "MainMessage"
+                     , ""
+                     , "");
                     //刪除File
                     if (items.UploadFileName.IsNullOrEmpty() == false)
                     {
@@ -145,19 +151,34 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         {
 
             var str = "";
+            var rest = string.Empty;
+            rest = GetMinModel(_ModelID);
             if (mainid == "-1" || string.IsNullOrEmpty(mainid))
             {
 
 
                 str = _menuService.AddUnit<ModelMessageMain>(name, this.LanguageID, this.Account, _ModelID) ? "新增成功" : "新增失敗";
-
+               if(str== "新增成功")
+                {
+                    _commonService.InsertLog(Operation.Insert, this.Account, name, "",
+                     $"{rest}"
+                     , ""
+                     ,$"新增訊息單元名稱:{name}");
+                }
 
             }
             else
             {
-
+                string odatName = _service.GetModelMessageMain(mainid, this.LanguageID).Name;
                 str = _menuService.UpdateUnit<ModelMessageMain>(name, mainid, this.Account, _ModelID.ToString()) ? "修改成功" : "修改失敗";
-
+                if (str == "修改成功")
+                {
+                 _commonService.InsertLog(Operation.Update, this.Account, odatName
+                   ,""
+                   , $"{rest}"
+                   , $"原訊息單元名稱:{odatName}  ItemID:{mainid}"
+                   , $"修改過後訊息單元名稱:{name}");
+                }
             }
             return Json(str);
 
@@ -351,6 +372,11 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
             model.HtmlContent = HttpUtility.UrlDecode(model.HtmlContent);
             model.Title = HttpUtility.UrlDecode(model.Title);
+            var MainModel = _service.GetModelMessageMain(model.ModelID.ToString(), this.LanguageID);
+            var MainModelId = MainModel.ModelID;
+            string ModelName = MainModel.Name;
+            var defuName = string.Empty;
+            defuName = GetModelItem((int)MainModelId);
             if (model.ItemID == -1)
             {
 
@@ -358,6 +384,11 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
                 ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
                 _siteConfigService.Update(ListConfig);
+
+               _commonService.InsertLog(Operation.Insert, this.Account, ModelName, model.Title,
+                     $"{defuName}"
+                    , ""
+                    , JsonConvert.SerializeObject(model, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
                 return Content(result);
             }
             else
@@ -365,16 +396,16 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                 MessageEditModel Premodel = _service.GetModelByID(model.ModelID.ToString(), model.ItemID.ToString(), SET_MESSAGE.M_MESSAGE02);
 
                 MessageItem olddata = _service.GetMessageItemByID(model.ItemID.ToString());
-
                 string result = _service.UpdateItem(model, this.LanguageID, this.Account, this.UserName);
-
-
                 if (result == "修改成功")
                 {
+                    _commonService.InsertLog(Operation.Update, this.Account, ModelName, model.Title,
+                        $"{defuName}"
+                        , JsonConvert.SerializeObject(Premodel, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
+                        , JsonConvert.SerializeObject(model, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
                     ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
                     _siteConfigService.Update(ListConfig);
                     var oldroot = System.Web.HttpContext.Current.Request.PhysicalApplicationPath + $"\\UploadImage\\{SET_MESSAGE.M_MESSAGE02}\\";
-
                     //刪除舊檔案,如果還在就不刪除
                     Premodel.fileDownloadFiles.ForEach(t =>
                     {
@@ -576,7 +607,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         public ActionResult SetItemStatus(string id, bool status, string type)
         {
             string result = _commonService.SetItemStatus<MessageItem>(id, status, this.Account, this.UserName);
-
+            
 
             return Content(result);
         }
@@ -599,15 +630,24 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         public ActionResult SetItemDelete(string[] idlist, string delaccount, string type)
         {
             List<MessageItem> messageItems = _service.GetMessageItems(idlist);
-
+            var MainModelId = _service.GetModelMessageMain(messageItems.FirstOrDefault().ModelID.ToString(), this.LanguageID).ModelID;
+            string ModelName = _service.GetModelMessageMain(messageItems.FirstOrDefault().ModelID.ToString(), this.LanguageID).Name;
             string result = _commonService.DeleteItem<MessageItem>(idlist, delaccount, this.Account, this.UserName, SET_MESSAGE.M_MESSAGE02, _ModelID);
-
+            string DefulName = string.Empty;
+            DefulName = GetModelItem((int)MainModelId);
             if (result == "刪除成功")
             {
+               
                 var oldroot = System.Web.HttpContext.Current.Request.PhysicalApplicationPath + $"\\UploadImage\\{SET_MESSAGE.M_MESSAGE02}\\";
 
                 foreach (var items in messageItems)
                 {
+                    
+                    _commonService.InsertLog(Operation.Delete, this.Account, ModelName, items.Title,
+                      $"{DefulName}"
+                      , JsonConvert.SerializeObject(items, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
+                      , "");
+                    
                     //刪除File
                     if (items.UploadFileName.IsNullOrEmpty() == false)
                     {
@@ -841,6 +881,54 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             string result = _commonService.SetUnitModel<MessageUnitSettingModel, MessageUnitSetting>(model, this.Account, "Message", model.MainID.Value.ToString());
 
             return Content(result);
+        }
+
+        #endregion
+
+        #region New程式
+        /// <summary>
+        /// GetXXXItem 判斷哪可模組內容
+        /// </summary>
+        
+        public string GetModelItem(int ModelID)
+        {
+            var resul = string.Empty;
+            switch (ModelID)
+            {
+                case 2:
+                    resul = "MessageItem";
+                    break;
+                case 3:
+                    resul = "FileDownloadItem";
+                    break;
+                case 10:
+                    resul = "HistoryItem";
+                    break;
+                case 11:
+                    resul = "ActiveItem";
+                    break;
+            }
+            return resul;
+        }
+        public string GetMinModel(int ModelID)
+        {
+            var resul = string.Empty;
+            switch (ModelID)
+            {
+                case 2:
+                    resul = "MainMessage";
+                    break;
+                case 3:
+                    resul = "MainFileDownload";
+                    break; 
+                case 10:
+                    resul = "MainHistory";
+                    break;
+                case 11:
+                    resul = "MainActive";
+                    break;
+            }
+            return resul;
         }
 
         #endregion
