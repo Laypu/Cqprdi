@@ -60,6 +60,11 @@ namespace Aofeng.Controllers
                 }
                 else
                 {
+                    if(Request.QueryString["lang"]!= null)
+                    {
+                        _langid = int.Parse(Request.QueryString["lang"].ToString());
+                        requestContext.HttpContext.Session["LangID"] = Request.QueryString["lang"];
+                    }
                     langid = _langid;
                     _Lang = langid;
                 }
