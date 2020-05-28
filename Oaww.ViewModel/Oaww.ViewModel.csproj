@@ -98,6 +98,7 @@
     <Compile Include="SEOViewModel.cs" />
     <Compile Include="SiteLayoutModel.cs" />
     <Compile Include="SiteMap\SiteMapEditModel.cs" />
+    <Compile Include="LogSearchModel.cs" />
     <Compile Include="UnitSettingColumn.cs" />
     <Compile Include="UnitSettingModelBase.cs" />
     <Compile Include="UserGroupListResult.cs" />

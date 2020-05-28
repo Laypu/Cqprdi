@@ -255,3 +255,12 @@ C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\obj\Debug\webadmin.csproj.CoreCompi
 C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\obj\Debug\webadmin.csproj.CopyComplete
 C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\obj\Debug\Template.webadmin.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\obj\Debug\Template.webadmin.pdb
+D:\穀物\Cqprdi\webadmin\bin\System.Net.Http.Formatting.dll
+D:\穀物\Cqprdi\webadmin\bin\System.Web.Http.dll
+D:\穀物\Cqprdi\webadmin\bin\System.Web.Http.WebHost.dll
+D:\穀物\Cqprdi\webadmin\bin\System.Net.Http.Formatting.xml
+D:\穀物\Cqprdi\webadmin\bin\System.Web.Http.xml
+D:\穀物\Cqprdi\webadmin\bin\System.Web.Http.WebHost.xml
+D:\穀物\Cqprdi\webadmin\bin\zh-Hant\System.Net.Http.Formatting.resources.dll
+D:\穀物\Cqprdi\webadmin\bin\zh-Hant\System.Web.Http.resources.dll
+D:\穀物\Cqprdi\webadmin\bin\zh-Hant\System.Web.Http.WebHost.resources.dll

@@ -13,6 +13,7 @@ using Oaww.Entity;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 using Oaww.Entity.SET;
+using static Oaww.Business.CommonService;
 
 namespace Template.webadmin.Areas.webadmin.Controllers
 {
@@ -89,7 +90,10 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                     {
                         ExpiresUtc = DateTime.SpecifyKind(DateTime.Now.AddMinutes(180), DateTimeKind.Local)
                     }, identity);
-
+                    _commonService.InsertLog(Operation.Login,User.Account,"", "",
+                       "Login"
+                       , ""
+                       , $"登入IP: { GetClientIP()}");
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -127,9 +131,18 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
         [AllowAnonymous]
         public ActionResult Logout()
-        {
+        { 
+            var user = System.Web.HttpContext.Current.Request.GetOwinContext().Authentication.User;
+            var identity = (ClaimsIdentity)User.Identity;
+
+            var name = identity.FindFirst(ClaimTypes.NameIdentifier);
+            _commonService.InsertLog(Operation.Logout, name == null ? "" : name.Value, "", "",
+                   "LogOut"
+                   , ""
+                   , $"登出IP: { GetClientIP()}");
             Authentication.SignOut();
-            Session.Abandon();            
+            Session.Abandon();
+           
             return RedirectToAction("Login", "Auth", new { area = "webadmin" });
         }
 
@@ -151,6 +164,24 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             }
 
             return Convert.ToBase64String(bRet);
+        }
+        private string GetClientIP()
+        {
+            string result =string.Empty;
+            //string strHostName = System.Net.Dns.GetHostName();
+            //result = System.Net.Dns.GetHostAddresses(strHostName).GetValue(0).ToString();
+            if (Request.ServerVariables["HTTP_VIA"] != null) // using proxy
+            {
+                result = Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString(); // Return real client IP.
+            }
+            else// not using proxy or can’t get the Client IP
+            {
+                result = Request.ServerVariables["REMOTE_ADDR"].ToString(); //While it can’t get the Client IP, it will return proxy IP.
+            }
+            //result = Request.UserHostAddress;
+            return result;
+
+          
         }
     }
 }

@@ -363,14 +363,14 @@
                                                             </div>
                                                             <span class="input-group-addon">to</span>
                                                             <div class="date-picker input-daterange" data-date-format="yyyy/mm/dd">
-                                                                <input class="form-control text-box single-line edate" id="EdDate"  placeholder="結束日期" readonly="readonly" type="text" value="@MessActDate.EndDate">
+                                                                <input class="form-control text-box single-line edate" id="EdDate" placeholder="結束日期" readonly="readonly" type="text" value="@MessActDate.EndDate">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
                                         }
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -386,33 +386,7 @@
                                 <div class="col-md-4 col-sm-12 col-xs-12 mobile_white table_font">
                                     @Model.VerifyStatus
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-2 col-sm-12 col-xs-12 search_item">新增</div>
-                                <div class="col-md-10 col-sm-12 mobile_white language_set">
-                                    <div class="col-md-12">
-                                        <label for="exampleInputFile" class="col-md-2">人員</label>
-                                        <div class="col-md-10 label_font">@Model.CreateUser</div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="col-md-2">時間</label>
-                                        <div class="col-md-10 label_font">@Model.CreateDatetime</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-2 col-sm-12 col-xs-12 search_item">最後修改</div>
-                                <div class="col-md-10 col-sm-12 mobile_white language_set">
-                                    <div class="col-md-12">
-                                        <label for="exampleInputFile" class="col-md-2">人員</label>
-                                        <div class="col-md-10 label_font">@Model.UpdateUser</div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="col-md-2">時間</label>
-                                        <div class="col-md-10 label_font">@Model.UpdateDatetime</div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> 
                             <div class="form-group">
                                 <div class="col-md-2 col-sm-12 col-xs-12 search_item">最後審核</div>
                                 <div class="col-md-10 col-sm-12  mobile_white language_set">
@@ -427,6 +401,33 @@
                                 </div>
                             </div>
                         }
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-xs-12 search_item">新增</div>
+                            <div class="col-md-10 col-sm-12 mobile_white language_set">
+                                <div class="col-md-12">
+                                    <label for="exampleInputFile" class="col-md-2">人員</label>
+                                    <div class="col-md-10 label_font">@Model.CreateUser</div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="col-md-2">時間</label>
+                                    <div class="col-md-10 label_font">@Model.CreateDatetime</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-xs-12 search_item">最後修改</div>
+                            <div class="col-md-10 col-sm-12 mobile_white language_set">
+                                <div class="col-md-12">
+                                    <label for="exampleInputFile" class="col-md-2">人員</label>
+                                    <div class="col-md-10 label_font">@Model.UpdateUser</div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="col-md-2">時間</label>
+                                    <div class="col-md-10 label_font">@Model.UpdateDatetime</div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
