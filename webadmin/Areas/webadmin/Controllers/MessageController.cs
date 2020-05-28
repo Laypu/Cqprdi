@@ -77,7 +77,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
             string result = _commonService.UpdateSeq<ModelMessageMain>(id.Value, seq, this.LanguageID, this.Account, this.UserName, _ModelID);
 
-
+            
             return Json(result);
         }
 
