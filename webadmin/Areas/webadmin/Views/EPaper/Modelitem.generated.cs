@@ -555,14 +555,14 @@ WriteLiteral(@"';
             };
             mytable.SearchModelBase.ModelID = mainid;
             mytable.GetData(1);
-            $(""#GroupId"").change(function () {
-                $(""#searchForm :input"").val('');
-                var SearchModelBase = mytable.SearchModelBase;
-                SearchModelBase.GroupId = $('#GroupId').val();
-                SearchModelBase.Search = ""Y"";
+            //$(""#GroupId"").change(function () {
+            //    $(""#searchForm :input"").val('');
+            //    var SearchModelBase = mytable.SearchModelBase;
+            //    SearchModelBase.GroupId = $('#GroupId').val();
+            //    SearchModelBase.Search = ""Y"";
 
-                mytable.GetData();
-            });
+            //    mytable.GetData();
+            //});
 
             var obj = {};
             obj.modelid = mainid;

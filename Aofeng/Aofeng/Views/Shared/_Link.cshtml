@@ -73,19 +73,116 @@
 <a href="javascript:void(0);" title="主要內容區" accesskey="C" id="main-content">:::</a>
 <a href="@Url.Action("Index","Home")"><i class="fa fa-home" aria-hidden="true"></i> </a>
 <i class="fa fa-angle-right" aria-hidden="true"></i>
-@Menu1st.MenuName
+
+@if (Menu1st.LinkMode == 2 && menuLevel!=1)
+{
+    var m = Menu1st.ModelID;
+    if (m == 1)
+    {
+        <a href="@Url.Action("Index","Page",new {itemid=Menu1st.ModelItemID,mid=Menu1st.ID })">@Menu1st.MenuName</a>
+    }
+    else if (m == 2)
+    {
+        <a href="@Url.Action("Index","Message",new {itemid=Menu1st.ModelItemID,mid=Menu1st.ID })">@Menu1st.MenuName</a>
+    }
+    else if (m == 3)
+    {
+        <a href="@Url.Action("Index","FileDownload",new {itemid=Menu1st.ModelItemID,mid=Menu1st.ID })">@Menu1st.MenuName</a>
+    }
+    else if (m == 4)
+    {
+        <a href="@Url.Action("Index","Form",new {itemid=Menu1st.ModelItemID,mid=Menu1st.ID })">@Menu1st.MenuName</a>
+    }
+    else if (m == 11)
+    {
+        <a href="@Url.Action("Index","Active",new {itemid=Menu1st.ModelItemID,mid=Menu1st.ID })">@Menu1st.MenuName</a>
+    }
+    else if (m == 12)
+    {
+        <a href="@Url.Action("Index","EPaper",new {itemid=Menu1st.ModelItemID,mid=Menu1st.ID })">@Menu1st.MenuName</a>
+    }
+}
+else
+{
+    @Menu1st.MenuName
+}
 @if (menuLevel == 2)
 {
+    var m = menu.ModelID;
     <i class="fa fa-angle-right" aria-hidden="true"></i>
     <span class="active">
-        @menu.MenuName
+
+        @if (menu.LinkMode == 2)
+        {
+
+            if (m == 1)
+            {
+                <a href="@Url.Action("Index","Page",new {itemid=menu.ModelItemID,mid=menu.ID })">@menu.MenuName</a>
+            }
+            else if (m == 2)
+            {
+                <a href="@Url.Action("Index","Message",new {itemid=menu.ModelItemID,mid=menu.ID })">@menu.MenuName</a>
+            }
+            else if (m == 3)
+            {
+                <a href="@Url.Action("Index","FileDownload",new {itemid=menu.ModelItemID,mid=menu.ID })">@menu.MenuName</a>
+            }
+            else if (m == 4)
+            {
+                <a href="@Url.Action("Index","Form",new {itemid=menu.ModelItemID,mid=menu.ID })">@menu.MenuName</a>
+            }
+            else if (m == 11)
+            {
+                <a href="@Url.Action("Index","Active",new {itemid=menu.ModelItemID,mid=menu.ID })">@menu.MenuName</a>
+            }
+            else if (m == 12)
+            {
+                <a href="@Url.Action("Index","EPaper",new {itemid=menu.ModelItemID,mid=menu.ID })">@menu.MenuName</a>
+            }
+        }
+        else
+        {
+            @menu.MenuName
+        }
+
     </span>
 }
 @if (menuLevel == 3)
 {
+    var m = menu2nd.ModelID;
     <i class="fa fa-angle-right" aria-hidden="true"></i>
     <span class="active">
-        @menu2nd.MenuName
+        @if (menu2nd.LinkMode == 2)
+        {
+            if (m == 1)
+            {
+                <a href="@Url.Action("Index","Page",new {itemid=menu2nd.ModelItemID,mid=menu2nd.ID })">@menu2nd.MenuName</a>
+            }
+            else if (m == 2)
+            {
+                <a href="@Url.Action("Index","Message",new {itemid=menu2nd.ModelItemID,mid=menu2nd.ID })">@menu2nd.MenuName</a>
+            }
+            else if (m == 3)
+            {
+                <a href="@Url.Action("Index","FileDownload",new {itemid=menu2nd.ModelItemID,mid=menu2nd.ID })">@menu2nd.MenuName</a>
+            }
+            else if (m == 4)
+            {
+                <a href="@Url.Action("Index","Form",new {itemid=menu2nd.ModelItemID,mid=menu2nd.ID })">@menu2nd.MenuName</a>
+            }
+            else if (m == 11)
+            {
+                <a href="@Url.Action("Index","Active",new {itemid=menu2nd.ModelItemID,mid=menu2nd.ID })">@menu2nd.MenuName</a>
+            }
+            else if (m == 12)
+            {
+                <a href="@Url.Action("Index","EPaper",new {itemid=menu2nd.ModelItemID,mid=menu2nd.ID })">@menu2nd.MenuName</a>
+            }
+        }
+        else
+        {
+            @menu2nd.MenuName
+        }
     </span>
     <i class="fa fa-angle-right" aria-hidden="true"></i>
     <span class="active">
