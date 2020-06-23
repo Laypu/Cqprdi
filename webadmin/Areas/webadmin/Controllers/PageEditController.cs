@@ -442,7 +442,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                     }
                 }
 
-
+                model.
                 return Content(result);
             }
         }
