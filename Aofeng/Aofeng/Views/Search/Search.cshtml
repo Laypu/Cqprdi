@@ -3,11 +3,13 @@
 @model AdvanceSearchModel
 @{ 
     Layout = "~/Views/Shared/_LayoutSearch.cshtml";
+ List<Menu> menus = (List<Menu>)ViewBag.AllMenu;
 }
     <div class="news_list_02">
         @foreach (SearchViewModel m in Model.paging.rows)
         {
             string showTitle = m.Title.Replace(Model.Key, "<span class=\"red\">" + Model.Key + "</span>");
+            var menusName = menus.Where(o => o.ID == m.ID).FirstOrDefault().MenuName;
             if (Model.Key2.IsNullOrEmpty() == false)
             {
                 showTitle = m.Title.Replace(Model.Key2, "<span class=\"red\">" + Model.Key2 + "</span>");
@@ -20,7 +22,28 @@
             {
                 <a href="../@(m.URL)?mid=@m.ID&itemid=@m.ModelID" title="@m.Title">
                     <div class="item">
-                        <div class="title">@Html.Raw(showTitle)</div>
+                        <div class="title"><span class="search_title" style="background:#8c2aa5 !important">@menusName</span>-@Html.Raw(showTitle)</div>
+                    </div>
+                </a>
+            }
+            else if (m.URL == "FileDownload/Index")
+            {
+                <div class="item">
+                    <div class="title">
+                        <span class="search_title">@menusName</span>-@Html.Raw(showTitle)  <a style="float:none" href="@Url.Action("FileDownload","FileDownload",new {FID=m.ItemID,Multi="False"})" title="@m.Title-(另開新視窗)" target="_blank">
+                            <span class="fa-stack fa-1g">
+                                <i style="color:#666" class="fa fa-square fa-stack-2x font-blue-steel"></i>
+                                <i style="color:white" class="fas fa-download fa-stack-1x"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            }
+            else if (m.URL == "History/Index")
+            {
+                <a href="../@(m.URL)?mid=@m.ID&itemid=@m.ModelID" title="@m.Title">
+                    <div class="item">
+                        <div class="title"><span class="search_title" style="background:#d02323 !important")">@menusName</span>-@Html.Raw(showTitle)</div>
                     </div>
                 </a>
             }
@@ -28,10 +51,11 @@
             {
                 <a href="../@(m.URL)?mid=@m.ID&itemid=@m.ItemID" title="@m.Title">
                     <div class="item">
-                        <div class="title">@Html.Raw(showTitle)</div>
+                        <div class="title"><span class="search_title" style="background:@(m.URL=="Message/MessageView"?"#5a9e2c !important":"#2c9e93 !important")">@menusName</span>-@Html.Raw(showTitle)</div>
                     </div>
                 </a>
             }
+
         }
     </div>
         @*<table width="100%">
