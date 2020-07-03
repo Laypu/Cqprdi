@@ -431,7 +431,7 @@ namespace Oaww.Business
                         sql = "delete AdminFunctionAuth where GroupID=@GroupID AND LangID=@LangID";
                         base.Parameter.Clear();
                         base.Parameter.Add(new SqlParameter("@GroupID", groupid));
-                        base.Parameter.Add(new SqlParameter("@LangID", 1));
+                        base.Parameter.Add(new SqlParameter("@LangID", int.Parse(languageID)));
                         base.ExeNonQuery(sql, tran);
 
                         var functiondata = _commonService.GetGeneralList<AdminFunction>(tran);

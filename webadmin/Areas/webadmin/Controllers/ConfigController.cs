@@ -205,7 +205,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         [AjaxValidateAntiForgeryToken]
         public ActionResult GroupAuthSave(Dictionary<string, string> inputdata, string langid, string groupid, string groupname, string IsInsert)
         {
-            string result = _service.GroupAuthSave("1", groupid, inputdata, groupname, Account, IsInsert);
+            string result = _service.GroupAuthSave(this.LanguageID, groupid, inputdata, groupname, Account, IsInsert);
 
 
             return Content(result);

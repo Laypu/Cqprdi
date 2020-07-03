@@ -66,7 +66,7 @@ namespace ASP
     public partial class _Areas_webadmin_Views_Shared__Header_cshtml : System.Web.Mvc.WebViewPage<dynamic>
     {
         
-        #line 190 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+        #line 195 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
            
     public static void AddProperty(string name, string value)
     {
@@ -94,7 +94,7 @@ WriteLiteral("\r\n");
     var AuthList = (List<AdminFunctionAuth>)ViewBag.AuthList;
     AuthList = AuthList.Where(t => t.Type == 0).ToList();
     string[] Roles = (string[])ViewBag.Role;
-
+    var lang = ViewBag.Lan;
 
     List<AdminFunction> ListAdminFunction = (List<AdminFunction>)ViewBag.ListAdminFunction;
 
@@ -114,12 +114,17 @@ WriteLiteral("\r\n");
             ListAdminFunction.Remove(verify);
             if (AuthList.Any(t => t.ItemID == verify.ID))
             {
-                AuthList = AuthList.Where(t => t.ItemID != verify.ID).ToList();
+                AuthList = AuthList.Where(t => t.ItemID != verify.ID && t.LangID==int.Parse(lang)).ToList();
+            }
+            else
+            {
+                 AuthList = AuthList.Where(t => t.LangID==int.Parse(lang)).ToList();
             }
         }
+        AuthList = AuthList.Where(t => t.LangID==int.Parse(lang)).ToList();
     }
 
-    
+
 
             
             #line default
@@ -138,14 +143,14 @@ WriteLiteral(" class=\"page-logo\"");
 
 WriteLiteral(">\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1303), Tuple.Create("\"", 1338)
+WriteAttribute("href", Tuple.Create(" href=\"", 1566), Tuple.Create("\"", 1601)
             
-            #line 48 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-, Tuple.Create(Tuple.Create("", 1310), Tuple.Create<System.Object, System.Int32>(Url.Action("Index", "Home")
+            #line 53 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+, Tuple.Create(Tuple.Create("", 1573), Tuple.Create<System.Object, System.Int32>(Url.Action("Index", "Home")
             
             #line default
             #line hidden
-, 1310), false)
+, 1573), false)
 );
 
 WriteLiteral(" class=\"logo-default\"");
@@ -153,7 +158,7 @@ WriteLiteral(" class=\"logo-default\"");
 WriteLiteral(">");
 
             
-            #line 48 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 53 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                                                    Write(SET_BASE.M_Base01);
 
             
@@ -186,13 +191,13 @@ WriteLiteral(" class=\"nav navbar-nav\"");
 WriteLiteral(">\r\n\r\n");
 
             
-            #line 63 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 68 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 63 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 68 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                    int i = 1;
             
             #line default
@@ -200,13 +205,13 @@ WriteLiteral(">\r\n\r\n");
 WriteLiteral("\r\n");
 
             
-            #line 64 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 69 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 64 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 69 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                  foreach (var top in ListTopMenu)
                 {
                     string icon = string.Empty;
@@ -251,26 +256,26 @@ WriteLiteral(" class=\"dropdown-toggle\"");
 
 WriteLiteral(" data-toggle=\"dropdown\"");
 
-WriteAttribute("title", Tuple.Create(" title=\"", 2959), Tuple.Create("\"", 2984)
+WriteAttribute("title", Tuple.Create(" title=\"", 3222), Tuple.Create("\"", 3247)
             
-            #line 93 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-              , Tuple.Create(Tuple.Create("", 2967), Tuple.Create<System.Object, System.Int32>(ListTopMenu[i-1]
+            #line 98 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+              , Tuple.Create(Tuple.Create("", 3230), Tuple.Create<System.Object, System.Int32>(ListTopMenu[i-1]
             
             #line default
             #line hidden
-, 2967), false)
+, 3230), false)
 );
 
 WriteLiteral(">\r\n                                <i");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 3022), Tuple.Create("\"", 3035)
+WriteAttribute("class", Tuple.Create(" class=\"", 3285), Tuple.Create("\"", 3298)
             
-            #line 94 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-, Tuple.Create(Tuple.Create("", 3030), Tuple.Create<System.Object, System.Int32>(icon
+            #line 99 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+, Tuple.Create(Tuple.Create("", 3293), Tuple.Create<System.Object, System.Int32>(icon
             
             #line default
             #line hidden
-, 3030), false)
+, 3293), false)
 );
 
 WriteLiteral("></i> <span");
@@ -280,7 +285,7 @@ WriteLiteral(" class=\"top_menu_title\"");
 WriteLiteral(">");
 
             
-            #line 94 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 99 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                                                               Write(ListTopMenu[i - 1]);
 
             
@@ -297,13 +302,13 @@ WriteLiteral(" class=\"dropdown-menu\"");
 WriteLiteral(">\r\n");
 
             
-            #line 97 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 102 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                 
             
             #line default
             #line hidden
             
-            #line 97 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 102 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                  if (IsAdmin)
                                 {
                                     foreach (var m in ListAdminFunction.Where(t => t.GroupID == i).OrderBy(t => t.ID))
@@ -318,20 +323,20 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                                            <li><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 3851), Tuple.Create("\"", 3899)
+WriteAttribute("href", Tuple.Create(" href=\"", 4114), Tuple.Create("\"", 4162)
             
-            #line 105 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-, Tuple.Create(Tuple.Create("", 3858), Tuple.Create<System.Object, System.Int32>(Url.Action(m.Action,m.Controller,values)
+            #line 110 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+, Tuple.Create(Tuple.Create("", 4121), Tuple.Create<System.Object, System.Int32>(Url.Action(m.Action,m.Controller,values)
             
             #line default
             #line hidden
-, 3858), false)
+, 4121), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 105 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 110 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                                                                                Write(m.ItemName);
 
             
@@ -340,7 +345,7 @@ WriteLiteral(">");
 WriteLiteral("</a></li>\r\n");
 
             
-            #line 106 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 111 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
 
                                         }
                                         else
@@ -352,20 +357,20 @@ WriteLiteral("</a></li>\r\n");
             #line hidden
 WriteLiteral("                                            <li><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 4109), Tuple.Create("\"", 4150)
+WriteAttribute("href", Tuple.Create(" href=\"", 4372), Tuple.Create("\"", 4413)
             
-            #line 111 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-, Tuple.Create(Tuple.Create("", 4116), Tuple.Create<System.Object, System.Int32>(Url.Action(m.Action,m.Controller)
+            #line 116 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+, Tuple.Create(Tuple.Create("", 4379), Tuple.Create<System.Object, System.Int32>(Url.Action(m.Action,m.Controller)
             
             #line default
             #line hidden
-, 4116), false)
+, 4379), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 111 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 116 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                                                                         Write(m.ItemName);
 
             
@@ -374,7 +379,7 @@ WriteLiteral(">");
 WriteLiteral("</a></li>\r\n");
 
             
-            #line 112 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 117 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                         }
 
                                     }
@@ -397,20 +402,20 @@ WriteLiteral("</a></li>\r\n");
             #line hidden
 WriteLiteral("                                            <li><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 5082), Tuple.Create("\"", 5154)
+WriteAttribute("href", Tuple.Create(" href=\"", 5345), Tuple.Create("\"", 5417)
             
-            #line 128 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-, Tuple.Create(Tuple.Create("", 5089), Tuple.Create<System.Object, System.Int32>(Url.Action(adminFunction.Action,adminFunction.Controller,values)
+            #line 133 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+, Tuple.Create(Tuple.Create("", 5352), Tuple.Create<System.Object, System.Int32>(Url.Action(adminFunction.Action,adminFunction.Controller,values)
             
             #line default
             #line hidden
-, 5089), false)
+, 5352), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 128 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 133 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                                                                                                        Write(adminFunction.ItemName);
 
             
@@ -419,7 +424,7 @@ WriteLiteral(">");
 WriteLiteral("</a></li>\r\n");
 
             
-            #line 129 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 134 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                         }
                                         else
                                         {
@@ -429,20 +434,20 @@ WriteLiteral("</a></li>\r\n");
             #line hidden
 WriteLiteral("                                            <li><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 5372), Tuple.Create("\"", 5437)
+WriteAttribute("href", Tuple.Create(" href=\"", 5635), Tuple.Create("\"", 5700)
             
-            #line 132 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-, Tuple.Create(Tuple.Create("", 5379), Tuple.Create<System.Object, System.Int32>(Url.Action(adminFunction.Action,adminFunction.Controller)
+            #line 137 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+, Tuple.Create(Tuple.Create("", 5642), Tuple.Create<System.Object, System.Int32>(Url.Action(adminFunction.Action,adminFunction.Controller)
             
             #line default
             #line hidden
-, 5379), false)
+, 5642), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 132 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 137 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                                                                                                 Write(adminFunction.ItemName);
 
             
@@ -451,7 +456,7 @@ WriteLiteral(">");
 WriteLiteral("</a></li>\r\n");
 
             
-            #line 133 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 138 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                         }
                                     }
                                 }
@@ -462,7 +467,7 @@ WriteLiteral("</a></li>\r\n");
 WriteLiteral("                            </ul>\r\n                        </li>\r\n");
 
             
-            #line 138 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 143 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                     }
                     i++;
                 }
@@ -473,13 +478,13 @@ WriteLiteral("                            </ul>\r\n                        </li>
 WriteLiteral("            </ul>\r\n");
 
             
-            #line 142 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 147 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 142 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 147 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
              if (LisLang.Count > 1 && (Session["menutype"].ToString()=="1" || Session["menutype"].ToString()=="2" &&  Session["menutype"].ToString()=="3"))
             {
 
@@ -523,13 +528,13 @@ WriteLiteral(" class=\"dropdown-menu\"");
 WriteLiteral(">\r\n");
 
             
-            #line 148 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 153 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                             
             
             #line default
             #line hidden
             
-            #line 148 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 153 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                              foreach (Lang m in LisLang)
                             {
 
@@ -540,14 +545,14 @@ WriteLiteral("                                <li><a");
 
 WriteLiteral(" href=\'#\'");
 
-WriteAttribute("langid", Tuple.Create(" langid=\'", 6386), Tuple.Create("\'", 6400)
+WriteAttribute("langid", Tuple.Create(" langid=\'", 6649), Tuple.Create("\'", 6663)
             
-            #line 150 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-, Tuple.Create(Tuple.Create("", 6395), Tuple.Create<System.Object, System.Int32>(m.ID
+            #line 155 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+, Tuple.Create(Tuple.Create("", 6658), Tuple.Create<System.Object, System.Int32>(m.ID
             
             #line default
             #line hidden
-, 6395), false)
+, 6658), false)
 );
 
 WriteLiteral(" class=\'langchange\'");
@@ -555,7 +560,7 @@ WriteLiteral(" class=\'langchange\'");
 WriteLiteral(">");
 
             
-            #line 150 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 155 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                                                              Write(m.Disp_Name);
 
             
@@ -564,7 +569,7 @@ WriteLiteral(">");
 WriteLiteral("</a></li>\r\n");
 
             
-            #line 151 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 156 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                             }
 
             
@@ -574,7 +579,7 @@ WriteLiteral("                        </ul>\r\n                    </li>\r\n    
 "");
 
             
-            #line 155 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 160 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
             }
 
             
@@ -582,7 +587,7 @@ WriteLiteral("                        </ul>\r\n                    </li>\r\n    
             #line hidden
 WriteLiteral("            <div");
 
-WriteLiteral(" class=\"top-menu hidden-sm hidden-xs\"");
+WriteLiteral(" class=\"top-menu\"");
 
 WriteLiteral(">\r\n                <ul");
 
@@ -591,13 +596,13 @@ WriteLiteral(" class=\"nav navbar-nav pull-right\"");
 WriteLiteral(">\r\n");
 
             
-            #line 158 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 163 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                     
             
             #line default
             #line hidden
             
-            #line 158 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 163 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                      if ((Session["menutype"].ToString() == "1" || Session["menutype"].ToString() == "2" && Session["menutype"].ToString() == "3"))
                     {
 
@@ -610,14 +615,14 @@ WriteLiteral(" class=\"dropdown dropdown-quick-sidebar-toggler\"");
 
 WriteLiteral(">\r\n                            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 6963), Tuple.Create("\"", 7013)
+WriteAttribute("href", Tuple.Create(" href=\"", 7206), Tuple.Create("\"", 7256)
             
-            #line 161 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-, Tuple.Create(Tuple.Create("", 6970), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home",new {@area="" })
+            #line 166 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+, Tuple.Create(Tuple.Create("", 7213), Tuple.Create<System.Object, System.Int32>(Url.Action("Index","Home",new {@area="" })
             
             #line default
             #line hidden
-, 6970), false)
+, 7213), false)
 );
 
 WriteLiteral(" target=\"_blank\"");
@@ -635,7 +640,7 @@ WriteLiteral(" class=\"title\"");
 WriteLiteral(">瀏覽前台</span>\r\n                            </a>\r\n                        </li>\r\n");
 
             
-            #line 166 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 171 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                     }
 
             
@@ -666,7 +671,7 @@ WriteLiteral(" class=\"icon-user\"");
 WriteLiteral("></i> ");
 
             
-            #line 170 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+            #line 175 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
                                                  Write(CommonRazorFunctions.UserName());
 
             
@@ -682,14 +687,14 @@ WriteLiteral(" class=\"dropdown-menu dropdown-menu-default\"");
 
 WriteLiteral(">\r\n                            <li>\r\n                                <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 7810), Tuple.Create("\"", 7846)
+WriteAttribute("href", Tuple.Create(" href=\"", 8053), Tuple.Create("\"", 8089)
             
-            #line 175 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
-, Tuple.Create(Tuple.Create("", 7817), Tuple.Create<System.Object, System.Int32>(Url.Action("Logout", "Auth")
+            #line 180 "..\..\Areas\webadmin\Views\Shared\_Header.cshtml"
+, Tuple.Create(Tuple.Create("", 8060), Tuple.Create<System.Object, System.Int32>(Url.Action("Logout", "Auth")
             
             #line default
             #line hidden
-, 7817), false)
+, 8060), false)
 );
 
 WriteLiteral(" title=\"登出\"");

@@ -95,8 +95,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                         string[] roles = Roles;
                         List<AdminFunctionAuth> ListMenu = _commonService.GetSiteMapMenuByUser(roles).ToList().Concat(SelfAuth).ToList();
                         filterContext.HttpContext.Cache.Insert(SITEMAP_CONTEXT + loginId, ListMenu, null, Cache.NoAbsoluteExpiration, TimeSpan.FromSeconds(5));
-                        ViewBag.AuthList = ListMenu;
-
+                        ViewBag.AuthList = ListMenu;   
                         //Base Setting
                         SET_BASE SET_BASE = _commonService.GetGeneral<SET_BASE>();
                         filterContext.HttpContext.Cache.Insert(BASE_CONTEXT + loginId, SET_BASE, null, Cache.NoAbsoluteExpiration, TimeSpan.FromSeconds(5));
@@ -118,6 +117,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
                 ViewBag.Role = Roles;
                 ViewBag.Lang = _commonService.GetGeneralList<Lang>("Enabled=1 and Deleted=0 and Published=1").ToList();
+                ViewBag.Lan = this.LanguageID;
             }
 
             base.OnActionExecuting(filterContext);
