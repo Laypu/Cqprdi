@@ -38,7 +38,9 @@ namespace ASP
     #line default
     #line hidden
     using Oaww.ViewModel.Config;
+    using Oaww.ViewModel.Lang;
     using Oaww.ViewModel.Search;
+    using Oaww.ViewModel.SiteMap;
     using Template;
     using webadmin;
     
@@ -539,27 +541,27 @@ WriteLiteral("\', { idlist: idlist, delaccount: strname }, function (data) {\r\n
 "      }\r\n                    }\r\n                });\r\n            });\r\n        })" +
 ";\r\n\r\n        function customertr(row, columnidx, idx, filedname, tableid, type, " +
 "fileditemclass) {\r\n            if (row[\"Readonly\"]) {\r\n                return \"<" +
-"td>總管理者</td>\";\r\n            } else {\r\n                return \"<td><a href=\'#\' cl" +
-"ass=\'edit\' value=\'\" + row[tableid] + \"\'>\" + row[\"Group_Name\"] + \"</a></td>\";\r\n  " +
-"          }\r\n        }\r\n        function customerstatustr(row, columnidx, idx, f" +
-"iledname, tableid, type, fileditemclass) {\r\n            if (row[\"Readonly\"]) {\r\n" +
-"                return \"<td class=\'text-center\'></td>\";\r\n            } else {\r\n " +
-"               if (row[\"Enabled\"]) {\r\n                    return \"<td class=\'tex" +
+"td>\"+row[\"Group_Name\"]+\"</td>\";\r\n            } else {\r\n                return \"<" +
+"td><a href=\'#\' class=\'edit\' value=\'\" + row[tableid] + \"\'>\" + row[\"Group_Name\"] +" +
+" \"</a></td>\";\r\n            }\r\n        }\r\n        function customerstatustr(row, " +
+"columnidx, idx, filedname, tableid, type, fileditemclass) {\r\n            if (row" +
+"[\"Readonly\"]) {\r\n                return \"<td class=\'text-center\'></td>\";\r\n      " +
+"      } else {\r\n                if (row[\"Enabled\"]) {\r\n                    retur" +
+"n \"<td class=\'text-center\'><label class=\'mt-checkbox mt-checkbox-single mt-check" +
+"box-outline\'>\" +\r\n                        \"<input type=\'checkbox\' class=\'\" + fil" +
+"editemclass + \"\' checked=\'checked\' value=\'\" + row[tableid] + \"\' index=\'\" + idx +" +
+" \"\'/><span></span></label></td>\";\r\n                } else {\r\n                   " +
+" return \"<td class=\'text-center\'><label class=\'mt-checkbox mt-checkbox-single mt" +
+"-checkbox-outline\'>\" +\r\n                        \"<input type=\'checkbox\' class=\'\"" +
+" + fileditemclass + \"\' value=\'\" + row[tableid] + \"\' index=\'\" + idx + \"\'/><span><" +
+"/span></label></td>\";\r\n                }\r\n            }\r\n        }\r\n\r\n        fu" +
+"nction customerdeltr(row, columnidx, idx, filedname, tableid, type, fileditemcla" +
+"ss) {\r\n            if (row[\"Readonly\"]) {\r\n                return \"<td class=\'te" +
+"xt-center\'></td>\";\r\n            } else {\r\n                return \"<td class=\'tex" +
 "t-center\'><label class=\'mt-checkbox mt-checkbox-single mt-checkbox-outline\'>\" +\r" +
-"\n                        \"<input type=\'checkbox\' class=\'\" + fileditemclass + \"\' " +
-"checked=\'checked\' value=\'\" + row[tableid] + \"\' index=\'\" + idx + \"\'/><span></span" +
-"></label></td>\";\r\n                } else {\r\n                    return \"<td clas" +
-"s=\'text-center\'><label class=\'mt-checkbox mt-checkbox-single mt-checkbox-outline" +
-"\'>\" +\r\n                        \"<input type=\'checkbox\' class=\'\" + fileditemclass" +
-" + \"\' value=\'\" + row[tableid] + \"\' index=\'\" + idx + \"\'/><span></span></label></t" +
-"d>\";\r\n                }\r\n            }\r\n        }\r\n\r\n        function customerde" +
-"ltr(row, columnidx, idx, filedname, tableid, type, fileditemclass) {\r\n          " +
-"  if (row[\"Readonly\"]) {\r\n                return \"<td class=\'text-center\'></td>\"" +
-";\r\n            } else {\r\n                return \"<td class=\'text-center\'><label " +
-"class=\'mt-checkbox mt-checkbox-single mt-checkbox-outline\'>\" +\r\n                " +
-"    \"<input type=\'checkbox\' class=\'checkboxes chksel\'  value=\'\" + row[tableid] +" +
-" \"\'  index=\'\" + idx + \"\'/><span></span></label></td>\";\r\n            }\r\n        }" +
-"\r\n    </script>\r\n");
+"\n                    \"<input type=\'checkbox\' class=\'checkboxes chksel\'  value=\'\"" +
+" + row[tableid] + \"\'  index=\'\" + idx + \"\'/><span></span></label></td>\";\r\n       " +
+"     }\r\n        }\r\n    </script>\r\n");
 
 });
 

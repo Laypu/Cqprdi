@@ -170,7 +170,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             var Role = identity.FindFirst(ClaimTypes.Role);
 
             string RoleName = Role == null ? "" : Role.Value;
-            return RoleName == "administrators";
+            return RoleName == "administrators" || RoleName== "穀物總管理";
         }
 
         public string id
