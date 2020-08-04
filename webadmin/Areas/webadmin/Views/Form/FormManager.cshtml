@@ -125,12 +125,13 @@
             if ('@ViewBag.isview' == 'Y') {
                 $('#sel_unit,#editform :input').attr('disabled', 'disabled');
                 $('#div_buttons').empty().append('<button type="button" class="btn blue"  onclick="window.location.href=\'@Url.Action("Verify", "Config")\'">返回列表</button>');
-            } else {
+            } else
+            {
                         RegisterOrder("#eventtable", ".sortedit", '@Url.Action("UpdateItemSeq")', { modelid:@ViewBag.mainid});
-                       RegisterClicklink("#eventtable", ".edit", '@Url.Action("ItemEdit")', { mainid: mainid }, "itemid");
-                    RegisterClick("#eventtable", ".chkstatus", '@Url.Action("SetItemIsMust")', {});
-                    RegisterClickAll("#chk_all", '#eventtable tbody .chksel', "#selvalue");
-                     RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("SetItemDelete")', {});
+                        RegisterClicklink("#eventtable", ".edit", '@Url.Action("ItemEdit")', { mainid: mainid }, "itemid");
+                        RegisterClick("#eventtable", ".chkstatus", '@Url.Action("SetItemIsMust")', {});
+                        RegisterClickAll("#chk_all", '#eventtable tbody .chksel', "#selvalue");
+                        RegisterDelete("#btn_del", '#eventtable .chksel:checked', '@Url.Action("SetItemDelete")', {});
             }
 
             $("#btn_add").click(function () {

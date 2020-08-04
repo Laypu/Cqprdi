@@ -910,6 +910,9 @@ namespace Oaww.Business
                                                                                   , new Dictionary<string, string>() { { "Sort", qseq.ToString() }, { "ItemID", modelid } })
                                                                                   .OrderBy(v => v.Sort)
                                                                                   .ToList();
+
+                    StringBuilder sb = new StringBuilder();
+
                     //更新seq+1
                     var sidx = 0;
                     for (var idx = 1; idx <= ltseqdata.Count(); idx++)

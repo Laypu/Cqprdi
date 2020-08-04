@@ -372,9 +372,9 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                 ListConfig.LastUpdateDate = DateTime.Now.ToString("yyy/MM/dd");
                 _siteConfigService.Update(ListConfig);
                 _commonService.InsertLog(Operation.Insert, this.Account, model.ModelName, "",
-       "PageIndexItem"
-       , ""
-       , JsonConvert.SerializeObject(model, Formatting.Indented, new HttpPostedFileConverter()));
+               "PageIndexItem"
+               , ""
+               , JsonConvert.SerializeObject(model, Formatting.Indented, new HttpPostedFileConverter()));
                 return Content(result);
             }
             else
@@ -442,7 +442,6 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                     }
                 }
 
-                model.
                 return Content(result);
             }
         }

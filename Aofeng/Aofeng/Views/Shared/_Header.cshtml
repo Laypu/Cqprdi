@@ -177,7 +177,7 @@
                                 <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
                                     <nav>
                                         <ul class="nav nav-pills" id="mainNav">
-                                            @foreach (Menu Menu1st in TopMenu.Where(t => t.MenuLevel == 1).OrderBy(t => t.Sort))
+                                            @foreach (Menu Menu1st in TopMenu.Where(t => t.MenuLevel == 1 && t.Status.Value == true).OrderBy(t => t.Sort))
                                             {
 
 

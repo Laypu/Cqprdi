@@ -31,7 +31,7 @@
             @Html.aira_HyperLink_Menu(Menu1st, new { @class = "footer_title" })
 
             <ul>
-                @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID).OrderBy(t => t.Sort))
+                @foreach (Menu Menu2nd in TopMenu.Where(t => t.MenuLevel == 2 && t.ParentID == Menu1st.ID && t.Status.Value == true).OrderBy(t => t.Sort))
                 {
                     bool is3rd = TopMenu.Where(t => t.MenuLevel == 3 && t.ParentID == Menu2nd.ID).Count() > 0;
                     if (is3rd && Menu2nd.LinkMode == 1)
@@ -107,8 +107,8 @@
 
                 <div class="hotword">
                     @("熱門搜尋".GetLang())：
-                                <a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey1})" title="@pageIndexSetting.HotKey1">@pageIndexSetting.HotKey1</a>、<a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey2})" title="@pageIndexSetting.HotKey2">@pageIndexSetting.HotKey2</a>、<a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey3})" title="@pageIndexSetting.HotKey3">@pageIndexSetting.HotKey3</a>
-                            </div>
+                    <a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey1})" title="@pageIndexSetting.HotKey1">@pageIndexSetting.HotKey1</a>、<a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey2})" title="@pageIndexSetting.HotKey2">@pageIndexSetting.HotKey2</a>、<a href="@Url.Action("Search","Search",new { Key=pageIndexSetting.HotKey3})" title="@pageIndexSetting.HotKey3">@pageIndexSetting.HotKey3</a>
+                </div>
             </div>
         </form>
         </div>

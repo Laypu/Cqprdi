@@ -4,9 +4,7 @@
     var mid = ViewBag.mid;
 
 }
-<div class="content_con">
 
-    <div class="left">
 
         <div class="edit_con">
             <!--後台編輯器-->
@@ -29,12 +27,12 @@
                                     case 1:
                                 <div class="form_q">
                                     <label for="@item.ID">
-                                        @*@{var STR = Html.Raw("<span class='red'>( 必填 )</span>")}
+                                        @*@{var STR = Html.Raw("<span class='red'>(必填)</span>")}
                                         @item.Title@(item.MustInput ==true ? STR: "")*@
                                         @item.Title
                                         @if (item.MustInput == true)
                                         {
-                                            <span class='red'>( 必填 )</span>
+                                            <span class='red'>(必填)</span>
                                         }
                                     </label>
                                
@@ -51,7 +49,7 @@
                                             <label for="textarea">@item.Title
                                                 @if (item.MustInput == true)
                                                 {
-                                                    <span class='red'>( 必填 )</span>
+                                                    <span class='red'>(必填)</span>
                                                 }
                                              </label>
                                         </div>
@@ -72,7 +70,7 @@
                                                 @item.Title
                                             @if (item.MustInput == true)
                                             {
-                                                <span class='red'>( 必填 )</span>
+                                                <span class='red'>(必填)</span>
                                             }
                                         </label>
                                         </div>
@@ -83,8 +81,8 @@
                                                 var x = 1;
                                                 foreach (var i in radioitem)
                                                 {
-                                                    <label class="mt-radio mt-radio-outline" for="radio{@x}">
-                                                        <input type="radio" name="@item.ID" id="radio{@x}" value="@i">@i
+                                                    <label class="mt-radio mt-radio-outline" for="radio{@item.ID}{@x}">
+                                                        <input type="radio" name="@item.ID" id="radio{@item.ID}{@x}" value="@i">@i
                                                         <span></span>
                                                     </label>
                                                     x = x + 1;
@@ -103,7 +101,7 @@
                                                 @item.Title
                                             @if (item.MustInput == true)
                                             {
-                                                <span class='red'>( 必填 )</span>
+                                                <span class='red'>(必填)</span>
                                             }
                                         </label>
                                         </div>
@@ -113,8 +111,8 @@
                                                 var y = 1;
                                                 foreach (var i in checkitem)
                                                 {
-                                                    <label class="mt-checkbox mt-checkbox-outline" for="checkboxes{@y}">
-                                                        <input type="checkbox" name="@item.ID" id="checkboxes{@y}" value="@i" />@i
+                                                    <label class="mt-checkbox mt-checkbox-outline" for="checkboxes{@item.ID}{@y}">
+                                                        <input type="checkbox" name="@item.ID" id="checkboxes{@item.ID}{@y}" value="@i" />@i
                                                         <span></span>
                                                     </label>
                                                     y = y + 1;
@@ -131,7 +129,7 @@
                                                 @item.Title
                                             @if (item.MustInput == true)
                                             {
-                                                <span class='red'>( 必填 )</span>
+                                                <span class='red'>(必填)</span>
                                             }
                                         </label>
                                         </div>
@@ -168,14 +166,9 @@
         </form>
         
 
-        
+    
 
-    </div>
 
-    @*<div class="right">
-        <script>$.include("blocks/right_menu_3_1.html");</script>
-    </div>*@
-</div>
 <script>
     $(function () {
 

@@ -2,18 +2,31 @@
 @{
     Layout = "~/Areas/webadmin/Views/Shared/_Layout.cshtml";
 }
+
+
+
 <!--page bar start-->
-<div class="page-bar all_width">
+
+<div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <span href="#">Home</span>
+            <a href="@Url.Action("Index","Home")">Home</a>
             <i class="fa fa-circle"></i>
-            <span href="#">表單管理</span>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Model")">模組管理</a>
             <i class="fa fa-circle"></i>
-            <span href="#">信件處理</span>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Form")">表單管理</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">信件處理</a>
         </li>
     </ul>
 </div>
+
 <!--page bar end-->
 <div class="title_01">@ViewBag.Title</div>
 <form class="form-horizontal form-bordered" method="Post" id="editform" action='@Url.Action("Save")'>

@@ -20,3 +20,4 @@ C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.csproj.C
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.dll
 C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\obj\Debug\Oaww.Utility.pdb
 D:\穀物\Cqprdi\Oaww.Utility\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\Oaww.Utility\bin\Debug\Newtonsoft.Json.dll

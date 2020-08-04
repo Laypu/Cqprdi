@@ -9,6 +9,7 @@ using Oaww.ViewModel;
 using Oaww.Entity;
 using Oaww.Entity.SET;
 using Oaww.Utility;
+using System.Data.SqlClient;
 
 namespace Template.webadmin.Areas.webadmin.Controllers
 {
@@ -88,11 +89,51 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             if (mainid == "-1" || string.IsNullOrEmpty(mainid))
             {
                 str = _menuService.AddUnit<ModelFormMain>(name, this.LanguageID, this.Account, 4) ? "新增成功" : "新增失敗";
+
+                if (str == "新增成功")
+                {
+
+                    var itemNew = _commonService.GetGeneralList<ModelFormMain>().Last().ID;
+
+
+                    FormItemSettingModel Fmodel = new FormItemSettingModel()
+                    {
+                        MainID = itemNew,
+                        SelList = null,
+                        Description = "",
+                        Title = "姓名",
+                        ItemMode = 1,//是textbox
+                        TextLength = "20",
+                        RowNum = null,
+                        ColumnNum = "10",
+                        DefaultText = ""
+
+
+                    };
+                    _service.EditSelItem(Fmodel);
+                    FormItemSettingModel FmodelEmail = new FormItemSettingModel()
+                    {
+                        MainID = itemNew,
+                        SelList = null,
+                        Description = "",
+                        Title = "Email",
+                        ItemMode = 1,//是textbox
+                        TextLength = "30",
+                        RowNum = null,
+                        ColumnNum = "20",
+                        DefaultText = ""
+
+
+                    };
+                    _service.EditSelItem(FmodelEmail);
+                }
+            
             }
             else
             {
 
                 str = _menuService.UpdateUnit<ModelFormMain>(name, mainid, this.Account, "4") ? "修改成功" : "修改失敗";
+               
             }
             return Json(str);
 
@@ -148,7 +189,18 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
             var model = _service.GetMailInput(itemid);
             model.MainID = model.MainID;
+            var id = model.InputKey.IndexOf("聯絡人");
+            if (id <= 0)
+            {
+                id = model.InputKey.IndexOf("姓名");
+                
+            }
 
+            if (id > 0)
+            {
+                ViewBag.Title = model.InputValue[id];
+            }
+            
             return View(model);
         }
 
@@ -210,7 +262,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         {
             string result = _service.UpdateItemSeq(modelid.ToString(), id, seq, this.Account, this.UserName);
 
-            return Content(result);
+            return Json(result,JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult SetItemIsMust(string id, bool status, string type)

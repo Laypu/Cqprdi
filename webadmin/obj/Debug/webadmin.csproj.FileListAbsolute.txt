@@ -264,3 +264,12 @@ D:\穀物\Cqprdi\webadmin\bin\System.Web.Http.WebHost.xml
 D:\穀物\Cqprdi\webadmin\bin\zh-Hant\System.Net.Http.Formatting.resources.dll
 D:\穀物\Cqprdi\webadmin\bin\zh-Hant\System.Web.Http.resources.dll
 D:\穀物\Cqprdi\webadmin\bin\zh-Hant\System.Web.Http.WebHost.resources.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\System.Net.Http.Formatting.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\System.Web.Http.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\System.Web.Http.WebHost.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\System.Net.Http.Formatting.xml
+C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\System.Web.Http.xml
+C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\System.Web.Http.WebHost.xml
+C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\zh-Hant\System.Net.Http.Formatting.resources.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\zh-Hant\System.Web.Http.resources.dll
+C:\Users\PC003\Desktop\Grain\Cqprdi\webadmin\bin\zh-Hant\System.Web.Http.WebHost.resources.dll

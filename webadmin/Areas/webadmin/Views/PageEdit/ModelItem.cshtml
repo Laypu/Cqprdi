@@ -241,6 +241,9 @@
             <button type="submit" class="btn blue" id="btn_submit">確認送出</button>
             <button type="button" class="btn blue" id="btn_return" onclick="window.location.href='@Url.Action("Index")'">返回列表</button>
             <button type="button" class="btn grey-mint " id="preview" onclick="callpreview()">預覽</button>
+            
+
+
         </div>
     </form>
 
@@ -462,16 +465,16 @@
 
         });
 
-        function callpreview() {
+        //function callpreview() {
 
-            var htmlcontent = CKEDITOR.instances.HtmlContent.getData();
-            if (htmlcontent == "") { htmlcontent = "</br>" }
-            bootbox.alert({
-                title: "預覽",
-                message: htmlcontent,
-                size: 'large'
-            });
-        }
+        //    var htmlcontent = CKEDITOR.instances.HtmlContent.getData();
+        //    if (htmlcontent == "") { htmlcontent = "</br>" }
+        //    bootbox.alert({
+        //        title: "預覽",
+        //        message: htmlcontent,
+        //        size: 'large'
+        //    });
+        //}
 
 
     </script>
