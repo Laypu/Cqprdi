@@ -22,7 +22,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         /// </summary>
         /// <param name="stype"></param>
         /// <returns></returns>
-        [AuthFilter(_FuncionID = "Config/SiteLayout")]
+        [AuthFilter(_FuncionID = "Site/SiteLayout")]
         public ActionResult SiteLayout(string stype = "P")
         {
 
@@ -349,7 +349,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         #endregion
 
         #region 404
-        [AuthFilter(_FuncionID = "Config/SiteLayout")]
+        [AuthFilter(_FuncionID = "Site/SiteLayout")]
         public ActionResult Page404Setting(string stype)
         {
             var model = _service.GetSiteLayout(stype, LanguageID);
@@ -374,7 +374,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
         #endregion
 
         #region 多語系
-        [AuthFilter(_FuncionID = "Config/SiteLangText")]
+        [AuthFilter(_FuncionID = "Site/SiteLangText")]
         public ActionResult SiteLangText()
         {            
             var model = _service.GetSiteLangText(this.LanguageID);

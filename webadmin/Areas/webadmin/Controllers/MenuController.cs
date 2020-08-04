@@ -408,7 +408,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
             //記住現在click的menu id
             Session["menuNowID"] = id;
             string menuType = Session["menutype"] == null ? "1" : Session["menutype"].ToString();
-            if (!this.Roles.Contains("administrators"))
+            if (!this.Roles.Contains("administrators") && !this.Roles.Contains("穀物總管理"))
             {
                 if (menuType == "1" || menuType =="2" || menuType == "3")
                 {

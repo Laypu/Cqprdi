@@ -186,7 +186,7 @@
 
         function customertr(row, columnidx, idx, filedname, tableid, type, fileditemclass) {
             if (row["Readonly"]) {
-                return "<td>總管理者</td>";
+                return "<td>"+row["Group_Name"]+"</td>";
             } else {
                 return "<td><a href='#' class='edit' value='" + row[tableid] + "'>" + row["Group_Name"] + "</a></td>";
             }

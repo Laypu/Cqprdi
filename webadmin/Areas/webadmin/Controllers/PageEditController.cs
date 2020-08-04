@@ -441,7 +441,6 @@ namespace Template.webadmin.Areas.webadmin.Controllers
                         }
                     }
                 }
-
                 return Content(result);
             }
         }

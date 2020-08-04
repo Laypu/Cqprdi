@@ -113,6 +113,20 @@ button.btn_01, input.btn_01{
 .red{
 	color:red;
 }
+.search_title {
+	padding: 5px 10px;
+	color: #fff !important;
+	font-size: 1em;
+	width: 100%;
+	margin-bottom: 5px;
+	line-height: 130%;
+	font-weight: bold;
+	margin-top: 10px;
+	/*border-bottom:solid rgba(255,255,255,0.2) 1px;*/
+	background: #ac8e28;
+	border-radius: 30px;
+	text-align: center;
+}
 .blue{
 	color:#145f7b;
 }
@@ -791,7 +805,7 @@ footer .col-md-4{
 	font-size:0.9em;
 }*/
 .search .hotword a{
-	color:#999 !important;
+	color:black !important;
 	text-decoration: underline;
 	padding:0 5px;
 }
@@ -893,7 +907,6 @@ footer .contact .title:first-child{
 	width:50%;
 	padding:0 20px 0 0;
 	max-width:130px;
-	filter: grayscale(100%);
 }
 #footer .line{
 	margin-top:10px;
@@ -1724,7 +1737,9 @@ nav.sidebar .navbar-nav .open .dropdown-menu {
   display: table-row;    
 }
 .table-cell {
-  display: table-cell;   
+    display: table-cell;
+	color: black;
+	font-size: 1rem;
 }
 
 
@@ -2862,3 +2877,4 @@ h3 a{
 	margin: 5%;
 }
 }
+

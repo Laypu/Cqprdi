@@ -12,7 +12,7 @@
     var AuthList = (List<AdminFunctionAuth>)ViewBag.AuthList;
     AuthList = AuthList.Where(t => t.Type == 0).ToList();
     string[] Roles = (string[])ViewBag.Role;
-
+    var lang = ViewBag.Lan;
 
     List<AdminFunction> ListAdminFunction = (List<AdminFunction>)ViewBag.ListAdminFunction;
 
@@ -32,12 +32,17 @@
             ListAdminFunction.Remove(verify);
             if (AuthList.Any(t => t.ItemID == verify.ID))
             {
-                AuthList = AuthList.Where(t => t.ItemID != verify.ID).ToList();
+                AuthList = AuthList.Where(t => t.ItemID != verify.ID && t.LangID==int.Parse(lang)).ToList();
+            }
+            else
+            {
+                 AuthList = AuthList.Where(t => t.LangID==int.Parse(lang)).ToList();
             }
         }
+        AuthList = AuthList.Where(t => t.LangID==int.Parse(lang)).ToList();
     }
 
-    
+
 }
 
 <div class="page-header navbar navbar-fixed-top">
@@ -153,7 +158,7 @@
                     </li>
                 </ul>
             }
-            <div class="top-menu hidden-sm hidden-xs">
+            <div class="top-menu">
                 <ul class="nav navbar-nav pull-right">
                     @if ((Session["menutype"].ToString() == "1" || Session["menutype"].ToString() == "2" && Session["menutype"].ToString() == "3"))
                     {

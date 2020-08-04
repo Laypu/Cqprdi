@@ -47,7 +47,7 @@ namespace Template.webadmin.Areas.webadmin.Controllers
 
         }
 
-        [AuthFilter(_FuncionID = "Model/Index")]
+        [AuthFilter(_FuncionID = "EPaper/Index")]
         public ActionResult Index()
         {
             ViewBag.Title = SET_EPAPER.M_EPAPER05;
