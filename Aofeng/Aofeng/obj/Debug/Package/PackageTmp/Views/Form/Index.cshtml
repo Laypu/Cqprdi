@@ -1,0 +1,186 @@
+﻿@model FormViewModel
+@{ 
+    var itemid = ViewBag.itemid;
+    var mid = ViewBag.mid;
+
+}
+<div class="content_con">
+
+    <div class="left">
+
+        <div class="edit_con">
+            <!--後台編輯器-->
+            @Html.Raw(HttpUtility.HtmlDecode(Model.FormSetting.FormDesc))
+        </div>
+        <form id="Form" method="post" action="@Url.Action("SaveForm","Form")">
+            @Html.HiddenFor(model=> model.mid)
+            @Html.HiddenFor(model =>model.itemid)
+            <div class="form_con">
+                <div class="table form_box">
+                    @{
+                        foreach (var item in Model.formSelItems)
+                        {
+
+                            @*@item.DefaultText*@
+                            <div class="table-row">
+                                @switch (item.ItemMode)
+                                {
+                                    //textbox
+                                    case 1:
+                                <div class="form_q">
+                                    <label for="@item.ID">
+                                        @*@{var STR = Html.Raw("<span class='red'>( 必填 )</span>")}
+                                        @item.Title@(item.MustInput ==true ? STR: "")*@
+                                        @item.Title
+                                        @if (item.MustInput == true)
+                                        {
+                                            <span class='red'>( 必填 )</span>
+                                        }
+                                    </label>
+                               
+                                </div>
+                                        <div class="form_a">
+                                            <input type="text" name="@item.ID" @(Model.btn == item.ID.ToString() ? "autofocus" : "") class="form-control" id="@item.ID" placeholder="@item.DefaultText">
+                                            
+                                            <div class="required">@item.Description</div>
+                                        </div>
+                                        break;
+                                    //textarea
+                                    case 2:
+                                        <div class="form_q">
+                                            <label for="textarea">@item.Title
+                                                @if (item.MustInput == true)
+                                                {
+                                                    <span class='red'>( 必填 )</span>
+                                                }
+                                             </label>
+                                        </div>
+                                        <div class="form_a">
+                                            <textarea name="@item.ID" id="@item.ID" @(Model.btn == item.ID.ToString() ? "autofocus" : "")
+                                                      @(item.ColumnNum.HasValue ? "size=" + item.ColumnNum.Value : "")
+                                                      @(item.TextLength.HasValue ? "maxlength=" + item.TextLength.Value : "")
+                                                      @(item.RowNum.HasValue ? "rows=" + item.RowNum.Value : "")
+                                                      class="form-control @(item.MustInput?"checkitem":"")" rows="5" placeholder="@item.DefaultText" ></textarea>
+                                            
+                                            <div class="required">@item.Description</div>
+                                        </div>
+                                        break;
+                                    //單選
+                                    case 3:
+                                        <div class="form_q">
+                                            <label for="textarea">
+                                                @item.Title
+                                            @if (item.MustInput == true)
+                                            {
+                                                <span class='red'>( 必填 )</span>
+                                            }
+                                        </label>
+                                        </div>
+                                        <div class="form_a">
+                                            @{
+
+                                                var radioitem = item.SelList.Split('^');
+                                                var x = 1;
+                                                foreach (var i in radioitem)
+                                                {
+                                                    <label class="mt-radio mt-radio-outline" for="radio{@x}">
+                                                        <input type="radio" name="@item.ID" id="radio{@x}" value="@i">@i
+                                                        <span></span>
+                                                    </label>
+                                                    x = x + 1;
+                                                }
+
+
+                                            }
+                                            <div class="required">@item.Description</div>
+
+                                        </div>
+                                        break;
+                                    //多選
+                                    case 4:
+                                        <div class="form_q">
+                                            <label for="textarea">
+                                                @item.Title
+                                            @if (item.MustInput == true)
+                                            {
+                                                <span class='red'>( 必填 )</span>
+                                            }
+                                        </label>
+                                        </div>
+                                        <div class="form_a">
+                                            @{
+                                                var checkitem = item.SelList.Split('^');
+                                                var y = 1;
+                                                foreach (var i in checkitem)
+                                                {
+                                                    <label class="mt-checkbox mt-checkbox-outline" for="checkboxes{@y}">
+                                                        <input type="checkbox" name="@item.ID" id="checkboxes{@y}" value="@i" />@i
+                                                        <span></span>
+                                                    </label>
+                                                    y = y + 1;
+                                                }
+                                            }
+
+                                            <div class="required">@item.Description</div>
+                                        </div>
+                                        break;
+                                    //下拉式
+                                    case 5:
+                                        <div class="form_q">
+                                            <label for="textarea">
+                                                @item.Title
+                                            @if (item.MustInput == true)
+                                            {
+                                                <span class='red'>( 必填 )</span>
+                                            }
+                                        </label>
+                                        </div>
+                                        <div class="form_a">
+                                            <select class="form-control w-auto" name="@item.ID">
+                                                @{
+                                                    var dropitem = item.SelList.Split('^');
+                                                    foreach (var i in dropitem)
+                                                    {
+                                                        <option value="@i">@i</option>
+                                                    }
+                                                }
+                                            </select>
+                                            <div class="required">@item.Description</div>
+                                        </div>
+                                        break;
+                                }
+                            </div>
+                        }
+                    }
+
+                    @*<div class="table-row">
+                        <div class="form_q">驗證碼</div>
+                        <div class="form_a">
+                            <input type="text" name="number" id="number" class="form-control input-small float-left" placeholder="請輸入驗證碼"><span class="verification_code"><img src="img/Pic_Check01.gif" alt="驗證碼圖片"><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i>重新整理</a></span>
+                        </div>
+                    </div>*@
+
+                </div>
+            </div>
+            <div class="submit_btn">
+                <button type="submit" class="btn_01" title="送出">送出</button>
+            </div>
+        </form>
+        
+
+        
+
+    </div>
+
+    @*<div class="right">
+        <script>$.include("blocks/right_menu_3_1.html");</script>
+    </div>*@
+</div>
+<script>
+    $(function () {
+
+        
+        
+    })
+</script>
+  
