@@ -1,0 +1,157 @@
+﻿@model MessageViewModel
+
+<div class="page_search">
+    <ul>
+        @if (Model.ListGroupMessage.Count() == 2 && Model.ListGroupMessage.LastOrDefault().Group_Name == "無分類")
+        {
+
+        }
+        else
+        {
+            <li class="float-left search_class">
+                <form method="post" action="@Url.Action("Index")" style="display:inline">
+                    <label for="group">@("類別".GetLang()) : </label>
+                    @Html.HiddenFor(m => m.mid)
+                    @Html.HiddenFor(m => m.itemid)
+                    @Html.HiddenFor(m => m.classType)
+                    <select id="group" name="group" onchange="this.form.submit()">
+                        @foreach (var m in Model.ListGroupMessage)
+                        {
+                            <option @(m.ID == Model.group ? "selected" : "") value="@m.ID">@m.Group_Name</option>
+                        }
+
+                    </select>
+                </form>
+            </li>
+        }
+        <li>
+            <div class="list_icon">
+                <button class="btn" onclick="changeULClass('large')" title="圖文顯示"><i class="fas fa-th-large"></i></button><!--英文Grid-->
+            </div>
+            <div class="list_icon">
+                <button class="btn" onclick="changeULClass('list')" title="列表顯示"><i class="fas fa-th-list"></i></button><!--英文List-->
+            </div>
+        </li>
+    </ul>
+</div>
+<!--page_search end-->
+<!--list start-->
+<div id="card" class="news_list">
+    @foreach (MessageItem MessageItem in Model.ListMessageItem)
+    {
+        var messimg = MessageItem.RelateImageFileName == "" || MessageItem.RelateImageFileName == null ? "logo_400x300.jpg" : MessageItem.RelateImageFileName;
+       var ActiveDateRangeItem =Model.ListActiveDateRange.Where(p=>p.ItemID==MessageItem.ItemID).ToList();
+        <a href="@(MessageItem.Link_Mode==2?MessageItem.LinkUrl.IsNullOrEmpty()==false?MessageItem.LinkUrl:"#":Url.Action("MessageView",new {@itemid=MessageItem.ItemID,mid=Model.mid,page=Model.nowpage,GroupName=MessageItem.GroupName }))" target="@(MessageItem.Link_Mode==2?MessageItem.LinkUrl.IsNullOrEmpty()==false?MessageItem.OpenMode=="1"?"_self":"_blank":"_self":"")" title="">
+            <div class="item">
+                <img src="@Url.Content("~/UploadImage/ActiveItem/"+messimg)" alt="" /><!--建議尺寸400*300px；後台未上傳顯示預設圖片logo_400x300.jpg-->
+                @if (ActiveDateRangeItem.Count() == 0)
+                {
+                    <div class="date">@MessageItem.PublicshDate.Value.ToString("yyy/MM/dd")</div>
+                }
+                else
+                {
+                    var itemdate = "";
+                    foreach (var item in ActiveDateRangeItem)
+                    {
+                        itemdate += item.StartDate + " ~ " + item.EndDate + "<br/>";
+                    }
+                    <div class="date">@Html.Raw(itemdate)</div>
+                }
+                @if (MessageItem.GroupName != "無分類")
+                {
+                    <div class="class"><span class="top_class">@MessageItem.GroupName</span></div><!--後台未輸入時不顯示-->
+                }
+                <div class="title">@MessageItem.Title</div>
+            </div>
+        </a>
+        }
+</div>
+<div id="List" class="table-scrollable news_list_01">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col" width="20%">代表圖</th>
+                <th scope="col" width="15%">發佈日期</th>
+                <th scope="col">標題</th>
+                @if (Model.ListGroupMessage.Count() == 2 && Model.ListGroupMessage.LastOrDefault().Group_Name == "無分類")
+                {
+
+                }
+                else
+                {
+                    <th scope="col" width="10%">類別</th>
+                }
+                </tr>
+        </thead>
+        <tbody>
+            @foreach (MessageItem MessageItem in Model.ListMessageItem)
+            {
+                var messimg = MessageItem.RelateImageFileName == "" || MessageItem.RelateImageFileName == null ? "logo_400x300.jpg" : MessageItem.RelateImageFileName;
+                var ActiveDateRangeItem =Model.ListActiveDateRange.Where(p=>p.ItemID==MessageItem.ItemID).ToList();
+            <tr>
+                <td scope="row" class="text-center"><img src="@Url.Content("~/UploadImage/ActiveItem/"+messimg)" alt="" /></td><!--建議尺寸400*300px；後台未上傳顯示預設圖片logo_400x300.jpg-->
+                @if (ActiveDateRangeItem.Count() == 0)
+                {
+                    <td class="text-center">
+                        @MessageItem.PublicshDate.Value.ToString("yyy/MM/dd")
+                    </td>
+                }
+                else
+                {
+                    var itemdate = "";
+                    foreach (var item in ActiveDateRangeItem)
+                    {
+                        itemdate += item.StartDate + " ~ " + item.EndDate + "<br/>";
+                    }
+                    <td class="text-center">@Html.Raw(itemdate)</td>
+                }
+                <td><a href="@Url.Action("MessageView",new {@itemid=MessageItem.ItemID,mid=Model.mid,page=Model.nowpage,GroupName=MessageItem.GroupName })" title="">@MessageItem.Title</a></td>
+                @if (Model.ListGroupMessage.Count() == 2 && Model.ListGroupMessage.LastOrDefault().Group_Name == "無分類")
+                {
+
+                }
+                else
+                {
+                    <td class="text-center">@MessageItem.GroupName</td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<form target="_self" action="@Url.Action("Index")" method="post">
+    @Html.HiddenFor(m => m.mid)
+    @Html.HiddenFor(m => m.itemid)
+    @Html.HiddenFor(m => m.group)
+    @Html.HiddenFor(m => m.classType)
+    @Html.Partial("~/Views/Shared/_Page_Number.cshtml")
+    <!--頁碼 end-->
+</form>
+@section scripts {
+    <script type="text/javascript">
+
+        $(function () {
+              var cls2 =$('input[name="classType"]').val()
+        if ( cls2== "large") {
+            $('#card').removeClass('display_none');
+            $('#List').addClass('display_none');
+        }
+        else{
+            $('#List').removeClass('display_none');
+            $('#card').addClass('display_none');
+        }
+    })
+    function changeULClass(cls) {
+       if (cls == 'large') {
+            $('#card').removeClass('display_none');
+            $('#List').addClass('display_none');
+            $('input[name="classType"]').val('large');
+        }
+        else {
+            $('#List').removeClass('display_none');
+            $('#card').addClass('display_none');
+            $('input[name="classType"]').val('list');
+        }
+    }
+    </script>
+}
