@@ -315,7 +315,7 @@ WriteLiteral("                                ");
 
             
             #line 56 "..\..\Areas\webadmin\Views\Config\UserListEdit.cshtml"
-                           Write(Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control checkitem" } }));
+                           Write(Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control checkitem", @maxlength="25" } }));
 
             
             #line default
@@ -445,16 +445,16 @@ WriteLiteral(" class=\"btn grey-mint\"");
 
 WriteLiteral(" id=\"btn_return\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 4772), Tuple.Create("\"", 4830)
-, Tuple.Create(Tuple.Create("", 4782), Tuple.Create("document.location.href=\'", 4782), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 4789), Tuple.Create("\"", 4847)
+, Tuple.Create(Tuple.Create("", 4799), Tuple.Create("document.location.href=\'", 4799), true)
             
             #line 88 "..\..\Areas\webadmin\Views\Config\UserListEdit.cshtml"
-                         , Tuple.Create(Tuple.Create("", 4806), Tuple.Create<System.Object, System.Int32>(Url.Action("UserList")
+                         , Tuple.Create(Tuple.Create("", 4823), Tuple.Create<System.Object, System.Int32>(Url.Action("UserList")
             
             #line default
             #line hidden
-, 4806), false)
-, Tuple.Create(Tuple.Create("", 4829), Tuple.Create("\'", 4829), true)
+, 4823), false)
+, Tuple.Create(Tuple.Create("", 4846), Tuple.Create("\'", 4846), true)
 );
 
 WriteLiteral(">返回列表</button>\r\n        </div>\r\n    </form>\r\n</div>\r\n");

@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <div class="col-md-2 col-sm-12 col-xs-12 search_item"><span class="red">*</span>帳號</div>
                             <div class="col-md-10 col-sm-12 col-xs-12 bg-white mobile_white">
-                                @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control checkitem" } })
+                                @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control checkitem", @maxlength="25" } })
                                 <span class="required" id="Account-error" style="display:none;">帳號 必須填寫！</span>
                             </div>
                         </div>

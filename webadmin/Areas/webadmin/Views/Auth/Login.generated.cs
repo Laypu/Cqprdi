@@ -409,7 +409,7 @@ WriteLiteral(" placeholder=\"ID\"");
 
 WriteLiteral(" id=\"txtLogin\"");
 
-WriteLiteral(" MaxLength=\"10\"");
+WriteLiteral(" MaxLength=\"25\"");
 
 WriteLiteral(">\r\n                    </div>\r\n\r\n                    <div");
 
