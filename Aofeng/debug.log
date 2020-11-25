@@ -1,2 +1,4 @@
 [0529/155724.315:ERROR:process_reader_win.cc(151)] SuspendThread: 存取被拒。 (0x5)
 [0529/155724.317:ERROR:exception_snapshot_win.cc(98)] thread ID 12008 not found in process
+[1022/175952.109:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
+[1028/174725.125:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
