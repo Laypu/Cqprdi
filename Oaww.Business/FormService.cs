@@ -200,12 +200,9 @@ namespace Oaww.Business
             base.Parameter.Add(new SqlParameter("@MainID", model.ModelID.ToString()));
             string TitleID = base.ExecuteScalar(sql, "0").ToString();
 
-            sql = @"select Progress,
-                           ID,
-                           Name,
-                           ReplyAccount,
-                           CreateDatetime," +
-                  $" JSON_VALUE(JSONStr,'$.\"{TitleID}\"') as Title  from FormInput " +
+            sql = @"select Progress,ID,Name,ReplyAccount,CreateDatetime" +
+                  //$" dbo.JSON_VALUE(JSONStr,'$.\"{TitleID}\"') as Title  from FormInput " +
+                  " from FormInput " +
                 "　where MainID=@MainID ";
             base.Parameter.Clear();
             base.Parameter.Add(new SqlParameter("@MainID", model.ModelID.ToString()));
@@ -228,7 +225,7 @@ namespace Oaww.Business
                                 ID in (select t.InputID from FormInputNote t where t.NoteText like @KeyWord)";
                 IDs.ForEach(t =>
                 {
-                    sql += $" or  JSON_VALUE(JSONStr,'$.\"{t}\"')  like @KeyWord";
+                    sql += $" or  dbo.JSON_VALUE(JSONStr,'$.\"{t}\"')  like @KeyWord";
                 });
 
                 sql += " )";
@@ -347,7 +344,7 @@ namespace Oaww.Business
                                 ID in (select t.InputID from FormInputNote t where t.NoteText like @KeyWord)";
                 IDs.ForEach(t =>
                 {
-                    sql += $" or  JSON_VALUE(JSONStr,'$.\"{t}\"')  like @KeyWord";
+                    sql += $" or  dbo.JSON_VALUE(JSONStr,'$.\"{t}\"')  like @KeyWord";
                 });
 
                 sql += " )";

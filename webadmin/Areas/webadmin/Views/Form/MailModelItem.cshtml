@@ -171,7 +171,7 @@
     <script src="@Url.Content("~/Scripts/components-date-time-pickers.min.js")"></script>
     <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
     <script src="@Url.Content("~/Scripts/bootbox.min.js")"></script>
-    <script src="~/Scripts/Common.js"></script>
+    <script src="@Url.Content("~/Scripts/Common.js")"></script>
     <script>
 
         $(document).ready(function () {
@@ -180,7 +180,7 @@
                 $("#searchForm :input").val('');
                 mytable.GetData();
             });
-           mytable = $("#eventtable").myDataTable().TableList[0];
+            mytable = $("#eventtable").myDataTable().TableList[0];
             mytable.settingTdData = myDataTableTr;
             mytable.settingTableInfo = function (tableinfoId, totalcnt, offsetcnt, nowpagecnt) {
                 var totalclick = mytable.keepcheckid.length;

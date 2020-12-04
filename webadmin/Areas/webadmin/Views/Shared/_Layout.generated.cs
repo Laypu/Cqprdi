@@ -96,8 +96,8 @@ WriteLiteral(" content=\"width=device-width, minimum-scale=1.0, maximum-scale=1.
 
 WriteLiteral(">\r\n    <link");
 
-WriteLiteral(" href=\"http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=al" +
-"l\"");
+WriteLiteral(" href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=a" +
+"ll\"");
 
 WriteLiteral(" rel=\"stylesheet\"");
 
@@ -105,9 +105,9 @@ WriteLiteral(" type=\"text/css\"");
 
 WriteLiteral(" />\r\n    <link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 576), Tuple.Create("\"", 617)
-, Tuple.Create(Tuple.Create("", 583), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/font-awesome.min.css")
-, 583), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 577), Tuple.Create("\"", 618)
+, Tuple.Create(Tuple.Create("", 584), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/font-awesome.min.css")
+, 584), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
@@ -116,9 +116,9 @@ WriteLiteral(" type=\"text/css\"");
 
 WriteLiteral(" />\r\n    <link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 665), Tuple.Create("\"", 711)
-, Tuple.Create(Tuple.Create("", 672), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/simple-line-icons.min.css")
-, 672), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 666), Tuple.Create("\"", 712)
+, Tuple.Create(Tuple.Create("", 673), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/simple-line-icons.min.css")
+, 673), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
@@ -127,9 +127,9 @@ WriteLiteral(" type=\"text/css\"");
 
 WriteLiteral(" />\r\n    <link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 759), Tuple.Create("\"", 797)
-, Tuple.Create(Tuple.Create("", 766), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/bootstrap.min.css")
-, 766), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 760), Tuple.Create("\"", 798)
+, Tuple.Create(Tuple.Create("", 767), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/bootstrap.min.css")
+, 767), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
@@ -138,9 +138,9 @@ WriteLiteral(" type=\"text/css\"");
 
 WriteLiteral(" />\r\n    <link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 845), Tuple.Create("\"", 884)
-, Tuple.Create(Tuple.Create("", 852), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/components.min.css")
-, 852), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 846), Tuple.Create("\"", 885)
+, Tuple.Create(Tuple.Create("", 853), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/components.min.css")
+, 853), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
@@ -151,9 +151,9 @@ WriteLiteral(" type=\"text/css\"");
 
 WriteLiteral(" />\r\n    <link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 954), Tuple.Create("\"", 989)
-, Tuple.Create(Tuple.Create("", 961), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/layout.min.css")
-, 961), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 955), Tuple.Create("\"", 990)
+, Tuple.Create(Tuple.Create("", 962), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/layout.min.css")
+, 962), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
@@ -162,9 +162,9 @@ WriteLiteral(" type=\"text/css\"");
 
 WriteLiteral(" />\r\n    <link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1037), Tuple.Create("\"", 1070)
-, Tuple.Create(Tuple.Create("", 1044), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/darkblue.css")
-, 1044), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 1038), Tuple.Create("\"", 1071)
+, Tuple.Create(Tuple.Create("", 1045), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/darkblue.css")
+, 1045), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
@@ -175,9 +175,9 @@ WriteLiteral(" id=\"style_color\"");
 
 WriteLiteral(" />\r\n    <link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1135), Tuple.Create("\"", 1165)
-, Tuple.Create(Tuple.Create("", 1142), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/style.css")
-, 1142), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 1136), Tuple.Create("\"", 1166)
+, Tuple.Create(Tuple.Create("", 1143), Tuple.Create<System.Object, System.Int32>(Href("~/Content/css/style.css")
+, 1143), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
@@ -188,69 +188,69 @@ WriteLiteral(" />\r\n    <link");
 
 WriteLiteral(" rel=\"shortcut icon\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1233), Tuple.Create("\"", 1253)
-, Tuple.Create(Tuple.Create("", 1240), Tuple.Create<System.Object, System.Int32>(Href("~/favicon.ico")
-, 1240), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 1234), Tuple.Create("\"", 1254)
+, Tuple.Create(Tuple.Create("", 1241), Tuple.Create<System.Object, System.Int32>(Href("~/favicon.ico")
+, 1241), false)
 );
 
 WriteLiteral(" />\r\n    <link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1268), Tuple.Create("\"", 1325)
-, Tuple.Create(Tuple.Create("", 1275), Tuple.Create<System.Object, System.Int32>(Href("~/Content/DataTables/css/jquery.dataTables.min.css")
-, 1275), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 1269), Tuple.Create("\"", 1326)
+, Tuple.Create(Tuple.Create("", 1276), Tuple.Create<System.Object, System.Int32>(Href("~/Content/DataTables/css/jquery.dataTables.min.css")
+, 1276), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
 
 WriteLiteral(" />\r\n    <link");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1357), Tuple.Create("\"", 1429)
-, Tuple.Create(Tuple.Create("", 1364), Tuple.Create<System.Object, System.Int32>(Href("~/Content/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css")
-, 1364), false)
+WriteAttribute("href", Tuple.Create(" href=\"", 1358), Tuple.Create("\"", 1430)
+, Tuple.Create(Tuple.Create("", 1365), Tuple.Create<System.Object, System.Int32>(Href("~/Content/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css")
+, 1365), false)
 );
 
 WriteLiteral(" rel=\"stylesheet\"");
 
 WriteLiteral(" />\r\n    \r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1469), Tuple.Create("\"", 1504)
-, Tuple.Create(Tuple.Create("", 1475), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/jquery-3.4.1.min.js")
-, 1475), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 1470), Tuple.Create("\"", 1505)
+, Tuple.Create(Tuple.Create("", 1476), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/jquery-3.4.1.min.js")
+, 1476), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1528), Tuple.Create("\"", 1571)
-, Tuple.Create(Tuple.Create("", 1534), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/jquery-migrate-3.0.0.min.js")
-, 1534), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 1529), Tuple.Create("\"", 1572)
+, Tuple.Create(Tuple.Create("", 1535), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/jquery-migrate-3.0.0.min.js")
+, 1535), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1595), Tuple.Create("\"", 1620)
-, Tuple.Create(Tuple.Create("", 1601), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
-, 1601), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 1596), Tuple.Create("\"", 1621)
+, Tuple.Create(Tuple.Create("", 1602), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/Common.js")
+, 1602), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1644), Tuple.Create("\"", 1667)
-, Tuple.Create(Tuple.Create("", 1650), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/main.js")
-, 1650), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 1645), Tuple.Create("\"", 1668)
+, Tuple.Create(Tuple.Create("", 1651), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/main.js")
+, 1651), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1691), Tuple.Create("\"", 1717)
-, Tuple.Create(Tuple.Create("", 1697), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/app.min.js")
-, 1697), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 1692), Tuple.Create("\"", 1718)
+, Tuple.Create(Tuple.Create("", 1698), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/app.min.js")
+, 1698), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1741), Tuple.Create("\"", 1785)
-, Tuple.Create(Tuple.Create("", 1747), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/bootstrap-colorpicker.min.js")
-, 1747), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 1742), Tuple.Create("\"", 1786)
+, Tuple.Create(Tuple.Create("", 1748), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/bootstrap-colorpicker.min.js")
+, 1748), false)
 );
 
 WriteLiteral("></script>\r\n\r\n</head>\r\n<body");
@@ -402,37 +402,37 @@ Write(Html.RenderResources("js"));
             #line hidden
 WriteLiteral("\r\n    <!--footer end-->\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3457), Tuple.Create("\"", 3489)
-, Tuple.Create(Tuple.Create("", 3463), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/bootstrap.min.js")
-, 3463), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 3458), Tuple.Create("\"", 3490)
+, Tuple.Create(Tuple.Create("", 3464), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/bootstrap.min.js")
+, 3464), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3513), Tuple.Create("\"", 3539)
-, Tuple.Create(Tuple.Create("", 3519), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/app.min.js")
-, 3519), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 3514), Tuple.Create("\"", 3540)
+, Tuple.Create(Tuple.Create("", 3520), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/app.min.js")
+, 3520), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3563), Tuple.Create("\"", 3592)
-, Tuple.Create(Tuple.Create("", 3569), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/layout.min.js")
-, 3569), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 3564), Tuple.Create("\"", 3593)
+, Tuple.Create(Tuple.Create("", 3570), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/layout.min.js")
+, 3570), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3616), Tuple.Create("\"", 3667)
-, Tuple.Create(Tuple.Create("", 3622), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/DataTables/jquery.dataTables.min.js")
-, 3622), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 3617), Tuple.Create("\"", 3668)
+, Tuple.Create(Tuple.Create("", 3623), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/DataTables/jquery.dataTables.min.js")
+, 3623), false)
 );
 
 WriteLiteral("></script>\r\n    <script");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 3691), Tuple.Create("\"", 3716)
-, Tuple.Create(Tuple.Create("", 3697), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/custom.js")
-, 3697), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 3692), Tuple.Create("\"", 3717)
+, Tuple.Create(Tuple.Create("", 3698), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/custom.js")
+, 3698), false)
 );
 
 WriteLiteral("></script>\r\n\r\n\r\n    <script");
