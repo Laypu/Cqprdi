@@ -86,7 +86,7 @@ namespace Aofeng.Controllers
                 }
                 catch (Exception ex)
                 {
-                    result = "轉寄好友寄送失敗";
+                    result = "轉寄好友寄送失敗"+ ex;
                 }
 
                 ViewBag.result = result;
